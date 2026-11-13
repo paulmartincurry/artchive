@@ -32,6 +32,8 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
 - `data/works.js` — the library: 500 artworks + 500 writing pieces, one JSON array.
 - Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution) and `auditNote`.
+- Re-sourced pieces also carry `translator` (shown in the reader's credit line) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
+- Sourcing from the work sandbox: Project Gutenberg and archive.org can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan.
 - Reading Room: a book is one shelf in one mood. Titles are in `RR_BOOK_TITLES` in `index.html`.
 - The app de-duplicates on title + artist with anything in parentheses stripped, so two pieces by one author need titles that differ outside the brackets.
 - `AUDIT.md` and `audit.csv` — record of the November 2026 audit of the writing.
@@ -42,7 +44,7 @@ Load the page in a headless browser, switch through every view, open a book and 
 
 ## Next up
 
-1. Replace the 187 `loose` and 33 `modern-translation` texts with sourced public-domain wording; cut what can't be sourced. Keep or re-pick a strong pull quote for each.
+1. Replace the 187 `loose` and 18 remaining `modern-translation` texts with sourced public-domain wording; cut what can't be sourced. Keep or re-pick a strong pull quote for each. (15 of the original 33 modern translations were re-sourced on 12 Nov 2026; see AUDIT.md. The 18 left have no public-domain English that could be found. Paul has said Claude may translate from the original as a last resort, credited as such; that is an exception to rule 1 and each one needs his sign-off.)
 2. The public test: list the ~100 works people will search for first, find what's missing, add it.
 3. Audit the 500 artworks the same way the writing was audited (titles, credits, dates).
 4. Decide the fate of the parked views (Global Map, Weather) and the maker tools.

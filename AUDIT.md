@@ -94,6 +94,30 @@ The originals are old, but this English wording belongs to a named modern transl
 - **Magolwane kaMkhathini (Zulu *Imbongi* Royal Praise-Poet)**, *Izibongo of Shaka* (LIT-462). Wording matches Trevor Cope's 1968 translation
 - **Oswald de Andrade**, *Manifesto Antropófago* (LIT-498). Wording matches Leslie Bary's 1991 translation
 
+## Re-sourcing pass 1 — 12 November 2026
+
+15 of the 33 modern translations were replaced with older public-domain wording copied from a source, not from memory. The audit table above is the state before this pass; `audit.csv` is also unchanged.
+
+| Piece | Now uses | Source |
+|---|---|---|
+| LIT-221 Shevchenko, My Testament | A. J. Hunter, 1922 | Gutenberg #68486 |
+| LIT-118 Sei Shōnagon, Pillow Book (opening) | W. G. Aston, 1899 | archive.org scan, OCR corrected by eye against a second scan |
+| LIT-252 Montaigne, Essays III.13 | Charles Cotton, ed. Hazlitt 1877 | Gutenberg #3600 |
+| LIT-259 Nietzsche, Zarathustra | Thomas Common, 1909 | Gutenberg #1998 |
+| LIT-260 Nietzsche, Twilight of the Idols | A. M. Ludovici, 1911 | Gutenberg #52263 |
+| LIT-271 Kenkō, Essays in Idleness | W. N. Porter, 1914 | archive.org scan |
+| LIT-205 Izumi Shikibu | W. N. Porter, 1909 | archive.org scan. **Different poem** (Hyakunin Isshu 56); moved from Art/Sublime to Love/Yearning |
+| LIT-209 Lal Ded, Vakh 94 | Grierson and Barnett, 1920 | archive.org scan. Original-script text removed, not verified |
+| LIT-320 Jayadeva, Gīta Govinda | Edwin Arnold, 1875 | Gutenberg #25965. A free Victorian verse rendering |
+| LIT-359 The Kumulipo | Queen Liliʻuokalani, 1897 | Lines as quoted by the Library of Congress and poets.org; **not yet checked against the 1897 printing** |
+| LIT-397 Kierkegaard, Diapsalmata | L. M. Hollander, 1923 | Gutenberg #60333 |
+| LIT-012 Nezahualcóyotl | D. G. Brinton, 1887 | Gutenberg #12219. **Different text**, from a Spanish version of doubtful authenticity; status set to `attribution` |
+| LIT-016 Rilke, The Panther | Jessie Lemont, 1918 | Gutenberg #38594 |
+| LIT-104 Euripides, Medea | Gilbert Murray, 1910 | Gutenberg #35451 |
+| LIT-147 Diamond Sutra | William Gemmell, 1912 | Gutenberg #64623 |
+
+Still `modern-translation` (18), no public-domain English found: LIT-020, 037, 092, 093, 132, 149, 245, 265, 286, 287, 299, 375, 405, 426, 444, 457, 462, 498.
+
 ## Not yet audited
 
 The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process.

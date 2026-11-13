@@ -8636,7 +8636,7 @@
         }
         add('div', 'rr-pg-author', w.artist || '');
         add('div', 'rr-pg-title', w.title || '');
-        add('div', 'rr-pg-meta', [w.dateLabel, w.region].filter(Boolean).join(' · '));
+        add('div', 'rr-pg-meta', [w.dateLabel, w.region, w.translator ? `trans. ${w.translator}` : ''].filter(Boolean).join(' · '));
         if (w.auditNote && (w.audit === 'attribution' || w.audit === 'unconfirmed')) add('div', 'rr-pg-flag', w.auditNote);
         const links = add('div', 'rr-pg-links');
         if (hasOrig) {
