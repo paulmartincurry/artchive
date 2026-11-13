@@ -3500,6 +3500,65 @@
       header.is-scrolled .header-search-box { height: 40px; }
       header.is-scrolled .header-search-input { font-size: 1.02rem; }
     }
+  
+    /* ==========================================================================
+       v30: LESS IS MORE
+       ========================================================================== */
+
+    /* Index drawer: no name wall, one "kind" filter instead of two */
+    #mastersQuickBar,
+    #formSelect { display: none !important; }
+
+    /* Views: four in the nav. Constellation opens from inside a piece
+       ("Orbit in Constellation"). Map and Weather are parked, not deleted —
+       remove the two lines below to bring them back. */
+    #spatialLensPills [data-spatial-view="constellation"],
+    #spatialLensPills [data-spatial-view="map"],
+    #spatialLensPills [data-spatial-view="weather"] { display: none; }
+
+    /* Wall: captions off by default, title appears over the work on hover */
+    #densityBtn,
+    #densityBtn + .wall-micro-sep { display: none; }
+
+    .gallery-grid.pure-wall .art-piece { position: relative; }
+
+    .gallery-grid.pure-wall .art-piece:has(> .art-frame) .art-caption {
+      display: flex;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 44px 14px 12px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0));
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    .gallery-grid.pure-wall .art-piece:has(> .art-frame):hover .art-caption,
+    .gallery-grid.pure-wall .art-piece:has(> .art-frame):focus-visible .art-caption { opacity: 1; }
+
+    .gallery-grid.pure-wall .art-caption .caption-title { color: #f4f1ea; }
+    .gallery-grid.pure-wall .art-caption .caption-meta { color: rgba(244, 241, 234, 0.72); }
+
+    /* One card style everywhere: bare image, title, one line of credit */
+    .spatial-card {
+      background: none;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+    }
+
+    .spatial-card:hover { transform: none; border: none; }
+    .spatial-card:hover .spatial-card-thumb { opacity: 0.88; }
+    .spatial-card-thumb { transition: opacity 0.2s ease; }
+    .spatial-card-meta { padding: 12px 0 6px; }
+    .spatial-card-swatches { display: none; }
+    .spatial-card-verse { border-bottom: none; }
+
+    /* Side panels sit below the header instead of sliding under it */
+    .lens-instrument-panel { top: 176px; }
   </style>
 </head>
 <body>
@@ -3597,14 +3656,13 @@
     <div class="secondary-drawer" id="secondaryDrawer">
       <div class="drawer-selects">
         <select class="minimal-select" id="sortSelect" aria-label="Curatorial surfacing order">
-          <option value="PANTHEON">Pantheon First</option>
-          <option value="CLASSICS_ONLY">Classics Only</option>
-          <option value="GLOBAL_WEAVE">World Weave</option>
-          <option value="DEEP_CUTS">Deep Cuts First</option>
+          <option value="PANTHEON">Icons first</option>
+          <option value="CLASSICS_ONLY">Icons only</option>
+          <option value="DEEP_CUTS">Deep cuts first</option>
         </select>
 
         <select class="minimal-select" id="museumSelect" aria-label="Filter by collection">
-          <option value="ALL">All Collections (Global Museums)</option>
+          <option value="ALL">All collections</option>
           <option value="The Met">The Met (New York)</option>
           <option value="Cleveland Museum of Art">Cleveland Museum of Art</option>
           <option value="Art Institute of Chicago">Art Institute of Chicago</option>
@@ -3614,7 +3672,7 @@
         </select>
 
         <select class="minimal-select" id="regionSelect" aria-label="Filter by region">
-          <option value="ALL">All Traditions</option>
+          <option value="ALL">All regions</option>
           <option value="East & Inner Asia">East &amp; Inner Asia</option>
           <option value="Near East & South Asia">Near East &amp; South Asia</option>
           <option value="Africa, Oceania & Indigenous Americas">Africa, Oceania &amp; Indigenous Americas</option>
@@ -3623,14 +3681,23 @@
         </select>
 
         <select class="minimal-select" id="mediumSelect" aria-label="Filter by medium">
-          <option value="ALL">All Mediums</option>
-          <option value="Literature & Verse">Pocket Poets (Verse &amp; Prose)</option>
-          <option value="Print & Woodcut">Print &amp; Woodcut</option>
-          <option value="Painting">Painting</option>
-          <option value="Scroll & Paper">Scroll &amp; Paper</option>
-          <option value="Sculpture & Metalwork">Sculpture &amp; Metalwork</option>
-          <option value="Diagram, Cyanotype & Textile">Diagram, Cyanotype &amp; Textile</option>
-          <option value="Letterform, Score & Ephemera">Letterform, Score &amp; Ephemera</option>
+          <option value="ALL">All art &amp; writing</option>
+          <optgroup label="Art">
+            <option value="Painting">Painting</option>
+            <option value="Print & Woodcut">Print &amp; Woodcut</option>
+            <option value="Scroll & Paper">Scroll &amp; Paper</option>
+            <option value="Sculpture & Metalwork">Sculpture &amp; Metalwork</option>
+            <option value="Diagram, Cyanotype & Textile">Diagram, Cyanotype &amp; Textile</option>
+            <option value="Letterform, Score & Ephemera">Letterform, Score &amp; Ephemera</option>
+          </optgroup>
+          <optgroup label="Writing">
+            <option value="Literature & Verse">All writing</option>
+            <option value="form:Verse & Epigraph">Verse &amp; Odes</option>
+            <option value="form:Fever Prose & Monologue">Prose &amp; Monologue</option>
+            <option value="form:Sacred & Mystic">Sacred &amp; Mystic</option>
+            <option value="form:Oratory & Speech">Oratory &amp; Speech</option>
+            <option value="form:Aphorism & Treatise">Aphorism &amp; Treatise</option>
+          </optgroup>
         </select>
 
         <!-- Designer Form / Cutout Filter -->
@@ -3647,7 +3714,7 @@
         </select>
 
         <select class="minimal-select" id="eraSelect" aria-label="Filter by era">
-          <option value="ALL">All Eras</option>
+          <option value="ALL">All eras</option>
           <option value="Ancient & Medieval">Ancient &amp; Medieval (&lt;1400)</option>
           <option value="1400–1650">1400–1650 (Renaissance / Ming / Safavid)</option>
           <option value="1650–1800">1650–1800 (Edo / Baroque / Enlightenment)</option>
@@ -3821,7 +3888,7 @@
       <span class="wall-micro-sep" aria-hidden="true">·</span>
       <button class="wall-micro-btn" id="densityBtn" type="button" title="Switch grid scale">Large</button>
       <span class="wall-micro-sep" aria-hidden="true">·</span>
-      <button class="wall-micro-btn" id="pureWallBtn" type="button" title="Hide captions for pure visual wall">Pure Wall</button>
+      <button class="wall-micro-btn" id="pureWallBtn" type="button" title="Show or hide titles under each work">Captions</button>
     </div>
     <div class="gallery-grid" id="galleryGrid"></div>
     <div class="scroll-sentinel" id="scrollSentinel"></div>
@@ -4354,7 +4421,7 @@
       onlySaved: false,
       largeDensity: false,
       detailCrop: false,
-      pureWall: false,
+      pureWall: true,
       savedIds: new Set((() => { try { return JSON.parse(localStorage.getItem('archive_saved_v2') || '[]'); } catch (e) { return []; } })()),
       historyTrail: [],
       currentList: [...WORKS],
@@ -4591,6 +4658,8 @@
 
     function updateSavedCounter() {
       savedCount.textContent = state.savedIds.size;
+      const savedBtnEl = document.getElementById('savedFilterBtn');
+      if (savedBtnEl) savedBtnEl.style.display = (state.savedIds.size || state.onlySaved) ? '' : 'none';
       try { localStorage.setItem('archive_saved_v2', JSON.stringify([...state.savedIds])); } catch (e) {}
       savedKitBar.classList.toggle('visible', state.onlySaved);
       renderStackPills();
@@ -5945,6 +6014,7 @@
           closeLightbox();
           state.form = w.graphicForm || 'ALL';
           document.getElementById('formSelect').value = state.form;
+          syncKindSelectToForm();
           filterWorks(false);
         });
         pivotsWrap.appendChild(formChip);
@@ -6147,10 +6217,28 @@
       filterWorks(false);
     });
 
+    // One "kind" filter drives both medium and form (v30)
     document.getElementById('mediumSelect').addEventListener('change', (e) => {
-      state.medium = e.target.value;
+      const v = e.target.value;
+      if (v.startsWith('form:')) { state.form = v.slice(5); state.medium = 'ALL'; }
+      else { state.medium = v; state.form = 'ALL'; }
       filterWorks(false);
     });
+
+    function syncKindSelectToForm() {
+      const sel = document.getElementById('mediumSelect');
+      const stale = sel.querySelector('option[data-temp]');
+      if (stale) stale.remove();
+      if (!state.form || state.form === 'ALL') { sel.value = state.medium || 'ALL'; return; }
+      const want = 'form:' + state.form;
+      if (![...sel.options].some(o => o.value === want)) {
+        const o = document.createElement('option');
+        o.value = want; o.textContent = state.form; o.dataset.temp = '1';
+        sel.appendChild(o);
+      }
+      sel.value = want;
+      state.medium = 'ALL';
+    }
 
     document.getElementById('formSelect').addEventListener('change', (e) => {
       state.form = e.target.value;
@@ -6176,8 +6264,9 @@
     document.getElementById('pureWallBtn').addEventListener('click', (e) => {
       state.pureWall = !state.pureWall;
       galleryGrid.classList.toggle('pure-wall', state.pureWall);
-      e.currentTarget.classList.toggle('active', state.pureWall);
+      e.currentTarget.classList.toggle('active', !state.pureWall);
     });
+    galleryGrid.classList.toggle('pure-wall', state.pureWall);
 
     document.getElementById('shuffleBtn').addEventListener('click', () => {
       const shuffled = [...state.currentList];
@@ -7226,7 +7315,7 @@
       });
 
       // Draw 36 Cultural Hub Nodes
-      GLOBAL_CULTURAL_HUBS.forEach(hub => {
+      GLOBAL_CULTURAL_HUBS.forEach((hub, i) => {
         const count = (hubBuckets[hub.key] || []).length;
         const pt = projection([hub.lng, hub.lat]);
         if (!pt) return;
@@ -7354,23 +7443,23 @@
       const pal = Array.isArray(w.palette) && w.palette.length ? w.palette : ['#181818', '#c89d3c', '#eae8e3'];
       const parsed = pal.map(hexToHslObj);
       const avgLum = parsed.reduce((acc, p) => acc + p.lum, 0) / parsed.length;
-      // Find richest chromatic swatch (avoiding pure black/white mat tones)
-      const chromatic = parsed
-        .filter(p => p.s > 0.17 && p.l > 0.09 && p.l < 0.91)
-        .sort((a, b) => (b.s * (1 - Math.abs(b.l - 0.48))) - (a.s * (1 - Math.abs(a.l - 0.48))));
+      // v30: palettes are listed dominant-first, so take the first real colour
+      // (skipping black/white mat tones) and drop it in the jar whose own pigment
+      // is closest in hue. Old rule chased the most saturated accent, which sent
+      // nearly everything to gold.
+      const chromatic = parsed.filter(p => p.s > 0.17 && p.l > 0.09 && p.l < 0.91);
       if (chromatic.length === 0) {
         return { jarIdx: -1, hue: 0, sat: 0, avgLum, bestHex: parsed[0].hex, element: 'void' };
       }
       const best = chromatic[0];
       const deg = ((best.h % 360) + 360) % 360;
       let jarIdx = 0;
+      let nearest = 999;
       for (const jar of APOTHECARY_JARS) {
-        const [d0, d1] = jar.deg;
-        if (d0 > d1) {
-          if (deg >= d0 || deg < d1) { jarIdx = jar.idx; break; }
-        } else if (deg >= d0 && deg < d1) {
-          jarIdx = jar.idx; break;
-        }
+        if (jar._hue === undefined) jar._hue = hexToHslObj(jar.hex).h;
+        const d = Math.abs(deg - jar._hue);
+        const dist = Math.min(d, 360 - d);
+        if (dist < nearest) { nearest = dist; jarIdx = jar.idx; }
       }
       return {
         jarIdx,
@@ -7515,6 +7604,7 @@
         const jarList = document.createElement('div');
         jarList.className = 'apothecary-drawer-tabs';
         APOTHECARY_JARS.forEach(jar => {
+          if (!jarCounts[jar.idx] && selJar !== jar.idx) return; // v30: no empty jars
           const jb = document.createElement('button');
           jb.type = 'button';
           jb.className = `apothecary-jar-btn${selJar === jar.idx ? ' active' : ''}`;
