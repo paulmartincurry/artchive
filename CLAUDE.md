@@ -32,7 +32,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
 - `data/works.js` — the library: 500 artworks + 500 writing pieces, one JSON array.
 - Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution) and `auditNote`.
-- Re-sourced pieces also carry `translator`, `license` (only when the text is not public domain), (shown in the reader's credit line) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
+- Re-sourced pieces also carry `translator` (shown in the reader's credit line), `license` (only when the text is not public domain) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
 - Sourcing from the work sandbox: Project Gutenberg, archive.org and poetryintranslation.com can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan.
 - Reading Room: a book is one shelf in one mood. Titles are in `RR_BOOK_TITLES` in `index.html`.
 - The app de-duplicates on title + artist with anything in parentheses stripped, so two pieces by one author need titles that differ outside the brackets.
