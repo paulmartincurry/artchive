@@ -495,3 +495,9 @@ The image's own Wikimedia Commons record was read for each unconfirmed work. 53 
 Still unconfirmed: VAULT-117, 168, 174, 208, 430, 485.
 
 Notes: dates in 48 Wikipedia-sourced notes checked against the full article text. No errors; one softened (VAULT-230).
+
+### Notes date check, finished 13 November 2026
+
+VAULT-430 matched to the Peabody Museum, Harvard, and VAULT-485 to the Museo Etnográfico Juan B. Ambrosetti, Buenos Aires. Four artworks remain unconfirmed: VAULT-117, 168, 174, 208.
+
+Every year in the art notes on Wikipedia-sourced works (106 pages) and in the writing notes (about 245 author or work pages) was checked against the full article text. Unmatched years were reviewed by hand; all were correct facts the article simply does not mention. No wrong date found. Not covered: non-date claims, notes without a year, about 40 anonymous or collective authors, and the notes on the 129 museum-held artworks.
