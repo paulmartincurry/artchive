@@ -8210,7 +8210,7 @@
     const RR_SHELF_DEFS = [
       { name: 'Love', subjects: ['Mirrors & Gardens'] },
       { name: 'God', subjects: ['Gods & Cosmos'] },
-      { name: 'Sea', subjects: ['Sea & Storms'] },
+      { name: 'Earth', subjects: ['Sea & Storms'] },
       { name: 'Death', subjects: ['Skulls & Death', 'Demons & Beasts'] },
       { name: 'War', subjects: ['Rebellion & War', 'Blades & Duels'] }
     ];
@@ -8224,6 +8224,12 @@
       'Fury': '#8c2f22',
       'Dread': '#262b31'
     };
+    // Pieces whose data tag says "Mirrors & Gardens" but which are really about the
+    // natural world: shelved under Earth here. Reading Room only; the tag itself is untouched.
+    const RR_RESHELVE = {};
+    ['LIT-118', 'LIT-199', 'LIT-263', 'LIT-266', 'LIT-205', 'LIT-272', 'LIT-330', 'LIT-360', 'LIT-429',
+     'LIT-487', 'LIT-258', 'LIT-198', 'LIT-311', 'LIT-467', 'LIT-292', 'LIT-290', 'LIT-338'
+    ].forEach(id => { RR_RESHELVE[id] = 'Sea & Storms'; });
     const RR_MIN_BOOK = 4; // thinner than this and the pieces go into the shelf's "Loose Leaves"
     const RR_BOOK_TITLES = {
       'Mirrors & Gardens|Yearning': 'Wanting',
@@ -8241,8 +8247,8 @@
       'Gods & Cosmos|Fury': 'Arguing With God',
       'Gods & Cosmos|Dread': 'The Sky Is Not Empty',
       'Sea & Storms|Yearning': 'Far Shores',
-      'Sea & Storms|Sublime': 'Open Water',
-      'Sea & Storms|Resolve': 'Hold the Wheel',
+      'Sea & Storms|Sublime': 'Wide Open',
+      'Sea & Storms|Resolve': 'Weather It',
       'Sea & Storms|Melancholy': 'Low Tide',
       'Sea & Storms|Dark Humor': 'Shipwreck, With Jokes',
       'Sea & Storms|Fury': 'Squall',
@@ -8282,7 +8288,8 @@
     function rrBuildShelves(pool, foldThin) {
       const byKey = new Map();
       pool.forEach(w => {
-        const subject = RR_SHELVES.includes(w.subjectShort) ? w.subjectShort : RR_SHELVES[0];
+        const tagged = RR_RESHELVE[w.id] || w.subjectShort;
+        const subject = RR_SHELVES.includes(tagged) ? tagged : RR_SHELVES[0];
         const mood = RR_MOODS.includes(w.emotionShort) ? w.emotionShort : 'Resolve';
         const key = `${subject}|${mood}`;
         if (!byKey.has(key)) byKey.set(key, []);
