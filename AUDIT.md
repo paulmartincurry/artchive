@@ -374,13 +374,9 @@ Works people may look for. Bring back if a usable text or a short verified quote
 - LIT-500 José Martí, Nuestra América
 - LIT-138 Mansur al-Hallaj, Kitāb al-Ṭawāsīn
 
-### Still loose (3)
+### Still loose (1)
 
-No usable English text found on 13 November 2026 (see "Loose texts, last pass" below). Waiting on Paul: cut, or keep as a short credited quote.
-
-- LIT-344 Masaoka Shiki, *Haiku (Persimmon)*
-- LIT-415 Delmira Agustini, *Lo inefable*
-- LIT-476 Simón Bolívar, *The Jamaica Letter*
+- LIT-415 Delmira Agustini, *Lo inefable*. No usable English text found; not a work people search for. Waiting on Paul: cut or keep.
 
 ## Public test, first pass — 12 November 2026
 
@@ -547,4 +543,14 @@ Not found:
 - **Shiki, persimmon haiku.** Not in Chamberlain's Japanese Poetry (1911) or Porter's A Year of Japanese Epigrams (1911). Miyamori's 1932 anthology has Shiki but is not yet public domain in the US.
 - **Agustini, Lo inefable.** Not in Blackwell's Some Spanish-American Poets (1929; she is only named in the introduction) or Walsh's Hispanic Anthology (1920).
 - **Bolívar, Jamaica Letter.** No public-domain English text found on archive.org or Gutenberg; the standard modern translation is in copyright.
+
+### Later the same day: must-haves brought back
+
+Paul: find a way to confidently carry a version of anything people would look for. Method now in CLAUDE.md (public-domain text first, then a short credited quote whose wording has been checked).
+
+- **LIT-522 Chekhov's gun (new).** "If in the first chapter you say that a gun hung on the wall…" from Shchukin's reminiscences in Koteliansky, *Anton Tchekhov: Literary and Theatrical Reminiscences* (1927), p. 23. Public domain in the US. One archive.org scan; every sentence matched by script. The date of the remark is not given, so the record says "before 1904".
+- **LIT-344 Shiki, persimmon haiku.** Now `quoted`: Janine Beichman's translation (Kodansha, 1986) as given by the University of Virginia's Japanese Text Initiative, which also confirms the Japanese. It is the whole haiku, three lines, from a book still in copyright.
+- **LIT-476 Bolívar, Jamaica Letter.** Now `quoted`: two sentences from Lewis Bertrand's translation (Selected Writings of Bolivar, 1951) as reproduced by Brown University Library. Read through a web fetch, not from a scan of the book.
+- **Hölderlin, *Hälfte des Lebens*: still off.** A reference page gives closing lines ending "Weathercocks clatter" but names no translator, so it can't be credited. Needs Hamburger's *Poems and Fragments* or a page that quotes it with a credit.
+- Not yet tried under this method: the "Cut, wanted back" six (Ghalib, Hagakure, Ibn Khaldun, Kleist, Sōseki, Lautréamont) and the famous writings and artworks listed as missing under "Public test, first pass".
 
