@@ -116,7 +116,21 @@ The originals are old, but this English wording belongs to a named modern transl
 | LIT-104 Euripides, Medea | Gilbert Murray, 1910 | Gutenberg #35451 |
 | LIT-147 Diamond Sutra | William Gemmell, 1912 | Gutenberg #64623 |
 
-Still `modern-translation` (18), no public-domain English found: LIT-020, 037, 092, 093, 132, 149, 245, 265, 286, 287, 299, 375, 405, 426, 444, 457, 462, 498.
+## Re-sourcing pass 2 — 12 November 2026
+
+Seven more replaced with translations their translators publish for free reuse. These are **not public domain**; the terms are recorded on each piece in `license`.
+
+| Piece | Now uses | Source and terms |
+|---|---|---|
+| LIT-405 Tsvetaeva, I Know the Truth | A. S. Kline, 2010 | poetryintranslation.com, free for non-commercial use |
+| LIT-265 Hanshan, Cold Mountain Poem | A. S. Kline, 2006 | same |
+| LIT-299 Rilke, Duino Elegies (First) | A. S. Kline, 2004 | same |
+| LIT-245 Rilke, Letters to a Young Poet | A. S. Kline, 2021 | same |
+| LIT-037 Baudelaire, To the Reader | A. S. Kline, 2001–2010 | same |
+| LIT-092 Kafka, Metamorphosis | David Wyllie, 2002 | Gutenberg #5200, copyrighted, Gutenberg licence |
+| LIT-093 Kafka, Before the Law | David Wyllie | Gutenberg #7849, copyrighted, Gutenberg licence |
+
+Still `modern-translation` (11), nothing usable found: LIT-020, 132, 149, 286, 287, 375, 426, 444, 457, 462, 498.
 
 ## Not yet audited
 
