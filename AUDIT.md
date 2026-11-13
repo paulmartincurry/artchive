@@ -432,6 +432,11 @@ Still missing from the writing list: Dickinson "I'm Nobody", Wordsworth's daffod
 - Public domain and addable once images can be verified: Mona Lisa, The Last Supper, The Starry Night, Sunflowers, The Birth of Venus, The Creation of Adam, David, Impression Sunrise, The Night Watch, The Third of May 1808, Olympia, Le Déjeuner sur l'herbe, The Thinker, The School of Athens, The Arnolfini Portrait, American Gothic, Malevich's Black Square, and something by Renoir, Titian, Giotto, Bernini, Klee, Mondrian, Modigliani, Matisse (pre-1930 work).
 - Still in copyright, cannot be shown: Picasso's Guernica, Dalí, Kahlo, Magritte, Hopper's Nighthawks, Warhol, Pollock, Rothko, Basquiat, O'Keeffe, Brancusi.
 
+## Artwork clean-up — 12 November 2026
+
+- **Paired quotes removed from all 500 artworks.** They were unchecked text added by the first build.
+- **Wikimedia images checked.** All 372 Wikimedia files exist (Commons API, run in Paul's browser). The problem was size, not broken links: the Wall was loading original files, 4.4 GB in total, 57 of them over 10 MB and one of 890 MB. `imageUrl` now points at the 960px thumbnail for 312 of them; all 312 thumbnails were loaded successfully in the browser. `highResUrl` still points at the original.
+
 ## Not yet audited
 
 The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process. Note for that audit: 370 of them hotlink images from Wikimedia, every artwork carries an AI-written `note` and `craftSpec`, and 500 carry a paired `quote` whose wording and attribution have never been checked. All 425 older writing pieces also carry an AI-written `note`, shown under “Notes” in the reader.

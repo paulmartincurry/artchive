@@ -3862,6 +3862,11 @@
   
     /* v34: a quiet note where a credit is in doubt */
     .rr-pg-flag { margin-top: 14px; font-size: 0.74rem; line-height: 1.5; font-style: italic; color: var(--text-faint); }
+
+    /* v32: tighter run from search bar to the Wall */
+    main { padding-top: 12px; }
+    .wall-controls-bar { margin-bottom: 14px; }
+    @media (min-width: 721px) { header { padding-bottom: 8px; } }
   </style>
 </head>
 <body>
@@ -3905,7 +3910,7 @@
             type="search"
             class="header-search-input"
             id="searchInput"
-            placeholder="Search artist, color, mood, era, or verse…"
+            placeholder="Search artist, mood, era or line…"
             aria-label="Search The Artchive by artist, mood, subject, color, era, medium, or poems"
             autocomplete="off"
             spellcheck="false"
@@ -8312,6 +8317,31 @@
       });
       const shelves = [];
       let no = 0;
+      // A mood with too few pieces for its own book joins the nearest mood on the same shelf.
+      // The pieces keep their own tags; only the shelving changes.
+      const RR_NEAREST = {
+        'Yearning': ['Melancholy', 'Sublime', 'Resolve'],
+        'Melancholy': ['Yearning', 'Dread', 'Sublime'],
+        'Dread': ['Melancholy', 'Fury', 'Resolve'],
+        'Fury': ['Resolve', 'Dread', 'Dark Humor'],
+        'Resolve': ['Fury', 'Sublime', 'Melancholy'],
+        'Sublime': ['Resolve', 'Yearning', 'Melancholy'],
+        'Dark Humor': ['Resolve', 'Melancholy', 'Fury']
+      };
+      if (foldThin) {
+        RR_SHELF_NAMES.forEach(shelf => {
+          const size = m => (byKey.get(`${shelf}|${m}`) || []).length;
+          const full = RR_MOODS.filter(m => size(m) >= RR_MIN_BOOK);
+          if (!full.length) return;
+          RR_MOODS.forEach(mood => {
+            const n = size(mood);
+            if (!n || n >= RR_MIN_BOOK) return;
+            const home = (RR_NEAREST[mood] || []).find(m => full.includes(m)) || full[0];
+            byKey.set(`${shelf}|${home}`, byKey.get(`${shelf}|${home}`).concat(byKey.get(`${shelf}|${mood}`)));
+            byKey.delete(`${shelf}|${mood}`);
+          });
+        });
+      }
       RR_SHELF_NAMES.forEach(shelf => {
         const books = [];
         let loose = [];
@@ -8319,7 +8349,6 @@
           const key = `${shelf}|${mood}`;
           const pieces = byKey.get(key);
           if (!pieces || !pieces.length) return;
-          if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
           (foldThin ? rrSplitByForm(key, pieces) : [{ key, pieces }]).forEach(part => {
             books.push({ key: part.key, subject: shelf, mood, title: RR_BOOK_TITLES[part.key] || RR_BOOK_TITLES[key] || mood, ink: RR_MOOD_INK[mood], pieces: part.pieces });
           });
@@ -8352,7 +8381,7 @@
       title.textContent = book.title;
       const foot = document.createElement('span');
       foot.className = 'rr-cover-foot';
-      foot.textContent = `No. ${book.no} · ${n}`;
+      foot.textContent = `${n} piece${n === 1 ? '' : 's'}`;
       btn.appendChild(top);
       btn.appendChild(title);
       btn.appendChild(foot);
@@ -8650,8 +8679,8 @@
         const nb = document.createElement('button');
         nb.type = 'button';
         nb.className = 'text-action';
-        nb.textContent = 'Notes';
-        nb.title = 'Open the full entry: background, source, and tools';
+        nb.textContent = w.note ? 'Notes' : 'Source';
+        nb.title = w.note ? 'Open the full entry: background, source, and tools' : 'Open the full entry: source and tools';
         nb.addEventListener('click', () => openWorkById(w.id));
         links.appendChild(nb);
       }
@@ -8869,7 +8898,7 @@
       if (w._searchIdx) return w._searchIdx;
       const high = normalizeSearchStr(`${w.title || ''} ${w.artist || ''} ${w.emotionShort || ''} ${w.subjectShort || ''}`);
       const mid = normalizeSearchStr(`${w.region || ''} ${w.macroRegion || ''} ${w.medium || ''} ${w.macroMedium || ''} ${w.colorFamily || ''} ${w.graphicForm || ''} ${w.dateLabel || ''}`);
-      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.quote || ''} ${w.quoteAuthor || ''} ${w.searchTags || ''} ${w.museum || ''}`);
+      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.fullText || ''} ${w.translator || ''} ${w.searchTags || ''} ${w.museum || ''}`);
       const vocab = Array.from(new Set(`${high} ${mid}`.split(' ').filter(t => t.length >= 4)));
       const yNum = typeof w.yearNum === 'number' ? w.yearNum : parseYearNumJs(null, w.dateLabel);
       w._searchIdx = { high, mid, low, highWords: high.split(' '), midWords: mid.split(' '), vocab, yNum };
@@ -8980,7 +9009,7 @@
       const activeTokens = rawTokens.filter(t => !SEARCH_STOP_WORDS.has(t));
       const tokens = activeTokens.length > 0 ? activeTokens : rawTokens;
 
-      const exactPhrase = tokens.length > 1 ? normQ : '';
+      const exactPhrase = rawTokens.length > 1 ? normQ : '';
       const strictHits = [];
       const partialBuckets = new Map();
 
@@ -9000,8 +9029,11 @@
         if (matchedCount === 0) continue;
 
         // Phrase bonus if full multi-word phrase appears verbatim in title/artist/tags/verse
-        if (exactPhrase && (idx.high.includes(exactPhrase) || idx.mid.includes(exactPhrase) || idx.low.includes(exactPhrase))) {
-          totalScore += 3.5;
+        // An exact phrase always outranks loose word matches: title/artist first, then the text itself
+        if (exactPhrase) {
+          if (idx.high.includes(exactPhrase)) totalScore += 100;
+          else if (idx.low.includes(exactPhrase)) totalScore += 60;
+          else if (idx.mid.includes(exactPhrase)) totalScore += 20;
         }
         // Subtle tie-breaker by canonical iconicScore
         totalScore += Math.min(0.45, (w.iconicScore || 0) / 500);
