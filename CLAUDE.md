@@ -32,7 +32,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 ## How it's built
 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
-- `data/works.js` — the library: 500 artworks + 495 writing pieces, one JSON array.
+- `data/works.js` — the library: 500 artworks + 494 writing pieces, one JSON array.
 - Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution / quoted) and `auditNote`.
 - Re-sourced pieces also carry `translator` (shown in the reader's credit line), `license` (only when the text is not public domain) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
 - Sourcing from the work sandbox: Project Gutenberg, archive.org and poetryintranslation.com can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan.
@@ -42,7 +42,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 
 ## Before pushing
 
-Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room count matches the number of writing pieces in `data/works.js` (495 as of 12 Nov 2026).
+Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room count matches the number of writing pieces in `data/works.js` (494 as of 12 Nov 2026).
 
 ## Next up
 
