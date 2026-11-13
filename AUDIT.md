@@ -158,7 +158,19 @@ Three works people will expect to find, with no usable translation, cut down to 
 | LIT-020 Musashi, Book of the Void | Victor Harris, 1974 |
 | LIT-149 The Thunder, Perfect Mind | George W. MacRae, 1977 |
 
-Six remain `modern-translation`: LIT-132, 286, 375, 457, 462, 498.
+## Cuts — 12 November 2026
+
+No usable English and not must-haves. Cut with Paul's go-ahead; the old entries are in git history before this commit. The Reading Room now holds 495 pieces.
+
+- LIT-132 Kozan Ichikyo, Death Poem
+- LIT-286 Akka Mahadevi, Vachana: To a Suitor
+- LIT-457 Akka Mahadevi, Vachana: The Eye of the Lord (duplicated 286)
+- LIT-375 Alfred Jarry, Exploits and Opinions of Dr. Faustroll
+- LIT-462 Izibongo of Shaka
+
+LIT-498 Andrade, Manifesto Antropófago: kept as the single line "Tupi, or not tupi that is the question." It is in English in the original, so no translator is involved. Spelling follows the Revista Periferia (UERJ) edition; the 1928 printing has "Tupy".
+
+No `modern-translation` pieces remain.
 
 ## Not yet audited
 

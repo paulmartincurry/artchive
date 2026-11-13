@@ -32,7 +32,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 ## How it's built
 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
-- `data/works.js` — the library: 500 artworks + 500 writing pieces, one JSON array.
+- `data/works.js` — the library: 500 artworks + 495 writing pieces, one JSON array.
 - Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution / quoted) and `auditNote`.
 - Re-sourced pieces also carry `translator` (shown in the reader's credit line), `license` (only when the text is not public domain) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
 - Sourcing from the work sandbox: Project Gutenberg, archive.org and poetryintranslation.com can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan.
@@ -42,11 +42,11 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 
 ## Before pushing
 
-Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room still counts 500 pieces.
+Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room count matches the number of writing pieces in `data/works.js` (495 as of 12 Nov 2026).
 
 ## Next up
 
-1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. Of the original 33 `modern-translation` pieces, 24 were re-sourced on 12 Nov 2026 (see AUDIT.md). Three must-haves are now short credited quotes (LIT-020 Musashi, 149 Thunder Perfect Mind, 426 Lu Xun). Six are still `modern-translation` and waiting on Paul to cut or replace: LIT-132 Kozan Ichikyo, 286 and 457 Akka Mahadevi, 375 Jarry, 462 Shaka, 498 Andrade. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
+1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. The 33 `modern-translation` pieces are closed out (12 Nov 2026, see AUDIT.md): 25 re-sourced, 3 kept as short credited quotes, 5 cut. Good replacements for the cuts would be other work by Akka Mahadevi, Jarry or a Zen death poem, if a usable text turns up. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
 2. The public test: list the ~100 works people will search for first, find what's missing, add it.
 3. Audit the 500 artworks the same way the writing was audited (titles, credits, dates).
 4. Decide the fate of the parked views (Global Map, Weather) and the maker tools.
