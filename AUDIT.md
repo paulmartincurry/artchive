@@ -374,9 +374,9 @@ Works people may look for. Bring back if a usable text or a short verified quote
 - LIT-500 José Martí, Nuestra América
 - LIT-138 Mansur al-Hallaj, Kitāb al-Ṭawāsīn
 
-### Still loose (1)
+### Still loose (0)
 
-- LIT-415 Delmira Agustini, *Lo inefable*. No usable English text found; not a work people search for. Waiting on Paul: cut or keep.
+LIT-415 Delmira Agustini, *Lo inefable*, was cut on 13 November 2026 under Paul's rule (cut what can't be found or verified): no usable English text, and not a work a visitor would come looking for. Bring her back if a public-domain or credited translation turns up.
 
 ## Public test, first pass — 12 November 2026
 
