@@ -501,3 +501,13 @@ Notes: dates in 48 Wikipedia-sourced notes checked against the full article text
 VAULT-430 matched to the Peabody Museum, Harvard, and VAULT-485 to the Museo Etnográfico Juan B. Ambrosetti, Buenos Aires. Four artworks remain unconfirmed: VAULT-117, 168, 174, 208.
 
 Every year in the art notes on Wikipedia-sourced works (106 pages) and in the writing notes (about 245 author or work pages) was checked against the full article text. Unmatched years were reviewed by hand; all were correct facts the article simply does not mention. No wrong date found. Not covered: non-date claims, notes without a year, about 40 anonymous or collective authors, and the notes on the 129 museum-held artworks.
+
+### Cuts, 13 November 2026 (Paul: cut what we can't find)
+
+- VAULT-168, Ouyang Xiu letter: its own file record questions its authenticity.
+- VAULT-174, celadon vase: a visitor's photograph with no object record.
+- VAULT-208, Harunobu print: scanned from a postcard, title and holder unknown.
+- LIT-081, "The Sun Never Says": by Daniel Ladinsky (1999), not Hafez, and in copyright. Hafez is still represented by LIT-449 (Gertrude Bell's translation).
+- VAULT-117, Bonheur's *Sheep*, was kept: matched to Cleveland 1915.716 and the image replaced with the museum's own.
+
+None of the four is a work a visitor would come looking for. Library is now 497 artworks and 445 writings.
