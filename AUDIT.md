@@ -449,3 +449,15 @@ Decision: Claude writes the context notes (rule 1 in CLAUDE.md now says so). The
 - Written from well-documented facts about each work. They were not each looked up against the museum record; anything that would have been a guess was left out.
 - The Craft / Process row is gone from the specs drawer. `craftSpec` remains in the data for now.
 - Noticed while writing, for the art audit: VAULT-003 (Turner, the Met's *Whalers*) carries the subtitle of a different Turner painting in the Tate. Many records list the museum as "Global National Treasures & Museums", which is not a museum.
+
+### Finished 13 November 2026
+
+All 946 notes rewritten (500 artworks, 446 writings). After Paul's note ("don't get cute or clever, keep it factual") the first 191 were gone over again and about 25 were flattened.
+
+Turned up while writing, not acted on:
+
+- **LIT-081, "The Sun Never Says".** By Daniel Ladinsky (1999), a living author. Not public domain and not openly offered, so it breaks rule 4. Paul to decide: cut, or replace with a real Hafez ghazal (Gertrude Bell, 1897).
+- **Possibly still in copyright outside the US:** VAULT-415 Goncharova (d. 1962), VAULT-428 Hopper (d. 1967); texts by Ibarbourou (d. 1979), Mistral (d. 1957), Akhmatova (d. 1966), Stevens, Williams, Moore, Hughes, H.D. Check each during the audits.
+- **Records that may not describe a real object:** VAULT-293 "Seated Statue of Vizier Ptahhotep", VAULT-275 triptych by "Ueno Jakugen", VAULT-331 Harar Qur'an by a named scribe, VAULT-287 "Sunzi bamboo slips, Qing archival edition", VAULT-334 "Haʻalelea's" cloak. Their notes describe the subject only.
+- **Wrong or doubtful details in records:** VAULT-003 Turner subtitle belongs to a different painting; VAULT-343 Muisca raft was found at Pasca, not Lake Guatavita; VAULT-214 "First Half — Master Wuyong Scroll" mixes up the two halves; VAULT-026 is listed as the Met but the page may be elsewhere; VAULT-372, 494, 488, 215 are Met works listed under the placeholder museum; LIT-115 Schopenhauer title and date do not match (1851 is Parerga); LIT-137 Hildegard date; LIT-392 and LIT-394 poem dates.
+- Many artwork titles and artist credits are dressed up ("Machu Picchu Dry-Fitted Granite Cloud Citadel", "Mexica Imperial Sculptors of King Axayacatl"). The notes use plain names.
