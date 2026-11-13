@@ -482,3 +482,16 @@ Paul's instruction: everything must be right; made-up or wrong information matte
 **Unconfirmed (59).** Source is an artist, genre or subject page, so the specific object is unverified: VAULT-132, 127, 139, 128, 140, 156, 162, 168, 169, 171, 172, 173, 174, 180, 181, 182, 195, 207, 208, 209, 210, 217, 218, 228, 230, 232, 252, 272, 275, 282, 293, 325, 328, 330, 331, 334, 335, 341, 378, 415, 417, 418, 419, 430, 452, 453, 473, 484, 485, and ten never checked: 141, 148, 133, 117, 144, 382, 385, 406, 420, 502.
 
 **Not done.** Notes were corrected only where a museum record contradicted them. The other notes have not been re-read against sources. Medium unchecked on Wikipedia-sourced works. The writing side still has 16 loose, 13 unconfirmed, 10 attribution.
+
+### Later the same day
+
+The image's own Wikimedia Commons record was read for each unconfirmed work. 53 of the 59 turned out to be real, identifiable objects and now carry their holder. Wrong records found this way:
+- VAULT-181 was titled "The Poet Bihari Offers Homage to Radha and Krishna". The image is Nainsukh's self-portrait, ca. 1730.
+- VAULT-252 was credited to Julia Margaret Cameron. It is a portrait of her, taken by her son Henry in 1870 (the Met).
+- VAULT-325 was dated early 20th century. The museum dates it 1965–1975.
+- VAULT-139 is by the circle of the Master of Calamarca, not the master, and is not the painting in the church.
+- VAULT-293 (Ptahhotep statue), VAULT-275 (Ueno Jakugen) and VAULT-331 (Harar Qur'an), suspected of being invented, are real.
+
+Still unconfirmed: VAULT-117, 168, 174, 208, 430, 485.
+
+Notes: dates in 48 Wikipedia-sourced notes checked against the full article text. No errors; one softened (VAULT-230).
