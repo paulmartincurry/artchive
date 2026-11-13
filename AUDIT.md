@@ -374,26 +374,13 @@ Works people may look for. Bring back if a usable text or a short verified quote
 - LIT-500 José Martí, Nuestra América
 - LIT-138 Mansur al-Hallaj, Kitāb al-Ṭawāsīn
 
-### Still loose (16)
+### Still loose (3)
 
-A usable source probably exists (noted in CLAUDE.md) but was not reached.
+No usable English text found on 13 November 2026 (see "Loose texts, last pass" below). Waiting on Paul: cut, or keep as a short credited quote.
 
-- LIT-290 Friedrich Hölderlin, *Hälfte des Lebens*
-- LIT-300 Farid ud-Din Attar, *The Conference of the Birds — The Valley of Astonishment*
-- LIT-302 Antarah ibn Shaddad, *Muʿallaqa of ʿAntara*
-- LIT-314 Nizami Ganjavi, *Haft Paykar (The Black Dome)*
-- LIT-325 Thiruvalluvar, *Tirukkuṛaḷ*
-- LIT-328 Sant Tukārām, *Abhang*
 - LIT-344 Masaoka Shiki, *Haiku (Persimmon)*
-- LIT-391 Annette von Droste-Hülshoff, *Am Turme (On the Tower)*
-- LIT-402 Anton Chekhov, *Letter to Lazarev-Gruzinsky (1 Nov 1889)*
 - LIT-415 Delmira Agustini, *Lo inefable*
-- LIT-448 Abu'l-Qasim Ferdowsi, *Shahnameh (conclusion)*
 - LIT-476 Simón Bolívar, *The Jamaica Letter*
-- LIT-484 Nella Larsen, *Quicksand*
-- LIT-130 Traditional Tantric Sanskrit Hymn, *Karpuradi Stotra*
-- LIT-184 Napoleon Bonaparte, *Farewell to the Old Guard*
-- LIT-190 Victor Hugo, *Funeral Oration for Balzac*
 
 ## Public test, first pass — 12 November 2026
 
@@ -521,3 +508,43 @@ Run from Paul's browser on the live site: for each piece, fetch the full Wikiped
 - 73 notes not covered: no usable article for the maker or author.
 
 No note was changed as a result.
+
+## Loose texts, last pass — 13 November 2026
+
+The 16 remaining loose texts. 13 re-sourced and now `verified`; 3 left.
+
+Every sentence of each new text was machine-checked against the downloaded source (letters only, ignoring spacing and punctuation), and where the source is an archive.org OCR scan, against a second scan too. Punctuation was read by eye from the OCR; three passages were checked against the page image (Masani, Tukārāma, Avalon).
+
+| id | Piece | Text now from | Checked |
+|---|---|---|---|
+| LIT-290 | Hölderlin, **Hyperion's Song of Fate** (was *Hälfte des Lebens*) | German Classics vol. 4 (1913), tr. Charles Wharton Stork, Gutenberg #12060 | Gutenberg text |
+| LIT-300 | Attar, Conference of the Birds — The Valley of Bewilderment | R. P. Masani's abridged prose version (OUP, 1924) | one scan + page image |
+| LIT-302 | ʿAntara, Muʿallaqa | Sir William Jones (1782), in Clouston, Arabian Poetry for English Readers (1881) | two scans |
+| LIT-314 | Nizami, Haft Paykar (The Black Dome) | C. E. Wilson, The Haft Paikar, vol. 1 (1924) | two scans |
+| LIT-325 | Tirukkuṛaḷ 129, 396, 972 | G. U. Pope, The 'Sacred' Kurral (1886) | two scans |
+| LIT-328 | Tukārām, Abhang (no. 2718) | Fraser and Marathe, The Poems of Tukārāma, vol. 3 (1915) | two scans + page image |
+| LIT-391 | Droste-Hülshoff, Am Turme | German Classics vol. 7 (1913), tr. Charles Wharton Stork, Gutenberg #12351 | Gutenberg text |
+| LIT-402 | Chekhov, **Letter to Suvorin (27 October 1888)** (was the Lazarev-Gruzinsky letter) | Letters of Anton Chekhov, tr. Constance Garnett (1920), Gutenberg #6408 | Gutenberg text |
+| LIT-448 | Ferdowsi, Shahnameh (conclusion) | Warner and Warner, vol. 9 (1925), p. 122 | two scans |
+| LIT-484 | Larsen, Quicksand | Standard Ebooks edition (from the Gutenberg transcription) | one text |
+| LIT-130 | Karpūrādi-Stotra, verse 7 | Arthur Avalon (Woodroffe), Hymn to Kālī (1922; 1953 printing) | two scans + page image |
+| LIT-184 | Napoleon, Farewell to the Old Guard | Bryan, The World's Famous Orations, vol. 7 (1906), anonymous translator | one scan |
+| LIT-190 | Hugo, Funeral Oration for Balzac | Wormeley, A Memoir of Honoré de Balzac (1892), p. 349 | two scans |
+
+Things to know:
+
+- **Two pieces changed to a different work by the same author**, because the famous one has no usable English text. Hölderlin's *Hälfte des Lebens* is gone; *Hyperion's Song of Fate* took its record, moved from Earth to the God shelf, and got a new note. Chekhov's loaded-rifle letter is gone; the "stating a problem correctly" letter to Suvorin took its record and got a new note. A search for "Chekhov's gun" still brings up the Chekhov letter, but the rifle line itself is no longer on the site. Koteliansky's 1927 *Anton Tchekhov: Literary and Theatrical Reminiscences* may carry a version of the rifle remark and is public domain in the US by date, but no open scan was reachable, so that is unchecked.
+- The stored original-language lines were cleared on those two, since they belonged to the old texts.
+- Masani (d. 1966) and the 1925 Warner volume are public domain in the United States by publication date; elsewhere that may differ.
+- Tukārāma 2718: the print has a stray semicolon after "fight" (left out) and no stop after "soul of our soul" at the page turn (shown as a line break).
+- Droste: stanza breaks follow the German (four stanzas of eight lines), not Gutenberg's page-break artefacts.
+- Jones spells it "coloquinteda"; Pope writes "throughly". Both kept.
+- Napoleon: Bryan's version has the embrace of General Petit and the eagle but not the "our cause was not lost" sentence the old hook used. Bourrienne's Memoirs (Gutenberg #3567) gives a different English version with that sentence and without the eagle.
+- Standard Ebooks modernises some spelling; if that matters, compare with the 1928 first edition.
+
+Not found:
+
+- **Shiki, persimmon haiku.** Not in Chamberlain's Japanese Poetry (1911) or Porter's A Year of Japanese Epigrams (1911). Miyamori's 1932 anthology has Shiki but is not yet public domain in the US.
+- **Agustini, Lo inefable.** Not in Blackwell's Some Spanish-American Poets (1929; she is only named in the introduction) or Walsh's Hispanic Anthology (1920).
+- **Bolívar, Jamaica Letter.** No public-domain English text found on archive.org or Gutenberg; the standard modern translation is in copyright.
+
