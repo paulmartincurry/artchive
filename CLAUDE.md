@@ -44,7 +44,7 @@ Load the page in a headless browser, switch through every view, open a book and 
 
 ## Next up
 
-1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. Of the original 33 `modern-translation` pieces, 22 were re-sourced on 12 Nov 2026 (see AUDIT.md). The 11 left (LIT-020, 132, 149, 286, 287, 375, 426, 444, 457, 462, 498) have no public-domain or openly offered English that could be found and are waiting on Paul: cut, or keep looking. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
+1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. Of the original 33 `modern-translation` pieces, 24 were re-sourced on 12 Nov 2026 (see AUDIT.md). The 9 left (LIT-020 Musashi, 132 Kozan Ichikyo, 149 Thunder Perfect Mind, 286 and 457 Akka Mahadevi, 375 Jarry, 426 Lu Xun, 462 Shaka, 498 Andrade) have no public-domain or openly offered English that could be found and are waiting on Paul: cut, or keep looking. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
 2. The public test: list the ~100 works people will search for first, find what's missing, add it.
 3. Audit the 500 artworks the same way the writing was audited (titles, credits, dates).
 4. Decide the fate of the parked views (Global Map, Weather) and the maker tools.

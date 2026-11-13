@@ -130,7 +130,23 @@ Seven more replaced with translations their translators publish for free reuse. 
 | LIT-092 Kafka, Metamorphosis | David Wyllie, 2002 | Gutenberg #5200, copyrighted, Gutenberg licence |
 | LIT-093 Kafka, Before the Law | David Wyllie | Gutenberg #7849, copyrighted, Gutenberg licence |
 
-Still `modern-translation` (11), nothing usable found: LIT-020, 132, 149, 286, 287, 375, 426, 444, 457, 462, 498.
+## Re-sourcing pass 3 — 12 November 2026
+
+| Piece | Now uses | Source and terms |
+|---|---|---|
+| LIT-287 Basava, Vachana | P. G. Halkatti, 1922 | The Indian Antiquary vol. 51, archive.org scan, public domain. Shorter than the version before: no closing lines |
+| LIT-444 Sei Shōnagon, Stray Notes | Arthur Waley, 1928 | Gutenberg #76016. **Different passage.** Public domain in the US only until 2037 |
+
+Still `modern-translation` (9), searched twice, nothing usable:
+
+- LIT-020 Musashi: only commercial translations found.
+- LIT-132 Kozan Ichikyo: only Hoffmann's (Tuttle). Original found on a blog: 来時は空手、去時は赤脚。一去一来、単重交折 (unverified).
+- LIT-149 Thunder, Perfect Mind: Anne McGuire's translation is online but licensed for classroom use only.
+- LIT-286, LIT-457 Akka Mahadevi: nothing older than Ramanujan found.
+- LIT-375 Jarry: Simon Watson Taylor's is the only English translation found.
+- LIT-426 Lu Xun: English Wikisource has a volunteer translation (CC BY-SA) but it could not be fetched from the sandbox.
+- LIT-462 Shaka: R. C. Samuelson's Long, Long Ago (1929) may have an older English text; no scan found.
+- LIT-498 Andrade: a newer translation is posted online from The Forest & The School (ed. Pedro Neves Marques); terms unknown.
 
 ## Not yet audited
 
