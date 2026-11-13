@@ -511,3 +511,13 @@ Every year in the art notes on Wikipedia-sourced works (106 pages) and in the wr
 - VAULT-117, Bonheur's *Sheep*, was kept: matched to Cleveland 1915.716 and the image replaced with the museum's own.
 
 None of the four is a work a visitor would come looking for. Library is now 497 artworks and 445 writings.
+
+### Notes name check, 13 November 2026
+
+Run from Paul's browser on the live site: for each piece, fetch the full Wikipedia article for its source page (artworks) or its author (writing, and museum-held artworks), and list every capitalised name in the note that the article does not contain.
+
+- 869 notes covered. 586 had every name present in the article.
+- 283 had one or more names absent (446 names in all). Each was reviewed by hand. They were true details the article does not mention (a translator, a museum, a patron, a place) or stray capitalised words. None was judged wrong, but that judgement rests on general knowledge, not on a second source.
+- 73 notes not covered: no usable article for the maker or author.
+
+No note was changed as a result.
