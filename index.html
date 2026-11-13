@@ -3840,6 +3840,25 @@
       .rr-result { padding: 24px 0 22px; }
       .rr-result-line { font-size: 1.24rem; }
     }
+  
+    /* v33: Reading Room polish */
+    .rr-shelf-label.has-action { display: flex; justify-content: space-between; align-items: baseline; }
+
+    .rr-anywhere {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .rr-anywhere:hover { color: var(--text); }
+
+    .rr-page.is-wide > * { max-width: 55rem; }
   </style>
 </head>
 <body>
@@ -8187,6 +8206,14 @@
     // not longer. To rename a book, edit RR_BOOK_TITLES below.
     // =========================================================================
     const RR_SHELVES = ['Mirrors & Gardens', 'Gods & Cosmos', 'Sea & Storms', 'Skulls & Death', 'Rebellion & War', 'Blades & Duels', 'Demons & Beasts'];
+    // The shelves people see. Rename freely; "subjects" are the tags on the pieces that feed each shelf.
+    const RR_SHELF_DEFS = [
+      { name: 'The Heart', subjects: ['Mirrors & Gardens'] },
+      { name: 'The Heavens', subjects: ['Gods & Cosmos'] },
+      { name: 'The Weather', subjects: ['Sea & Storms'] },
+      { name: 'The Dark', subjects: ['Skulls & Death', 'Demons & Beasts'] },
+      { name: 'The Fight', subjects: ['Rebellion & War', 'Blades & Duels'] }
+    ];
     const RR_MOODS = ['Yearning', 'Sublime', 'Resolve', 'Melancholy', 'Dark Humor', 'Fury', 'Dread'];
     const RR_MOOD_INK = {
       'Yearning': '#6b2a3c',
@@ -8218,7 +8245,7 @@
       'Sea & Storms|Resolve': 'Hold the Wheel',
       'Sea & Storms|Melancholy': 'Low Tide',
       'Sea & Storms|Dark Humor': 'Shipwreck, With Jokes',
-      'Sea & Storms|Fury': 'Weather',
+      'Sea & Storms|Fury': 'Squall',
       'Sea & Storms|Dread': 'What’s Under There',
       'Skulls & Death|Yearning': 'Come Back',
       'Skulls & Death|Sublime': 'The Long Sleep',
@@ -8262,21 +8289,27 @@
         byKey.get(key).push(w);
       });
       const shelves = [];
-      RR_SHELVES.forEach((subject, si) => {
+      let no = 0;
+      RR_SHELF_DEFS.forEach(def => {
         const books = [];
         let loose = [];
-        RR_MOODS.forEach((mood, mi) => {
-          const key = `${subject}|${mood}`;
-          const pieces = byKey.get(key);
-          if (!pieces || !pieces.length) return;
-          if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
-          books.push({ key, subject, mood, no: si * 8 + mi + 1, title: RR_BOOK_TITLES[key] || `${mood}`, ink: RR_MOOD_INK[mood], pieces });
+        def.subjects.forEach(subject => {
+          RR_MOODS.forEach(mood => {
+            const key = `${subject}|${mood}`;
+            const pieces = byKey.get(key);
+            if (!pieces || !pieces.length) return;
+            if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
+            books.push({ key, subject: def.name, mood, title: RR_BOOK_TITLES[key] || `${mood}`, ink: RR_MOOD_INK[mood], pieces });
+          });
         });
         if (loose.length) {
-          books.push({ key: `${subject}|Loose`, subject, mood: 'Mixed', no: si * 8 + 8, title: 'Loose Leaves', ink: '#3a3632', pieces: loose });
+          books.push({ key: `${def.name}|Loose`, subject: def.name, mood: 'Mixed', title: 'Loose Leaves', ink: '#3a3632', pieces: loose });
         }
-        books.forEach(b => b.pieces.sort((a, c) => (c.iconicScore || 0) - (a.iconicScore || 0)));
-        if (books.length) shelves.push({ subject, books });
+        books.forEach(b => {
+          b.no = ++no;
+          b.pieces.sort((a, c) => (c.iconicScore || 0) - (a.iconicScore || 0));
+        });
+        if (books.length) shelves.push({ subject: def.name, books });
       });
       return shelves;
     }
@@ -8352,8 +8385,24 @@
           const table = document.createElement('section');
           table.className = 'rr-shelf is-table';
           const lab = document.createElement('h3');
-          lab.className = 'rr-shelf-label';
-          lab.textContent = 'On the table';
+          lab.className = 'rr-shelf-label has-action';
+          const labText = document.createElement('span');
+          labText.textContent = 'On the table';
+          const any = document.createElement('button');
+          any.type = 'button';
+          any.className = 'rr-anywhere';
+          any.textContent = 'Open anywhere';
+          any.title = 'A random page from a random book';
+          any.addEventListener('click', () => {
+            const picks = rrState.books.filter(b => !b.isResults);
+            if (!picks.length) return;
+            const book = picks[Math.floor(Math.random() * picks.length)];
+            rrOpenBook(book.key);
+            rrState.page = 1 + Math.floor(Math.random() * book.pieces.length);
+            rrRenderPage(0);
+          });
+          lab.appendChild(labText);
+          lab.appendChild(any);
           const row = document.createElement('div');
           row.className = 'rr-shelf-row';
           tableBooks.forEach(b => row.appendChild(rrMakeCover(b, true)));
@@ -8466,7 +8515,7 @@
 
     function rrOpenBook(key) {
       rrState.open = key;
-      rrState.page = 0;
+      rrState.page = 1;
       rrState.showOriginal = false;
       const el = rrReaderEl();
       el.classList.add('open');
@@ -8484,9 +8533,9 @@
     function rrTurn(dir) {
       const book = rrCurrentBook();
       if (!book) return;
-      const last = book.pieces.length + 1; // 0 = cover, 1..n = pieces, n+1 = end page
+      const last = book.pieces.length + 1; // 1..n = pieces, n+1 = end page
       const next = rrState.page + dir;
-      if (next < (book.isResults ? 1 : 0) || next > last) return;
+      if (next < 1 || next > last) return;
       rrState.page = next;
       rrState.showOriginal = false;
       rrRenderPage(dir);
@@ -8499,9 +8548,9 @@
       const n = book.pieces.length;
       const pg = rrState.page;
       el.style.setProperty('--ink', book.ink);
-      el.querySelector('#rrReaderBook').textContent = pg === 0 ? '' : book.title;
+      el.querySelector('#rrReaderBook').textContent = book.title;
       el.querySelector('#rrReaderCount').textContent = pg >= 1 && pg <= n ? `${pg} / ${n}` : '';
-      el.querySelector('#rrPrev').style.visibility = pg <= (book.isResults ? 1 : 0) ? 'hidden' : 'visible';
+      el.querySelector('#rrPrev').style.visibility = pg <= 1 ? 'hidden' : 'visible';
       el.querySelector('#rrReaderClose').textContent = book.isResults ? '← Results' : '← Shelf';
       el.querySelector('#rrNext').style.visibility = pg === n + 1 ? 'hidden' : 'visible';
 
@@ -8517,14 +8566,7 @@
         return d;
       };
 
-      if (pg === 0) {
-        page.classList.add('is-cover');
-        add('div', 'rr-pg-kicker', `Pocket Poets · No. ${book.no}`);
-        add('h2', 'rr-pg-booktitle', book.title);
-        add('div', 'rr-pg-sub', `${book.subject} · ${book.mood} · ${n} piece${n === 1 ? '' : 's'}`);
-        const go = add('button', 'rr-pg-begin', 'Begin →');
-        go.type = 'button';
-        go.addEventListener('click', () => rrTurn(1));
+      if (false) {
       } else if (pg === n + 1) {
         page.classList.add('is-cover');
         add('div', 'rr-pg-kicker', book.isResults ? `That’s everything for ${book.title}` : `End of ${book.title}`);
@@ -8550,6 +8592,25 @@
           body.textContent = w.originalScript;
         } else {
           body.textContent = w.fullText || w.excerpt || w.hook || w.title;
+        }
+        {
+          const txt = body.textContent || '';
+          const lines = txt.split('\n').filter(l => l.trim());
+          const longest = lines.reduce((m, l) => Math.max(m, l.length), 1);
+          const small = window.innerWidth <= 720;
+          const base = small ? 20 : 24;
+          let cap = base;
+          if (txt.length <= 210 && lines.length <= 5) cap = small ? 30 : 46;
+          else if (txt.length <= 480 && lines.length <= 9) cap = small ? 24 : 33;
+          if (cap > base) {
+            const avail = Math.min(window.innerWidth - (small ? 44 : 220), 880);
+            // verse: don't let the longest line wrap; prose: it wraps anyway, so go a touch smaller
+            const fit = lines.length > 1 && !rrState.showOriginal ? avail / (longest * 0.38) : cap * 0.82;
+            const fs = Math.max(base, Math.min(cap, fit));
+            body.style.fontSize = `${fs.toFixed(1)}px`;
+            body.style.lineHeight = fs > 34 ? '1.34' : '1.46';
+            page.classList.add('is-wide');
+          }
         }
         add('div', 'rr-pg-author', w.artist || '');
         add('div', 'rr-pg-title', w.title || '');
