@@ -440,3 +440,12 @@ Still missing from the writing list: Dickinson "I'm Nobody", Wordsworth's daffod
 ## Not yet audited
 
 The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process. Note for that audit: 370 of them hotlink images from Wikimedia, every artwork carries an AI-written `note` and `craftSpec`, and 500 carry a paired `quote` whose wording and attribution have never been checked. All 425 older writing pieces also carry an AI-written `note`, shown under “Notes” in the reader.
+
+## Context notes — 12 November 2026
+
+Decision: Claude writes the context notes (rule 1 in CLAUDE.md now says so). The old notes were written by another model during the first build and never checked; all are to be replaced.
+
+- Batch 1: 91 notes (70 artworks, LIT-501 to LIT-521). Marked `noteRev: 2` in the data.
+- Written from well-documented facts about each work. They were not each looked up against the museum record; anything that would have been a guess was left out.
+- The Craft / Process row is gone from the specs drawer. `craftSpec` remains in the data for now.
+- Noticed while writing, for the art audit: VAULT-003 (Turner, the Met's *Whalers*) carries the subtitle of a different Turner painting in the Tate. Many records list the museum as "Global National Treasures & Museums", which is not a museum.

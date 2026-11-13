@@ -4327,14 +4327,12 @@
         <!-- Collapsible Museum & Craft Specs Dossier (hidden until clicked) -->
         <div class="specs-accordion-wrap">
           <button class="specs-toggle-btn" id="toggleSpecsBtn" type="button">
-            <span>Museum &amp; Craft Specs</span>
+            <span>Museum Specs</span>
             <span id="specsToggleIcon">+</span>
           </button>
           <div class="specs-drawer" id="specsDrawer">
             <span class="spec-key">Medium</span>
             <span class="spec-val" id="specMedium"></span>
-            <span class="spec-key">Craft / Process</span>
-            <span class="spec-val" id="specCraft"></span>
             <span class="spec-key">Form / Cut</span>
             <span class="spec-val" id="specForm"></span>
             <span class="spec-key">Tradition &amp; Era</span>
@@ -6291,7 +6289,6 @@
       lbNote.textContent = w.note || '';
 
       document.getElementById('specMedium').textContent = w.medium || 'Archival Medium';
-      document.getElementById('specCraft').textContent = w.craftSpec || inferCraftSpecJs(w.medium, w.itemType);
       document.getElementById('specForm').textContent = `${w.graphicForm || 'Standard'} · ${w.emotionShort} / ${w.subjectShort}`;
       document.getElementById('specEra').textContent = `${w.region} (${w.eraBucket || w.dateLabel || 'Historic'})`;
       document.getElementById('specHex').textContent = `${w.colorFamily || 'Archive Tone'} — ${(state.activePalette || []).join(' · ')}`;
