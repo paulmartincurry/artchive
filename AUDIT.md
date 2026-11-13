@@ -554,3 +554,73 @@ Paul: find a way to confidently carry a version of anything people would look fo
 - **Hölderlin, *Hälfte des Lebens*: still off.** A reference page gives closing lines ending "Weathercocks clatter" but names no translator, so it can't be credited. Needs Hamburger's *Poems and Fragments* or a page that quotes it with a credit.
 - Not yet tried under this method: the "Cut, wanted back" six (Ghalib, Hagakure, Ibn Khaldun, Kleist, Sōseki, Lautréamont) and the famous writings and artworks listed as missing under "Public test, first pass".
 
+## Full-list pass — 13 November 2026 (evening)
+
+Paul: "do the full list." Library is now 521 artworks and 431 writings.
+
+### 1. Unconfirmed and shaky texts: none left
+
+Re-sourced (8):
+
+- LIT-234 Tōia Tainui: Buick, An Old New Zealander (1911), Gutenberg #44726. Translator not named there.
+- LIT-237 Michelangelo, Sonnet 151: J. A. Symonds (1878), Gutenberg #10314.
+- LIT-293 Apollinaire, Le Pont Mirabeau: A. S. Kline, poetryintranslation.com (non-commercial terms).
+- LIT-367 Baudelaire, Une Charogne: "The Corpse" from the Huneker edition (1919), Gutenberg #36287. The credit to F. P. Sturm is from general knowledge, not from the edition.
+- LIT-115 Schopenhauer, pendulum line: Haldane and Kemp (1883), Gutenberg #38427. Date corrected to 1818.
+- LIT-078 Gilgamesh, Siduri's advice: R. Campbell Thompson (1928), one archive.org scan.
+- LIT-469 Liliʻuokalani: now her Official Protest to the Treaty of Annexation (1897), from Hawaii's Story by Hawaii's Queen (1898). The song Kuʻu Pua i Paoakalani is gone; its English could not be confirmed. Moved to the War shelf.
+
+Cut (14), because the wording could not be matched to any real text:
+
+- LIT-338 Anecdote about Mi Fu, *Mi Fu Bows to the Rock*
+- LIT-371 Jules Laforgue, *Litanies of the Last Quarters of the Moon*
+- LIT-376 Guillaume Apollinaire, *Il pleut (It's Raining)*
+- LIT-446 Ali-Shir Nava'i, *Ghazal (Flint and Spark)*
+- LIT-450 Abu al-ʿAlāʾ al-Maʿarrī, *Elegy (Tread Lightly)*
+- LIT-459 Yoruba Babaláwo Oral Divination Canon, *Odù Ifá*
+- LIT-153 Yoruba Babaláwo & Akéwì Oral Canon, *Oríkì of Ṣàngó*
+- LIT-466 Nana Asma'u, *Poem*
+- LIT-475 Salomé Ureña, *Ruinas*
+- LIT-470 Attributed to Crazy Horse (Tȟašúŋke Witkó), *Attributed Sayings*
+- LIT-473 Tochihuitzin Coyolchiuhqui (attributed), *We Only Came to Dream*
+- LIT-334 Yu Xuanji, *To a Neighbor Girl*
+- LIT-137 Hildegard von Bingen, *Liber Divinorum Operum*
+- LIT-369 Comte de Lautréamont (Isidore Ducasse), *Les Chants de Maldoror (Canto VI)*
+
+Three of those are names a visitor may look for: **Hildegard von Bingen** (her artwork is still here), **Crazy Horse** (no saying can be verified as his) and **Yu Xuanji**. Apollinaire's Il pleut and Lautréamont's Canto VI are also gone; Lautréamont was already on the wanted-back list.
+
+### 2. Famous artworks: 24 added
+
+Mona Lisa, The Last Supper, The Starry Night, Sunflowers (National Gallery version), The Birth of Venus, The Creation of Adam, David, Impression Sunrise, The Night Watch, The Third of May 1808, Olympia, Le Déjeuner sur l'herbe, The Thinker, The School of Athens, The Arnolfini Portrait, American Gothic, Bal du moulin de la Galette, Venus of Urbino, Giotto's Lamentation, Ecstasy of Saint Teresa, Twittering Machine, Mondrian's Composition with Red, Blue and Yellow, Modigliani's Nu couché, Matisse's Dance.
+
+- Title, maker, date and holder from the Wikipedia article lead and the Wikidata record of each work. Medium from Wikidata or the article, not from the museum. Twittering Machine has no medium.
+- Each image is the article's lead image on Wikimedia Commons. All 24 thumbnails were downloaded from the sandbox, and each palette was computed from the actual image.
+- The Thinker shows the Kunsthalle Bielefeld cast, and says so. Sunflowers was confirmed as the London picture from its Commons file page.
+- Notes written to the usual standard from well-documented facts; not checked one by one against a source.
+- Still absent because they are in copyright: Guernica, Dalí, Kahlo, Magritte, Nighthawks, Warhol, Pollock, Rothko, Basquiat, O'Keeffe, Brancusi.
+
+### 3. "Verified" was softer than the name: edition check started
+
+The first audit marked a text verified when the wording was recognised as a published text. Checking sentence by sentence against editions showed that this let through paraphrased and stitched wording, mostly in prose. Examples found and fixed: Carmilla, The Great God Pan, The Gods of Pegāna, Incidents in the Life of a Slave Girl, Confessions of an English Opium-Eater, Songs of Kabir, Candide, Salomé.
+
+State of the 431 writings after this pass:
+
+- **244 edition-sourced or edition-checked**: taken from, or matched line by line against, a named edition.
+- **187 recognised only**: not yet checked against an edition. Expect some of these to be condensed or reworded. Most have no Gutenberg link or are translations with no translator recorded.
+
+Done this pass: 58 pieces matched an edition in full and are marked so; 15 were replaced with the edition's wording (list in the commit); 5 stitched quotes got an ellipsis where they skip text (Persuasion, Moby-Dick whiteness, Heart of Darkness, Cask of Amontillado, Duchess of Malfi).
+
+Known to need a hand repair (some sentences do not match the edition linked): LIT-226 Kalevala, LIT-041 Frankenstein, LIT-096 The Yellow Wallpaper, LIT-197 Middlemarch, LIT-002 Moby-Dick (Ahab), LIT-008 Hamlet, LIT-031 The Art of War, LIT-035 A Modest Proposal, LIT-099 Jekyll and Hyde, LIT-166 Agricola, LIT-010 Dickinson, LIT-216 Bradstreet, LIT-014 The Tyger, LIT-025 Paradise Lost, LIT-059 Annabel Lee. Some of these will only be spelling or a different edition.
+
+Method: strip both texts to letters only, split the piece into sentences and lines, and require every one to occur in the edition. Where it fails, pull the passage from the edition between a start and an end phrase, so nothing is retyped.
+
+### 4. Not done
+
+- **Art medium and museum** (203 and 164 blank). The Wikidata route does not work from the sandbox: it is throttled to a crawl, and many source links point at the artist's page, not the work's. Needs the Commons file records from Paul's browser, as before.
+- **Hälfte des Lebens and the six wanted-back writers.** Need web lookups that require Paul's approval when he is away.
+- **Live site and a real phone.** Tested locally at desktop and phone size only.
+
+### 5. Small fixes
+
+- The two Met tughras (38.149.1 and 38.149.2) have identical titles at the museum; the accession number is now in each title so both show.
+
