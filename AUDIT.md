@@ -172,6 +172,212 @@ LIT-498 Andrade, Manifesto Antropófago: kept as the single line "Tupi, or not t
 
 No `modern-translation` pieces remain.
 
+## Loose texts, pass 1 — 12 November 2026
+
+89 of the 187 `loose` texts replaced with wording copied from a source, and one duplicate cut. Sources are Project Gutenberg, Internet Archive scans of older books, and A. S. Kline's poetryintranslation.com. Scans are OCR: obvious scan errors were corrected by eye, and where that happened the piece's `auditNote` says so. Several pieces are now a different passage or poem by the same author, because that was what a usable text existed for; those are marked below.
+
+Things to know:
+
+- Books published 1923–1930 (Bynner's Jade Mountain, Deutsch and Yarmolinsky, Gibb's Ibn Battuta, Evans-Wentz, Shaw's Akutagawa) are public domain in the United States but may not be elsewhere. Noted in `license`.
+- Kline's translations are free for non-commercial use only.
+- In Walsh's Hispanic Anthology (Silva, Rosalía de Castro, Mistral) each poem has its own translator, but the scan was too poor to read the credits. They are credited to the anthology for now.
+- The two Popol Vuh pieces are Lewis Spence's 1908 English account, not a translation, and are credited to him.
+
+| Piece | Translator | Source and notes |
+|---|---|---|
+| LIT-383 Bram Stoker, Dracula (Ch. II) | original English | https://www.gutenberg.org/ebooks/345 |
+| LIT-386 Algernon Blackwood, The Willows | original English | https://www.gutenberg.org/ebooks/11438 |
+| LIT-100 Oscar Wilde, The Picture of Dorian Gray (Ch. XIII) | original English | https://www.gutenberg.org/ebooks/174 |
+| LIT-430 Olive Schreiner, The Story of an African Farm — The Hunter | original English | https://www.gutenberg.org/ebooks/1441 |
+| LIT-471 Geronimo (Goyaałé), Geronimo's Story of His Life | original English | https://www.gutenberg.org/ebooks/31318 — A different passage from the one shown before, which is from his 1886 surrender, not this book. |
+| LIT-003 Homer, The Odyssey (Book XII) | Samuel Butler, 1900 | https://www.gutenberg.org/ebooks/1727 |
+| LIT-102 Miguel de Cervantes, Don Quixote (Part I, Ch. VIII) | John Ormsby, 1885 | https://www.gutenberg.org/ebooks/996 |
+| LIT-077 Sophocles, Antigone — Ode to Man | F. Storr, 1912 | https://www.gutenberg.org/ebooks/31 |
+| LIT-175 Demosthenes, The Third Philippic | Charles Rann Kennedy, 1852 | https://www.gutenberg.org/ebooks/6878 |
+| LIT-183 Alexander the Great (via Arrian, Anabasis VII.9–10), Speech at Opis | E. J. Chinnock, 1884 | https://www.gutenberg.org/ebooks/46976 |
+| LIT-107 Sophocles, Oedipus the King | F. Storr, 1912 | https://www.gutenberg.org/ebooks/31 |
+| LIT-106 Aeschylus, Agamemnon | Gilbert Murray, 1920 | https://www.gutenberg.org/ebooks/14417 |
+| LIT-390 E. T. A. Hoffmann, The Sandman | John Oxenford, 1844 | https://www.gutenberg.org/ebooks/32046 |
+| LIT-117 Cao Xueqin, Dream of the Red Chamber (Ch. 1) | H. Bencraft Joly, 1892 | https://www.gutenberg.org/ebooks/9603 |
+| LIT-131 Laozi (Lao Tzu), Tao Te Ching (Ch. 1 & 5) | James Legge, 1891 | https://www.gutenberg.org/ebooks/216 |
+| LIT-435 Zhuangzi (Master Zhuang), Zhuangzi — Autumn Floods | Herbert A. Giles, 1889 | https://www.gutenberg.org/ebooks/59709 |
+| LIT-123 The Qur'an (Surah An-Nur), The Qur'an — The Verse of Light (24:35) | J. M. Rodwell, 1861 | https://www.gutenberg.org/ebooks/2800 |
+| LIT-134 Papyrus of Ani (New Kingdom Scribes), Book of the Dead (Spell 30B) | E. A. Wallis Budge, 1920 | https://www.gutenberg.org/ebooks/7145 |
+| LIT-247 Vizier Ptahhotep, The Maxims of Ptahhotep | Battiscombe Gunn, 1906 | https://www.gutenberg.org/ebooks/30508 |
+| LIT-318 Anonymous Medieval Arabic Storytellers, One Thousand and One Nights (frame tale) | Sir Richard Burton, 1885 | https://www.gutenberg.org/ebooks/3435 |
+| LIT-398 Hans Christian Andersen, The Shadow | translator not named | https://www.gutenberg.org/ebooks/1597 |
+| LIT-105 Euripides, The Bacchae | Gilbert Murray, 1904 | https://www.gutenberg.org/ebooks/35173 |
+| LIT-113 Lucretius, De Rerum Natura (Book II) | William Ellery Leonard, 1916 | https://www.gutenberg.org/ebooks/785 |
+| LIT-443 Multatuli (Eduard Douwes Dekker), Max Havelaar — Saïdjah's Song | Baron Alphonse Nahuijs, 1868 | https://www.gutenberg.org/ebooks/70128 |
+| LIT-272 Tao Yuanming (Tao Qian), Drinking Wine (V) | Arthur Waley, 1918 | https://www.gutenberg.org/ebooks/42290 |
+| LIT-289 Giacomo Leopardi, L'Infinito | Frederick Townsend, 1887 | https://www.gutenberg.org/ebooks/19315 |
+| LIT-292 Paul Verlaine, Chanson d'automne | Gertrude Hall, 1895 | https://www.gutenberg.org/ebooks/8426 |
+| LIT-332 Bai Juyi (Po Chü-i), The Lute Girl (Pípá Xíng) | L. Cranmer-Byng, 1909 | https://www.gutenberg.org/ebooks/390 |
+| LIT-228 Alexander Pushkin, The Prophet (Prorok) | Ivan Panin, 1888 | https://www.gutenberg.org/ebooks/54991 |
+| LIT-427 José Rizal, My Last Farewell (Mi último adiós) | Charles Derbyshire, 1911 | https://www.gutenberg.org/ebooks/6867 |
+| LIT-449 Hafez of Shiraz, Ghazal (The Shirazi Turk) | Gertrude Bell, 1897 | https://www.gutenberg.org/ebooks/74883 |
+| LIT-421 Pu Songling, The Painted Skin (Huàpí) | Herbert A. Giles, 1880 | https://www.gutenberg.org/ebooks/43629 |
+| LIT-317 Muhammad Iqbal, Secrets of the Self (Asrār-i-Khudī) | Reynold A. Nicholson, 1920 | https://www.gutenberg.org/ebooks/57317 |
+| LIT-447 Fuzuli, Gazel | E. J. W. Gibb, 1882 | https://www.gutenberg.org/ebooks/56464 — A different gazel from the one shown before. |
+| LIT-353 Middle Kingdom Egyptian Blind Harper Tradition, Harper's Song from the Tomb of King Intef | E. A. Wallis Budge, 1914 | https://www.gutenberg.org/ebooks/15932 |
+| LIT-229 Anna Akhmatova, Song of the Last Meeting | A. S. Kline, 2005 | https://www.poetsofmodernity.xyz/POMBR/Russian/Akhmatova.php |
+| LIT-403 Alexander Blok, Night, Street, Lamp, and Pharmacy | A. S. Kline | https://www.poetryintranslation.com/PITBR/Russian/BlokAlexanderSelectedPoems.php |
+| LIT-372 Tristan Corbière, Le Crapaud (The Toad) | A. S. Kline | https://www.poetryintranslation.com/PITBR/French/CorbiereSelectedPoems.php |
+| LIT-373 Aloysius Bertrand, Gaspard de la Nuit — Scarbo | A. S. Kline | https://www.poetryintranslation.com/PITBR/French/BertrandGaspard.php |
+| LIT-264 Juvenal (Decimus Junius Juvenalis), Satire X | A. S. Kline | https://www.poetryintranslation.com/PITBR/Latin/JuvenalSatires10.php |
+| LIT-370 Stéphane Mallarmé, Brise Marine (Sea Breeze) | A. S. Kline | https://www.poetryintranslation.com/PITBR/French/Mallarme.php |
+| LIT-368 Arthur Rimbaud, Après le Déluge (After the Flood) | A. S. Kline | https://www.poetryintranslation.com/PITBR/French/Rimbaud2.php |
+| LIT-330 Meng Haoran, A Spring Morning (Chūn Xiǎo) | Witter Bynner and Kiang Kang-hu, 1929 | https://archive.org/details/jademountainchin00heng — One OCR slip corrected (a full stop for a comma after “storm”). |
+| LIT-322 Muttā (Elder Buddhist Nun), Therīgāthā (Muttā) | C. A. F. Rhys Davids, 1909 | https://archive.org/details/psalmsofearlybud01davi |
+| LIT-333 Liu Zongyuan, River-Snow (Jiāng Xuě) | Witter Bynner and Kiang Kang-hu, 1929 | https://archive.org/details/jademountainchin00heng |
+| LIT-331 Wei Yingwu, At Chuzhou on the Western Stream | Witter Bynner and Kiang Kang-hu, 1929 | https://archive.org/details/jademountainchin00heng |
+| LIT-329 Qu Yuan, The Fisherman’s Reply | Herbert A. Giles, 1923 | https://archive.org/details/gemsofchineselit00gileuoft — The line comes from The Fisherman’s Reply, traditionally attributed to Qu Yuan, not from the Li Sao. |
+| LIT-304 Al-Khansāʾ (Tumāḍir bint ʿAmr), Elegy for Ṣakhr | Reynold A. Nicholson, 1922 | https://archive.org/details/translationsofea00nich |
+| LIT-355 King Hammurabi's Babylonian Scribes, Code of Hammurabi (prologue) | Robert Francis Harper, 1904 | https://archive.org/details/CodeOfHammurabiHarper |
+| LIT-152 Karma Lingpa / Padmasambhava Tradition, Bardo Thödol (The Tibetan Book of the Dead) | Lāma Kazi Dawa-Samdup, ed. W. Y. Evans-Wentz, 1927 | https://archive.org/details/the-tibetan-book-of-the-dead_202401 |
+| LIT-456 Bhartṛhari, Nītiśataka | B. Hale Wortham, 1886 | https://archive.org/details/the-satakas-of-bhartrihari |
+| LIT-324 Ambapālī (Courtesan-Turned-Elder Nun of Vesālī), Therīgāthā (Ambapālī) | C. A. F. Rhys Davids, 1909 | https://archive.org/details/psalmsofearlybud01davi |
+| LIT-323 Kisāgotamī (Elder Buddhist Nun), Therīgāthā (Kisāgotamī) | C. A. F. Rhys Davids, 1909 | https://archive.org/details/psalmsofearlybud01davi — The verse she speaks in the old commentary after the mustard-seed search. |
+| LIT-352 Neburä Id Yishaq of Aksum, Kebra Nagast | E. A. Wallis Budge, 1922 | https://archive.org/details/kebranagast |
+| LIT-306 Abu al-ʿAlāʾ al-Maʿarrī, Luzūmiyyāt | Ameen Rihani, 1918 | https://www.gutenberg.org/ebooks/50457 |
+| LIT-150 Orphic Mystery Initiates, The Orphic Gold Tablets | Gilbert Murray, 1903 | https://archive.org/details/prolegomenatostu00harrrich |
+| LIT-121 Rigveda (hymn 10.129), Rigveda — Nasadiya Sukta (10.129) | Ralph T. H. Griffith, 1897 | https://archive.org/details/in.ernet.dli.2015.47262 |
+| LIT-281 Anyte of Tegea, Epigram | W. R. Paton, 1917 | https://archive.org/details/greekanthology0003wrpa — A different epigram from the one shown before (Greek Anthology 9.144). |
+| LIT-354 Achaemenid–Babylonian Chancery Scribes, The Cyrus Cylinder | Robert William Rogers, 1912 | https://archive.org/details/cuneiformparalle00roge |
+| LIT-311 Rudaki, Bū-yi Jū-yi Mūliyān | A. V. Williams Jackson, 1920 | https://archive.org/details/earlypersianpoet00jackuoft |
+| LIT-467 Ibn Battuta (Dictated to Ibn Juzayy), The Rihla (Taghaza) | H. A. R. Gibb, 1929 | https://archive.org/details/dli.ernet.16353 |
+| LIT-313 Nizami Ganjavi, Layla and Majnun | James Atkinson, 1836 | https://archive.org/details/lovesoflailmaj00nizauoft |
+| LIT-458 Mirabai, Pada | Max Arthur Macauliffe, 1909 | https://archive.org/details/in.ernet.dli.2015.56975 — A different song of hers from the one shown before. |
+| LIT-491 José Asunción Silva, Nocturne (Nocturno III) | Thomas Walsh (ed.), 1920 | https://archive.org/details/hispanicantholo04walsgoog — The anthology names a translator for each poem; the scan was too poor to read this one’s credit. |
+| LIT-400 Rosalía de Castro, Las campanas (The Bells) | Thomas Walsh (ed.), 1920 | https://archive.org/details/hispanicantholo04walsgoog — A different poem from the one shown before; no usable English was found for Negra sombra. The translator’s name could not be read in the scan. |
+| LIT-393 Georg Heym, The Demons of the Cities (Die Dämonen der Städte) | Babette Deutsch and Avrahm Yarmolinsky, 1923 | https://archive.org/details/dli.ernet.79482 — A different Heym poem from the one shown before. |
+| LIT-392 Else Lasker-Schüler, End of the World (Weltende) | Babette Deutsch and Avrahm Yarmolinsky, 1923 | https://archive.org/details/dli.ernet.79482 — A different poem of hers from the one shown before. |
+| LIT-394 Georg Trakl, Amen | Babette Deutsch and Avrahm Yarmolinsky, 1923 | https://archive.org/details/dli.ernet.79482 — A different Trakl poem from the one shown before. |
+| LIT-417 Gabriela Mistral, From the Sonnets of Death (Los sonetos de la muerte) | Thomas Walsh (ed.), 1920 | https://archive.org/details/hispanicantholo04walsgoog — Lines from a different sonnet in the sequence. The translator’s name could not be read in the scan. |
+| LIT-337 Lu You, To Wine | Herbert A. Giles, 1898 | https://archive.org/details/gems-of-chinese-literature — A different Lu You poem from the one shown before. |
+| LIT-342 Ki no Tsurayuki, Kana Preface to the Kokinshū | W. G. Aston, 1899 | https://archive.org/details/historyjapanese00asto |
+| LIT-061 Alfred, Lord Tennyson, Ulysses | original English | https://www.gutenberg.org/ebooks/8601 |
+| LIT-023 Abu'l-Qasim Ferdowsi, Shahnameh — Rostam and Sohrab | James Atkinson, 1832 | https://www.gutenberg.org/ebooks/10315 |
+| LIT-119 Kamo no Chōmei, Hōjōki (opening) | W. G. Aston, 1899 | https://archive.org/details/historyjapanese00asto |
+| LIT-224 Al-Mutanabbi, Qasida (The Steed, the Night, the Desert) | Reynold A. Nicholson, 1922 | https://archive.org/details/translationsofea00nich — The opening of the same ode that contains the famous “steed, night and desert” line. |
+| LIT-305 Abu Nuwas, Wine Poem (Leave Off Blaming Me) | Reynold A. Nicholson, 1922 | https://archive.org/details/translationsofea00nich |
+| LIT-301 Imru' al-Qais, Muʿallaqa of Imruʾ al-Qais | Reynold A. Nicholson, 1922 | https://archive.org/details/translationsofea00nich — A different passage of the ode from the one shown before. |
+| LIT-227 Mikhail Lermontov, The Demon | Francis Storr, 1894 | https://archive.org/details/demonoflermontof00lerm |
+| LIT-319 Kālidāsa, Meghadūta (The Cloud Messenger) | Arthur W. Ryder, 1912 | https://www.gutenberg.org/ebooks/16659 |
+| LIT-303 Labīd ibn Rabī'a, Muʿallaqa of Labīd | Reynold A. Nicholson, 1922 | https://archive.org/details/translationsofea00nich |
+| LIT-133 Lewis Spence, retelling the Popol Vuh, Popol Vuh | original English | https://www.gutenberg.org/ebooks/56550 — Spence’s 1908 English account of the book, not a line-by-line translation. |
+| LIT-358 Lewis Spence, retelling the Popol Vuh, Popol Vuh — The House of Gloom | original English | https://www.gutenberg.org/ebooks/56550 — Spence’s 1908 English account of the book, not a line-by-line translation. |
+| LIT-357 Nezahualcóyotl, Even Jade Shatters | **cut** | Same poem as the old LIT-012 in other words; no usable English for it. |
+| LIT-401 Nikolai Gogol, The Overcoat (The Mantle) | Claud Field, 1916 | https://www.gutenberg.org/ebooks/36238 |
+| LIT-343 Fujiwara no Teika, Waka (Hyakunin Isshu 97) | William N. Porter, 1909 | https://archive.org/details/hundredversesfro00fujiuoft |
+| LIT-288 Bhartṛhari, Vairāgyaśataka | B. Hale Wortham, 1886 | https://archive.org/details/the-satakas-of-bhartrihari |
+| LIT-425 Ryūnosuke Akutagawa, Rashōmon | Glenn W. Shaw, 1930 | https://www.gutenberg.org/ebooks/78105 — A different passage from the retelling shown before. |
+| LIT-029 Farid ud-Din Attar, The Conference of the Birds | Edward FitzGerald, 1889 | https://archive.org/details/BirdParliamentEnglishFareeduddinAttaarFitzgerald — FitzGerald’s version is a free abridgement of the poem. |
+| LIT-492 José Enrique Rodó, Ariel | F. J. Stimson, 1922 | https://archive.org/details/arielrod00roduoft — A different passage from the retelling shown before. |
+| LIT-436 Xunzi (Xun Kuang), Xunzi — Man’s Nature Is Evil | Herbert A. Giles, 1923 | https://archive.org/details/gemsofchineselit00gileuoft — A different passage from the one shown before. |
+
+### Still loose (97)
+
+Not yet re-sourced. A first look found no public-domain or openly offered English for most of these (Korean, Vietnamese, much of the Latin American, Japanese prose, Chinese song lyrics, African epics). They need either another search, a different piece by the same author, a short credited quote if they are must-haves, or cutting.
+
+- LIT-219 Hwang Jin-i, *The Long Midwinter Night (Sijo)*
+- LIT-222 Lesya Ukrainka, *Contra Spem Spero*
+- LIT-223 Mirza Ghalib, *Hazaaron Khwahishein Aisi*
+- LIT-220 Hwang Jin-i, *Blue-Green Stream (Sijo)*
+- LIT-312 Rābiʿa Balkhī, *Ghazal (Love Is a Shoreless Sea)*
+- LIT-499 Alfonsina Storni, *Hombre pequeñito*
+- LIT-243 Guo Xi, *Lofty Ambitions in Forests and Streams*
+- LIT-244 Shitao, *Remarks on Painting (The Single Brushstroke)*
+- LIT-267 Ikkyū Sōjun, *Skeletons (Gaikotsu)*
+- LIT-268 Hakuin Ekaku, *Song of Zazen*
+- LIT-270 Yosa Buson, *Haiku (Temple Bell, Spring Sea)*
+- LIT-273 Shen Fu, *Six Records of a Floating Life*
+- LIT-274 Yamamoto Tsunetomo, *Hagakure*
+- LIT-275 Yagyū Munenori, *Heihō Kadensho*
+- LIT-276 Kobayashi Issa, *Haiku (Snail, Fly)*
+- LIT-285 Yunus Emre, *Ilahi*
+- LIT-290 Friedrich Hölderlin, *Hälfte des Lebens*
+- LIT-300 Farid ud-Din Attar, *The Conference of the Birds — The Valley of Astonishment*
+- LIT-302 Antarah ibn Shaddad, *Muʿallaqa of ʿAntara*
+- LIT-307 Wallada bint al-Mustakfi, *Verses Embroidered on Her Robe*
+- LIT-308 Ibn Hazm of Córdoba, *The Ring of the Dove*
+- LIT-310 Ibn Khaldun, *The Muqaddimah*
+- LIT-314 Nizami Ganjavi, *Haft Paykar (The Black Dome)*
+- LIT-315 Amir Khusrau, *Chhaap Tilak*
+- LIT-316 Mir Taqi Mir, *Ghazal (Smoke from the Heart)*
+- LIT-321 Compiled by King Hāla, *Gāhā Sattasaī*
+- LIT-325 Thiruvalluvar, *Tirukkuṛaḷ*
+- LIT-326 Avvaiyār, *Puṟanāṉūṟu 235*
+- LIT-327 Āṇḍāl, *Nācciyār Tirumoḻi (To the Conch)*
+- LIT-328 Sant Tukārām, *Abhang*
+- LIT-335 Li Yu, *Yú Měirén*
+- LIT-336 Xin Qiji, *Pò Zhèn Zǐ*
+- LIT-339 Guan Daosheng, *Song of You and Me (Wǒ Nóng Cí)*
+- LIT-340 Zhao Mengfu, *Colophon on Elegant Rocks and Sparse Trees*
+- LIT-341 Qiu Jin, *Mǎn Jiāng Hóng*
+- LIT-344 Masaoka Shiki, *Haiku (Persimmon)*
+- LIT-345 Yosano Akiko, *Kimi Shinitamō Koto Nakare (Thou Shalt Not Die)*
+- LIT-346 Shin Saimdang, *Looking Back at My Parents' Home from Daegwallyeong*
+- LIT-347 Admiral Yi Sun-sin, *Hansando Sijo*
+- LIT-348 Nguyễn Du, *The Tale of Kiều (opening)*
+- LIT-349 Hồ Xuân Hương, *Bánh Trôi Nước (Floating Cake)*
+- LIT-350 Balla Fasséké & Mandinka *Jeli* Tradition, *Epic of Sundiata*
+- LIT-351 Zera Yacob, *Hatata*
+- LIT-356 Macuilxochitzin, *Song of Macuilxochitzin*
+- LIT-362 Castro Alves, *O Navio Negreiro (The Slave Ship)*
+- LIT-363 José Hernández, *El Gaucho Martín Fierro (opening)*
+- LIT-364 José Martí, *I Cultivate a White Rose (Versos Sencillos XXXIX)*
+- LIT-374 Auguste Villiers de l'Isle-Adam, *Axël*
+- LIT-389 Heinrich von Kleist, *On the Marionette Theatre*
+- LIT-391 Annette von Droste-Hülshoff, *Am Turme (On the Tower)*
+- LIT-395 Hugo Ball, *Flight Out of Time (23 June 1916)*
+- LIT-396 Franz Kafka, *In the Penal Colony*
+- LIT-399 Edith Södergran, *Vierge moderne*
+- LIT-402 Anton Chekhov, *Letter to Lazarev-Gruzinsky (1 Nov 1889)*
+- LIT-404 Andrei Bely, *Petersburg (Prologue)*
+- LIT-415 Delmira Agustini, *Lo inefable*
+- LIT-416 Juana de Ibarbourou, *Rebelde*
+- LIT-418 Horacio Quiroga, *El almohadón de plumas (The Feather Pillow)*
+- LIT-419 Cruz e Sousa, *Antífona*
+- LIT-420 Augusto dos Anjos, *Versos íntimos*
+- LIT-422 Ueda Akinari, *The Chrysanthemum Vow*
+- LIT-423 Ichiyō Higuchi, *Nigorie (Troubled Waters)*
+- LIT-424 Natsume Sōseki, *Ten Nights of Dreams — The First Night*
+- LIT-433 Sima Qian, *Letter to Ren An*
+- LIT-434 Han Fei, *Han Feizi — Spear and Shield*
+- LIT-437 Wen Tianxiang, *Crossing the Lingding Sea*
+- LIT-438 Yun Sŏndo, *The Fisherman's Calendar (Autumn)*
+- LIT-439 Pak Chiwŏn, *The Tale of a Yangban*
+- LIT-440 Kim Sowŏl, *Azaleas (Chindallae kkot)*
+- LIT-441 Han Yong-un, *The Silence of Love*
+- LIT-442 Francisco Balagtas, *Florante at Laura (opening)*
+- LIT-445 Recorded by Mahmud al-Kashgari, *Elegy for Alp Er Tunga*
+- LIT-448 Abu'l-Qasim Ferdowsi, *Shahnameh (conclusion)*
+- LIT-451 Baba Bulleh Shah, *Bulleha Ki Jaana Main Kaun*
+- LIT-452 Waris Shah, *Heer Ranjha (opening)*
+- LIT-453 Shah Abdul Latif Bhittai, *Shah Jo Risalo — Sur Sasui*
+- LIT-454 Subramania Bharati, *Achamillai Achamillai*
+- LIT-460 Nyanga *Karisi* Oral Bards, *The Mwindo Epic*
+- LIT-461 Ijaw *Okabou* Bardic Tradition, *The Ozidi Saga*
+- LIT-463 Bwana Mwengo wa Athman, *Utendi wa Tambuka (opening)*
+- LIT-464 Ahmad Baba al-Timbukti, *Miʿrāj al-Ṣuʿūd*
+- LIT-465 Shehu Usman dan Fodio, *Nūr al-Albāb*
+- LIT-476 Simón Bolívar, *The Jamaica Letter*
+- LIT-484 Nella Larsen, *Quicksand*
+- LIT-493 Euclides da Cunha, *Os Sertões (Rebellion in the Backlands)*
+- LIT-494 Joaquim Maria Machado de Assis, *Dom Casmurro (Ch. XXXII)*
+- LIT-495 Amado Nervo, *En paz*
+- LIT-496 César Vallejo, *Los heraldos negros (The Black Heralds)*
+- LIT-497 César Vallejo, *Trilce LXXV*
+- LIT-500 José Martí, *Nuestra América*
+- LIT-021 Jia Dao, *The Swordsman (Jiànkè)*
+- LIT-103 Comte de Lautréamont, *Les Chants de Maldoror — Hymn to the Ocean (Canto I)*
+- LIT-130 Traditional Tantric Sanskrit Hymn, *Karpuradi Stotra*
+- LIT-135 Babylonian Temple Priests, *Enuma Elish (Tablet IV)*
+- LIT-138 Mansur al-Hallaj, *Kitāb al-Ṭawāsīn*
+- LIT-184 Napoleon Bonaparte, *Farewell to the Old Guard*
+- LIT-190 Victor Hugo, *Funeral Oration for Balzac*
+
 ## Not yet audited
 
 The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process.
