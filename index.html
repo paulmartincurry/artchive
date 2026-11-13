@@ -8205,14 +8205,15 @@
     // New pieces land in a book automatically, so the shelf gets thicker,
     // not longer. To rename a book, edit RR_BOOK_TITLES below.
     // =========================================================================
-    const RR_SHELVES = ['Mirrors & Gardens', 'Gods & Cosmos', 'Sea & Storms', 'Skulls & Death', 'Rebellion & War', 'Blades & Duels', 'Demons & Beasts'];
+    const RR_SHELVES = ['Mirrors & Gardens', 'Gods & Cosmos', 'Sea & Storms', 'Skulls & Death', 'Rebellion & War', 'Blades & Duels', 'Demons & Beasts', 'Art & Self'];
     // The shelves people see. Rename freely; "subjects" are the tags on the pieces that feed each shelf.
     const RR_SHELF_DEFS = [
       { name: 'Love', subjects: ['Mirrors & Gardens'] },
       { name: 'God', subjects: ['Gods & Cosmos'] },
       { name: 'Earth', subjects: ['Sea & Storms'] },
       { name: 'Death', subjects: ['Skulls & Death', 'Demons & Beasts'] },
-      { name: 'War', subjects: ['Rebellion & War', 'Blades & Duels'] }
+      { name: 'War', subjects: ['Rebellion & War', 'Blades & Duels'] },
+      { name: 'Art', subjects: ['Art & Self'] }
     ];
     const RR_MOODS = ['Yearning', 'Sublime', 'Resolve', 'Melancholy', 'Dark Humor', 'Fury', 'Dread'];
     const RR_MOOD_INK = {
@@ -8224,12 +8225,18 @@
       'Fury': '#8c2f22',
       'Dread': '#262b31'
     };
-    // Pieces whose data tag says "Mirrors & Gardens" but which are really about the
-    // natural world: shelved under Earth here. Reading Room only; the tag itself is untouched.
+    // The data lumps love, nature, art and the uncanny under one tag ("Mirrors & Gardens").
+    // These lists re-shelve those pieces by what they're actually about.
+    // Reading Room only; the tags themselves are untouched. 'Art & Self' is a shelf-only subject.
     const RR_RESHELVE = {};
-    ['LIT-118', 'LIT-199', 'LIT-263', 'LIT-266', 'LIT-205', 'LIT-272', 'LIT-330', 'LIT-360', 'LIT-429',
-     'LIT-487', 'LIT-258', 'LIT-198', 'LIT-311', 'LIT-467', 'LIT-292', 'LIT-290', 'LIT-338'
-    ].forEach(id => { RR_RESHELVE[id] = 'Sea & Storms'; });
+    const rrShelve = (subject, ids) => ids.forEach(id => { RR_RESHELVE[id] = subject; });
+    rrShelve('Sea & Storms', ['LIT-118', 'LIT-199', 'LIT-263', 'LIT-266', 'LIT-205', 'LIT-272', 'LIT-330', 'LIT-360', 'LIT-429',
+      'LIT-487', 'LIT-258', 'LIT-198', 'LIT-311', 'LIT-467', 'LIT-292', 'LIT-290', 'LIT-338']);
+    rrShelve('Art & Self', ['LIT-236', 'LIT-242', 'LIT-245', 'LIT-246', 'LIT-247', 'LIT-251', 'LIT-252', 'LIT-254', 'LIT-257',
+      'LIT-340', 'LIT-389', 'LIT-397', 'LIT-406', 'LIT-432', 'LIT-436', 'LIT-488', 'LIT-495', 'LIT-291', 'LIT-297', 'LIT-455',
+      'LIT-273', 'LIT-374']);
+    rrShelve('Demons & Beasts', ['LIT-096', 'LIT-390', 'LIT-398', 'LIT-483', 'LIT-215']);
+    rrShelve('Skulls & Death', ['LIT-403', 'LIT-473']);
     const RR_MIN_BOOK = 4; // thinner than this and the pieces go into the shelf's "Loose Leaves"
     const RR_BOOK_TITLES = {
       'Mirrors & Gardens|Yearning': 'Wanting',
@@ -8280,7 +8287,14 @@
       'Demons & Beasts|Melancholy': 'The Lonely Monster',
       'Demons & Beasts|Dark Humor': 'Monsters, Politely',
       'Demons & Beasts|Fury': 'Teeth',
-      'Demons & Beasts|Dread': 'Things in the Dark'
+      'Demons & Beasts|Dread': 'Things in the Dark',
+      'Art & Self|Yearning': 'Daydreams',
+      'Art & Self|Sublime': 'The Trained Eye',
+      'Art & Self|Resolve': 'Make It Anyway',
+      'Art & Self|Melancholy': 'Blue Notes',
+      'Art & Self|Dark Humor': 'Everyone’s a Critic',
+      'Art & Self|Fury': 'Tear It Up',
+      'Art & Self|Dread': 'The Blank Page'
     };
 
     const rrState = { tableKeys: null, books: [], open: null, page: 0, showOriginal: false };
