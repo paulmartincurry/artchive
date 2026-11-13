@@ -395,6 +395,43 @@ A usable source probably exists (noted in CLAUDE.md) but was not reached.
 - LIT-184 Napoleon Bonaparte, *Farewell to the Old Guard*
 - LIT-190 Victor Hugo, *Funeral Oration for Balzac*
 
+## Public test, first pass — 12 November 2026
+
+Claude drew up a list of about 120 writings and 70 artworks a visitor is likely to search for first (Claude's own judgement, not search data) and checked the library against it.
+
+**Writing: 37 of 117 were missing; 21 added.** All from Project Gutenberg, PoetryDB or A. S. Kline. New pieces have no commentary note and no original-language text.
+
+| Piece | Translator | Source |
+|---|---|---|
+| LIT-501 Charles Dickens, A Tale of Two Cities (opening) | original English | https://www.gutenberg.org/ebooks/98 |
+| LIT-502 Leo Tolstoy, Anna Karenina (opening) | Constance Garnett, 1901 | https://www.gutenberg.org/ebooks/1399 |
+| LIT-503 Robert Frost, The Road Not Taken | original English | https://www.gutenberg.org/ebooks/59824 |
+| LIT-504 T. S. Eliot, The Love Song of J. Alfred Prufrock (opening) | original English | https://www.gutenberg.org/ebooks/1459 |
+| LIT-505 T. S. Eliot, The Waste Land (opening) | original English | https://www.gutenberg.org/ebooks/1321 |
+| LIT-506 James Joyce, The Dead (ending) | original English | https://www.gutenberg.org/ebooks/2814 |
+| LIT-507 Lewis Carroll, Jabberwocky | original English | https://www.gutenberg.org/ebooks/12 |
+| LIT-508 Niccolò Machiavelli, The Prince (Ch. XVII) | W. K. Marriott, 1908 | https://www.gutenberg.org/ebooks/1232 |
+| LIT-509 Confucius, Analects (Book I, 1) | James Legge, 1893 | https://www.gutenberg.org/ebooks/3330 |
+| LIT-510 The Dhammapada, The Dhammapada (verse 1) | F. Max Müller, 1881 | https://www.gutenberg.org/ebooks/2017 |
+| LIT-511 Johann Wolfgang von Goethe, Faust, Part One (Before the City Gate) | Bayard Taylor, 1870 | https://www.gutenberg.org/ebooks/14591 |
+| LIT-512 Aristotle, Poetics (VI) | S. H. Butcher, 1895 | https://www.gutenberg.org/ebooks/1974 |
+| LIT-513 Rainer Maria Rilke, Archaic Torso of Apollo | Jessie Lemont, 1918 | https://www.gutenberg.org/ebooks/38594 |
+| LIT-514 Rupert Brooke, The Soldier | original English | https://poetrydb.org/ |
+| LIT-515 Horace, Odes I.11 (Carpe Diem) | A. S. Kline | https://www.poetryintranslation.com/PITBR/Latin/HoraceOdesBkI.php |
+| LIT-516 Federico García Lorca, Romance Sonámbulo (opening) | A. S. Kline | https://www.poetryintranslation.com/PITBR/Spanish/LorcaPoemsLoveDeath.php |
+| LIT-517 Fernando Pessoa, Autopsychography | A. S. Kline | https://www.poetryintranslation.com/PITBR/Portuguese/FernandoPessoa.php |
+| LIT-518 Rudyard Kipling, If— | original English | https://www.gutenberg.org/ebooks/556 |
+| LIT-519 William Blake, London | original English | https://poetrydb.org/ |
+| LIT-520 George Gordon, Lord Byron, She Walks in Beauty | original English | https://poetrydb.org/ |
+| LIT-521 Robert Burns, A Red, Red Rose | original English | https://poetrydb.org/ |
+
+Still missing from the writing list: Dickinson "I'm Nobody", Wordsworth's daffodils, Yeats, Frost "Stopping by Woods", Henley "Invictus", Owen, Hardy, Sandburg, Cummings, Pound, Lawrence, Chaucer, Ovid, Proust, Flaubert, Rousseau, the Buddha beyond the Dhammapada, Cavafy. Neruda is deliberately left out: his originals are still in copyright.
+
+**Art: 36 of 72 were missing; none added.** The work sandbox cannot reach Wikimedia (rate-limited), so image links could not be checked, and an unchecked link is a broken picture.
+
+- Public domain and addable once images can be verified: Mona Lisa, The Last Supper, The Starry Night, Sunflowers, The Birth of Venus, The Creation of Adam, David, Impression Sunrise, The Night Watch, The Third of May 1808, Olympia, Le Déjeuner sur l'herbe, The Thinker, The School of Athens, The Arnolfini Portrait, American Gothic, Malevich's Black Square, and something by Renoir, Titian, Giotto, Bernini, Klee, Mondrian, Modigliani, Matisse (pre-1930 work).
+- Still in copyright, cannot be shown: Picasso's Guernica, Dalí, Kahlo, Magritte, Hopper's Nighthawks, Warhol, Pollock, Rothko, Basquiat, O'Keeffe, Brancusi.
+
 ## Not yet audited
 
-The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process.
+The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process. Note for that audit: 370 of them hotlink images from Wikimedia, every artwork carries an AI-written `note` and `craftSpec`, and 500 carry a paired `quote` whose wording and attribution have never been checked. All 425 older writing pieces also carry an AI-written `note`, shown under “Notes” in the reader.
