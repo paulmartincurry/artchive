@@ -3408,6 +3408,98 @@
     }
 
 
+  
+    /* ==========================================================================
+       v29: HERO SEARCH — its own row under the masthead, bigger, centered.
+       Shrinks to a compact bar once you scroll so the art keeps the screen.
+       ========================================================================== */
+    .header-search-cluster,
+    .header-search-cluster:focus-within {
+      order: 3;
+      flex: 1 1 100%;
+      max-width: none;
+      margin: 26px 0 4px;
+      transition: margin 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .header-search-box,
+    .active-chips-row {
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .active-chips-row { width: 100%; justify-content: center; }
+
+    .header-search-box {
+      height: 58px;
+      padding: 0 18px 0 26px;
+      border-color: var(--border-active);
+      transition: height 0.32s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .header-search-box:focus-within {
+      box-shadow: 0 0 0 4px rgba(234, 232, 227, 0.07);
+    }
+
+    .header-search-icon {
+      font-size: 1.15rem;
+      margin-right: 14px;
+    }
+
+    .header-search-input {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.32rem;
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      transition: font-size 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .header-search-input::placeholder {
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .header-search-kbd {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+    }
+
+    .header-search-clear {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+
+    /* Scrolled: the bar tucks back into the top row, small, so the art keeps
+       the screen. margin-bottom hands back the height the header gives up, so
+       the page underneath never jumps. */
+    @keyframes searchTuckIn { from { opacity: 0; } to { opacity: 1; } }
+    .nav-primary { row-gap: 0; }
+    header.is-scrolled { margin-bottom: 80px; }
+    header.is-scrolled .header-search-cluster,
+    header.is-scrolled .header-search-cluster:focus-within {
+      order: 0;
+      flex: 1 1 380px;
+      max-width: 560px;
+      margin: 0 24px;
+    }
+    header.is-scrolled .header-search-box { height: 40px; padding: 0 12px 0 18px; animation: searchTuckIn 0.3s ease; }
+    header.is-scrolled .header-search-input { font-size: 1.08rem; }
+    header.is-scrolled .header-search-icon { font-size: 0.9rem; margin-right: 10px; }
+
+    @media (max-width: 920px) {
+      .header-search-cluster,
+      .header-search-cluster:focus-within { margin: 16px 0 2px; }
+      .header-search-box { height: 50px; padding: 0 14px 0 20px; }
+      .header-search-input { font-size: 1.14rem; }
+      .nav-primary { row-gap: 10px; }
+      header.is-scrolled { margin-bottom: 18px; }
+      header.is-scrolled .header-search-cluster,
+      header.is-scrolled .header-search-cluster:focus-within { order: 3; flex: 1 1 100%; max-width: none; margin: 10px 0 0; }
+      header.is-scrolled .header-search-box { height: 40px; }
+      header.is-scrolled .header-search-input { font-size: 1.02rem; }
+    }
   </style>
 </head>
 <body>
@@ -7748,7 +7840,7 @@
     const topHeaderEl = document.querySelector('header');
     if (topHeaderEl) {
       const syncScrollHeader = () => {
-        topHeaderEl.classList.toggle('is-scrolled', window.scrollY > 14);
+        if (window.scrollY > 56) topHeaderEl.classList.add('is-scrolled'); else if (window.scrollY < 8) topHeaderEl.classList.remove('is-scrolled');
       };
       window.addEventListener('scroll', syncScrollHeader, { passive: true });
       syncScrollHeader();
