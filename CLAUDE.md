@@ -32,7 +32,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 ## How it's built
 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
-- `data/works.js` — the library: 500 artworks + 494 writing pieces, one JSON array.
+- `data/works.js` — the library: 500 artworks + 425 writing pieces, one JSON array.
 - Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution / quoted) and `auditNote`.
 - Re-sourced pieces also carry `translator` (shown in the reader's credit line), `license` (only when the text is not public domain) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
 - Sourcing from the work sandbox: Project Gutenberg, archive.org and poetryintranslation.com can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan and say in `auditNote` when errors were corrected by eye.
@@ -42,11 +42,11 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 
 ## Before pushing
 
-Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room count matches the number of writing pieces in `data/works.js` (494 as of 12 Nov 2026).
+Load the page in a headless browser, switch through every view, open a book and page through it, run a search, and confirm there are no script errors and the Reading Room count matches the number of writing pieces in `data/works.js` (425 as of 12 Nov 2026).
 
 ## Next up
 
-1. Finish the `loose` texts (rule 4). 89 of 187 were re-sourced on 12 Nov 2026 and one cut; 97 remain, listed at the end of the loose-texts section of AUDIT.md. Most of the 97 have no public-domain English that a first search could find: try another piece by the same author, keep must-haves as short credited quotes, cut the rest. Useful sources already found: Walsh's Hispanic Anthology (1920), Blackwell's Some Spanish-American Poets (1929), Nicholson's Translations of Eastern Poetry and Prose (1922), Giles's Gems of Chinese Literature, Bynner's Jade Mountain (1929), Chamberlain's Japanese Poetry (1911). Walsh's per-poem translator credits still need reading off a better scan. The 33 `modern-translation` pieces are closed out (12 Nov 2026, see AUDIT.md): 25 re-sourced, 3 kept as short credited quotes, 5 cut. Good replacements for the cuts would be other work by Akka Mahadevi, Jarry or a Zen death poem, if a usable text turns up. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
+1. Finish the last 16 `loose` texts (listed in AUDIT.md). Likely sources: Haft Paikar (Wilson, 1924), Tukaram (Fraser and Marathe), Tirukkural (Pope), the German Classics series for Hölderlin and Droste, Blackwell's Some Spanish-American Poets for Agustini, Chamberlain's Japanese Poetry for Shiki, the Blunts' Seven Golden Odes for ʿAntara, and any 1928 printing for Larsen's Quicksand. Then look again at the "Cut, wanted back" list in AUDIT.md (Ghalib, Hagakure, Kleist, Sōseki, Ibn Khaldun, Lautréamont): a short verified quote each would restore them. The loose-text pass on 12 Nov 2026 re-sourced 101, cut 70 and left 16. Walsh's per-poem translator credits (Silva, Rosalía de Castro, Mistral) and the Martí translator still need confirming. The 33 `modern-translation` pieces are closed out (12 Nov 2026, see AUDIT.md): 25 re-sourced, 3 kept as short credited quotes, 5 cut. Good replacements for the cuts would be other work by Akka Mahadevi, Jarry or a Zen death poem, if a usable text turns up. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
 2. The public test: list the ~100 works people will search for first, find what's missing, add it.
 3. Audit the 500 artworks the same way the writing was audited (titles, credits, dates).
 4. Decide the fate of the parked views (Global Map, Weather) and the maker tools.
