@@ -1,0 +1,501 @@
+id,shelf,mood_before,mood_after,status,author_before,author_after,title_before,title_after,note
+LIT-001,Earth,Dread,Dread,verified,Samuel Taylor Coleridge,Samuel Taylor Coleridge,The Rime of the Ancient Mariner (Part II),The Rime of the Ancient Mariner (Part II),
+LIT-002,Earth,Fury,Fury,verified,Herman Melville,Herman Melville,Moby-Dick — Captain Ahab's Defiance (Ch. 135),Moby-Dick — Captain Ahab's Defiance (Ch. 135),
+LIT-003,Earth,Dread,Dread,loose,Homer (trans. Samuel Butler),Homer,The Odyssey — Scylla and Charybdis (Book XII),The Odyssey (Book XII),Wording doesn't match Butler's translation as credited; reads like a blend of older prose versions
+LIT-004,Earth,Sublime,Sublime,verified,William Shakespeare,William Shakespeare,"The Tempest — Ariel's Song (Act I, Scene II)","The Tempest — Ariel's Song (Act I, Scene II)",
+LIT-005,Earth,Melancholy,Melancholy,verified,Matthew Arnold,Matthew Arnold,Dover Beach,Dover Beach,
+LIT-006,Earth,Sublime,Sublime,verified,Matsuo Bashō,Matsuo Bashō,Crossing the Crowbar on a Stormy Night,The Rough Sea (Araumi ya),"Old title ""Crossing the Crowbar on a Stormy Night"" was invented; this is the Sado Island haiku from Oku no Hosomichi"
+LIT-007,War,Dark Humor,Dark Humor,verified,Percy Bysshe Shelley,Percy Bysshe Shelley,Ozymandias,Ozymandias,
+LIT-008,Death,Dark Humor,Dark Humor,verified,William Shakespeare,William Shakespeare,"Hamlet — The Graveyard Skull of Yorick (Act V, Scene I)","Hamlet — Alas, Poor Yorick (Act V, Scene I)",
+LIT-009,Death,Melancholy,Melancholy,verified,William Shakespeare,William Shakespeare,"Macbeth — Tomorrow, and Tomorrow, and Tomorrow (Act V, Scene V)","Macbeth — Tomorrow, and Tomorrow, and Tomorrow (Act V, Scene V)",
+LIT-010,Death,Resolve,Resolve,verified,Emily Dickinson,Emily Dickinson,Because I could not stop for Death (479),Because I could not stop for Death (479),
+LIT-011,Death,Dread,Dread,verified,Edgar Allan Poe,Edgar Allan Poe,The Masque of the Red Death (Final Paragraph),The Masque of the Red Death (Final Paragraph),
+LIT-012,Death,Melancholy,Melancholy,modern-translation,Nezahualcóyotl (King of Texcoco),Nezahualcóyotl (King of Texcoco),Song of the Flight of Time (Cantares Mexicanos),Not Forever on Earth,Widely circulated modern English version; attribution to Nezahualcóyotl is traditional
+LIT-013,God,Dread,Dread,verified,King James Bible (Book of Revelation),King James Bible (Book of Revelation),Revelation 6:8 — Behold a Pale Horse,Revelation 6:8,
+LIT-014,God,Sublime,Sublime,verified,William Blake,William Blake,The Tyger,The Tyger,
+LIT-015,Death,Dread,Dread,verified,Friedrich Nietzsche,Friedrich Nietzsche,Beyond Good and Evil — Aphorism 146 (Monsters and the Abyss),Beyond Good and Evil (Aphorism 146),
+LIT-016,Earth,Melancholy,Melancholy,modern-translation,Rainer Maria Rilke,Rainer Maria Rilke,"The Panther (In the Jardin des Plantes, Paris)","The Panther (In the Jardin des Plantes, Paris)",Wording matches Stephen Mitchell's 1982 translation
+LIT-017,God,Dread,Dread,verified,W. B. Yeats,W. B. Yeats,The Second Coming,The Second Coming,
+LIT-018,Death,Melancholy,Melancholy,verified,Edgar Allan Poe,Edgar Allan Poe,The Raven,The Raven,
+LIT-019,God,Sublime,Sublime,verified,Book of Job (King James Version),Book of Job (King James Version),Job 41 — The Leviathan,Job 41,
+LIT-020,War,Resolve,Resolve,modern-translation,Miyamoto Musashi,Miyamoto Musashi,The Book of Five Rings — The Book of the Void,The Book of Five Rings — The Book of the Void,Wording matches Victor Harris's 1974 translation
+LIT-021,War,Resolve,Resolve,loose,Jia Dao (Tang Dynasty),Jia Dao (Tang Dynasty),Song of the Swordsmith,The Swordsman (Jiànkè),"Real title is 劍客, The Swordsman; English is a loose rendering"
+LIT-022,Death,Dread,Dread,verified,William Shakespeare,William Shakespeare,"Macbeth — Is This a Dagger Which I See Before Me (Act II, Scene I)","Macbeth — Is This a Dagger Which I See Before Me (Act II, Scene I)",
+LIT-023,War,Melancholy,Melancholy,loose,Abu'l-Qasim Ferdowsi,Abu'l-Qasim Ferdowsi,Shahnama — The Tragedy of Rostam and Sohrab,Shahnameh — Rostam and Sohrab,"Prose retelling, not a line-for-line translation"
+LIT-024,War,Fury,Resolve,verified,Anonymous Anglo-Saxon Poet,Anonymous Anglo-Saxon Poet,Beowulf — The Forging and Melting of the Giant-Sword,Beowulf — The Giants' Sword,
+LIT-025,God,Fury,Fury,verified,John Milton,John Milton,Paradise Lost — Satan's Defiance in Pandæmonium (Book I),Paradise Lost (Book I),
+LIT-026,God,Sublime,Sublime,verified,Vyasa (Sanskrit Epic),Vyasa (Sanskrit Epic),Bhagavad Gita — The Cosmic Vishvarupa Vision (Chapter XI),Bhagavad Gita (Chapter XI),
+LIT-027,God,Sublime,Sublime,verified,William Blake,William Blake,Auguries of Innocence,Auguries of Innocence,
+LIT-028,God,Dread,Dread,verified,Dante Alighieri,Dante Alighieri,Inferno — The Gate of Hell & The Stars (Cantos III & XXXIV),Inferno (Cantos III & XXXIV),
+LIT-029,God,Sublime,Sublime,loose,Farid ud-Din Attar,Farid ud-Din Attar,The Conference of the Birds — The Simorgh's Mirror,The Conference of the Birds,"A summary of the poem's ending, not a quotation from it"
+LIT-030,Death,Resolve,Resolve,verified,Marcus Aurelius,Marcus Aurelius,"Meditations — Book IV, Section 48 (The Stream of Time)","Meditations (Book IV, 48)",
+LIT-031,War,Resolve,Resolve,verified,Sun Tzu,Sun Tzu,The Art of War — Tactical Dispositions & Energy,The Art of War (Ch. IV–V),
+LIT-032,War,Melancholy,Melancholy,verified,Du Fu,Du Fu,Spring View (Chūn Wàng — In Occupied Chang'an),Spring View (Chūn Wàng),
+LIT-033,War,Fury,Melancholy,verified,Homer,Homer,The Iliad — Achilles' Grief & Wrath (Book XVIII),The Iliad (Book XVIII),
+LIT-034,War,Dread,Dread,verified,Wilfred Owen,Wilfred Owen,Dulce et Decorum Est,Dulce et Decorum Est,
+LIT-035,War,Dark Humor,Dark Humor,verified,Jonathan Swift,Jonathan Swift,A Modest Proposal,A Modest Proposal,
+LIT-036,God,Dark Humor,Dark Humor,verified,Robert Frost,Robert Frost,Fire and Ice,Fire and Ice,
+LIT-037,Death,Dark Humor,Dark Humor,modern-translation,Charles Baudelaire,Charles Baudelaire,To the Reader (Au Lecteur — Les Fleurs du mal),To the Reader (Au Lecteur — Les Fleurs du mal),Wording matches William Aggeler's 1954 translation
+LIT-038,God,Resolve,Resolve,verified,Omar Khayyam (trans. Edward FitzGerald),Omar Khayyam (trans. Edward FitzGerald),Rubáiyát — The Moving Finger,Rubáiyát — The Moving Finger,
+LIT-039,Earth,Melancholy,Yearning,verified,Li Bai,Li Bai,Drinking Alone by Moonlight,Drinking Alone by Moonlight,
+LIT-040,War,Resolve,Resolve,verified,William Ernest Henley,William Ernest Henley,Invictus,Invictus,
+LIT-041,Death,Melancholy,Melancholy,verified,Mary Shelley,Mary Shelley,Frankenstein — The Creature's Farewell on the Ice,Frankenstein (Walton's final letter),
+LIT-042,Art,Sublime,Sublime,verified,Samuel Taylor Coleridge,Samuel Taylor Coleridge,Kubla Khan,Kubla Khan,
+LIT-043,Death,Dread,Dread,verified,Lord Byron,Lord Byron,Darkness,Darkness,
+LIT-044,War,Melancholy,Melancholy,verified,Matsuo Bashō,Matsuo Bashō,Summer Grasses at Hiraizumi,Summer Grasses at Hiraizumi,
+LIT-045,Death,Melancholy,Melancholy,verified,William Shakespeare,William Shakespeare,"Hamlet — Act III, Scene I (Soliloquy)","Hamlet (Act III, Scene I)",
+LIT-046,Love,Sublime,Sublime,verified,William Shakespeare,William Shakespeare,Sonnet 18 (Shall I compare thee),Sonnet 18,
+LIT-047,Earth,Fury,Fury,verified,William Shakespeare,William Shakespeare,"King Lear on the Stormy Heath (Act III, Scene II)","King Lear (Act III, Scene II)",
+LIT-048,War,Resolve,Resolve,verified,William Shakespeare,William Shakespeare,"Julius Caesar — Act II, Scene II (Of Fear and Death)","Julius Caesar (Act II, Scene II)",
+LIT-049,Death,Dark Humor,Dark Humor,verified,William Shakespeare,William Shakespeare,"Richard II — Act III, Scene II (The Hollow Crown)","Richard II (Act III, Scene II)",
+LIT-050,Art,Sublime,Sublime,verified,John Keats,John Keats,Ode on a Grecian Urn,Ode on a Grecian Urn,
+LIT-051,Death,Melancholy,Melancholy,verified,John Keats,John Keats,Ode to a Nightingale,Ode to a Nightingale,
+LIT-052,Love,Yearning,Yearning,verified,John Keats,John Keats,La Belle Dame sans Merci,La Belle Dame sans Merci,
+LIT-053,Death,Resolve,Melancholy,verified,John Keats,John Keats,When I have fears that I may cease to be,When I have fears that I may cease to be,
+LIT-054,Art,Fury,Resolve,verified,Walt Whitman,Walt Whitman,Song of Myself (Sections 51–52),Song of Myself (Sections 51–52),
+LIT-055,Death,Melancholy,Melancholy,verified,Walt Whitman,Walt Whitman,O Captain! My Captain!,O Captain! My Captain!,
+LIT-056,Art,Resolve,Resolve,verified,Emily Dickinson,Emily Dickinson,'Hope' is the thing with feathers (314),'Hope' is the thing with feathers (314),
+LIT-057,Death,Dread,Dread,verified,Emily Dickinson,Emily Dickinson,"I felt a Funeral, in my Brain (340)","I felt a Funeral, in my Brain (340)",
+LIT-058,Art,Sublime,Resolve,verified,Emily Dickinson,Emily Dickinson,Tell all the truth but tell it slant (1263),Tell all the truth but tell it slant (1263),
+LIT-059,Love,Yearning,Yearning,verified,Edgar Allan Poe,Edgar Allan Poe,Annabel Lee,Annabel Lee,
+LIT-060,Death,Dread,Melancholy,verified,Edgar Allan Poe,Edgar Allan Poe,A Dream Within a Dream,A Dream Within a Dream,
+LIT-061,Earth,Resolve,Resolve,loose,"Alfred, Lord Tennyson","Alfred, Lord Tennyson",Ulysses,Ulysses,"Real lines, but quoted out of order"
+LIT-062,War,Fury,Resolve,verified,"Alfred, Lord Tennyson","Alfred, Lord Tennyson",The Charge of the Light Brigade,The Charge of the Light Brigade,
+LIT-063,Earth,Dread,Dread,verified,"Alfred, Lord Tennyson","Alfred, Lord Tennyson",The Kraken,The Kraken,
+LIT-064,Death,Resolve,Resolve,verified,John Donne,John Donne,"Holy Sonnet 10: Death, be not proud","Holy Sonnet 10: Death, be not proud",
+LIT-065,Death,Resolve,Resolve,verified,John Donne,John Donne,Meditation XVII (For Whom the Bell Tolls),Meditation XVII,
+LIT-066,Love,Dark Humor,Dark Humor,verified,Andrew Marvell,Andrew Marvell,To His Coy Mistress,To His Coy Mistress,
+LIT-067,Death,Resolve,Resolve,verified,Robert Herrick,Robert Herrick,"To the Virgins, to Make Much of Time","To the Virgins, to Make Much of Time",
+LIT-068,Death,Melancholy,Melancholy,verified,Christina Rossetti,Christina Rossetti,Remember,Remember,
+LIT-069,Death,Dread,Dread,verified,Gerard Manley Hopkins,Gerard Manley Hopkins,"No worst, there is none","No worst, there is none",
+LIT-070,Art,Fury,Fury,verified,Arthur Rimbaud,Arthur Rimbaud,A Season in Hell (Une Saison en Enfer — Prologue),A Season in Hell (Une Saison en Enfer),
+LIT-071,Art,Sublime,Resolve,verified,Charles Baudelaire,Charles Baudelaire,Be Drunken (Enivrez-vous — Paris Spleen),Be Drunken (Enivrez-vous),
+LIT-072,Death,Dark Humor,Melancholy,verified,François Villon,François Villon,Ballade des Pendus (Ballad of the Hanged Men),Ballade des Pendus (Ballad of the Hanged Men),
+LIT-073,Love,Yearning,Yearning,verified,Sappho of Lesbos,Sappho of Lesbos,Midnight Poem (Fragment 168B),Fragment 168B (The Moon Has Set),
+LIT-074,Love,Yearning,Yearning,verified,Sappho of Lesbos,Sappho of Lesbos,Fragment 31 (Subtle Fire),Fragment 31,
+LIT-075,Death,Melancholy,Melancholy,verified,Catullus,Catullus,Carmen 101 (Ave atque Vale),Carmen 101 (Ave atque Vale),
+LIT-076,Death,Dread,Dread,verified,Virgil,Virgil,The Aeneid — Book VI (The Descent to Avernus),The Aeneid (Book VI),
+LIT-077,Art,Sublime,Sublime,loose,Sophocles,Sophocles,Antigone — The Ode to Man (First Stasimon),Antigone — Ode to Man,Close to Jebb's translation with a word added
+LIT-078,Death,Resolve,Resolve,attribution,Sin-leqi-unninni (Babylonian Epic),Anonymous (Old Babylonian),The Epic of Gilgamesh — Siduri at the Edge of the Sea,The Epic of Gilgamesh — Siduri's Advice,"Siduri's speech is from the Old Babylonian version, not Sin-leqi-unninni's; wording is a paraphrase. Credit should be Anonymous"
+LIT-079,God,Resolve,Melancholy,verified,Qoheleth (Book of Ecclesiastes),Qoheleth (Book of Ecclesiastes),Ecclesiastes 1 & 3 — Vanity of Vanities & A Time to Every Purpose,Ecclesiastes 1 & 3,
+LIT-080,God,Yearning,Yearning,verified,Jalāl al-Dīn Muḥammad Rūmī,Jalāl al-Dīn Muḥammad Rūmī,Masnavi — Song of the Reed Flute (Prologue),Masnavi — Song of the Reed,
+LIT-081,God,Sublime,Sublime,attribution,Hafez of Shiraz,Daniel Ladinsky (published as “Hafiz”),Divan — Ghazal of the Tavern and the Sun,The Sun Never Says,"Not by Hafez. Written by Daniel Ladinsky (The Gift, 1999), who publishes his own poems under Hafez's name"
+LIT-082,War,Resolve,Resolve,verified,Rabindranath Tagore,Rabindranath Tagore,Gitanjali 35 (Where the Mind is Without Fear),Gitanjali 35,
+LIT-083,War,Sublime,Melancholy,verified,Su Shi (Su Dongpo),Su Shi (Su Dongpo),Memories of the Red Cliff (Nian Nu Jiao),Memories of the Red Cliff (Nian Nu Jiao),
+LIT-084,Earth,Resolve,Sublime,verified,Wang Wei,Wang Wei,Deer Park (Lù Zhài — Wang River Collection),Deer Park (Lù Zhài),
+LIT-085,Death,Melancholy,Melancholy,verified,Kobayashi Issa,Kobayashi Issa,This Dewdrop World (Tsuyu no Yo),This Dewdrop World (Tsuyu no Yo),
+LIT-086,Art,Dark Humor,Dark Humor,verified,Fyodor Dostoevsky,Fyodor Dostoevsky,"Notes from Underground (Part I, Ch. I)","Notes from Underground (Part I, Ch. I)",
+LIT-087,God,Dread,Dread,verified,Fyodor Dostoevsky,Fyodor Dostoevsky,"The Brothers Karamazov — The Grand Inquisitor (Book V, Ch. 5)",The Brothers Karamazov — The Grand Inquisitor,
+LIT-088,Art,Melancholy,Melancholy,verified,Fyodor Dostoevsky,Fyodor Dostoevsky,Crime and Punishment — Pain and Great Intelligence,"Crime and Punishment (Part III, Ch. 5)",
+LIT-089,Earth,Dread,Dread,verified,Herman Melville,Herman Melville,Moby-Dick — The Whiteness of the Whale (Ch. 42),Moby-Dick — The Whiteness of the Whale (Ch. 42),
+LIT-090,War,Resolve,Resolve,verified,Herman Melville,Herman Melville,"Bartleby, the Scrivener: A Story of Wall-Street","Bartleby, the Scrivener",
+LIT-091,Death,Dread,Dread,verified,Joseph Conrad,Joseph Conrad,Heart of Darkness — Kurtz's Final Whisper (Part III),Heart of Darkness (Part III),
+LIT-092,Death,Dark Humor,Dark Humor,modern-translation,Franz Kafka,Franz Kafka,The Metamorphosis (Die Verwandlung — Opening),The Metamorphosis (Die Verwandlung),Wording matches Stanley Corngold's 1972 translation
+LIT-093,God,Dread,Dread,modern-translation,Franz Kafka,Franz Kafka,The Trial — Before the Law (Vor dem Gesetz),The Trial — Before the Law,Wording matches the Muirs' 1937 translation
+LIT-094,Love,Yearning,Fury,verified,Emily Brontë,Emily Brontë,Wuthering Heights — Heathcliff's Cry in the Night (Ch. 16),Wuthering Heights (Ch. 16),
+LIT-095,War,Resolve,Resolve,verified,Charlotte Brontë,Charlotte Brontë,Jane Eyre — The Uncaged Will (Ch. 23),Jane Eyre (Ch. 23),
+LIT-096,Death,Dread,Dread,verified,Charlotte Perkins Gilman,Charlotte Perkins Gilman,The Yellow Wallpaper (Final Scene),The Yellow Wallpaper,
+LIT-097,Death,Dread,Dread,verified,Edgar Allan Poe,Edgar Allan Poe,The Tell-Tale Heart,The Tell-Tale Heart,
+LIT-098,Death,Dark Humor,Dark Humor,verified,Edgar Allan Poe,Edgar Allan Poe,The Cask of Amontillado,The Cask of Amontillado,
+LIT-099,Death,Dread,Dread,verified,Robert Louis Stevenson,Robert Louis Stevenson,Strange Case of Dr Jekyll and Mr Hyde — Henry Jekyll's Statement,Strange Case of Dr Jekyll and Mr Hyde,
+LIT-100,Art,Dread,Dread,loose,Oscar Wilde,Oscar Wilde,The Picture of Dorian Gray — Soul and Canvas (Ch. XIII),The Picture of Dorian Gray (Ch. XIII),First sentence is Wilde's; the second doesn't appear in the novel
+LIT-101,Death,Melancholy,Melancholy,verified,Nikolai Gogol,Nikolai Gogol,"Diary of a Madman (Final Entry: Madrid, February 30)",Diary of a Madman (final entry),
+LIT-102,War,Dark Humor,Dark Humor,loose,Miguel de Cervantes,Miguel de Cervantes,"Don Quixote — Tilting at Monstrous Giants (Part I, Ch. VIII)","Don Quixote (Part I, Ch. VIII)",Loose rendering of the windmills passage; contains a typo
+LIT-103,Earth,Fury,Fury,loose,Comte de Lautréamont (Isidore Ducasse),Comte de Lautréamont (Isidore Ducasse),Les Chants de Maldoror — Hymn to the Ocean (Canto I),Les Chants de Maldoror — Hymn to the Ocean (Canto I),"Loose rendering with a garbled word (""crítica"")"
+LIT-104,Love,Fury,Fury,modern-translation,Euripides,Euripides,Medea — Monologue Before the Palace Doors,Medea,Wording matches Rex Warner's 1944 translation
+LIT-105,Death,Dread,Dread,loose,Euripides,Euripides,The Bacchae — Agave's Awakening on Mount Cithaeron,The Bacchae,Loose rendering
+LIT-106,Death,Dread,Dread,loose,Aeschylus,Aeschylus,Agamemnon — Cassandra at the Threshold of Mycenae,Agamemnon,Loose rendering of Cassandra's lines
+LIT-107,Death,Dread,Dread,loose,Sophocles,Sophocles,Oedipus the King — The Cloud of Darkness,Oedipus the King,Loose rendering
+LIT-108,God,Dread,Dread,verified,Christopher Marlowe,Christopher Marlowe,"Doctor Faustus — The Final Hour (Act V, Scene II)",Doctor Faustus (final scene),
+LIT-109,Death,Resolve,Resolve,verified,John Webster,John Webster,"The Duchess of Malfi — Act IV, Scene II","The Duchess of Malfi (Act IV, Scene II)",
+LIT-110,War,Fury,Fury,verified,Thomas Kyd,Thomas Kyd,The Spanish Tragedy — Hieronimo's Vengeance,The Spanish Tragedy,
+LIT-111,Death,Resolve,Melancholy,verified,Seneca the Younger,Seneca the Younger,Phaedra & Thyestes — Stoic Tragic Maxims,Phaedra (line 607),Old title credited two plays; the line is from Phaedra
+LIT-112,Love,Melancholy,Melancholy,verified,Gérard de Nerval,Gérard de Nerval,El Desdichado (The Disinherited),El Desdichado (The Disinherited),
+LIT-113,God,Sublime,Sublime,loose,Lucretius,Lucretius,De Rerum Natura (On the Nature of Things — Book II),De Rerum Natura (Book II),"A summary image, not a quotation"
+LIT-114,God,Dread,Dread,verified,Blaise Pascal,Blaise Pascal,Pensées — The Infinite Spaces & The Thinking Reed,Pensées,Two separate pensées joined
+LIT-115,Death,Dark Humor,Dark Humor,attribution,Arthur Schopenhauer,Arthur Schopenhauer,Studies in Pessimism — On the Sufferings of the World,The World as Will and Representation,"The pendulum line is from The World as Will, not Studies in Pessimism"
+LIT-116,God,Sublime,Sublime,verified,Zhuangzi (Chuang Tzu),Zhuangzi (Chuang Tzu),"Zhuangzi — The Butterfly Dream (Qiwulun, Ch. 2)",Zhuangzi — The Butterfly Dream,
+LIT-117,God,Melancholy,Melancholy,loose,Cao Xueqin,Cao Xueqin,Dream of the Red Chamber — The Land of Illusion Archway (Ch. 1),Dream of the Red Chamber (Ch. 1),Loose rendering of the archway couplet
+LIT-118,Earth,Sublime,Sublime,modern-translation,Sei Shōnagon,Sei Shōnagon,The Pillow Book (Makura no Sōshi — Opening),The Pillow Book (opening),Wording matches Ivan Morris's 1967 translation
+LIT-119,Earth,Melancholy,Melancholy,loose,Kamo no Chōmei,Kamo no Chōmei,Hōjōki (An Account of My Hut — Opening),Hōjōki (opening),Loose rendering
+LIT-120,God,Fury,Sublime,verified,Heraclitus of Ephesus,Heraclitus of Ephesus,Cosmic Fragments — Ever-Living Fire & Strife (DK B30 & B53),Fragments (DK B30),
+LIT-121,God,Sublime,Sublime,loose,Rishi Prajapati Parameshthin,Rishi Prajapati Parameshthin,"Rigveda — Nasadiya Sukta (Hymn of Creation, 10.129)",Rigveda — Nasadiya Sukta (10.129),Loose rendering; author credit is the traditional one
+LIT-122,God,Dread,Dread,verified,Book of Ezekiel (Hebrew Bible / KJV),Book of Ezekiel (Hebrew Bible / KJV),Ezekiel 1 & 37 — Wheels Within Wheels & The Valley of Dry Bones,Ezekiel 1,
+LIT-123,God,Sublime,Sublime,loose,The Qur'an (Surah An-Nur),The Qur'an (Surah An-Nur),"The Qur'an — Āyat an-Nūr (The Verse of Light, Surah 24:35)",The Qur'an — The Verse of Light (24:35),Phrases reordered from the verse
+LIT-124,God,Dread,Dread,verified,The Qur'an (Early Meccan Surah),The Qur'an (Early Meccan Surah),"The Qur'an — Al-Qāriʿah (The Striking Calamity, Surah 101)",The Qur'an — Al-Qāriʿah (Surah 101),
+LIT-125,Love,Yearning,Yearning,verified,Song of Solomon (Hebrew Bible / KJV),Song of Solomon (Hebrew Bible / KJV),Song of Songs 8:6 — Love is Strong as Death,Song of Songs 8:6,
+LIT-126,God,Yearning,Yearning,verified,Saint John of the Cross (San Juan de la Cruz),Saint John of the Cross (San Juan de la Cruz),Dark Night of the Soul (Noche Oscura del Alma),Dark Night of the Soul (Noche Oscura del Alma),
+LIT-127,God,Resolve,Sublime,verified,Mahāyāna Buddhist Canon,Mahāyāna Buddhist Canon,The Heart Sutra (Prajñāpāramitā Hṛdaya),The Heart Sutra,
+LIT-128,God,Fury,Dread,verified,Anonymous Old Norse Skalds,Anonymous Old Norse Skalds,The Poetic Edda — Völuspá (Prophecy of the Seeress / Ragnarök),The Poetic Edda — Völuspá,
+LIT-129,God,Resolve,Resolve,verified,Vedic Upanishadic Seers,Vedic Upanishadic Seers,"Katha Upanishad — Nachiketa and Yama, Lord of Death",Katha Upanishad,
+LIT-130,God,Sublime,Sublime,loose,Traditional Tantric Sanskrit Hymn,Traditional Tantric Sanskrit Hymn,Karpuradi Stotram — Hymn to Mahākālī in the Cremation Ground,Karpuradi Stotra,Loose rendering
+LIT-131,God,Resolve,Resolve,loose,Laozi (Lao Tzu),Laozi (Lao Tzu),Tao Te Ching — Chapters 1 & 5 (The Unnameable & Straw Dogs),Tao Te Ching (Ch. 1 & 5),Blend of several published translations
+LIT-132,Death,Resolve,Resolve,modern-translation,Kozan Ichikyo,Kozan Ichikyo,Jisei — Death Poem of Zen Master Kozan Ichikyo,Death Poem,Wording matches Yoel Hoffmann's Japanese Death Poems (1986)
+LIT-133,God,Sublime,Sublime,loose,K'iche' Maya Sacred Scribes,K'iche' Maya Sacred Scribes,Popol Vuh — The Dawn of the World & Xibalba,Popol Vuh,Loose rendering of the opening
+LIT-134,Death,Dread,Dread,loose,Papyrus of Ani (New Kingdom Scribes),Papyrus of Ani (New Kingdom Scribes),Egyptian Book of the Dead — The Weighing of the Heart (Spell 30B & 125),Book of the Dead (Spell 30B),Loose rendering
+LIT-135,God,Fury,Fury,loose,Babylonian Temple Priests,Babylonian Temple Priests,Enuma Elish — Marduk Slays the Chaos Dragon Tiamat (Tablet IV),Enuma Elish (Tablet IV),Loose rendering
+LIT-136,God,Sublime,Sublime,verified,Meister Eckhart,Meister Eckhart,Sermons — The Eye Through Which I See God,Sermons,
+LIT-137,God,Sublime,Sublime,attribution,Hildegard von Bingen,Hildegard von Bingen,Scivias & Symphonia — Feather on the Breath of God,Liber Divinorum Operum,"This passage is from the Book of Divine Works, not Scivias or Symphonia"
+LIT-138,God,Fury,Yearning,loose,Mansur al-Hallaj,Mansur al-Hallaj,Kitāb al-Ṭawāsīn — The Moth and the Candle Flame,Kitāb al-Ṭawāsīn,Loose rendering
+LIT-139,God,Sublime,Sublime,verified,Book of Genesis (Hebrew Bible / KJV),Book of Genesis (Hebrew Bible / KJV),Genesis 1:1–3 — Darkness Upon the Face of the Deep,Genesis 1:1–3,
+LIT-140,God,Resolve,Resolve,verified,Book of Psalms (Hebrew Bible / KJV),Book of Psalms (Hebrew Bible / KJV),Psalm 23:4 — The Valley of the Shadow of Death,Psalm 23:4,
+LIT-141,War,Melancholy,Melancholy,verified,Book of Psalms (Hebrew Bible / KJV),Book of Psalms (Hebrew Bible / KJV),Psalm 137 — By the Rivers of Babylon,Psalm 137,
+LIT-142,God,Resolve,Sublime,verified,First Book of Kings (Hebrew Bible / KJV),First Book of Kings (Hebrew Bible / KJV),1 Kings 19:11–12 — The Still Small Voice After the Fire,1 Kings 19:11–12,
+LIT-143,God,Dread,Dread,verified,Book of Isaiah (Hebrew Bible / KJV),Book of Isaiah (Hebrew Bible / KJV),Isaiah 6:1–7 — The Seraphim and the Live Coal,Isaiah 6,
+LIT-144,God,Sublime,Sublime,verified,Gospel of John (New Testament / KJV),Gospel of John (New Testament / KJV),John 1:1–5 — The Light Shineth in Darkness,John 1:5,
+LIT-145,God,Melancholy,Melancholy,verified,Paul of Tarsus (New Testament / KJV),Paul of Tarsus (New Testament / KJV),"1 Corinthians 13:12 — Through a Glass, Darkly",1 Corinthians 13:12,
+LIT-146,God,Dread,Dread,verified,Attributed to Thomas of Celano,Attributed to Thomas of Celano,Dies Irae (Day of Wrath — Requiem Sequence),Dies Irae,
+LIT-147,God,Sublime,Sublime,modern-translation,Kumārajīva / Sanskrit Mahāyāna Canon,Kumārajīva / Sanskrit Mahāyāna Canon,"The Diamond Sutra — The Stanza of Lightning, Stars, and Dew (Ch. 32)",The Diamond Sutra (Ch. 32),Wording matches A. F. Price's 1947 translation
+LIT-148,God,Resolve,Resolve,verified,Pāli Buddhist Canon,Pāli Buddhist Canon,Dhammapada — The House-Builder Shattered (Verses 153–154),Dhammapada (153–154),
+LIT-149,God,Sublime,Sublime,modern-translation,Anonymous Gnostic Visionary,Anonymous Gnostic Visionary,"The Thunder, Perfect Mind (Nag Hammadi Codex VI, 2)","The Thunder, Perfect Mind",Wording matches George MacRae's 1977 translation
+LIT-150,Death,Resolve,Resolve,loose,Orphic Mystery Initiates,Orphic Mystery Initiates,The Orphic Gold Tablets (Hipponion & Petelia Lamellae),The Orphic Gold Tablets,Loose rendering
+LIT-151,God,Fury,Fury,verified,Linji Yixuan (Rinzai Gigen),Linji Yixuan (Rinzai Gigen),Linji Lu (Record of Linji) — Kill the Buddha on the Road,The Record of Linji,
+LIT-152,Death,Dread,Resolve,loose,Karma Lingpa / Padmasambhava Tradition,Karma Lingpa / Padmasambhava Tradition,Bardo Thödol (The Tibetan Book of the Dead — The Wrathful Deities),Bardo Thödol (The Tibetan Book of the Dead),Loose rendering
+LIT-153,God,Fury,Fury,unconfirmed,Yoruba Babaláwo & Akéwì Oral Canon,Yoruba Babaláwo & Akéwì Oral Canon,Oríkì of Ṣàngó — Praise-Chant of the Lord of Thunder and Double-Axe,Oríkì of Ṣàngó,Could not confirm these lines against a recorded oríkì; may be composed
+LIT-154,God,Sublime,Sublime,verified,Hermetic / Jabir ibn Hayyan Tradition,Hermetic / Jabir ibn Hayyan Tradition,Tabula Smaragdina (The Emerald Tablet of Hermes Trismegistus),The Emerald Tablet,
+LIT-155,War,Resolve,Resolve,verified,Guru Gobind Singh,Guru Gobind Singh,Zafarnama (Epistle of Victory — Verse 22),Zafarnama (verse 22),
+LIT-156,War,Fury,Fury,verified,Frederick Douglass,Frederick Douglass,What to the Slave Is the Fourth of July?,What to the Slave Is the Fourth of July?,
+LIT-157,War,Melancholy,Melancholy,verified,Abraham Lincoln,Abraham Lincoln,Second Inaugural Address,Second Inaugural Address,
+LIT-158,War,Resolve,Resolve,verified,Abraham Lincoln,Abraham Lincoln,The Gettysburg Address,The Gettysburg Address,
+LIT-159,War,Fury,Resolve,verified,Sojourner Truth,Sojourner Truth,Ain't I a Woman?,Ain't I a Woman?,The well-known text is Frances Gage's 1863 version of the speech
+LIT-160,Death,Resolve,Resolve,verified,Socrates (via Plato),Socrates (via Plato),Apology to the Athenian Jury (Closing Remarks),Apology,
+LIT-161,War,Resolve,Resolve,verified,John Brown,John Brown,Final Address to the Court at Charles Town,Address to the Court,
+LIT-162,Death,Resolve,Dark Humor,verified,Georges Jacques Danton,Georges Jacques Danton,Defense Before the Tribunal & Words on the Scaffold,Last Words on the Scaffold,
+LIT-163,War,Resolve,Resolve,verified,Eugene V. Debs,Eugene V. Debs,Statement to the Court Upon Conviction Under the Sedition Act,Statement to the Court,
+LIT-164,War,Melancholy,Melancholy,verified,Chief Joseph (Hin-mah-too-yah-lat-kekt),Chief Joseph (Hin-mah-too-yah-lat-kekt),Surrender Speech in the Bear Paw Mountains,Surrender Speech,
+LIT-165,War,Fury,Fury,verified,Tecumseh (Shawnee Chief),Tecumseh (Shawnee Chief),Speech to the Osages & At Vincennes,Speech at Vincennes,
+LIT-166,War,Fury,Fury,verified,Calgacus (via Tacitus),Calgacus (via Tacitus),Speech Before the Battle of Mons Graupius (Agricola 30),Agricola (Ch. 30),
+LIT-167,Death,Sublime,Sublime,verified,Pericles (via Thucydides),Pericles (via Thucydides),The Athenian Funeral Oration (Book II.43),Funeral Oration,
+LIT-168,War,Resolve,Resolve,verified,Queen Elizabeth I,Queen Elizabeth I,Speech to the Troops at Tilbury,Speech to the Troops at Tilbury,
+LIT-169,War,Fury,Fury,verified,Patrick Henry,Patrick Henry,"Give Me Liberty, or Give Me Death!","Give Me Liberty, or Give Me Death!",
+LIT-170,War,Resolve,Resolve,verified,Theodore Roosevelt,Theodore Roosevelt,Citizenship in a Republic (The Man in the Arena),Citizenship in a Republic,
+LIT-171,War,Fury,Resolve,verified,Emmeline Pankhurst,Emmeline Pankhurst,Freedom or Death (Hartford Speech),Freedom or Death,
+LIT-172,War,Fury,Fury,verified,Lucy Parsons,Lucy Parsons,"To Tramps, the Unemployed, the Disinherited, and Miserable",To Tramps,
+LIT-173,War,Fury,Fury,verified,William Jennings Bryan,William Jennings Bryan,The Cross of Gold Speech,Cross of Gold,
+LIT-174,War,Fury,Fury,verified,Marcus Tullius Cicero,Marcus Tullius Cicero,First Oration Against Catiline (In Catilinam I),First Oration Against Catiline,
+LIT-175,War,Dread,Resolve,loose,Demosthenes,Demosthenes,The Third Philippic,The Third Philippic,Loose rendering
+LIT-176,War,Fury,Fury,verified,Oliver Cromwell,Oliver Cromwell,Dissolution of the Rump Parliament,Dissolution of the Rump Parliament,Traditional wording; contemporary accounts of the speech differ
+LIT-177,War,Resolve,Resolve,verified,William Pitt the Elder (1st Earl of Chatham),William Pitt the Elder (1st Earl of Chatham),Speech on the Excise Bill (A Man's House Is His Castle),Speech on the Excise Bill,
+LIT-178,War,Fury,Resolve,verified,Émile Zola,Émile Zola,J'Accuse…! (Open Letter to the President of the Republic),J'Accuse…!,Second sentence is from a different Zola article
+LIT-179,War,Resolve,Resolve,verified,Giordano Bruno,Giordano Bruno,Response to the Roman Inquisition Upon Sentencing,Reply to the Inquisition,"Reported by a witness, not recorded verbatim"
+LIT-180,War,Resolve,Resolve,verified,Susan B. Anthony,Susan B. Anthony,Is It a Crime for a U.S. Citizen to Vote?,Is It a Crime for a U.S. Citizen to Vote?,
+LIT-181,War,Resolve,Resolve,verified,Robert Emmet,Robert Emmet,Speech from the Dock in Dublin,Speech from the Dock,
+LIT-182,War,Melancholy,Melancholy,verified,Clarence Darrow,Clarence Darrow,Closing Plea for Mercy in the Leopold and Loeb Trial,"Closing Argument, Leopold and Loeb",
+LIT-183,War,Fury,Fury,loose,"Alexander the Great (via Arrian, Anabasis VII.9–10)","Alexander the Great (via Arrian, Anabasis VII.9–10)",The Speech at Opis (To His Mutinous Macedonian Veterans),Speech at Opis,Loose rendering of Arrian
+LIT-184,War,Melancholy,Melancholy,loose,Napoleon Bonaparte,Napoleon Bonaparte,Farewell to the Old Guard at Fontainebleau,Farewell to the Old Guard,Loose rendering
+LIT-185,War,Resolve,Resolve,verified,Giuseppe Garibaldi,Giuseppe Garibaldi,Appeal to the Defenders of the Roman Republic,Appeal at Rome,
+LIT-186,War,Resolve,Resolve,verified,Toussaint Louverture,Toussaint Louverture,Proclamation of Camp Turel & Words Boarding the Frigate Créole,Words on Being Deported,
+LIT-187,War,Dark Humor,Dark Humor,verified,William Shakespeare (after Plutarch),William Shakespeare,"Julius Caesar — Mark Antony's Funeral Oration (Act III, Scene II)","Julius Caesar — Antony’s Funeral Oration (Act III, Scene II)",
+LIT-188,God,Dark Humor,Dark Humor,verified,"Red Jacket (Sagoyewatha, Seneca Orator)","Red Jacket (Sagoyewatha, Seneca Orator)",Reply to the Missionary Jacob Cram at Buffalo Creek,Reply to the Missionary,
+LIT-189,War,Dread,Dread,verified,Louis Antoine de Saint-Just,Louis Antoine de Saint-Just,Report on the Suspects & Republic of Virtue Maxims,Speeches to the Convention,
+LIT-190,Death,Sublime,Sublime,loose,Victor Hugo,Victor Hugo,Funeral Oration at the Grave of Honoré de Balzac,Funeral Oration for Balzac,Loose rendering
+LIT-191,Art,Yearning,Resolve,verified,Edna St. Vincent Millay,Edna St. Vincent Millay,First Fig (A Few Figs from Thistles),First Fig,
+LIT-192,Love,Yearning,Melancholy,verified,Edna St. Vincent Millay,Edna St. Vincent Millay,Sonnet XLIII (What lips my lips have kissed),What lips my lips have kissed,
+LIT-193,Love,Yearning,Sublime,verified,Elizabeth Barrett Browning,Elizabeth Barrett Browning,Sonnets from the Portuguese 43 (How do I love thee?),Sonnets from the Portuguese 43,
+LIT-194,Earth,Sublime,Sublime,verified,H.D. (Hilda Doolittle),H.D. (Hilda Doolittle),Oread,Oread,
+LIT-195,Love,Fury,Fury,verified,Amy Lowell,Amy Lowell,Patterns,Patterns,
+LIT-196,Love,Yearning,Yearning,verified,Jane Austen,Jane Austen,Persuasion — Captain Wentworth's Letter (Ch. 23),Persuasion (Ch. 23),
+LIT-197,Love,Resolve,Resolve,verified,George Eliot (Mary Ann Evans),George Eliot (Mary Ann Evans),Middlemarch — Finale (Unhistoric Acts),Middlemarch (Finale),
+LIT-198,Earth,Melancholy,Melancholy,verified,Katherine Mansfield,Katherine Mansfield,The Garden Party & At the Bay,At the Bay,"The passage is from At the Bay, not The Garden Party"
+LIT-199,Earth,Sublime,Sublime,verified,Virginia Woolf,Virginia Woolf,Monday or Tuesday,Monday or Tuesday,
+LIT-200,War,Resolve,Resolve,verified,Mary Wollstonecraft,Mary Wollstonecraft,A Vindication of the Rights of Woman (Ch. IV),A Vindication of the Rights of Woman (Ch. IV),
+LIT-201,Love,Dark Humor,Dark Humor,verified,Sor Juana Inés de la Cruz,Sor Juana Inés de la Cruz,Redondillas (Hombres necios que acusáis),Hombres necios que acusáis,
+LIT-202,Love,Melancholy,Melancholy,verified,Li Qingzhao,Li Qingzhao,"Sheng Sheng Man (Slow, Slow Tune)","Sheng Sheng Man (Slow, Slow Tune)",
+LIT-203,Love,Yearning,Melancholy,verified,Ono no Komachi,Ono no Komachi,The Color of the Flowers (Kokinshū 113),Kokinshū 113,
+LIT-204,God,Yearning,Yearning,verified,Izumi Shikibu,Izumi Shikibu,Out of the Dark (Shūi Wakashū 1342),Shūi Wakashū 1342,
+LIT-205,Art,Resolve,Sublime,modern-translation,Izumi Shikibu,Izumi Shikibu,Watching the Moon at Midnight,Tanka,Wording matches Hirshfield and Aratani's The Ink Dark Moon (1988)
+LIT-206,Love,Yearning,Yearning,verified,Murasaki Shikibu,Murasaki Shikibu,The Tale of Genji — Opening (Kiritsubo),The Tale of Genji (opening),
+LIT-207,God,Yearning,Yearning,verified,Mirabai,Mirabai,Mere to Giridhar Gopal (Mine Is the Mountain-Lifter Alone),Mere to Giridhar Gopal,
+LIT-208,God,Resolve,Resolve,verified,Rābiʿa al-ʿAdawiyya,Rābiʿa al-ʿAdawiyya,Torch and Pitcher in the Streets of Basra,Sayings,Old title described a different Rābiʿa story (the torch and the pitcher)
+LIT-209,God,Sublime,Sublime,modern-translation,Lal Ded (Lalleshwari),Lal Ded (Lalleshwari),"Vakh — Dance, Lalla, Clothed Only in the Sky",Vakh,Wording matches Coleman Barks's Naked Song (1992)
+LIT-210,God,Resolve,Resolve,verified,Julian of Norwich,Julian of Norwich,Revelations of Divine Love — Chapter 27 (The Hazelnut & All Shall Be Well),Revelations of Divine Love (Ch. 27),
+LIT-211,God,Resolve,Resolve,verified,Saint Teresa of Ávila,Saint Teresa of Ávila,Nada te turbe (St. Teresa's Breviary Bookmark),Nada te turbe,
+LIT-212,Art,Sublime,Sublime,verified,Phillis Wheatley,Phillis Wheatley,On Imagination,On Imagination,
+LIT-213,War,Resolve,Resolve,verified,Frances Ellen Watkins Harper,Frances Ellen Watkins Harper,Bury Me in a Free Land,Bury Me in a Free Land,
+LIT-214,War,Resolve,Resolve,verified,Ida B. Wells,Ida B. Wells,Southern Horrors & The Light of Truth,The Light of Truth,
+LIT-215,Death,Dread,Dread,verified,Christina Rossetti,Christina Rossetti,Goblin Market,Goblin Market,
+LIT-216,Love,Yearning,Sublime,verified,Anne Bradstreet,Anne Bradstreet,To My Dear and Loving Husband,To My Dear and Loving Husband,
+LIT-217,Love,Resolve,Resolve,verified,Sara Teasdale,Sara Teasdale,What Do I Care (Flame and Shadow),What Do I Care,
+LIT-218,God,Resolve,Resolve,verified,Emily Brontë,Emily Brontë,No Coward Soul Is Mine,No Coward Soul Is Mine,
+LIT-219,Love,Yearning,Yearning,loose,Hwang Jin-i,Hwang Jin-i,Midwinter Night Sijo (Dongjitdal ginagin bameul),The Long Midwinter Night (Sijo),Loose rendering
+LIT-220,Love,Dark Humor,Dark Humor,loose,Hwang Jin-i,Hwang Jin-i,Blue-Green Stream Sijo (Cheongsanri byeokgyesuya),Blue-Green Stream (Sijo),Loose rendering
+LIT-221,War,Resolve,Resolve,modern-translation,Taras Shevchenko,Taras Shevchenko,Testament (Zapovit),Testament (Zapovit),Wording matches John Weir's 1961 translation
+LIT-222,Art,Resolve,Resolve,loose,Lesya Ukrainka,Lesya Ukrainka,Contra Spem Spero! (Without Hope I Hope),Contra Spem Spero,Loose rendering
+LIT-223,Love,Yearning,Yearning,loose,Mirza Ghalib,Mirza Ghalib,Hazaaron Khwahishein Aisi (Divan-e-Ghalib),Hazaaron Khwahishein Aisi,Loose rendering
+LIT-224,Art,Resolve,Resolve,loose,Al-Mutanabbi,Al-Mutanabbi,"Qasida of the Desert, Sword, and Pen (Al-Khaylu wa-al-Laylu)","Qasida (The Steed, the Night, the Desert)","Two separate lines joined, loosely rendered"
+LIT-225,Love,Sublime,Sublime,verified,Kahlil Gibran,Kahlil Gibran,The Prophet — On Children,The Prophet — On Children,
+LIT-226,Art,Sublime,Sublime,verified,Elias Lönnrot (Finnish-Karelian Oral Tradition),Elias Lönnrot (Finnish-Karelian Oral Tradition),Kalevala — Runo XLIV: Väinämöinen's Fishbone Harp,Kalevala (Runo XLIV),
+LIT-227,Death,Yearning,Melancholy,loose,Mikhail Lermontov,Mikhail Lermontov,The Demon: An Eastern Tale,The Demon,Loose rendering
+LIT-228,God,Fury,Sublime,loose,Alexander Pushkin,Alexander Pushkin,The Prophet (Prorok),The Prophet (Prorok),Loose rendering
+LIT-229,Love,Melancholy,Melancholy,loose,Anna Akhmatova,Anna Akhmatova,Song of the Last Meeting (Evening),Song of the Last Meeting,Loose rendering
+LIT-230,Art,Resolve,Resolve,verified,José Martí,José Martí,"Versos Sencillos (Simple Verses, I)",Yo soy un hombre sincero (Versos Sencillos I),
+LIT-231,Love,Fury,Fury,verified,Alfonsina Storni,Alfonsina Storni,Tú me quieres blanca (You Want Me White),Tú me quieres blanca,
+LIT-232,Death,Dark Humor,Dark Humor,verified,Joaquim Maria Machado de Assis,Joaquim Maria Machado de Assis,The Posthumous Memoirs of Brás Cubas — Dedication,The Posthumous Memoirs of Brás Cubas — Dedication,
+LIT-233,Death,Dread,Dread,verified,Rubén Darío,Rubén Darío,Lo fatal (Cantos de vida y esperanza),Lo fatal,
+LIT-234,Earth,Resolve,Resolve,unconfirmed,Traditional Māori Chant (Aotearoa),Traditional Māori Chant (Aotearoa),Tainui Waka Hauling Chant (Tōia Tainui),Tōia Tainui,A real hauling chant exists; could not confirm this English wording
+LIT-235,Art,Resolve,Resolve,verified,Leonardo da Vinci,Leonardo da Vinci,Codex Arundel — On Stern Resolve and Experience,Notebooks,"Lines are from the Notebooks generally, not one codex"
+LIT-236,Art,Sublime,Sublime,verified,Leonardo da Vinci,Leonardo da Vinci,A Treatise on Painting — Staining on Old Walls,A Treatise on Painting,
+LIT-237,Art,Resolve,Resolve,unconfirmed,Michelangelo Buonarroti,Michelangelo Buonarroti,Sonnet 151 — The Concept Locked Inside the Marble Block,Sonnet 151,"Real sonnet; could not identify the translator, reads 20th-century"
+LIT-238,Art,Dark Humor,Dark Humor,verified,Michelangelo Buonarroti,Michelangelo Buonarroti,Sonnet V — On Painting the Sistine Chapel Ceiling,Sonnet V (To Giovanni da Pistoia),
+LIT-239,Art,Resolve,Resolve,verified,Katsushika Hokusai,Katsushika Hokusai,Postscript to One Hundred Views of Mount Fuji (Old Man Mad About Painting),Postscript to One Hundred Views of Mount Fuji,
+LIT-240,Art,Fury,Fury,verified,William Blake,William Blake,"Proverbs of Hell (Plates 7–10, The Marriage of Heaven and Hell)",Proverbs of Hell,
+LIT-241,Art,Yearning,Yearning,verified,Vincent van Gogh,Vincent van Gogh,Letter to Theo van Gogh — Taking Death to Reach a Star (Letter 638),Letter to Theo (July 1888),
+LIT-242,Art,Resolve,Resolve,verified,Eugène Delacroix,Eugène Delacroix,Studio Journal — Painting as a Bridge Between Two Souls,Journal,
+LIT-243,Art,Sublime,Sublime,loose,Guo Xi,Guo Xi,Lofty Ambitions in Forests and Streams (Linquan Gaozhi),Lofty Ambitions in Forests and Streams,Loose rendering
+LIT-244,Art,Resolve,Resolve,loose,Shitao (Bitter Melon Monk),Shitao (Bitter Melon Monk),Treatise on the Philosophy of Painting — The Single Brushstroke (Yihua),Remarks on Painting (The Single Brushstroke),Loose rendering
+LIT-245,Art,Resolve,Resolve,modern-translation,Rainer Maria Rilke,Rainer Maria Rilke,Letters to a Young Poet — First Letter (Go Into Yourself),Letters to a Young Poet (First Letter),Wording matches M. D. Herter Norton's 1934 translation
+LIT-246,Art,Resolve,Sublime,verified,Okakura Kakuzō,Okakura Kakuzō,The Book of Tea — The Geometry of Imperfection,The Book of Tea,
+LIT-247,Art,Resolve,Resolve,loose,Vizier Ptahhotep,Vizier Ptahhotep,The Maxims of Ptahhotep — Art Has No Ceiling (Papyrus Prisse),The Maxims of Ptahhotep,Loose rendering
+LIT-248,War,Dark Humor,Dark Humor,verified,Diogenes of Sinope (via Diogenes Laërtius),Diogenes of Sinope (via Diogenes Laërtius),Cynic Chreiai — Stand Out of My Sunlight,Lives of the Eminent Philosophers (Book VI),
+LIT-249,Art,Resolve,Resolve,verified,Epictetus (compiled by Arrian),Epictetus (compiled by Arrian),Enchiridion — Chapter 1 (What Is Up to Us),Enchiridion (Ch. 1),
+LIT-250,Death,Resolve,Resolve,verified,Seneca the Younger,Seneca the Younger,Moral Letters to Lucilius — Holding Time in Your Grip (Epistle I),Moral Letters to Lucilius (Letter 1),
+LIT-251,Art,Dark Humor,Dark Humor,verified,Desiderius Erasmus,Desiderius Erasmus,In Praise of Folly — All Human Life Is a Stage Play,In Praise of Folly,
+LIT-252,Art,Dark Humor,Dark Humor,modern-translation,Michel de Montaigne,Michel de Montaigne,"Essays — Upon the Highest Throne in the World (Book III, Ch. 13)","Essays (Book III, Ch. 13)",Wording reads like a 20th-century translation (Frame or Screech)
+LIT-253,War,Resolve,Resolve,verified,Francis Bacon,Francis Bacon,Essays — Of Revenge & Of Truth,Essays — Of Revenge,
+LIT-254,Art,Resolve,Resolve,verified,Baltasar Gracián,Baltasar Gracián,The Art of Worldly Wisdom (Oráculo Manual — Maxims 43 & 85),The Art of Worldly Wisdom,
+LIT-255,Art,Resolve,Dark Humor,verified,François de La Rochefoucauld,François de La Rochefoucauld,Maxims — Neither the Sun Nor Death Can Be Looked At Steadily,Maxims,
+LIT-256,Art,Dark Humor,Dark Humor,verified,Sébastien-Roch Nicolas Chamfort,Sébastien-Roch Nicolas Chamfort,Maxims and Thoughts — Swallow a Toad Every Morning,Maxims and Thoughts,
+LIT-257,Art,Dark Humor,Dark Humor,verified,Georg Christoph Lichtenberg,Georg Christoph Lichtenberg,Sudelbücher (The Waste Books — Mirror and Book),The Waste Books,
+LIT-258,Art,Resolve,Resolve,verified,Voltaire (François-Marie Arouet),Voltaire (François-Marie Arouet),Candide — We Must Cultivate Our Garden (Chapter 30),Candide (Ch. 30),
+LIT-259,Art,Sublime,Sublime,modern-translation,Friedrich Nietzsche,Friedrich Nietzsche,"Thus Spoke Zarathustra — Chaos and the Dancing Star (Prologue, §5)","Thus Spoke Zarathustra (Prologue, 5)",Wording matches Walter Kaufmann's 1954 translation
+LIT-260,Art,Resolve,Resolve,modern-translation,Friedrich Nietzsche,Friedrich Nietzsche,"Twilight of the Idols — Maxims and Arrows (§8, §12, §33)",Twilight of the Idols — Maxims and Arrows,Wording matches Walter Kaufmann's 1954 translation
+LIT-261,Art,Dark Humor,Dark Humor,verified,Ambrose Bierce,Ambrose Bierce,The Devil's Dictionary — Selected Definitions,The Devil's Dictionary,
+LIT-262,Art,Resolve,Resolve,verified,Ralph Waldo Emerson,Ralph Waldo Emerson,Self-Reliance — Nonconformity and Iron Strings,Self-Reliance,
+LIT-263,Earth,Resolve,Resolve,verified,Henry David Thoreau,Henry David Thoreau,Walden — Living Deliberately & Sucking Out the Marrow,Walden (Ch. 2),
+LIT-264,War,Fury,Dark Humor,loose,Juvenal (Decimus Junius Juvenalis),Juvenal (Decimus Junius Juvenalis),Satire X — Bread and Circuses & Guarding the Guards,Satire X,Loose rendering
+LIT-265,Earth,Sublime,Sublime,modern-translation,Hanshan (Cold Mountain),Hanshan (Cold Mountain),Cold Mountain Cliff Poem — Men Ask the Way to Cold Mountain,Cold Mountain Poem,Wording matches Gary Snyder's 1958 translation
+LIT-266,Earth,Sublime,Sublime,verified,Ryōkan Taigu,Ryōkan Taigu,The Thief Left It Behind: The Moon at My Window,Haiku (The Thief Left It Behind),
+LIT-267,Death,Dark Humor,Dark Humor,loose,Ikkyū Sōjun,Ikkyū Sōjun,Skeletons (Gaikotsu) & Renegade Zen Testament,Skeletons (Gaikotsu),Loose rendering
+LIT-268,God,Resolve,Resolve,loose,Hakuin Ekaku,Hakuin Ekaku,The Sound of One Hand & Song of Zazen,Song of Zazen,Loose rendering
+LIT-269,Death,Melancholy,Melancholy,verified,Matsuo Bashō,Matsuo Bashō,Last Illness Haiku (Tabi ni yande),Tabi ni yande,
+LIT-270,Earth,Sublime,Sublime,loose,Yosa Buson,Yosa Buson,Butterfly Asleep on the Temple Bell & Spring Sea,"Haiku (Temple Bell, Spring Sea)",Loose rendering
+LIT-271,Death,Melancholy,Sublime,modern-translation,Yoshida Kenkō,Yoshida Kenkō,Essays in Idleness (Tsurezuregusa — Impermanence & Uncut Silk),Essays in Idleness (7),Wording matches Donald Keene's 1967 translation
+LIT-272,Earth,Resolve,Sublime,loose,Tao Yuanming (Tao Qian),Tao Yuanming (Tao Qian),Drinking Wine V — Picking Chrysanthemums by the Eastern Hedge,Drinking Wine (V),Loose rendering
+LIT-273,Art,Yearning,Yearning,loose,Shen Fu,Shen Fu,Six Records of a Floating Life — Mosquitoes Turned into Cranes,Six Records of a Floating Life,Loose rendering
+LIT-274,War,Resolve,Resolve,loose,Yamamoto Tsunetomo,Yamamoto Tsunetomo,Hagakure — Hidden by the Leaves (Opening Precepts),Hagakure,Loose rendering
+LIT-275,War,Resolve,Resolve,loose,Yagyū Munenori,Yagyū Munenori,Heihō Kadensho — The Life-Giving Sword & The Unstopping Mind,Heihō Kadensho,Loose rendering
+LIT-276,Earth,Resolve,Dark Humor,loose,Kobayashi Issa,Kobayashi Issa,"Haiku — Snail Climb Mount Fuji, Slowly, Slowly","Haiku (Snail, Fly)",Loose rendering
+LIT-277,Earth,Sublime,Sublime,verified,Rabindranath Tagore,Rabindranath Tagore,Stray Birds — Fireflies & Bowstring,Stray Birds,
+LIT-278,Earth,Resolve,Sublime,verified,Kahlil Gibran,Kahlil Gibran,Sand and Foam — Pearls Are Pain Built Around a Grain,Sand and Foam,
+LIT-279,War,Resolve,Resolve,verified,Attributed to Simonides of Ceos,Attributed to Simonides of Ceos,Thermopylae Epitaph (Greek Anthology VII.249),Epitaph at Thermopylae,
+LIT-280,Death,Melancholy,Melancholy,verified,Callimachus,Callimachus,Epigram II — Elegy for Heraclitus of Halicarnassus,Heraclitus,This is William Cory's Victorian version
+LIT-281,War,Resolve,Resolve,loose,Anyte of Tegea,Anyte of Tegea,Greek Anthology Epigrams — The Spear Hung in Athena's Porch,Epigram,Loose rendering
+LIT-282,Art,Resolve,Resolve,verified,Meleager of Gadara,Meleager of Gadara,Garland Epigram — One Homeland Is the Cosmos (Greek Anthology VII.417),Epitaph for Himself,
+LIT-283,Love,Resolve,Resolve,verified,Saadi Shirazi,Saadi Shirazi,Gulistan — Bani Adam (The Children of Adam Are Limbs of One Body),Gulistan — Bani Adam,
+LIT-284,God,Sublime,Sublime,verified,Kabir,Kabir,Songs of Kabir — The Musk Is Inside the Deer,Songs of Kabir (I),
+LIT-285,God,Sublime,Resolve,loose,Yunus Emre,Yunus Emre,Anatolian Sufi Ilahi — Knowledge Means Knowing Yourself,Ilahi,Loose rendering
+LIT-286,God,Resolve,Resolve,modern-translation,Akka Mahadevi,Akka Mahadevi,"Vachana — You Can Confiscate Money, Not What Wraps My Soul",Vachana: To a Suitor,Wording reads like A. K. Ramanujan's Speaking of Siva (1973)
+LIT-287,God,Resolve,Resolve,modern-translation,Basava (Basavanna),Basava (Basavanna),"Vachana 820 — Things Standing Shall Fall, the Moving Ever Stay",Vachana 820,Wording matches A. K. Ramanujan's Speaking of Siva (1973)
+LIT-288,Death,Melancholy,Melancholy,loose,Bhartṛhari,Bhartṛhari,"Vairāgyaśataka — Time Plays the Dice, Not We",Vairāgyaśataka,Loose rendering
+LIT-289,Earth,Sublime,Sublime,loose,Giacomo Leopardi,Giacomo Leopardi,L'Infinito (The Infinite),L'Infinito,Loose rendering
+LIT-290,Earth,Dread,Melancholy,loose,Friedrich Hölderlin,Friedrich Hölderlin,Hälfte des Lebens (Half of Life),Hälfte des Lebens,Loose rendering
+LIT-291,Love,Melancholy,Melancholy,verified,Heinrich Heine,Heinrich Heine,Aus meinen großen Schmerzen (Out of My Great Sorrows),Aus meinen großen Schmerzen,
+LIT-292,Earth,Melancholy,Melancholy,loose,Paul Verlaine,Paul Verlaine,Chanson d'automne (Autumn Song),Chanson d'automne,Loose rendering
+LIT-293,Love,Yearning,Melancholy,unconfirmed,Guillaume Apollinaire,Guillaume Apollinaire,Mirabeau Bridge (Le Pont Mirabeau),Le Pont Mirabeau,Could not identify the translator
+LIT-294,Death,Melancholy,Melancholy,verified,Oscar Wilde,Oscar Wilde,De Profundis — Where There Is Sorrow There Is Holy Ground,De Profundis,
+LIT-295,Love,Dread,Dread,verified,Oscar Wilde (signed C.3.3.),Oscar Wilde (signed C.3.3.),The Ballad of Reading Gaol,The Ballad of Reading Gaol,
+LIT-296,War,Resolve,Melancholy,verified,W. E. B. Du Bois,W. E. B. Du Bois,The Souls of Black Folk — The Veil and Double-Consciousness (Ch. I),The Souls of Black Folk (Ch. I),
+LIT-297,Art,Melancholy,Melancholy,verified,Langston Hughes,Langston Hughes,The Weary Blues,The Weary Blues,
+LIT-298,Love,Sublime,Sublime,verified,Walt Whitman,Walt Whitman,Leaves of Grass — Do I Contradict Myself? & Crossing Brooklyn Ferry,Crossing Brooklyn Ferry,Old title named two poems; the text is only this one
+LIT-299,God,Sublime,Dread,modern-translation,Rainer Maria Rilke,Rainer Maria Rilke,Duino Elegies — Beauty Is Nothing But the Beginning of Terror (First Elegy),Duino Elegies (First Elegy),Wording matches the Leishman and Spender translation (1939)
+LIT-300,God,Sublime,Dread,loose,Farid ud-Din Attar,Farid ud-Din Attar,The Conference of the Birds — The Valley of Astonishment,The Conference of the Birds — The Valley of Astonishment,Loose rendering
+LIT-301,Love,Yearning,Yearning,loose,Imru' al-Qais,Imru' al-Qais,"Mu'allaqa — Stop, Let Us Weep at the Desert Campsite",Muʿallaqa of Imruʾ al-Qais,Loose rendering
+LIT-302,War,Resolve,Resolve,loose,Antarah ibn Shaddad,Antarah ibn Shaddad,Mu'allaqa of the Black Knight — Have the Poets Left Any Patch to Stitch?,Muʿallaqa of ʿAntara,Loose rendering
+LIT-303,Death,Melancholy,Melancholy,loose,Labīd ibn Rabī'a,Labīd ibn Rabī'a,Mu'allaqa of Labīd — Floodwaters Uncover Stone Like Reed Pens Renewing Script,Muʿallaqa of Labīd,Loose rendering
+LIT-304,Death,Melancholy,Melancholy,loose,Al-Khansāʾ (Tumāḍir bint ʿAmr),Al-Khansāʾ (Tumāḍir bint ʿAmr),Elegy for Her Brother Ṣakhr (Every Sunrise Reminds Me of Ṣakhr),Elegy for Ṣakhr,Loose rendering
+LIT-305,Love,Dark Humor,Dark Humor,loose,Abu Nuwas,Abu Nuwas,Khamriyyāt — Give Me Wine to Drink and Tell Me Out Loud It Is Wine,Wine Poem (Leave Off Blaming Me),Loose rendering
+LIT-306,God,Dark Humor,Dark Humor,loose,Abu al-ʿAlāʾ al-Maʿarrī,Abu al-ʿAlāʾ al-Maʿarrī,Luzūmiyyāt — Two Kinds of Inhabitants Walk the Earth,Luzūmiyyāt,Loose rendering
+LIT-307,Love,Resolve,Resolve,loose,Wallada bint al-Mustakfi,Wallada bint al-Mustakfi,Gold-Embroidered Tunic Couplets in Córdoba,Verses Embroidered on Her Robe,Loose rendering
+LIT-308,Love,Yearning,Yearning,loose,Ibn Hazm of Córdoba,Ibn Hazm of Córdoba,The Ring of the Dove — On Signaling with the Corner of the Eye,The Ring of the Dove,Loose rendering
+LIT-309,God,Sublime,Sublime,verified,Ibn Arabi,Ibn Arabi,Tarjumān al-Ashwāq (Ode XI — My Heart Has Become Capable of Every Form),Tarjumān al-Ashwāq (XI),
+LIT-310,War,Resolve,Melancholy,loose,Ibn Khaldun,Ibn Khaldun,The Muqaddimah — How Empires Decay into Luxury in Four Generations,The Muqaddimah,"A summary of his argument, not a quotation"
+LIT-311,Love,Yearning,Yearning,loose,Rudaki,Rudaki,Scent of the Muliyan Stream (Bū-yi Jū-yi Mūliyān),Bū-yi Jū-yi Mūliyān,Loose rendering
+LIT-312,Love,Fury,Yearning,loose,Rābiʿa Balkhī (Zayn al-ʿArab),Rābiʿa Balkhī (Zayn al-ʿArab),Final Ghazal Written in Arterial Blood on the Bathhouse Wall,Ghazal (Love Is a Shoreless Sea),Old title dramatized the legend of her death; the poem itself is loosely rendered
+LIT-313,Love,Yearning,Yearning,loose,Nizami Ganjavi,Nizami Ganjavi,Layla and Majnun — Qays Driven into the Desert Wilderness,Layla and Majnun,"A retelling, not a quotation"
+LIT-314,God,Melancholy,Melancholy,loose,Nizami Ganjavi,Nizami Ganjavi,Haft Paykar (The Seven Beauties — Above Black There Is No Other Color),Haft Paykar (The Black Dome),"A retelling, not a quotation"
+LIT-315,God,Sublime,Yearning,loose,Amir Khusrau,Amir Khusrau,Chhaap Tilak Sab Chheeni — You Stripped My Mark with One Glance,Chhaap Tilak,Loose rendering
+LIT-316,Love,Melancholy,Melancholy,loose,Mir Taqi Mir,Mir Taqi Mir,Ghazal — Watch How Softly Smoke Rises from a Burned-Out Heart,Ghazal (Smoke from the Heart),Loose rendering
+LIT-317,Art,Resolve,Resolve,loose,Muhammad Iqbal,Muhammad Iqbal,Secrets of the Self (Asrār-i-Khudī — Carve Your Own World),Secrets of the Self (Asrār-i-Khudī),Loose rendering
+LIT-318,Art,Resolve,Resolve,loose,Anonymous Medieval Arabic Storytellers,Anonymous Medieval Arabic Storytellers,One Thousand and One Nights — Shahrazad Halts at Morning Light,One Thousand and One Nights (frame tale),"A retelling, not a quotation"
+LIT-319,Love,Yearning,Yearning,loose,Kālidāsa,Kālidāsa,Meghadūta (The Cloud Messenger — Sending Word on Monsoon Vapor),Meghadūta (The Cloud Messenger),"A retelling, not a quotation"
+LIT-320,Love,Yearning,Yearning,modern-translation,Jayadeva,Jayadeva,Gīta Govinda — Clouds Thicken the Sky Over Dark Tamāla Woods,Gīta Govinda (opening),Wording closely follows Barbara Stoler Miller's 1977 translation
+LIT-321,Love,Yearning,Yearning,loose,Compiled by King Hāla (Satavahana Anthology),Compiled by King Hāla (Satavahana Anthology),Gāhā Sattasaī — Seven Hundred Prakrit Village Love Couplets,Gāhā Sattasaī,Loose rendering
+LIT-322,War,Resolve,Resolve,loose,Muttā (Elder Buddhist Nun),Muttā (Elder Buddhist Nun),"Therīgāthā 11 — So Free Am I from Pestle, Mortar, and Crooked Husband",Therīgāthā (Muttā),Loose rendering
+LIT-323,Death,Resolve,Resolve,loose,Kisāgotamī (Elder Buddhist Nun),Kisāgotamī (Elder Buddhist Nun),Therīgāthā — A Mustard Seed from a House Where Nobody Has Ever Died,Therīgāthā (Kisāgotamī),Retells the mustard-seed story; these are not her verses
+LIT-324,Death,Resolve,Melancholy,loose,Ambapālī (Courtesan-Turned-Elder Nun of Vesālī),Ambapālī (Courtesan-Turned-Elder Nun of Vesālī),Therīgāthā 252–270 — My Hair Was Once Black as Glossy Wild Bees,Therīgāthā (Ambapālī),Loose rendering
+LIT-325,Art,Resolve,Resolve,loose,Thiruvalluvar,Thiruvalluvar,"Tirukkuṛaḷ — Fire Burns Flesh, Speech Scars Beyond Healing",Tirukkuṛaḷ,Loose rendering
+LIT-326,Death,Melancholy,Melancholy,loose,Avvaiyār (Sangam Bard),Avvaiyār (Sangam Bard),Puṟanāṉūṟu — Share the Toddy Jar Before the Cremation Pot,Puṟanāṉūṟu 235,Loose rendering
+LIT-327,God,Yearning,Yearning,loose,Āṇḍāl (Kōtai),Āṇḍāl (Kōtai),Nācciyār Tirumoḻi — Ask the White Sea-Conch What His Lips Taste Like,Nācciyār Tirumoḻi (To the Conch),Loose rendering
+LIT-328,Art,Resolve,Resolve,loose,Sant Tukārām,Sant Tukārām,Abhang — Words Are the Only Jewels Inside My Shop,Abhang,Loose rendering
+LIT-329,War,Melancholy,Melancholy,loose,Qu Yuan,Qu Yuan,Li Sao (Encountering Sorrow — Long Did I Sigh Holding Back Tears),Li Sao (Encountering Sorrow),Loose rendering
+LIT-330,Earth,Melancholy,Melancholy,loose,Meng Haoran,Meng Haoran,Spring Dawn (Chūn Xiǎo — How Many Fallen Blossoms After Wind and Rain?),Spring Dawn (Chūn Xiǎo),Loose rendering
+LIT-331,Earth,Resolve,Sublime,loose,Wei Yingwu,Wei Yingwu,At Chuzhou on the Western Stream (Unmanned Ferry Boat in Rain),West Stream at Chuzhou,Loose rendering
+LIT-332,Art,Melancholy,Melancholy,loose,Bai Juyi (Po Chü-i),Bai Juyi (Po Chü-i),Song of the Lute (Pípá Xíng — Large Pearls and Small Pearls on a Jade Plate),Song of the Pipa (Pípá Xíng),Loose rendering
+LIT-333,Earth,Resolve,Sublime,loose,Liu Zongyuan,Liu Zongyuan,River Snow (Jiāng Xuē — Fishing Alone in the Cold River Snow),River Snow (Jiāng Xuě),Loose rendering
+LIT-334,Love,Resolve,Melancholy,attribution,Yu Xuanji,Yu Xuanji,"Sending Word to Li Yi — A Priceless Jewel Is Easy to Find, a True Heart Hard",To a Neighbor Girl,"The famous couplet is from her poem To a Neighbor Girl, not the poem named in the old title"
+LIT-335,War,Melancholy,Melancholy,loose,Li Yu (Last Emperor of Southern Tang),Li Yu (Last Emperor of Southern Tang),Yu Meiren (Poppy Tune — Ask Me How Much Sorrow One Man Can Hold),Yú Měirén,Loose rendering
+LIT-336,War,Fury,Melancholy,loose,Xin Qiji,Xin Qiji,Pòzhènzǐ — Drunk Under Lamplight I Unsheathe and Inspect My Sword,Pò Zhèn Zǐ,Loose rendering
+LIT-337,War,Resolve,Resolve,loose,Lu You,Lu You,Storm Bound at Shanyin Village — Iron Horses Crossing Frozen Rivers in Dreams,Storm on the Fourth Day of the Eleventh Month,Loose rendering
+LIT-338,Art,Dark Humor,Dark Humor,attribution,Mi Fu (Mi Fei),Anecdote about Mi Fu,Bowing in Court Robes Before 'Elder Brother Rock',Mi Fu Bows to the Rock,"An anecdote about Mi Fu, not a text written by him"
+LIT-339,Love,Yearning,Yearning,loose,Guan Daosheng,Guan Daosheng,Song of You and Me (Nóng Cí — Smash Both Clay Dolls and Remold Them),Song of You and Me (Wǒ Nóng Cí),Loose rendering
+LIT-340,Art,Resolve,Resolve,loose,Zhao Mengfu,Zhao Mengfu,Colophon on Elegant Rocks and Sparse Trees — Painting and Calligraphy Share One Root,Colophon on Elegant Rocks and Sparse Trees,Loose rendering
+LIT-341,War,Fury,Fury,loose,Qiu Jin,Qiu Jin,Full River Red (Mǎnjiānghóng — My Heart Is Fiercer Than Any Man's),Mǎn Jiāng Hóng,Loose rendering
+LIT-342,Art,Sublime,Sublime,loose,Ki no Tsurayuki,Ki no Tsurayuki,Kana Preface to the Kokin Wakashū — Poetry Takes the Human Heart as Seed,Kana Preface to the Kokinshū,Loose rendering
+LIT-343,Love,Yearning,Yearning,loose,Fujiwara no Teika,Fujiwara no Teika,Matsuo Shore Waka — Like Salt Sea-Weed Smoldering in Evening Calm,Waka (Hyakunin Isshu 97),"Place is Matsuho Bay, not ""Matsuo""; loose rendering"
+LIT-344,Earth,Resolve,Sublime,loose,Masaoka Shiki,Masaoka Shiki,Six-Foot Sickbed Haiku — Persimmon Bite & Temple Bell at Hōryū-ji,Haiku (Persimmon),Old title pointed to his late sickbed diary; the persimmon haiku is from 1895
+LIT-345,War,Fury,Fury,loose,Yosano Akiko,Yosano Akiko,Thou Shalt Not Die (Kimi Shinitamō Koto Nakare — To Her Brother at Port Arthur),Kimi Shinitamō Koto Nakare (Thou Shalt Not Die),Loose rendering
+LIT-346,Love,Melancholy,Melancholy,loose,Shin Saimdang,Shin Saimdang,Looking Back Toward My Mother's House Over Daegwallyeong Pass,Looking Back at My Parents' Home from Daegwallyeong,Loose rendering
+LIT-347,War,Resolve,Melancholy,loose,Admiral Yi Sun-sin,Admiral Yi Sun-sin,Hansando Moonlit Watchtower Sijo (Hansan-seom dal balk-eun bam-e),Hansando Sijo,Loose rendering
+LIT-348,God,Melancholy,Melancholy,loose,Nguyễn Du,Nguyễn Du,The Tale of Kiều — Talent and Destiny Wage Bitter War Across a Hundred Years,The Tale of Kiều (opening),Loose rendering
+LIT-349,Love,Resolve,Resolve,loose,Hồ Xuân Hương,Hồ Xuân Hương,"Floating Rice-Cake (Bánh Trôi Nước — Seven Parts Float, Three Sink, Red Heart Unchanged)",Bánh Trôi Nước (Floating Cake),Loose rendering
+LIT-350,Art,Resolve,Resolve,loose,Balla Fasséké & Mandinka *Jeli* (Griot) Tradition,Balla Fasséké & Mandinka *Jeli* (Griot) Tradition,Epic of Sundiata — The Crippled Lion-Child Bends the Seven-Man Iron Bar,Epic of Sundiata,Opening echoes the Niane/Pickett version (1965); the rest is a retelling
+LIT-351,God,Resolve,Resolve,loose,Zera Yacob,Zera Yacob,Hatata (The Inquiry — Test Every Human Claim in the Cave of Reason),Hatata,"A retelling, not a quotation"
+LIT-352,God,Sublime,Sublime,loose,Neburä Id Yishaq of Aksum,Neburä Id Yishaq of Aksum,Kebra Nagast — Queen Makeda of Sheba on Wisdom Outshining Red Gold,Kebra Nagast,Loose rendering
+LIT-353,Death,Melancholy,Melancholy,loose,Middle Kingdom Egyptian Blind Harper Tradition,Middle Kingdom Egyptian Blind Harper Tradition,Song of the Harper from the Tomb of King Intef — None Returns from Beyond,Harper's Song from the Tomb of King Intef,Loose rendering
+LIT-354,War,Resolve,Resolve,loose,Achaemenid–Babylonian Chancery Scribes,Achaemenid–Babylonian Chancery Scribes,Proclamation on the Cyrus Cylinder — Returning Captives & Shrines Home,The Cyrus Cylinder,Loose rendering
+LIT-355,War,Resolve,Resolve,loose,King Hammurabi's Babylonian Scribes,King Hammurabi's Babylonian Scribes,Code of Hammurabi Epilogue — Let Any Wronged Man Read My Inscribed Stele,Code of Hammurabi (epilogue),Loose rendering
+LIT-356,War,Resolve,Resolve,loose,Macuilxochitzin (Lady Five-Flower),Macuilxochitzin (Lady Five-Flower),Song of the Matlatzinco Women — Raising Flower-Banners Amid Obsidian Smoke,Song of Macuilxochitzin,Loose rendering
+LIT-357,Death,Melancholy,Melancholy,loose,Nezahualcóyotl,Nezahualcóyotl,"In Xōchitl In Cuīcatl — Even Green Jade Shatters, Even Quetzal Plumes Tear",Even Jade Shatters,Same poem as No. 12 in different words
+LIT-358,Death,Dark Humor,Dark Humor,loose,K'iche' Maya Sacred Scribes,K'iche' Maya Sacred Scribes,Popol Vuh — Fireflies on Cigar Tips Inside Xibalba's Dark House,Popol Vuh — The House of Darkness,"A retelling, not a quotation"
+LIT-359,God,Sublime,Sublime,modern-translation,Royal Hawaiian *Kūʻauhau* Chanters (Trans. Queen Liliʻuokalani),Hawaiian creation chant (trans. Martha Beckwith),The Kumulipo Creation Chant — Out of Deep Slime-Darkness the Coral Polyp Emerged,The Kumulipo,"Wording matches Martha Beckwith's 1951 translation, not Liliʻuokalani's as credited"
+LIT-360,Earth,Resolve,Resolve,verified,Sitting Bull (Tȟatȟáŋka Íyotake),Sitting Bull (Tȟatȟáŋka Íyotake),Spring Council at Powder River — Love of Possession Is a Disease in Them,Speech at the Powder River Council,As reported in English at the time
+LIT-361,War,Resolve,Resolve,verified,Old Chief Joseph (Tuekakas),Old Chief Joseph (Tuekakas),Deathbed Counsel in the Wallowa Valley — Never Sell the Bones of Your Father,Dying Words to His Son,"As recalled by his son, Chief Joseph"
+LIT-362,War,Fury,Fury,loose,Castro Alves,Castro Alves,"O Navio Negreiro (The Slave Ship — Tragedy on the Sea, Canto IV)",O Navio Negreiro (The Slave Ship),Loose rendering
+LIT-363,Art,Resolve,Melancholy,loose,José Hernández,José Hernández,El Gaucho Martín Fierro — Singing Until My Guitar Strings Snap,El Gaucho Martín Fierro (opening),Loose rendering
+LIT-364,Love,Resolve,Resolve,loose,José Martí,José Martí,Versos Sencillos XXXIX — I Cultivate a White Rose for Friend and Enemy,I Cultivate a White Rose (Versos Sencillos XXXIX),Loose rendering
+LIT-365,God,Fury,Yearning,verified,Omar Khayyam (Trans. Edward FitzGerald),Omar Khayyam (Trans. Edward FitzGerald),"Rubáiyát — Ah Love, Could Thou and I with Fate Conspire to Shatter the Scheme",Rubáiyát (Ah Love! could thou and I),
+LIT-366,Art,Dark Humor,Dark Humor,verified,"Joris-Karl Huysmans (Trans. John Howard, 1922)","Joris-Karl Huysmans (Trans. John Howard, 1922)",À rebours — The Gem-Encrusted Tortoise on the Oriental Carpet (Ch. IV),À rebours (Ch. IV),
+LIT-367,Death,Dread,Dread,unconfirmed,Charles Baudelaire,Charles Baudelaire,Une Charogne (A Carcass — Les Fleurs du mal XXIX),Une Charogne (A Carcass),Could not identify the translator
+LIT-368,Earth,Sublime,Sublime,loose,Arthur Rimbaud,Arthur Rimbaud,Les Illuminations — Après le Déluge (After the Flood),Après le Déluge (After the Flood),Loose rendering
+LIT-369,Art,Dark Humor,Dark Humor,unconfirmed,Comte de Lautréamont (Isidore Ducasse),Comte de Lautréamont (Isidore Ducasse),Les Chants de Maldoror — The Sewing-Machine and the Umbrella (Canto VI),Les Chants de Maldoror (Canto VI),Could not identify the translator
+LIT-370,Earth,Yearning,Yearning,loose,Stéphane Mallarmé,Stéphane Mallarmé,"Brise Marine (Sea Breeze — The Flesh Is Sad, Alas)",Brise Marine (Sea Breeze),Loose rendering
+LIT-371,God,Dark Humor,Dark Humor,unconfirmed,Jules Laforgue,Jules Laforgue,L'Imitation de Notre-Dame la Lune — Litanies of the Last Quarters,Litanies of the Last Quarters of the Moon,Could not match these lines to Laforgue's poem; may be composed
+LIT-372,Art,Melancholy,Melancholy,loose,Tristan Corbière,Tristan Corbière,Les Amours jaunes — Le Crapaud (The Toad),Le Crapaud (The Toad),Loose rendering
+LIT-373,Death,Dread,Dread,loose,Aloysius Bertrand,Aloysius Bertrand,Gaspard de la Nuit — Scarbo (Nocturnal Dwarf Goblin),Gaspard de la Nuit — Scarbo,Loose rendering
+LIT-374,Art,Resolve,Resolve,loose,Auguste Villiers de l'Isle-Adam,Auguste Villiers de l'Isle-Adam,"Axël — As for Living, Our Servants Will Do That for Us",Axël,Loose rendering
+LIT-375,Art,Dark Humor,Dark Humor,modern-translation,Alfred Jarry,Alfred Jarry,Exploits and Opinions of Dr. Faustroll — Definition of 'Pataphysics,Exploits and Opinions of Dr. Faustroll,Wording matches Simon Watson Taylor's 1965 translation
+LIT-376,Love,Melancholy,Melancholy,unconfirmed,Guillaume Apollinaire,Guillaume Apollinaire,Calligrammes — Il pleut (It Is Raining Women's Voices),Il pleut (It's Raining),Could not identify the translator
+LIT-377,Love,Yearning,Dread,verified,"Oscar Wilde (Trans. Lord Alfred Douglas, 1894)","Oscar Wilde (Trans. Lord Alfred Douglas, 1894)","Salomé — I Have Kissed Thy Mouth, Iokanaan",Salomé (final speech),
+LIT-378,Death,Resolve,Resolve,verified,Algernon Charles Swinburne,Algernon Charles Swinburne,"The Garden of Proserpine — Pale, Beyond Porch and Portal",The Garden of Proserpine,
+LIT-379,Love,Dread,Melancholy,verified,Dante Gabriel Rossetti,Dante Gabriel Rossetti,The House of Life — Sonnet XCVII: A Superscription,A Superscription,
+LIT-380,Art,Dread,Dread,verified,"Alfred, Lord Tennyson","Alfred, Lord Tennyson",The Lady of Shalott — Part III: The Mirror Cracked from Side to Side,The Lady of Shalott (Part III),
+LIT-381,Art,Dread,Dread,verified,Thomas De Quincey,Thomas De Quincey,Confessions of an English Opium-Eater — Architectural Dreams of Piranesi,Confessions of an English Opium-Eater,
+LIT-382,Death,Yearning,Dread,verified,Joseph Sheridan Le Fanu,Joseph Sheridan Le Fanu,Carmilla — The Midnight Cat at the Foot of the Bed (Ch. VII),Carmilla (Ch. VII),
+LIT-383,Death,Dread,Dread,loose,Bram Stoker,Bram Stoker,"Dracula — Listen to Them, the Children of the Night (Ch. II)",Dracula (Ch. II),Garbled; not an accurate quotation from the novel
+LIT-384,God,Dread,Dread,verified,Arthur Machen,Arthur Machen,The Great God Pan — Lifting the Veil of Matter (Ch. I),The Great God Pan (Ch. I),
+LIT-385,Death,Dread,Dread,verified,Robert W. Chambers,Robert W. Chambers,"The King in Yellow — Cassilda's Song (Act I, Scene 2)",The King in Yellow — Cassilda's Song,
+LIT-386,Earth,Dread,Dread,loose,Algernon Blackwood,Algernon Blackwood,The Willows — Thin Places Between Worlds on the Flooded Danube,The Willows,"A paraphrase, not a quotation"
+LIT-387,God,Sublime,Sublime,verified,Lord Dunsany (Edward Plunkett),Lord Dunsany (Edward Plunkett),The Gods of Pegāna — Before There Stood Gods Upon Olympus,The Gods of Pegāna,
+LIT-388,God,Dread,Dread,verified,H. P. Lovecraft,H. P. Lovecraft,The Call of Cthulhu — The Most Merciful Thing in the World (Opening),The Call of Cthulhu (opening),
+LIT-389,Art,Resolve,Resolve,loose,Heinrich von Kleist,Heinrich von Kleist,On the Marionette Theatre — Eating Again from the Tree of Knowledge,On the Marionette Theatre,Loose rendering
+LIT-390,Death,Dread,Dread,loose,E. T. A. Hoffmann,E. T. A. Hoffmann,"Der Sandmann (The Sandman — Eyes Here, Fresh Warm Eyes)",The Sandman,Loose rendering
+LIT-391,Earth,Fury,Fury,loose,Annette von Droste-Hülshoff,Annette von Droste-Hülshoff,Am Turme (On the Tower — Unbinding Hair in the Gale),Am Turme (On the Tower),Loose rendering
+LIT-392,Love,Yearning,Yearning,loose,Else Lasker-Schüler,Else Lasker-Schüler,Ein alter Tibetteppich (An Old Tibetan Carpet),Ein alter Tibetteppich,Loose rendering
+LIT-393,God,Fury,Dread,loose,Georg Heym,Georg Heym,Der Gott der Stadt (The God of the City),Der Gott der Stadt (The God of the City),Loose rendering
+LIT-394,War,Melancholy,Dread,loose,Georg Trakl,Georg Trakl,Grodek — All Roads Lead into Black Decay,Grodek,Loose rendering
+LIT-395,Art,Dark Humor,Dark Humor,loose,Hugo Ball,Hugo Ball,Flight Out of Time — Cabaret Voltaire Sound-Poem Manifesto,Flight Out of Time (23 June 1916),Loose rendering of his diary entry
+LIT-396,Death,Dread,Dread,loose,Franz Kafka,Franz Kafka,In the Penal Colony — The Glass Harrow Writes the Sentence in the Skin,In the Penal Colony,Loose rendering
+LIT-397,Art,Dark Humor,Melancholy,modern-translation,Søren Kierkegaard,Søren Kierkegaard,Either/Or — Diapsalmata: What Is a Poet?,Either/Or — Diapsalmata,Wording matches the Swenson translation (1944)
+LIT-398,Death,Dread,Dread,loose,Hans Christian Andersen,Hans Christian Andersen,The Shadow (Skyggen — The Shadow Takes the Man as Servant),The Shadow,"A retelling, not a quotation"
+LIT-399,Art,Resolve,Resolve,loose,Edith Södergran,Edith Södergran,Dikter — Vierge moderne (Modern Virgin),Vierge moderne,Loose rendering
+LIT-400,Death,Melancholy,Melancholy,loose,Rosalía de Castro,Rosalía de Castro,Follas novas — Negra Sombra (Black Shadow),Negra Sombra,Loose rendering
+LIT-401,Love,Melancholy,Melancholy,loose,Nikolai Gogol,Nikolai Gogol,"The Overcoat (Shinel) — Leave Me Alone, Why Do You Insult Me?",The Overcoat,Loose rendering
+LIT-402,Art,Resolve,Resolve,loose,Anton Chekhov,Anton Chekhov,Letter to Lazarev-Gruzinsky — The Loaded Rifle on the Stage Wall,Letter to Lazarev-Gruzinsky (1 Nov 1889),Loose rendering
+LIT-403,Death,Dread,Dread,loose,Alexander Blok,Alexander Blok,"Night, Street, Lamp, Drugstore (Noch, ulitsa, fonar, apteka)","Night, Street, Lamp, Drugstore",Loose rendering
+LIT-404,Art,Dread,Dark Humor,loose,Andrei Bely,Andrei Bely,Petersburg — Prologue: The Cerebral City of Geometric Fog,Petersburg (Prologue),Loose rendering
+LIT-405,War,Fury,Melancholy,modern-translation,Marina Tsvetaeva,Marina Tsvetaeva,I Know the Truth — Give Up All Other Truths (Znaïu pravdu),I Know the Truth,Wording matches Elaine Feinstein's 1971 translation
+LIT-406,War,Resolve,Melancholy,verified,Paul Laurence Dunbar,Paul Laurence Dunbar,We Wear the Mask,We Wear the Mask,
+LIT-407,Love,Melancholy,Melancholy,verified,Georgia Douglas Johnson,Georgia Douglas Johnson,The Heart of a Woman,The Heart of a Woman,
+LIT-408,War,Fury,Fury,verified,Alice Dunbar-Nelson,Alice Dunbar-Nelson,I Sit and Sew,I Sit and Sew,
+LIT-409,War,Dark Humor,Dark Humor,verified,Fenton Johnson,Fenton Johnson,Tired (I Am Tired of Building Up Somebody Else's Civilization),Tired,
+LIT-410,War,Fury,Resolve,verified,Claude McKay,Claude McKay,If We Must Die,If We Must Die,
+LIT-411,Death,Dread,Dread,verified,Jean Toomer,Jean Toomer,Cane — Reapers (Black Horses Drive a Mower Through the Weeds),Reapers,
+LIT-412,God,Dark Humor,Dark Humor,verified,Countee Cullen,Countee Cullen,Color — Yet Do I Marvel,Yet Do I Marvel,
+LIT-413,War,Fury,Fury,verified,Zitkala-Ša (Gertrude Simmons Bonnin),Zitkala-Ša (Gertrude Simmons Bonnin),Impressions of an Indian Childhood — The Cutting of My Long Hair,The Cutting of My Long Hair,
+LIT-414,Earth,Sublime,Sublime,verified,E. Pauline Johnson (Tekahionwake),E. Pauline Johnson (Tekahionwake),The Song My Paddle Sings,The Song My Paddle Sings,
+LIT-415,Art,Yearning,Yearning,loose,Delmira Agustini,Delmira Agustini,Los cálices vacíos — Lo inefable (Dying of a Thought Mute as a Wound),Lo inefable,Loose rendering
+LIT-416,Death,Dark Humor,Resolve,loose,Juana de Ibarbourou,Juana de Ibarbourou,"Las lenguas de diamante — Rebelde (Charon, I Shall Be a Scandal in Your Boat)",Rebelde,Loose rendering
+LIT-417,Death,Fury,Fury,loose,Gabriela Mistral,Gabriela Mistral,Desolación — Los sonetos de la muerte I (From the Icy Niche),Los sonetos de la muerte (I),Loose rendering
+LIT-418,Death,Dread,Dread,loose,Horacio Quiroga,Horacio Quiroga,Cuentos de amor de locura y de muerte — El almohadón de plumas (The Feather Pillow),El almohadón de plumas (The Feather Pillow),"A retelling of the ending, not a quotation"
+LIT-419,Art,Sublime,Sublime,loose,Cruz e Sousa,Cruz e Sousa,Broquéis — Antífona (O Forms White and Clear),Antífona,Loose rendering
+LIT-420,Death,Dark Humor,Dark Humor,loose,Augusto dos Anjos,Augusto dos Anjos,Eu — Versos íntimos (Kiss the Hand That Throws the Stone),Versos íntimos,Loose rendering
+LIT-421,Death,Dread,Dread,loose,"Pu Songling (Trans. Herbert A. Giles, 1880)","Pu Songling (Trans. Herbert A. Giles, 1880)",Strange Tales from a Chinese Studio — The Painted Skin (Huàpí),The Painted Skin (Huàpí),Credited to Giles's 1880 translation but reads as a retelling
+LIT-422,Love,Resolve,Resolve,loose,Ueda Akinari,Ueda Akinari,Tales of Moonlight and Rain — The Chrysanthemum Vow (Kikka no Chigiri),The Chrysanthemum Vow,"A retelling, with the two friends' roles confused"
+LIT-423,Love,Melancholy,Melancholy,loose,Ichiyō Higuchi,Ichiyō Higuchi,Nigorie (Troubled Waters — Stepping Out into the Pleasure-Quarter Rain),Nigorie (Troubled Waters),"A retelling, not a quotation"
+LIT-424,Love,Yearning,Yearning,loose,Natsume Sōseki,Natsume Sōseki,Ten Nights of Dreams (Yume Jūya) — The First Night,Ten Nights of Dreams — The First Night,Loose rendering
+LIT-425,Death,Dread,Dread,loose,Ryūnosuke Akutagawa,Ryūnosuke Akutagawa,Rashōmon — Into the Pitch-Black Night Beneath the Gate,Rashōmon,"A retelling, not a quotation"
+LIT-426,War,Dread,Dread,modern-translation,Lu Xun (Zhou Shuren),Lu Xun (Zhou Shuren),A Madman's Diary — 'Eat People' Written Between Every Line,A Madman's Diary,Wording closely follows the Yangs' 1960 translation
+LIT-427,War,Resolve,Resolve,loose,José Rizal,José Rizal,Mi último adiós (My Last Farewell — Smuggled Inside an Alcohol Stove),Mi último adiós,Loose rendering
+LIT-428,War,Resolve,Resolve,verified,"Raden Adjeng Kartini (Trans. Agnes Louise Symmers, 1920)","Raden Adjeng Kartini (Trans. Agnes Louise Symmers, 1920)",Door Duisternis tot Licht (Out of Darkness Comes Light — Caged Mind),Letters of a Javanese Princess (25 May 1899),
+LIT-429,Earth,Melancholy,Melancholy,verified,Toru Dutt,Toru Dutt,Our Casuarina Tree,Our Casuarina Tree,
+LIT-430,God,Resolve,Resolve,loose,Olive Schreiner,Olive Schreiner,The Story of an African Farm — The Hunter and the Single White Feather,The Story of an African Farm — The Hunter,"A retelling, not a quotation"
+LIT-431,War,Resolve,Dread,verified,Thucydides,Thucydides,The Melian Dialogue — The Strong Do What They Can (Book V.89),The Melian Dialogue,
+LIT-432,Art,Dark Humor,Dark Humor,verified,François de La Rochefoucauld,François de La Rochefoucauld,Maximes — Hypocrisy Is the Homage That Vice Pays to Virtue (Maxim 218),More Maxims,Overlaps with the other La Rochefoucauld entry
+LIT-433,Art,Resolve,Resolve,loose,Sima Qian,Sima Qian,Letter to Ren An — Suffering Mutilation Without Rancor to Finish the Book,Letter to Ren An,Loose rendering
+LIT-434,Art,Dark Humor,Dark Humor,loose,Han Fei,Han Fei,Han Feizi — The All-Piercing Spear and the Impenetrable Shield (Maodun),Han Feizi — Spear and Shield,Loose rendering
+LIT-435,Earth,Dark Humor,Dark Humor,loose,Zhuangzi (Master Zhuang),Zhuangzi (Master Zhuang),Zhuangzi — Autumn Floods: You Cannot Speak of Ocean to a Well-Frog,Zhuangzi — Autumn Floods,Loose rendering
+LIT-436,Art,Resolve,Resolve,loose,Xunzi (Xun Kuang),Xunzi (Xun Kuang),Xunzi — Encouraging Learning: Indigo Is Bluer Than the Plant It Came From,Xunzi — Encouraging Learning,Loose rendering
+LIT-437,War,Resolve,Resolve,loose,Wen Tianxiang,Wen Tianxiang,Crossing the Lonely Ocean (Guò Līngdīng Yáng),Crossing the Lingding Sea,Loose rendering
+LIT-438,Earth,Sublime,Sublime,loose,Yun Sŏndo (Kosan),Yun Sŏndo (Kosan),The Fisherman's Calendar (Ŏbu sasi sa — Autumn Verse II),The Fisherman's Calendar (Autumn),Loose rendering
+LIT-439,War,Dark Humor,Dark Humor,loose,Pak Chiwŏn (Yŏnam),Pak Chiwŏn (Yŏnam),The Tale of a Yangban (Yangbanjŏn — Satire of the Nobleman's Charter),The Tale of a Yangban,"A retelling, not a quotation"
+LIT-440,Love,Melancholy,Melancholy,loose,Kim Sowŏl,Kim Sowŏl,Azaleas (Chindallae kkot),Azaleas (Chindallae kkot),Loose rendering
+LIT-441,Love,Resolve,Melancholy,loose,Han Yong-un (Manhae),Han Yong-un (Manhae),The Silence of Love (Nim-ŭi Ch'immuk),The Silence of Love,Loose rendering
+LIT-442,War,Fury,Melancholy,loose,Francisco Balagtas (Baltazar),Francisco Balagtas (Baltazar),"Florante at Laura — Inside the Dark Kingdom, Grief Wears the Crown",Florante at Laura (opening),Loose rendering
+LIT-443,Death,Melancholy,Melancholy,loose,Multatuli (Eduard Douwes Dekker),Multatuli (Eduard Douwes Dekker),Max Havelaar — Saïdjah's Song Under the Ketapang Tree (Ch. XVII),Max Havelaar — Saïdjah's Song,Loose rendering
+LIT-444,Love,Yearning,Yearning,modern-translation,Sei Shōnagon,Sei Shōnagon,The Pillow Book — Things That Make the Heart Beat Faster,The Pillow Book — Things That Make the Heart Beat Faster,Wording closely follows Ivan Morris's 1967 translation
+LIT-445,Death,Melancholy,Melancholy,loose,Recorded by Mahmud al-Kashgari,Recorded by Mahmud al-Kashgari,Dīwān Lughāt al-Turk — Elegy for Alp Er Tunga (Is Fate Taking Its Revenge?),Elegy for Alp Er Tunga,Loose rendering
+LIT-446,Art,Yearning,Yearning,unconfirmed,Ali-Shir Nava'i,Ali-Shir Nava'i,Ghazal — Fire Hidden Inside Cold Black Stone,Ghazal (Flint and Spark),Could not match to a known ghazal; may be composed
+LIT-447,Love,Yearning,Yearning,loose,Fuzuli,Fuzuli,"Leylî vü Mecnun — O Doctor, Do Not Cure My Pain of Love",Ghazal (O Physician),Loose rendering
+LIT-448,Art,Resolve,Resolve,loose,Abu'l-Qasim Ferdowsi,Abu'l-Qasim Ferdowsi,Shahnameh — Concluding Manifesto: A High Palace Built of Verse,Shahnameh (conclusion),Loose rendering
+LIT-449,Love,Dark Humor,Dark Humor,loose,Hafez of Shiraz,Hafez of Shiraz,Divan — Samarkand and Bukhara for One Hindu Mole,Ghazal (The Shirazi Turk),Loose rendering
+LIT-450,Death,Dark Humor,Melancholy,attribution,Abu al-ʿAlāʾ al-Maʿarrī,Abu al-ʿAlāʾ al-Maʿarrī,Self-Composed Tombstone Epitaph at Ma'arrat al-Nu'man,Elegy (Tread Lightly),"These lines are from an elegy, not his epitaph; they also repeat part of No. 306"
+LIT-451,God,Resolve,Sublime,loose,Baba Bulleh Shah,Baba Bulleh Shah,"Kāfī — Bullah Ki Jaana Main Kaun (Bullah, How Do I Know Who I Am?)",Bulleha Ki Jaana Main Kaun,Loose rendering
+LIT-452,Love,Yearning,Yearning,loose,Waris Shah,Waris Shah,Heer Ranjha — The Bamboo Flute Calling Across the Chenab,Heer Ranjha (opening),Loose rendering
+LIT-453,Love,Resolve,Resolve,loose,Shah Abdul Latif Bhittai,Shah Abdul Latif Bhittai,Shah Jo Risalo — Sur Sasui: Crawl on Your Knees Across the Burning Rocks,Shah Jo Risalo — Sur Sasui,Loose rendering
+LIT-454,War,Fury,Resolve,loose,Subramania Bharati (Mahakavi Bharathiyar),Subramania Bharati (Mahakavi Bharathiyar),"Achamillai Achamillai (There Is No Fear, Even If the Sky Collapses)",Achamillai Achamillai,Loose rendering
+LIT-455,Art,Sublime,Sublime,verified,Sarojini Naidu,Sarojini Naidu,"In the Bazaars of Hyderabad — Crowns for the Brow of a Bridegroom, Chaplets for His Bed",In the Bazaars of Hyderabad,
+LIT-456,Art,Dark Humor,Dark Humor,loose,Bhartṛhari,Bhartṛhari,Nītiśataka — Better Cast Headlong from a Mountain Crag,Nītiśataka,Loose rendering
+LIT-457,God,Resolve,Resolve,modern-translation,Akka Mahadevi (Trans. Vacana Tradition),Akka Mahadevi (Trans. Vacana Tradition),"Vachana — When the Whole World Is the Eye of the Lord, What Can You Hide?",Vachana: The Eye of the Lord,Wording matches A. K. Ramanujan's Speaking of Siva (1973); overlaps with No. 286
+LIT-458,God,Sublime,Resolve,loose,Mirabai,Mirabai,Padavali — Rana Sent a Cup of Poison and Mira Drank It Laughing,Pada (Mira Danced),Loose rendering
+LIT-459,God,Resolve,Resolve,unconfirmed,Yoruba Babaláwo Oral Divination Canon,Yoruba Babaláwo Oral Divination Canon,"Odù Ifá (Òtúrá Méjì) — Speak Truth, Even When the Blade Hangs Overhead",Odù Ifá,One line is a known Ifá verse; the rest could not be confirmed
+LIT-460,War,Sublime,Resolve,loose,Nyanga *Karisi* Oral Bards,Nyanga *Karisi* Oral Bards,The Mwindo Epic — Born Laughing Out of His Mother's Middle Finger,The Mwindo Epic,"A retelling, not a quotation"
+LIT-461,War,Fury,Fury,loose,Ijaw *Okabou* Bardic Tradition,Ijaw *Okabou* Bardic Tradition,The Ozidi Saga — Hornbill-Crown Roaring in the Skull-Shrine,The Ozidi Saga,"A retelling, not a quotation"
+LIT-462,War,Fury,Fury,modern-translation,Magolwane kaMkhathini (Zulu *Imbongi* Royal Praise-Poet),Magolwane kaMkhathini (Zulu *Imbongi* Royal Praise-Poet),Izibongo of Shaka — Axe That Surpasses Other Axes in Sharpness,Izibongo of Shaka,Wording matches Trevor Cope's 1968 translation
+LIT-463,Art,Resolve,Resolve,loose,Bwana Mwengo wa Athman,Bwana Mwengo wa Athman,Utendi wa Tambuka — Bring Syrian Ink and Bright Cinnabar for the Song,Utendi wa Tambuka (opening),Loose rendering
+LIT-464,War,Resolve,Resolve,loose,Ahmad Baba al-Timbukti,Ahmad Baba al-Timbukti,Mi'raj al-Su'ud — Legal Treatise from Timbuktu Against Racial Slavery,Miʿrāj al-Ṣuʿūd,Loose rendering
+LIT-465,War,Fury,Fury,loose,Shehu Usman dan Fodio,Shehu Usman dan Fodio,Nur al-Albab — Leaving Women Uneducated Like Household Vessels,Nūr al-Albāb,Loose rendering
+LIT-466,God,Resolve,Resolve,unconfirmed,Nana Asma'u,Nana Asma'u,Fa'inna ma'al Usri Yusran (Verily with Hardship Comes Ease — Acrostic),Poem,Could not match these lines to her work; may be composed
+LIT-467,Earth,Sublime,Sublime,loose,Ibn Battuta (Dictated to Ibn Juzayy),Ibn Battuta (Dictated to Ibn Juzayy),The Rihla — Houses Built of Rock-Salt at Taghaza & Safety in Mali,The Rihla (Taghaza),Loose rendering
+LIT-468,War,Sublime,Resolve,verified,Te Rauparaha (Ngāti Toa Rangatira),Te Rauparaha (Ngāti Toa Rangatira),Ka Mate Haka — Out of the Dark Pit into the Shining Sun,Ka Mate,
+LIT-469,Love,Resolve,Yearning,unconfirmed,Queen Liliʻuokalani,Queen Liliʻuokalani,Kuʻu Pua i Paoakalani (Prison Flower Song Written in Pencil at ʻIolani Palace),Kuʻu Pua i Paoakalani,Real song; could not confirm this English wording
+LIT-470,War,Resolve,Resolve,attribution,Crazy Horse (Tȟašúŋke Witkó),Attributed to Crazy Horse (Tȟašúŋke Witkó),Battle Cry & Dying Words at Camp Robinson — Only the Rocks Live Forever,Attributed Sayings,Popularly attributed to Crazy Horse; none can be verified as his words
+LIT-471,War,Fury,Melancholy,loose,Geronimo (Goyaałé),Geronimo (Goyaałé),Story of His Life — Dictated as a Prisoner of War at Fort Sill,Geronimo's Story of His Life,Loose rendering
+LIT-472,Love,Melancholy,Melancholy,verified,Queen Liliʻuokalani,Queen Liliʻuokalani,Hawaiian Royal Elegy — Aloha ʻOe (Rain Sweeping the Cliffs of Koʻolau),Aloha ʻOe,
+LIT-473,Death,Melancholy,Melancholy,attribution,Nezahualcóyotl / Nahua *Cuīcapicque* Tradition,Tochihuitzin Coyolchiuhqui (attributed),"Cantares Mexicanos — We Only Come to Sleep, We Only Come to Dream",We Only Came to Dream,"Usually attributed to Tochihuitzin Coyolchiuhqui, not Nezahualcóyotl; loose rendering"
+LIT-474,War,Fury,Resolve,verified,Marcus Garvey,Marcus Garvey,First Message from Atlanta Prison — Look for Me in the Whirlwind,First Message from Atlanta Prison,
+LIT-475,War,Resolve,Resolve,unconfirmed,Salomé Ureña,Salomé Ureña,"Sombras & Ruinas — Shake Off Your Lethargy, Quisqueya",Ruinas,"Real poet and poem; could not match these lines, may be composed"
+LIT-476,War,Resolve,Resolve,loose,Simón Bolívar,Simón Bolívar,"The Jamaica Letter (Carta de Jamaica — Neither Indian Nor European, a Species Between)",The Jamaica Letter,Loose rendering
+LIT-477,War,Resolve,Resolve,verified,Harriet Jacobs (Linda Brent),Harriet Jacobs (Linda Brent),Incidents in the Life of a Slave Girl — Seven Years in the Nine-Foot Garret,Incidents in the Life of a Slave Girl,
+LIT-478,War,Sublime,Sublime,verified,Harriet Tubman (Recorded by Sarah H. Bradford),Harriet Tubman (Recorded by Sarah H. Bradford),Crossing the Line into Pennsylvania — I Looked at My Hands,On Crossing into Freedom,
+LIT-479,Art,Dark Humor,Dark Humor,verified,Mark Twain (Samuel Langhorne Clemens),Mark Twain (Samuel Langhorne Clemens),Following the Equator — Pudd'nhead Wilson's New Calendar on Humor,Pudd'nhead Wilson's New Calendar,
+LIT-480,Art,Dark Humor,Dark Humor,verified,Stephen Crane,Stephen Crane,"The Black Riders III — In the Desert I Saw a Creature, Naked, Bestial",In the Desert,
+LIT-481,God,Dark Humor,Dark Humor,verified,Stephen Crane,Stephen Crane,War Is Kind XXI — A Man Said to the Universe,A Man Said to the Universe,
+LIT-482,War,Resolve,Resolve,verified,James Weldon Johnson,James Weldon Johnson,Lift Every Voice and Sing — Stony the Road We Trod,Lift Every Voice and Sing,
+LIT-483,War,Dread,Dread,verified,Angelina Weld Grimké,Angelina Weld Grimké,Tenebris (Shadow of a Huge Black Hand Against the White Man's Bricks),Tenebris,
+LIT-484,Art,Yearning,Yearning,loose,Nella Larsen,Nella Larsen,Quicksand — Helga Crane Inside the Subterranean Harlem Cabaret (Ch. 10),Quicksand,"A paraphrase of the cabaret scene, not a quotation"
+LIT-485,Death,Resolve,Resolve,verified,Edgar Lee Masters,Edgar Lee Masters,Spoon River Anthology — Lucinda Matlock ('It Takes Life to Love Life'),Lucinda Matlock,
+LIT-486,War,Melancholy,Melancholy,verified,Vachel Lindsay,Vachel Lindsay,The Leaden-Eyed,The Leaden-Eyed,
+LIT-487,Earth,Sublime,Sublime,verified,William Carlos Williams,William Carlos Williams,Spring and All XXII — The Red Wheelbarrow & The Great Figure,The Red Wheelbarrow & The Great Figure,
+LIT-488,Art,Dark Humor,Dark Humor,verified,Marianne Moore,Marianne Moore,Observations — Poetry ('Imaginary Gardens with Real Toads in Them'),Poetry,
+LIT-489,Earth,Resolve,Sublime,verified,Wallace Stevens,Wallace Stevens,Harmonium — The Snow Man,The Snow Man,
+LIT-490,Earth,Sublime,Sublime,verified,Wallace Stevens,Wallace Stevens,"Harmonium — Thirteen Ways of Looking at a Blackbird (I, V & XIII)","Thirteen Ways of Looking at a Blackbird (I, V, XIII)",
+LIT-491,Love,Melancholy,Melancholy,loose,José Asunción Silva,José Asunción Silva,Nocturno III — Una sola sombra larga (One Single Long Shadow),Nocturno III,Loose rendering
+LIT-492,Art,Resolve,Resolve,loose,José Enrique Rodó,José Enrique Rodó,Ariel — Shake Off Utilitarian Iron for Winged Grace,Ariel,"A retelling, not a quotation"
+LIT-493,War,Fury,Resolve,loose,Euclides da Cunha,Euclides da Cunha,Os Sertões (Rebellion in the Backlands — Canudos Did Not Surrender),Os Sertões (Rebellion in the Backlands),Loose rendering
+LIT-494,Love,Yearning,Yearning,loose,Joaquim Maria Machado de Assis,Joaquim Maria Machado de Assis,"Dom Casmurro — Undertow Eyes (Olhos de ressaca, Ch. XXXII)",Dom Casmurro (Ch. XXXII),Loose rendering
+LIT-495,Death,Resolve,Resolve,loose,Amado Nervo,Amado Nervo,"Elevación — En Paz (Architect of My Own Destiny, Life, We Are Even)",En paz,Loose rendering
+LIT-496,Death,Dread,Dread,loose,César Vallejo,César Vallejo,Los heraldos negros (The Black Heralds),Los heraldos negros (The Black Heralds),Loose rendering
+LIT-497,Death,Fury,Dread,loose,César Vallejo,César Vallejo,"Trilce LXXV — You Are All Dead, Never Having Lived Before",Trilce LXXV,Loose rendering
+LIT-498,Art,Dark Humor,Dark Humor,modern-translation,Oswald de Andrade,Oswald de Andrade,Manifesto Antropófago (Cannibalist Manifesto — Tupi or Not Tupi),Manifesto Antropófago,Wording matches Leslie Bary's 1991 translation
+LIT-499,Love,Dark Humor,Dark Humor,loose,Alfonsina Storni,Alfonsina Storni,"Irremediablemente — Hombre pequeñito (Little Man, Let Your Canary Fly)",Hombre pequeñito,Loose rendering
+LIT-500,War,Resolve,Resolve,loose,José Martí,José Martí,Nuestra América (Our America — Ideas Are Trenches Stronger Than Stone),Nuestra América,Loose rendering

@@ -3859,6 +3859,9 @@
     .rr-anywhere:hover { color: var(--text); }
 
     .rr-page.is-wide > * { max-width: 55rem; }
+  
+    /* v34: a quiet note where a credit is in doubt */
+    .rr-pg-flag { margin-top: 14px; font-size: 0.74rem; line-height: 1.5; font-style: italic; color: var(--text-faint); }
   </style>
 </head>
 <body>
@@ -8205,16 +8208,9 @@
     // New pieces land in a book automatically, so the shelf gets thicker,
     // not longer. To rename a book, edit RR_BOOK_TITLES below.
     // =========================================================================
-    const RR_SHELVES = ['Mirrors & Gardens', 'Gods & Cosmos', 'Sea & Storms', 'Skulls & Death', 'Rebellion & War', 'Blades & Duels', 'Demons & Beasts', 'Art & Self'];
-    // The shelves people see. Rename freely; "subjects" are the tags on the pieces that feed each shelf.
-    const RR_SHELF_DEFS = [
-      { name: 'Love', subjects: ['Mirrors & Gardens'] },
-      { name: 'God', subjects: ['Gods & Cosmos'] },
-      { name: 'Earth', subjects: ['Sea & Storms'] },
-      { name: 'Death', subjects: ['Skulls & Death', 'Demons & Beasts'] },
-      { name: 'War', subjects: ['Rebellion & War', 'Blades & Duels'] },
-      { name: 'Art', subjects: ['Art & Self'] }
-    ];
+    // Each piece carries two hand-checked tags in the data: `shelf` (what it's about)
+    // and `emotionShort` (the mood it's in). A book is one shelf in one mood.
+    const RR_SHELF_NAMES = ['Love', 'God', 'Earth', 'Death', 'War', 'Art'];
     const RR_MOODS = ['Yearning', 'Sublime', 'Resolve', 'Melancholy', 'Dark Humor', 'Fury', 'Dread'];
     const RR_MOOD_INK = {
       'Yearning': '#6b2a3c',
@@ -8225,112 +8221,117 @@
       'Fury': '#8c2f22',
       'Dread': '#262b31'
     };
-    // The data lumps love, nature, art and the uncanny under one tag ("Mirrors & Gardens").
-    // These lists re-shelve those pieces by what they're actually about.
-    // Reading Room only; the tags themselves are untouched. 'Art & Self' is a shelf-only subject.
-    const RR_RESHELVE = {};
-    const rrShelve = (subject, ids) => ids.forEach(id => { RR_RESHELVE[id] = subject; });
-    rrShelve('Sea & Storms', ['LIT-118', 'LIT-199', 'LIT-263', 'LIT-266', 'LIT-205', 'LIT-272', 'LIT-330', 'LIT-360', 'LIT-429',
-      'LIT-487', 'LIT-258', 'LIT-198', 'LIT-311', 'LIT-467', 'LIT-292', 'LIT-290', 'LIT-338']);
-    rrShelve('Art & Self', ['LIT-236', 'LIT-242', 'LIT-245', 'LIT-246', 'LIT-247', 'LIT-251', 'LIT-252', 'LIT-254', 'LIT-257',
-      'LIT-340', 'LIT-389', 'LIT-397', 'LIT-406', 'LIT-432', 'LIT-436', 'LIT-488', 'LIT-495', 'LIT-291', 'LIT-297', 'LIT-455',
-      'LIT-273', 'LIT-374']);
-    rrShelve('Demons & Beasts', ['LIT-096', 'LIT-390', 'LIT-398', 'LIT-483', 'LIT-215']);
-    rrShelve('Skulls & Death', ['LIT-403', 'LIT-473']);
-    const RR_MIN_BOOK = 4; // thinner than this and the pieces go into the shelf's "Loose Leaves"
+    const RR_MIN_BOOK = 4;   // thinner than this and the pieces go into the shelf's "Loose Leaves"
+    const RR_SPLIT_OVER = 30; // thicker than this and the book splits by form (speeches / verse / prose)
+    const RR_MIN_SPLIT = 6;   // a split-off part smaller than this stays with the biggest part
     const RR_BOOK_TITLES = {
-      'Mirrors & Gardens|Yearning': 'Wanting',
-      'Mirrors & Gardens|Sublime': 'In Full Bloom',
-      'Mirrors & Gardens|Resolve': 'Tend Your Own',
-      'Mirrors & Gardens|Melancholy': 'What the Garden Kept',
-      'Mirrors & Gardens|Dark Humor': 'Vanity, Mostly',
-      'Mirrors & Gardens|Fury': 'Thorns',
-      'Mirrors & Gardens|Dread': 'The Mirror Looked Back',
-      'Gods & Cosmos|Yearning': 'Reaching Up',
-      'Gods & Cosmos|Sublime': 'Bigger Than You',
-      'Gods & Cosmos|Resolve': 'Faith, Stubbornly',
-      'Gods & Cosmos|Melancholy': 'Unanswered',
-      'Gods & Cosmos|Dark Humor': 'Heaven’s Small Print',
-      'Gods & Cosmos|Fury': 'Arguing With God',
-      'Gods & Cosmos|Dread': 'The Sky Is Not Empty',
-      'Sea & Storms|Yearning': 'Far Shores',
-      'Sea & Storms|Sublime': 'Wide Open',
-      'Sea & Storms|Resolve': 'Weather It',
-      'Sea & Storms|Melancholy': 'Low Tide',
-      'Sea & Storms|Dark Humor': 'Shipwreck, With Jokes',
-      'Sea & Storms|Fury': 'Squall',
-      'Sea & Storms|Dread': 'What’s Under There',
-      'Skulls & Death|Yearning': 'Come Back',
-      'Skulls & Death|Sublime': 'The Long Sleep',
-      'Skulls & Death|Resolve': 'Not Afraid',
-      'Skulls & Death|Melancholy': 'Elegies',
-      'Skulls & Death|Dark Humor': 'Gallows Humor',
-      'Skulls & Death|Fury': 'No Quiet Exit',
-      'Skulls & Death|Dread': 'The Hour Itself',
-      'Rebellion & War|Yearning': 'Home From the War',
-      'Rebellion & War|Sublime': 'The Cause',
-      'Rebellion & War|Resolve': 'Stand Here',
-      'Rebellion & War|Melancholy': 'After the Battle',
-      'Rebellion & War|Dark Humor': 'Laughing at Kings',
-      'Rebellion & War|Fury': 'Burn It Down',
-      'Rebellion & War|Dread': 'Before Dawn',
-      'Blades & Duels|Yearning': 'Worthy Opponent',
-      'Blades & Duels|Sublime': 'The Clean Cut',
-      'Blades & Duels|Resolve': 'Steady Hand',
-      'Blades & Duels|Melancholy': 'The Losing Side',
-      'Blades & Duels|Dark Humor': 'Insults, Sharpened',
-      'Blades & Duels|Fury': 'Drawn',
-      'Blades & Duels|Dread': 'First Blood',
-      'Demons & Beasts|Yearning': 'Tamed',
-      'Demons & Beasts|Sublime': 'Bright Animals',
-      'Demons & Beasts|Resolve': 'Face It',
-      'Demons & Beasts|Melancholy': 'The Lonely Monster',
-      'Demons & Beasts|Dark Humor': 'Monsters, Politely',
-      'Demons & Beasts|Fury': 'Teeth',
-      'Demons & Beasts|Dread': 'Things in the Dark',
-      'Art & Self|Yearning': 'Daydreams',
-      'Art & Self|Sublime': 'The Trained Eye',
-      'Art & Self|Resolve': 'Make It Anyway',
-      'Art & Self|Melancholy': 'Blue Notes',
-      'Art & Self|Dark Humor': 'Everyone’s a Critic',
-      'Art & Self|Fury': 'Tear It Up',
-      'Art & Self|Dread': 'The Blank Page'
+      'Love|Yearning': 'Wanting',
+      'Love|Sublime': 'In Full Bloom',
+      'Love|Resolve': 'True Hearts',
+      'Love|Melancholy': 'After You',
+      'Love|Dark Humor': 'Sweet Nothings',
+      'Love|Fury': 'Scorned',
+      'Love|Dread': 'Fatal',
+      'God|Yearning': 'Reaching Up',
+      'God|Sublime': 'Bigger Than You',
+      'God|Resolve': 'Faith, Stubbornly',
+      'God|Melancholy': 'Unanswered',
+      'God|Dark Humor': 'Heaven’s Small Print',
+      'God|Fury': 'Arguing With God',
+      'God|Dread': 'The Sky Is Not Empty',
+      'Earth|Yearning': 'Far Shores',
+      'Earth|Sublime': 'Wide Open',
+      'Earth|Resolve': 'Weather It',
+      'Earth|Melancholy': 'Low Tide',
+      'Earth|Dark Humor': 'Small Creatures',
+      'Earth|Fury': 'Squall',
+      'Earth|Dread': 'What’s Under There',
+      'Death|Yearning': 'Come Back',
+      'Death|Sublime': 'The Long Sleep',
+      'Death|Resolve': 'Not Afraid',
+      'Death|Melancholy': 'Elegies',
+      'Death|Melancholy|verse': 'Elegies',
+      'Death|Melancholy|prose': 'Last Pages',
+      'Death|Dark Humor': 'Gallows Humor',
+      'Death|Fury': 'No Quiet Exit',
+      'Death|Dread': 'Things in the Dark',
+      'Death|Dread|prose': 'Things in the Dark',
+      'Death|Dread|verse': 'The Hour Itself',
+      'War|Yearning': 'Home From the War',
+      'War|Sublime': 'The Cause',
+      'War|Resolve': 'Stand Here',
+      'War|Resolve|speech': 'Stand Here',
+      'War|Resolve|verse': 'Unbowed',
+      'War|Resolve|prose': 'Steady Hand',
+      'War|Melancholy': 'After the Battle',
+      'War|Dark Humor': 'Laughing at Kings',
+      'War|Fury': 'Burn It Down',
+      'War|Dread': 'Before Dawn',
+      'Art|Yearning': 'Daydreams',
+      'Art|Sublime': 'The Trained Eye',
+      'Art|Resolve': 'Make It Anyway',
+      'Art|Resolve|prose': 'Make It Anyway',
+      'Art|Resolve|verse': 'My Own Song',
+      'Art|Melancholy': 'Blue Notes',
+      'Art|Dark Humor': 'Everyone’s a Critic',
+      'Art|Fury': 'Tear It Up',
+      'Art|Dread': 'The Blank Page'
     };
 
     const rrState = { tableKeys: null, books: [], open: null, page: 0, showOriginal: false };
 
+    function rrFormGroup(w) {
+      const f = w.graphicForm || '';
+      if (f === 'Oratory & Speech') return 'speech';
+      if (f === 'Verse & Epigraph' || f === 'Sacred & Mystic') return 'verse';
+      return 'prose';
+    }
+
+    function rrSplitByForm(key, pieces) {
+      if (pieces.length <= RR_SPLIT_OVER) return [{ key, pieces }];
+      const groups = {};
+      pieces.forEach(w => { const g = rrFormGroup(w); (groups[g] = groups[g] || []).push(w); });
+      const names = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
+      const biggest = names[0];
+      names.slice(1).forEach(g => {
+        if (groups[g].length < RR_MIN_SPLIT) { groups[biggest] = groups[biggest].concat(groups[g]); delete groups[g]; }
+      });
+      const kept = Object.keys(groups);
+      if (kept.length < 2) return [{ key, pieces }];
+      return ['speech', 'verse', 'prose'].filter(g => groups[g]).map(g => ({ key: `${key}|${g}`, pieces: groups[g] }));
+    }
+
     function rrBuildShelves(pool, foldThin) {
       const byKey = new Map();
       pool.forEach(w => {
-        const tagged = RR_RESHELVE[w.id] || w.subjectShort;
-        const subject = RR_SHELVES.includes(tagged) ? tagged : RR_SHELVES[0];
+        const shelf = RR_SHELF_NAMES.includes(w.shelf) ? w.shelf : 'Art';
         const mood = RR_MOODS.includes(w.emotionShort) ? w.emotionShort : 'Resolve';
-        const key = `${subject}|${mood}`;
+        const key = `${shelf}|${mood}`;
         if (!byKey.has(key)) byKey.set(key, []);
         byKey.get(key).push(w);
       });
       const shelves = [];
       let no = 0;
-      RR_SHELF_DEFS.forEach(def => {
+      RR_SHELF_NAMES.forEach(shelf => {
         const books = [];
         let loose = [];
-        def.subjects.forEach(subject => {
-          RR_MOODS.forEach(mood => {
-            const key = `${subject}|${mood}`;
-            const pieces = byKey.get(key);
-            if (!pieces || !pieces.length) return;
-            if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
-            books.push({ key, subject: def.name, mood, title: RR_BOOK_TITLES[key] || `${mood}`, ink: RR_MOOD_INK[mood], pieces });
+        RR_MOODS.forEach(mood => {
+          const key = `${shelf}|${mood}`;
+          const pieces = byKey.get(key);
+          if (!pieces || !pieces.length) return;
+          if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
+          (foldThin ? rrSplitByForm(key, pieces) : [{ key, pieces }]).forEach(part => {
+            books.push({ key: part.key, subject: shelf, mood, title: RR_BOOK_TITLES[part.key] || RR_BOOK_TITLES[key] || mood, ink: RR_MOOD_INK[mood], pieces: part.pieces });
           });
         });
         if (loose.length) {
-          books.push({ key: `${def.name}|Loose`, subject: def.name, mood: 'Mixed', title: 'Loose Leaves', ink: '#3a3632', pieces: loose });
+          books.push({ key: `${shelf}|Loose`, subject: shelf, mood: 'Mixed', title: 'Loose Leaves', ink: '#3a3632', pieces: loose });
         }
         books.forEach(b => {
           b.no = ++no;
           b.pieces.sort((a, c) => (c.iconicScore || 0) - (a.iconicScore || 0));
         });
-        if (books.length) shelves.push({ subject: def.name, books });
+        if (books.length) shelves.push({ subject: shelf, books });
       });
       return shelves;
     }
@@ -8636,6 +8637,7 @@
         add('div', 'rr-pg-author', w.artist || '');
         add('div', 'rr-pg-title', w.title || '');
         add('div', 'rr-pg-meta', [w.dateLabel, w.region].filter(Boolean).join(' · '));
+        if (w.auditNote && (w.audit === 'attribution' || w.audit === 'unconfirmed')) add('div', 'rr-pg-flag', w.auditNote);
         const links = add('div', 'rr-pg-links');
         if (hasOrig) {
           const ob = document.createElement('button');
