@@ -148,6 +148,18 @@ Still `modern-translation` (9), searched twice, nothing usable:
 - LIT-462 Shaka: R. C. Samuelson's Long, Long Ago (1929) may have an older English text; no scan found.
 - LIT-498 Andrade: a newer translation is posted online from The Forest & The School (ed. Pedro Neves Marques); terms unknown.
 
+## Short quotes — 12 November 2026
+
+Three works people will expect to find, with no usable translation, cut down to a one-or-two-line quote from the standard translation and credited (`audit: quoted`). Paul's call.
+
+| Piece | Quote from |
+|---|---|
+| LIT-426 Lu Xun, A Madman's Diary | Yang Xianyi and Gladys Yang, 1960 |
+| LIT-020 Musashi, Book of the Void | Victor Harris, 1974 |
+| LIT-149 The Thunder, Perfect Mind | George W. MacRae, 1977 |
+
+Six remain `modern-translation`: LIT-132, 286, 375, 457, 462, 498.
+
 ## Not yet audited
 
 The 500 artworks (titles, artist credits, dates, museum attributions) have not been through this process.

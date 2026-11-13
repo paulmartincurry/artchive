@@ -18,6 +18,8 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 2. **Text comes from sources**, not memory: Project Gutenberg, Wikisource, PoetryDB, museum collection APIs. Record where each piece came from.
 3. **The pull quote is the unit.** Every writing piece has a short, strong excerpt (`hook`) that works on its own. For many visitors that is the whole point. The longer passage (`fullText`) is optional depth, one tap away. Never lose the short form, and the quote must be the source's exact words.
 4. **Public-domain wording first; openly offered translations second.** Old poem, modern translator = not ours to use, unless the translator has published it for free reuse (A. S. Kline's poetryintranslation.com, Project Gutenberg's licensed texts, open-access scholarly editions). Prefer a named, checkable translator over an anonymous one. Always credit the translator and record the terms in `license`. Claude does not translate. Cut if no usable text exists.
+   - **Must-haves only:** a work people will expect to find, with no usable translation, may stay as a one-or-two-line quote from the standard translation, credited to translator and book (`audit: quoted`). No longer passage. Keep this list short.
+   - **Steer toward what we can use.** When adding or featuring work, favour authors and pieces with public-domain or openly offered texts. If an author's famous piece is locked up, look for another piece by them that isn't. Don't announce it; just curate that way.
 5. **Don't force balance.** Tag a piece for what it is. Fix thin shelves by adding pieces, not by re-labelling.
 
 ## Design principles
@@ -31,7 +33,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 
 - `index.html` — the whole app (CSS + JS inline). Edit in place; never regenerate.
 - `data/works.js` — the library: 500 artworks + 500 writing pieces, one JSON array.
-- Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution) and `auditNote`.
+- Writing pieces carry `shelf` (Love, God, Earth, Death, War, Art), `emotionShort` (mood), `audit` (verified / loose / modern-translation / unconfirmed / attribution / quoted) and `auditNote`.
 - Re-sourced pieces also carry `translator` (shown in the reader's credit line), `license` (only when the text is not public domain) and a `sourceUrl` pointing at the edition the text was taken from; `auditNote` names the edition.
 - Sourcing from the work sandbox: Project Gutenberg, archive.org and poetryintranslation.com can be fetched directly; Wikisource refuses. Archive.org scans are OCR, so check them against a second scan.
 - Reading Room: a book is one shelf in one mood. Titles are in `RR_BOOK_TITLES` in `index.html`.
@@ -44,7 +46,7 @@ Load the page in a headless browser, switch through every view, open a book and 
 
 ## Next up
 
-1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. Of the original 33 `modern-translation` pieces, 24 were re-sourced on 12 Nov 2026 (see AUDIT.md). The 9 left (LIT-020 Musashi, 132 Kozan Ichikyo, 149 Thunder Perfect Mind, 286 and 457 Akka Mahadevi, 375 Jarry, 426 Lu Xun, 462 Shaka, 498 Andrade) have no public-domain or openly offered English that could be found and are waiting on Paul: cut, or keep looking. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
+1. Replace the 187 `loose` texts with sourced wording (rule 4); cut what can't be sourced. Keep or re-pick a strong pull quote for each. Of the original 33 `modern-translation` pieces, 24 were re-sourced on 12 Nov 2026 (see AUDIT.md). Three must-haves are now short credited quotes (LIT-020 Musashi, 149 Thunder Perfect Mind, 426 Lu Xun). Six are still `modern-translation` and waiting on Paul to cut or replace: LIT-132 Kozan Ichikyo, 286 and 457 Akka Mahadevi, 375 Jarry, 462 Shaka, 498 Andrade. Kline's and Wyllie's texts are free for non-commercial use only, so revisit them if the site ever makes money.
 2. The public test: list the ~100 works people will search for first, find what's missing, add it.
 3. Audit the 500 artworks the same way the writing was audited (titles, credits, dates).
 4. Decide the fate of the parked views (Global Map, Weather) and the maker tools.
