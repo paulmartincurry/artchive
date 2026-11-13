@@ -461,3 +461,24 @@ Turned up while writing, not acted on:
 - **Records that may not describe a real object:** VAULT-293 "Seated Statue of Vizier Ptahhotep", VAULT-275 triptych by "Ueno Jakugen", VAULT-331 Harar Qur'an by a named scribe, VAULT-287 "Sunzi bamboo slips, Qing archival edition", VAULT-334 "Haʻalelea's" cloak. Their notes describe the subject only.
 - **Wrong or doubtful details in records:** VAULT-003 Turner subtitle belongs to a different painting; VAULT-343 Muisca raft was found at Pasca, not Lake Guatavita; VAULT-214 "First Half — Master Wuyong Scroll" mixes up the two halves; VAULT-026 is listed as the Met but the page may be elsewhere; VAULT-372, 494, 488, 215 are Met works listed under the placeholder museum; LIT-115 Schopenhauer title and date do not match (1851 is Parerga); LIT-137 Hildegard date; LIT-392 and LIT-394 poem dates.
 - Many artwork titles and artist credits are dressed up ("Machu Picchu Dry-Fitted Granite Cloud Citadel", "Mexica Imperial Sculptors of King Axayacatl"). The notes use plain names.
+
+## Art audit — 13 November 2026
+
+Paul's instruction: everything must be right; made-up or wrong information matters more than copyright.
+
+**Museum-held works (129 of 130).** Fetched from the Met, Art Institute of Chicago, Cleveland and SMK APIs. Title, maker, date and medium now follow the museum. Real errors found and fixed:
+- VAULT-129 was labelled Kangra, ca. 1790–1800. Chicago says Rajasthan, Kota, mid-18th century.
+- VAULT-026 was titled "Bahram Gur Fights the Horned Wolf". The Met object is "Rustam Kills the White Div".
+- VAULT-061 was credited to Charles Meryon, 1853. Cleveland's object is by John Taylor Arms, 1920.
+- VAULT-037 note described the wrong page of Vesalius. VAULT-052 was placed in Cambodia; Cleveland says northeastern Thailand.
+- VAULT-012 is "probably" Henry VIII's. VAULT-003 lost a subtitle that belonged to another Turner. Invented makers ("Kangra Court Master", "Sultanate Period Master", "Safavid Court Workshop") replaced by the museum's wording.
+- VAULT-117 (Bonheur, Sheep): the accession number in the record does not resolve. Unconfirmed.
+- VAULT-167 and VAULT-035 are two different Met tughras, not duplicates.
+
+**Wikipedia-sourced works (361).** Each source page and its Wikidata record fetched. 312 confirmed as the work described, with maker and date agreeing. Titles stripped of invented description (about 200), invented makers replaced with "Maker unknown" or the documented name (131 now anonymous), dates stripped of padding, placeholder museum removed everywhere and replaced with the real holder where known.
+
+**Site-wide.** Removed "CC0 Public Domain" from the credit line, provenance line and link labels: it was asserted for every work and was not true for many.
+
+**Unconfirmed (59).** Source is an artist, genre or subject page, so the specific object is unverified: VAULT-132, 127, 139, 128, 140, 156, 162, 168, 169, 171, 172, 173, 174, 180, 181, 182, 195, 207, 208, 209, 210, 217, 218, 228, 230, 232, 252, 272, 275, 282, 293, 325, 328, 330, 331, 334, 335, 341, 378, 415, 417, 418, 419, 430, 452, 453, 473, 484, 485, and ten never checked: 141, 148, 133, 117, 144, 382, 385, 406, 420, 502.
+
+**Not done.** Notes were corrected only where a museum record contradicted them. The other notes have not been re-read against sources. Medium unchecked on Wikipedia-sourced works. The writing side still has 16 loose, 13 unconfirmed, 10 attribution.

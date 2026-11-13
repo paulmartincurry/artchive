@@ -3975,7 +3975,6 @@
           <option value="Cleveland Museum of Art">Cleveland Museum of Art</option>
           <option value="Art Institute of Chicago">Art Institute of Chicago</option>
           <option value="SMK – Copenhagen">SMK – National Gallery of Denmark</option>
-          <option value="Global National Treasures & Museums">Global National Treasures &amp; Museums</option>
           <option value="Pocket Poets Canon">Pocket Poets &amp; PoetryDB</option>
         </select>
 
@@ -4378,7 +4377,7 @@
           <button class="quiet-link" id="copyCreditBtn">Copy credit</button>
         </div>
         <div class="footer-row">
-          <a class="quiet-link" id="lbSourceLink" href="#" target="_blank" rel="noopener noreferrer">Source record (CC0 / PD) ↗</a>
+          <a class="quiet-link" id="lbSourceLink" href="#" target="_blank" rel="noopener noreferrer">Source record ↗</a>
           <button class="quiet-link" id="lbOrbitConstellationBtn" type="button" title="Place this work at the center of the Gravity Constellation">✦ Orbit in Constellation</button>
         </div>
       </div>
@@ -6276,7 +6275,7 @@
         lbHighResLink.href = w.highResUrl || w.imageUrl;
         copyCreditBtn.textContent = 'Copy credit';
         copyCreditBtn.onclick = () => {
-          const credit = `${w.title} — ${w.artist} (${w.dateLabel || 'historic'}), ${w.medium}. ${w.museum ? w.museum + '. ' : ''}${w.sourceUrl}`;
+          const credit = `${w.title} — ${w.artist} (${w.dateLabel || 'undated'})${w.medium ? ', ' + w.medium : ''}. ${w.museum ? w.museum + '. ' : ''}${w.sourceUrl}`;
           if (navigator.clipboard) navigator.clipboard.writeText(credit);
           copyCreditBtn.textContent = 'Copied ✓';
           setTimeout(() => { copyCreditBtn.textContent = 'Copy credit'; }, 1400);
@@ -6285,10 +6284,10 @@
 
       lbTitle.textContent = w.title;
       lbArtist.textContent = w.dateLabel ? `${w.artist} · ${w.dateLabel}` : w.artist;
-      lbOrigin.textContent = [w.region, w.museum].filter(Boolean).join(' · ');
+      lbOrigin.textContent = [w.region, w.museum, w.audit === 'unconfirmed' ? 'details not yet verified' : ''].filter(Boolean).join(' · ');
       lbNote.textContent = w.note || '';
 
-      document.getElementById('specMedium').textContent = w.medium || 'Archival Medium';
+      document.getElementById('specMedium').textContent = w.medium || '—';
       document.getElementById('specForm').textContent = `${w.graphicForm || 'Standard'} · ${w.emotionShort} / ${w.subjectShort}`;
       document.getElementById('specEra').textContent = `${w.region} (${w.eraBucket || w.dateLabel || 'Historic'})`;
       document.getElementById('specHex').textContent = `${w.colorFamily || 'Archive Tone'} — ${(state.activePalette || []).join(' · ')}`;
@@ -6472,7 +6471,7 @@
             <div style="font-size:0.8rem;color:#9a968e;margin-bottom:10px;">${w.artist} · ${w.dateLabel} · ${w.medium}</div>
             <div style="margin-bottom:10px;">${swatches}</div>
             <div style="font-family:Georgia,serif;font-style:italic;font-size:0.95rem;color:#c8c3b8;margin-bottom:10px;">${w.quote ? `“${w.quote}” — ${w.quoteAuthor}` : ''}</div>
-            <a href="${w.highResUrl || w.sourceUrl}" target="_blank" style="color:#8a8780;font-size:0.75rem;text-decoration:none;">High-Res Master / CC0 Record ↗</a>
+            <a href="${w.highResUrl || w.sourceUrl}" target="_blank" style="color:#8a8780;font-size:0.75rem;text-decoration:none;">High-res image ↗</a>
           </div>
         `;
       }).join('');
