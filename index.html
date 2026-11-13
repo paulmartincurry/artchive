@@ -3559,6 +3559,247 @@
 
     /* Side panels sit below the header instead of sliding under it */
     .lens-instrument-panel { top: 176px; }
+  
+    /* ==========================================================================
+       v31: READING ROOM — THE SHELF + THE CHAPBOOK
+       ========================================================================== */
+    .rr-shelfroom { padding: 8px 0 80px; }
+
+    .rr-shelf { margin: 0 0 54px; }
+    .rr-shelf.is-table { margin-bottom: 72px; }
+
+    .rr-shelf-label {
+      font-family: inherit;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 0 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rr-shelf-note {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin: 6px 0 40px;
+    }
+
+    .rr-shelf-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px 28px;
+      align-items: flex-end;
+    }
+
+    .rr-cover {
+      --ink: #3a3632;
+      position: relative;
+      width: 148px;
+      aspect-ratio: 2 / 3;
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+      background: var(--ink);
+      color: #f3eee4;
+      border: none;
+      border-radius: 1px 3px 3px 1px;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: inset 5px 0 0 rgba(0, 0, 0, 0.18);
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), filter 0.24s ease;
+    }
+
+    .rr-cover[data-thick="2"] { box-shadow: inset 5px 0 0 rgba(0, 0, 0, 0.18), 3px 0 0 rgba(243, 238, 228, 0.22); }
+    .rr-cover[data-thick="3"] { box-shadow: inset 5px 0 0 rgba(0, 0, 0, 0.18), 3px 0 0 rgba(243, 238, 228, 0.22), 6px 0 0 rgba(243, 238, 228, 0.12); }
+
+    .rr-cover::after {
+      content: '';
+      position: absolute;
+      inset: 8px 8px 8px 12px;
+      border: 1px solid rgba(243, 238, 228, 0.26);
+      pointer-events: none;
+    }
+
+    .rr-cover:hover,
+    .rr-cover:focus-visible { transform: translateY(-6px); filter: brightness(1.12); outline: none; }
+
+    .rr-cover.is-table { width: 196px; padding: 22px 18px 18px; }
+
+    .rr-cover-top,
+    .rr-cover-foot {
+      font-size: 0.56rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.74;
+      padding-left: 6px;
+    }
+
+    .rr-cover-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.32rem;
+      font-weight: 500;
+      line-height: 1.08;
+      padding-left: 6px;
+    }
+
+    .rr-cover.is-table .rr-cover-title { font-size: 1.72rem; }
+    .rr-cover.is-table .rr-cover-top,
+    .rr-cover.is-table .rr-cover-foot { font-size: 0.6rem; }
+
+    /* The chapbook */
+    body.rr-reading { overflow: hidden; }
+
+    .rr-reader {
+      --ink: #3a3632;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      grid-template-columns: 72px minmax(0, 1fr) 72px;
+      grid-template-rows: auto minmax(0, 1fr);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .rr-reader.open { display: grid; animation: rrReaderIn 0.28s ease; }
+    @keyframes rrReaderIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .rr-reader-bar {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 22px 32px;
+      border-top: 3px solid var(--ink);
+    }
+
+    .rr-reader-bar > :first-child { justify-self: start; }
+    .rr-reader-bar > :last-child { justify-self: end; }
+
+    .rr-reader-book,
+    .rr-reader-count {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .rr-turn {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.6rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .rr-turn:hover { color: var(--text); }
+
+    .rr-turn.is-prev { grid-column: 1; grid-row: 2; }
+    .rr-turn.is-next { grid-column: 3; grid-row: 2; }
+
+    .rr-page {
+      grid-column: 2;
+      grid-row: 2;
+      overflow-y: auto;
+      padding: 4vh 16px 12vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rr-page > * { width: 100%; max-width: 34rem; }
+    .rr-page::before, .rr-page::after { content: ''; flex: 1 1 0; }
+    .rr-page::after { flex-grow: 1.6; }
+
+    .rr-page.turn-fwd { animation: rrTurnFwd 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+    .rr-page.turn-back { animation: rrTurnBack 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+    @keyframes rrTurnFwd { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+    @keyframes rrTurnBack { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+
+    .rr-pg-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      line-height: 1.58;
+      white-space: pre-line;
+      color: var(--text);
+      margin-bottom: 44px;
+    }
+
+    .rr-pg-text.is-verse { font-style: italic; }
+    .rr-pg-text.is-original { font-style: normal; font-family: inherit; font-size: 1.24rem; line-height: 1.9; }
+
+    .rr-pg-author { font-size: 0.86rem; color: var(--text); margin-bottom: 4px; }
+    .rr-pg-title { font-size: 0.82rem; font-style: italic; color: var(--text-muted); margin-bottom: 10px; }
+
+    .rr-pg-meta,
+    .rr-pg-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .rr-pg-links { display: flex; gap: 18px; margin-top: 26px; }
+    .rr-pg-links .text-action { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0; }
+
+    .rr-page.is-cover { text-align: center; }
+    .rr-page.is-cover > * { max-width: 30rem; }
+
+    .rr-pg-booktitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 500;
+      line-height: 1.02;
+      margin: 22px 0 20px;
+    }
+
+    .rr-pg-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; }
+
+    .rr-pg-begin,
+    .rr-pg-nextbook {
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 34px;
+      padding: 8px 0;
+    }
+
+    .rr-pg-nextbook {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: 4px;
+    }
+
+    .rr-pg-begin:hover,
+    .rr-pg-nextbook:hover { opacity: 0.7; }
+
+    @media (max-width: 720px) {
+      .rr-shelf-row { gap: 20px 16px; }
+      .rr-cover { width: calc((100% - 32px) / 3); padding: 12px 10px 10px; }
+      .rr-cover.is-table { width: calc((100% - 16px) / 2); }
+      .rr-cover-title { font-size: 1.08rem; }
+      .rr-cover.is-table .rr-cover-title { font-size: 1.4rem; }
+      .rr-reader { grid-template-columns: 0 minmax(0, 1fr) 0; }
+      .rr-turn { display: none; }
+      .rr-reader-bar { padding: 16px 18px; }
+      .rr-page { padding: 2vh 22px 14vh; }
+      .rr-pg-text { font-size: 1.26rem; }
+    }
   </style>
 </head>
 <body>
@@ -7897,6 +8138,359 @@
     }
 
 
+
+    // =========================================================================
+    // v31: READING ROOM = THE SHELF (browse) + THE CHAPBOOK (read)
+    // A book is a theme: what the piece is about × the mood it's in.
+    // New pieces land in a book automatically, so the shelf gets thicker,
+    // not longer. To rename a book, edit RR_BOOK_TITLES below.
+    // =========================================================================
+    const RR_SHELVES = ['Mirrors & Gardens', 'Gods & Cosmos', 'Sea & Storms', 'Skulls & Death', 'Rebellion & War', 'Blades & Duels', 'Demons & Beasts'];
+    const RR_MOODS = ['Yearning', 'Sublime', 'Resolve', 'Melancholy', 'Dark Humor', 'Fury', 'Dread'];
+    const RR_MOOD_INK = {
+      'Yearning': '#6b2a3c',
+      'Sublime': '#27496d',
+      'Resolve': '#8a6a2f',
+      'Melancholy': '#46536a',
+      'Dark Humor': '#3b6352',
+      'Fury': '#8c2f22',
+      'Dread': '#262b31'
+    };
+    const RR_MIN_BOOK = 4; // thinner than this and the pieces go into the shelf's "Loose Leaves"
+    const RR_BOOK_TITLES = {
+      'Mirrors & Gardens|Yearning': 'Wanting',
+      'Mirrors & Gardens|Sublime': 'In Full Bloom',
+      'Mirrors & Gardens|Resolve': 'Tend Your Own',
+      'Mirrors & Gardens|Melancholy': 'What the Garden Kept',
+      'Mirrors & Gardens|Dark Humor': 'Vanity, Mostly',
+      'Mirrors & Gardens|Fury': 'Thorns',
+      'Mirrors & Gardens|Dread': 'The Mirror Looked Back',
+      'Gods & Cosmos|Yearning': 'Reaching Up',
+      'Gods & Cosmos|Sublime': 'Bigger Than You',
+      'Gods & Cosmos|Resolve': 'Faith, Stubbornly',
+      'Gods & Cosmos|Melancholy': 'Unanswered',
+      'Gods & Cosmos|Dark Humor': 'Heaven’s Small Print',
+      'Gods & Cosmos|Fury': 'Arguing With God',
+      'Gods & Cosmos|Dread': 'The Sky Is Not Empty',
+      'Sea & Storms|Yearning': 'Far Shores',
+      'Sea & Storms|Sublime': 'Open Water',
+      'Sea & Storms|Resolve': 'Hold the Wheel',
+      'Sea & Storms|Melancholy': 'Low Tide',
+      'Sea & Storms|Dark Humor': 'Shipwreck, With Jokes',
+      'Sea & Storms|Fury': 'Weather',
+      'Sea & Storms|Dread': 'What’s Under There',
+      'Skulls & Death|Yearning': 'Come Back',
+      'Skulls & Death|Sublime': 'The Long Sleep',
+      'Skulls & Death|Resolve': 'Not Afraid',
+      'Skulls & Death|Melancholy': 'Elegies',
+      'Skulls & Death|Dark Humor': 'Gallows Humor',
+      'Skulls & Death|Fury': 'No Quiet Exit',
+      'Skulls & Death|Dread': 'The Hour Itself',
+      'Rebellion & War|Yearning': 'Home From the War',
+      'Rebellion & War|Sublime': 'The Cause',
+      'Rebellion & War|Resolve': 'Stand Here',
+      'Rebellion & War|Melancholy': 'After the Battle',
+      'Rebellion & War|Dark Humor': 'Laughing at Kings',
+      'Rebellion & War|Fury': 'Burn It Down',
+      'Rebellion & War|Dread': 'Before Dawn',
+      'Blades & Duels|Yearning': 'Worthy Opponent',
+      'Blades & Duels|Sublime': 'The Clean Cut',
+      'Blades & Duels|Resolve': 'Steady Hand',
+      'Blades & Duels|Melancholy': 'The Losing Side',
+      'Blades & Duels|Dark Humor': 'Insults, Sharpened',
+      'Blades & Duels|Fury': 'Drawn',
+      'Blades & Duels|Dread': 'First Blood',
+      'Demons & Beasts|Yearning': 'Tamed',
+      'Demons & Beasts|Sublime': 'Bright Animals',
+      'Demons & Beasts|Resolve': 'Face It',
+      'Demons & Beasts|Melancholy': 'The Lonely Monster',
+      'Demons & Beasts|Dark Humor': 'Monsters, Politely',
+      'Demons & Beasts|Fury': 'Teeth',
+      'Demons & Beasts|Dread': 'Things in the Dark'
+    };
+
+    const rrState = { tableKeys: null, books: [], open: null, page: 0, showOriginal: false };
+
+    function rrBuildShelves(pool, foldThin) {
+      const byKey = new Map();
+      pool.forEach(w => {
+        const subject = RR_SHELVES.includes(w.subjectShort) ? w.subjectShort : RR_SHELVES[0];
+        const mood = RR_MOODS.includes(w.emotionShort) ? w.emotionShort : 'Resolve';
+        const key = `${subject}|${mood}`;
+        if (!byKey.has(key)) byKey.set(key, []);
+        byKey.get(key).push(w);
+      });
+      const shelves = [];
+      RR_SHELVES.forEach((subject, si) => {
+        const books = [];
+        let loose = [];
+        RR_MOODS.forEach((mood, mi) => {
+          const key = `${subject}|${mood}`;
+          const pieces = byKey.get(key);
+          if (!pieces || !pieces.length) return;
+          if (foldThin && pieces.length < RR_MIN_BOOK) { loose = loose.concat(pieces); return; }
+          books.push({ key, subject, mood, no: si * 8 + mi + 1, title: RR_BOOK_TITLES[key] || `${mood}`, ink: RR_MOOD_INK[mood], pieces });
+        });
+        if (loose.length) {
+          books.push({ key: `${subject}|Loose`, subject, mood: 'Mixed', no: si * 8 + 8, title: 'Loose Leaves', ink: '#3a3632', pieces: loose });
+        }
+        books.forEach(b => b.pieces.sort((a, c) => (c.iconicScore || 0) - (a.iconicScore || 0)));
+        if (books.length) shelves.push({ subject, books });
+      });
+      return shelves;
+    }
+
+    function rrMakeCover(book, big) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `rr-cover${big ? ' is-table' : ''}`;
+      btn.style.setProperty('--ink', book.ink);
+      const n = book.pieces.length;
+      btn.dataset.thick = n >= 24 ? '3' : n >= 10 ? '2' : '1';
+      btn.setAttribute('aria-label', `${book.title} — ${book.subject}, ${book.mood}, ${n} piece${n === 1 ? '' : 's'}`);
+      const top = document.createElement('span');
+      top.className = 'rr-cover-top';
+      top.textContent = book.mood;
+      const title = document.createElement('span');
+      title.className = 'rr-cover-title';
+      title.textContent = book.title;
+      const foot = document.createElement('span');
+      foot.className = 'rr-cover-foot';
+      foot.textContent = `No. ${book.no} · ${n}`;
+      btn.appendChild(top);
+      btn.appendChild(title);
+      btn.appendChild(foot);
+      btn.addEventListener('click', () => rrOpenBook(book.key));
+      return btn;
+    }
+
+    function renderReadingShelfView(stage) {
+      stage.innerHTML = '';
+      const allLit = WORKS.filter(w => w.itemType === 'literature' && !w._broken);
+      let pool = state.currentList.filter(w => w.itemType === 'literature');
+      if (pool.length === 0 && state.medium !== 'ALL' && state.medium !== 'Literature & Verse') pool = allLit;
+      const narrowed = pool.length < allLit.length;
+
+      const shelves = rrBuildShelves(pool, !narrowed);
+      rrState.books = shelves.flatMap(s => s.books);
+
+      const shell = document.createElement('div');
+      shell.className = 'rr-shelfroom';
+
+      if (!pool.length) {
+        const empty = document.createElement('p');
+        empty.className = 'rr-shelf-note';
+        empty.textContent = 'Nothing on the shelf for that. Try a poet, a word, or a mood.';
+        shell.appendChild(empty);
+        stage.appendChild(shell);
+        return;
+      }
+
+      if (narrowed) {
+        const note = document.createElement('p');
+        note.className = 'rr-shelf-note';
+        note.textContent = `${pool.length} piece${pool.length === 1 ? '' : 's'} found, in ${rrState.books.length} book${rrState.books.length === 1 ? '' : 's'}.`;
+        shell.appendChild(note);
+      } else {
+        // The front table: a handful of books, reshuffled each visit
+        if (!rrState.tableKeys) {
+          const keys = rrState.books.filter(b => !b.key.endsWith('|Loose')).map(b => b.key);
+          for (let i = keys.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [keys[i], keys[j]] = [keys[j], keys[i]];
+          }
+          rrState.tableKeys = keys.slice(0, 5);
+        }
+        const tableBooks = rrState.tableKeys.map(k => rrState.books.find(b => b.key === k)).filter(Boolean);
+        if (tableBooks.length) {
+          const table = document.createElement('section');
+          table.className = 'rr-shelf is-table';
+          const lab = document.createElement('h3');
+          lab.className = 'rr-shelf-label';
+          lab.textContent = 'On the table';
+          const row = document.createElement('div');
+          row.className = 'rr-shelf-row';
+          tableBooks.forEach(b => row.appendChild(rrMakeCover(b, true)));
+          table.appendChild(lab);
+          table.appendChild(row);
+          shell.appendChild(table);
+        }
+      }
+
+      shelves.forEach(s => {
+        const sec = document.createElement('section');
+        sec.className = 'rr-shelf';
+        const lab = document.createElement('h3');
+        lab.className = 'rr-shelf-label';
+        lab.textContent = s.subject;
+        const row = document.createElement('div');
+        row.className = 'rr-shelf-row';
+        s.books.forEach(b => row.appendChild(rrMakeCover(b, false)));
+        sec.appendChild(lab);
+        sec.appendChild(row);
+        shell.appendChild(sec);
+      });
+
+      stage.appendChild(shell);
+    }
+
+    // ---- The chapbook: one piece per page ------------------------------------
+    function rrReaderEl() {
+      let el = document.getElementById('rrReader');
+      if (el) return el;
+      el = document.createElement('div');
+      el.id = 'rrReader';
+      el.className = 'rr-reader';
+      el.setAttribute('role', 'dialog');
+      el.setAttribute('aria-modal', 'true');
+      el.innerHTML = `
+        <div class="rr-reader-bar">
+          <button type="button" class="text-action" id="rrReaderClose">← Shelf</button>
+          <span class="rr-reader-book" id="rrReaderBook"></span>
+          <span class="rr-reader-count" id="rrReaderCount"></span>
+        </div>
+        <button type="button" class="rr-turn is-prev" id="rrPrev" aria-label="Previous page">‹</button>
+        <div class="rr-page" id="rrPage"></div>
+        <button type="button" class="rr-turn is-next" id="rrNext" aria-label="Next page">›</button>`;
+      document.body.appendChild(el);
+      el.querySelector('#rrReaderClose').addEventListener('click', rrCloseBook);
+      el.querySelector('#rrPrev').addEventListener('click', () => rrTurn(-1));
+      el.querySelector('#rrNext').addEventListener('click', () => rrTurn(1));
+      let touchX = null;
+      el.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+      el.addEventListener('touchend', (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) > 56) rrTurn(dx < 0 ? 1 : -1);
+      }, { passive: true });
+      window.addEventListener('keydown', (e) => {
+        if (!el.classList.contains('open') || lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') { e.preventDefault(); rrCloseBook(); }
+        else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); rrTurn(1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); rrTurn(-1); }
+      }, true); // capture: runs before the lightbox's own key handler, so one Esc closes one layer
+      return el;
+    }
+
+    function rrCurrentBook() {
+      return rrState.books.find(b => b.key === rrState.open) || null;
+    }
+
+    function rrOpenBook(key) {
+      rrState.open = key;
+      rrState.page = 0;
+      rrState.showOriginal = false;
+      const el = rrReaderEl();
+      el.classList.add('open');
+      document.body.classList.add('rr-reading');
+      rrRenderPage(0);
+    }
+
+    function rrCloseBook() {
+      const el = document.getElementById('rrReader');
+      if (el) el.classList.remove('open');
+      document.body.classList.remove('rr-reading');
+      rrState.open = null;
+    }
+
+    function rrTurn(dir) {
+      const book = rrCurrentBook();
+      if (!book) return;
+      const last = book.pieces.length + 1; // 0 = cover, 1..n = pieces, n+1 = end page
+      const next = rrState.page + dir;
+      if (next < 0 || next > last) return;
+      rrState.page = next;
+      rrState.showOriginal = false;
+      rrRenderPage(dir);
+    }
+
+    function rrRenderPage(dir) {
+      const book = rrCurrentBook();
+      const el = rrReaderEl();
+      if (!book) { rrCloseBook(); return; }
+      const n = book.pieces.length;
+      const pg = rrState.page;
+      el.style.setProperty('--ink', book.ink);
+      el.querySelector('#rrReaderBook').textContent = pg === 0 ? '' : book.title;
+      el.querySelector('#rrReaderCount').textContent = pg >= 1 && pg <= n ? `${pg} / ${n}` : '';
+      el.querySelector('#rrPrev').style.visibility = pg === 0 ? 'hidden' : 'visible';
+      el.querySelector('#rrNext').style.visibility = pg === n + 1 ? 'hidden' : 'visible';
+
+      const page = el.querySelector('#rrPage');
+      page.innerHTML = '';
+      page.scrollTop = 0;
+      page.className = 'rr-page';
+      const add = (tag, cls, text) => {
+        const d = document.createElement(tag);
+        d.className = cls;
+        if (text !== undefined) d.textContent = text;
+        page.appendChild(d);
+        return d;
+      };
+
+      if (pg === 0) {
+        page.classList.add('is-cover');
+        add('div', 'rr-pg-kicker', `Pocket Poets · No. ${book.no}`);
+        add('h2', 'rr-pg-booktitle', book.title);
+        add('div', 'rr-pg-sub', `${book.subject} · ${book.mood} · ${n} piece${n === 1 ? '' : 's'}`);
+        const go = add('button', 'rr-pg-begin', 'Begin →');
+        go.type = 'button';
+        go.addEventListener('click', () => rrTurn(1));
+      } else if (pg === n + 1) {
+        page.classList.add('is-cover');
+        add('div', 'rr-pg-kicker', `End of ${book.title}`);
+        const i = rrState.books.findIndex(b => b.key === book.key);
+        const nextBook = rrState.books[(i + 1) % rrState.books.length];
+        if (nextBook && nextBook.key !== book.key) {
+          add('div', 'rr-pg-sub', 'Next on the shelf');
+          const nb = add('button', 'rr-pg-nextbook', `${nextBook.title} →`);
+          nb.type = 'button';
+          nb.addEventListener('click', () => rrOpenBook(nextBook.key));
+        }
+        const back = add('button', 'rr-pg-begin', '← Back to the shelf');
+        back.type = 'button';
+        back.addEventListener('click', rrCloseBook);
+      } else {
+        const w = book.pieces[pg - 1];
+        const isVerse = !w.graphicForm || w.graphicForm === 'Verse & Epigraph' || w.graphicForm === 'Sacred & Mystic';
+        const hasOrig = Boolean(w.originalScript && w.originalScript.trim());
+        const body = add('div', `rr-pg-text${isVerse ? ' is-verse' : ''}`);
+        if (rrState.showOriginal && hasOrig) {
+          body.dir = 'auto';
+          body.classList.add('is-original');
+          body.textContent = w.originalScript;
+        } else {
+          body.textContent = w.fullText || w.excerpt || w.hook || w.title;
+        }
+        add('div', 'rr-pg-author', w.artist || '');
+        add('div', 'rr-pg-title', w.title || '');
+        add('div', 'rr-pg-meta', [w.dateLabel, w.region].filter(Boolean).join(' · '));
+        const links = add('div', 'rr-pg-links');
+        if (hasOrig) {
+          const ob = document.createElement('button');
+          ob.type = 'button';
+          ob.className = 'text-action';
+          ob.textContent = rrState.showOriginal ? 'Translation' : (w.scriptName ? `Original · ${w.scriptName}` : 'Original');
+          ob.addEventListener('click', () => { rrState.showOriginal = !rrState.showOriginal; rrRenderPage(0); });
+          links.appendChild(ob);
+        }
+        const nb = document.createElement('button');
+        nb.type = 'button';
+        nb.className = 'text-action';
+        nb.textContent = 'Notes';
+        nb.title = 'Open the full entry: background, source, and tools';
+        nb.addEventListener('click', () => openWorkById(w.id));
+        links.appendChild(nb);
+      }
+      if (dir) {
+        page.classList.remove('turn-fwd', 'turn-back');
+        void page.offsetWidth;
+        page.classList.add(dir > 0 ? 'turn-fwd' : 'turn-back');
+      }
+    }
+
+
     // =========================================================================
     // v27: CALM MOTION CHOREOGRAPHY HELPERS
     // =========================================================================
@@ -9251,7 +9845,7 @@
       if (!stage || !state.spatialView || state.spatialView === 'wall') return;
       switch (state.spatialView) {
         case 'reading':
-          renderReadingRoomView(stage);
+          renderReadingShelfView(stage);
           break;
         case 'timeline':
           renderTimelineDualTrackView(stage);
