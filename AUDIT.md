@@ -777,4 +777,4 @@ Things to know:
 - Notes for the 29 were written from well-documented facts and not checked one by one against a second source.
 - Two older pull quotes (LIT-253 Bacon, LIT-296 Du Bois) joined two phrases with words skipped between them. An ellipsis now marks the skip.
 
-Still missing that a visitor might look for: more Rumi in the popular modern versions (in copyright and loose), Neruda's and Plath's poems, Angelou's poems, Dylan Thomas's poems, Hughes's Harlem, A Room of One's Own (no Gutenberg text found), Cavafy's Ithaka (no public-domain English found).
+Still missing that a visitor might look for: more Rumi in the popular modern versions (in copyright and loose), Neruda's and Plath's poems, Angelou's poems, Dylan Thomas's poems, Hughes's Harlem, A Room of One's Own and Cavafy's Ithaka (a quick search turned up no public-domain English text; not searched in depth).
