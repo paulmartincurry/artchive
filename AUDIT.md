@@ -726,3 +726,55 @@ Paul: "if you can find it somewhere legit, do it. That goes for all."
 - Other flags not acted on: VAULT-156 is an etched book plate, not a painting, and its title is generic; VAULT-458 Kanishka casket (Wikipedia says the original is in Peshawar and the British Museum has a copy); VAULT-324 (source says volcanic tuff); VAULT-266 (owned by Kennin-ji, on deposit at Kyoto National Museum); VAULT-385 (note says watercolour, Musée d'Orsay, unsourced).
 - Three poem dates corrected: Lu You's To Wine (c. 1179, inferred), Trakl's Amen (1913), Rosalía de Castro's Las campanas (1884). VAULT-219's medium now follows the Met's wording.
 - Follow-up the same night: the remaining 181 Commons images had their file names compared with their titles. 148 name the work. Of the 33 that don't, most are the work's name in another language; seven with uninformative names were looked at and all match (Blake's Ghost of a Flea, the Standard of Ur, Tutankhamun's mask, the Muisca raft, Zurbarán's Agnus Dei, Morisot's Cradle, Whistler's Nocturne). Three could not be downloaded and are unseen: VAULT-144, 181, 327.
+
+
+## Public test, second pass (14 Nov 2026)
+
+Paul's question: does the site have what people would look for. The art side does, apart from works in copyright. The writing side had gaps, so 29 pieces were added, bringing the writing to 465.
+
+Method. The 23 public-domain texts were pulled from the named edition between a start and an end phrase and checked letters-only, line by line, against that edition. The six writers still in copyright are each represented by one sentence of prose under fifteen words, credited, with the wording seen in archive.org full-text search results for scans of the book. Lines from poems still in copyright were not used.
+
+| id | writer | piece | kind | source |
+|---|---|---|---|---|
+| LIT-533 | William Wordsworth | I Wandered Lonely as a Cloud (Daffodils) | edition text | https://www.gutenberg.org/ebooks/19221 |
+| LIT-534 | Emily Dickinson | I'm Nobody! Who are you? | edition text | https://www.gutenberg.org/ebooks/12242 |
+| LIT-535 | Robert Frost | Stopping by Woods on a Snowy Evening | edition text | https://www.gutenberg.org/ebooks/58611 |
+| LIT-536 | Matsuo Bashō | The Old Pond (Furu ike ya) | edition text | https://www.gutenberg.org/ebooks/42735 |
+| LIT-537 | Thomas Hardy | The Darkling Thrush | edition text | https://www.gutenberg.org/ebooks/3168 |
+| LIT-538 | Carl Sandburg | Fog | edition text | https://archive.org/details/chicagopoems00sandrich |
+| LIT-539 | Geoffrey Chaucer | The Canterbury Tales — General Prologue (opening) | edition text | https://www.gutenberg.org/ebooks/22120 |
+| LIT-540 | Ovid | Metamorphoses — Daedalus and Icarus (Book VIII) | edition text | https://www.poetryintranslation.com/PITBR/Latin/Metamorph8.php |
+| LIT-541 | C. P. Cavafy | The God Abandons Antony | edition text | https://www.gutenberg.org/ebooks/61116 |
+| LIT-542 | Ezra Pound | In a Station of the Metro | edition text | https://www.gutenberg.org/ebooks/55564 |
+| LIT-543 | E. E. Cummings | Buffalo Bill ’s | edition text | https://archive.org/details/tulips-and-chimneys |
+| LIT-544 | D. H. Lawrence | Snake (ending) | edition text | https://www.gutenberg.org/ebooks/60337 |
+| LIT-545 | Marcel Proust | Swann's Way — The Madeleine | edition text | https://www.gutenberg.org/ebooks/7178 |
+| LIT-546 | Gustave Flaubert | Madame Bovary (Part II, Ch. 12) | edition text | https://www.gutenberg.org/ebooks/2413 |
+| LIT-547 | Jean-Jacques Rousseau | The Social Contract (Book I, Ch. 1) | edition text | https://www.gutenberg.org/ebooks/46333 |
+| LIT-548 | Jalāl al-Dīn Muḥammad Rūmī | Divan-e Shams — Every Form You See | edition text | https://archive.org/details/india.history.resource.111025 |
+| LIT-549 | W. B. Yeats | The Lake Isle of Innisfree | edition text | https://www.gutenberg.org/ebooks/38877 |
+| LIT-550 | W. B. Yeats | When You Are Old | edition text | https://www.gutenberg.org/ebooks/38877 |
+| LIT-551 | W. B. Yeats | Sailing to Byzantium | edition text | https://www.gutenberg.org/ebooks/72985 |
+| LIT-552 | Langston Hughes | The Negro Speaks of Rivers | edition text | https://www.gutenberg.org/ebooks/74745 |
+| LIT-553 | Langston Hughes | Mother to Son | edition text | https://www.gutenberg.org/ebooks/74745 |
+| LIT-554 | Virginia Woolf | Mrs Dalloway (opening) | edition text | https://www.gutenberg.org/ebooks/71865 |
+| LIT-555 | Leo Tolstoy | War and Peace — The Sky at Austerlitz | edition text | https://www.gutenberg.org/ebooks/2600 |
+| LIT-556 | Sylvia Plath | The Bell Jar | one-line quote | https://archive.org/details/belljarnoveloffi0000wagn |
+| LIT-557 | Maya Angelou | I Know Why the Caged Bird Sings | one-line quote | https://archive.org/details/iknowwhycagedbir0000unse_x1z8 |
+| LIT-558 | James Baldwin | Giovanni's Room | one-line quote | https://archive.org/details/giovannisroomnov0000bald |
+| LIT-559 | Dylan Thomas | A Child's Christmas in Wales | one-line quote | https://archive.org/details/childschristmasi00thom |
+| LIT-560 | Pablo Neruda | Memoirs | one-line quote | https://archive.org/details/memoirs0000pabl |
+| LIT-561 | Jorge Luis Borges | Borges and I | one-line quote | https://archive.org/details/labyrinthsselect0000auth |
+
+Things to know:
+- Wordsworth is Palgrave's 1861 printing (his spelling: wander'd). Dickinson is the edited 1891 text, not her manuscript wording.
+- Bashō's frog poem uses Lafcadio Hearn's 1898 version, not a modern standard one, because the modern versions are whole poems in copyright.
+- Cummings: words from the OCR text of the 1923 book, indents set by eye from the page image.
+- Rumi: OCR text of Nicholson 1898, stray marks removed, checked against a second scan.
+- Sandburg and Hardy: the edition's opening small capitals are set in lower case.
+- Plath: the wording was seen in scans of the novel and in a study that quotes it with page numbers; the source link points at the study.
+- The Angelou line first considered (about an untold story) was dropped: the same sentence is credited to Zora Neale Hurston, and it could not be found in a scan of Angelou's book.
+- Notes for the 29 were written from well-documented facts and not checked one by one against a second source.
+- Two older pull quotes (LIT-253 Bacon, LIT-296 Du Bois) joined two phrases with words skipped between them. An ellipsis now marks the skip.
+
+Still missing that a visitor might look for: more Rumi in the popular modern versions (in copyright and loose), Neruda's and Plath's poems, Angelou's poems, Dylan Thomas's poems, Hughes's Harlem, A Room of One's Own (no Gutenberg text found), Cavafy's Ithaka (no public-domain English found).
