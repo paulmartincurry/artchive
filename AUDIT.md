@@ -714,3 +714,15 @@ Not reviewed: notes (some may mention an old line), and line breaks in quotes ta
 - **Pull quotes:** a sweep found six "checked" pieces whose pull quote was reworded even though the full text was exact (Book of Tea, Reading Gaol, Crossing Brooklyn Ferry, Rubáiyát, Lady of Shalott, Crane's In the Desert). Fixed. Every pull quote on the site is now an exact run of words from its own text or its longer passage; this is machine-checked.
 - **Still open:** three dates that may belong to a poem shown earlier (LIT-337 Lu You, LIT-394 Trakl, LIT-400 Rosalía de Castro); line breaks on quotes taken from search snippets; 168 art mediums and 145 holders with no structured source.
 
+## Art details from legitimate sources — 13 November 2026 (after the closing pass)
+
+Paul: "if you can find it somewhere legit, do it. That goes for all."
+
+- Each of the 188 artworks missing a medium or holder was looked up one by one. 121 mediums and 55 holders were added: 26 from the holder's own record (Met, V&A, Rijksmuseum, Tate, British Museum, British Library, National Palace Museum, MFA Boston, NGA, Library of Congress and others), the rest from the Wikipedia article on that specific work, its Wikidata item or its Commons file record. Each `auditNote` names the page.
+- 56 works are buildings, sites, rock art or book plates with no single holder. They are flagged `noHolder` and left without a museum line.
+- **Still blank: 46 mediums and 34 holders.** No source states them: mostly printed multiples where the impression shown cannot be identified, plates from books, and a few objects whose image comes from an unattributed web page.
+- Held back: the holder for VAULT-198 (rests only on the file name) and both fields for VAULT-403 (the source describes the original drawing; the image may be the printed plate).
+- **Three artworks had the wrong title for the image shown** and were corrected after looking at the pictures: VAULT-202 Yoshitoshi (not "Mount Yoshino Midnight Moon"), VAULT-178 Sanxingdui (a bronze head with a gold mask, not a bronze mask), VAULT-339 Nazca (the monkey, not the hummingbird). These had passed the earlier identity audit. The same check, image against title, has not been run by eye on the other 330 or so works.
+- Other flags not acted on: VAULT-156 is an etched book plate, not a painting, and its title is generic; VAULT-458 Kanishka casket (Wikipedia says the original is in Peshawar and the British Museum has a copy); VAULT-324 (source says volcanic tuff); VAULT-266 (owned by Kennin-ji, on deposit at Kyoto National Museum); VAULT-385 (note says watercolour, Musée d'Orsay, unsourced).
+- Three poem dates corrected: Lu You's To Wine (c. 1179, inferred), Trakl's Amen (1913), Rosalía de Castro's Las campanas (1884). VAULT-219's medium now follows the Met's wording.
+
