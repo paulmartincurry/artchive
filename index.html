@@ -8563,7 +8563,7 @@
     function rrOpenBook(key) {
       rrState.open = key;
       rrState.page = 1;
-      rrState.showOriginal = false;
+      rrState.showOriginal = false; rrState.showOlder = false;
       const el = rrReaderEl();
       el.classList.add('open');
       document.body.classList.add('rr-reading');
@@ -8584,7 +8584,7 @@
       const next = rrState.page + dir;
       if (next < 1 || next > last) return;
       rrState.page = next;
-      rrState.showOriginal = false;
+      rrState.showOriginal = false; rrState.showOlder = false;
       rrRenderPage(dir);
     }
 
@@ -8637,6 +8637,8 @@
           body.dir = 'auto';
           body.classList.add('is-original');
           body.textContent = w.originalScript;
+        } else if (rrState.showOlder && w.olderText) {
+          body.textContent = w.olderText;
         } else {
           body.textContent = w.fullText || w.excerpt || w.hook || w.title;
         }
@@ -8661,7 +8663,8 @@
         }
         add('div', 'rr-pg-author', w.artist || '');
         add('div', 'rr-pg-title', w.title || '');
-        add('div', 'rr-pg-meta', [w.dateLabel, w.region, w.translator ? `trans. ${w.translator}` : ''].filter(Boolean).join(' · '));
+        const rrTr = (rrState.showOlder && w.olderText) ? w.olderTranslator : w.translator;
+        add('div', 'rr-pg-meta', [w.dateLabel, w.region, rrTr ? `trans. ${rrTr}` : ''].filter(Boolean).join(' · '));
         if (w.auditNote && (w.audit === 'attribution' || w.audit === 'unconfirmed')) add('div', 'rr-pg-flag', w.auditNote);
         const links = add('div', 'rr-pg-links');
         if (hasOrig) {
@@ -8671,6 +8674,15 @@
           ob.textContent = rrState.showOriginal ? 'Translation' : (w.scriptName ? `Original · ${w.scriptName}` : 'Original');
           ob.addEventListener('click', () => { rrState.showOriginal = !rrState.showOriginal; rrRenderPage(0); });
           links.appendChild(ob);
+        }
+        if (w.olderText) {
+          const ol = document.createElement('button');
+          ol.type = 'button';
+          ol.className = 'text-action';
+          ol.textContent = rrState.showOlder ? 'Modern wording' : 'Longer passage';
+          ol.title = rrState.showOlder ? 'Back to the modern translation' : 'Read a longer passage in an older public-domain translation';
+          ol.addEventListener('click', () => { rrState.showOlder = !rrState.showOlder; rrState.showOriginal = false; rrRenderPage(0); });
+          links.appendChild(ol);
         }
         const nb = document.createElement('button');
         nb.type = 'button';
@@ -8894,7 +8906,7 @@
       if (w._searchIdx) return w._searchIdx;
       const high = normalizeSearchStr(`${w.title || ''} ${w.artist || ''} ${w.emotionShort || ''} ${w.subjectShort || ''}`);
       const mid = normalizeSearchStr(`${w.region || ''} ${w.macroRegion || ''} ${w.medium || ''} ${w.macroMedium || ''} ${w.colorFamily || ''} ${w.graphicForm || ''} ${w.dateLabel || ''}`);
-      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.fullText || ''} ${w.translator || ''} ${w.searchTags || ''} ${w.museum || ''}`);
+      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.fullText || ''} ${w.olderText || ''} ${w.translator || ''} ${w.olderTranslator || ''} ${w.searchTags || ''} ${w.museum || ''}`);
       const vocab = Array.from(new Set(`${high} ${mid}`.split(' ').filter(t => t.length >= 4)));
       const yNum = typeof w.yearNum === 'number' ? w.yearNum : parseYearNumJs(null, w.dateLabel);
       w._searchIdx = { high, mid, low, highWords: high.split(' '), midWords: mid.split(' '), vocab, yNum };

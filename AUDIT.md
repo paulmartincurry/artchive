@@ -675,3 +675,33 @@ A search for the familiar wording will miss these. Each could be restored as a s
 
 Run from Paul's browser. Only 37 of 231 Commons files carry a structured link to a Wikidata item, and most file pages are a bare description. 36 mediums and 19 holders were filled. 168 mediums and 145 holders are still blank and cannot be filled from structured data; each would have to be read off the museum's own page.
 
+## Modern wording pass — 13 November 2026 (late)
+
+Paul: "make sure there is a modern, respectful, agreed-upon translation or phrasing of everything, in regards to languages and dialects." This replaces the old habit of preferring the public-domain wording for the pull quote.
+
+**How it works now.** For a translated piece, the pull quote is one or two lines from the current standard translation, credited to translator and book (`audit: quoted`). The older public-domain passage is kept in `olderText` / `olderTranslator` and shown in the reader behind a "Longer passage" button. The older wording stays searchable.
+
+**Result.** 234 translated or reported pieces were reviewed. 115 now lead with a modern standard wording, 7 with a better public-domain standard wording, and 112 were kept as they are (already modern, or the old version is the agreed English, or no modern wording could be confirmed). 112 pieces carry a longer older passage behind the quote. The library now has 136 short credited quotes.
+
+Every new quote was machine-checked against text fetched from the scanned book, a publisher or a university page; nothing was typed from memory. 88 were seen in the book itself or on the translator's page. **34 are "medium": the wording was seen quoted elsewhere, and for some the translator's name is from general knowledge.** Their `auditNote` says "credit to be confirmed".
+
+**Familiar wordings restored:** Dante's "Abandon all hope ye who enter here" (Ciardi), Catullus's "hail and farewell" (Cornish), Tilbury's "heart and stomach of a king", Simonides' "Go tell the Spartans", Issa's "And yet, and yet—" (Hass), the Tao Te Ching's "The Tao that can be told…" (Feng and English), Cicero's "How long, O Catiline…". The Gita piece now carries Oppenheimer's "Now I am become Death, the destroyer of worlds", credited to him; it is his rendering, not a published translation of the Gita.
+
+**Dialect.** Sojourner Truth is now Marius Robinson's 1851 standard-English report (retitled; it has no "Ain't I a woman"). Harriet Tubman was held back: no authoritative standard-English edition was found, so Bradford's dialect text is still showing.
+
+**Held back on purpose (6):**
+- LIT-283: popular rendering with no named translator
+- LIT-224: translator of the wording not established
+- LIT-478: no authoritative standard-English edition; source was a children's biography
+- LIT-510: Müller's line is the one people know and search for
+- LIT-211: Longfellow's is the known English
+- LIT-186: credit to C. L. R. James was from memory, not from the source seen
+
+**Retitled (6):** LIT-071 → Be Drunk (Enivrez-vous); LIT-332 → Song of the Lute (Pipa xing); LIT-366 → Against Nature (À rebours), Ch. IV; LIT-159 → Speech at the Woman's Rights Convention, Akron (“Ain't I a Woman?”); LIT-259 → Thus Spoke Zarathustra (Prologue, 5); LIT-329 → The Fisherman (Yu fu).
+
+**Medium-confidence quotes to confirm (34):** LIT-085 Kobayashi Issa (Robert Hass, 1994), LIT-115 Arthur Schopenhauer (E. F. J. Payne), LIT-121 Rigveda (Wendy Doniger), LIT-492 José Enrique Rodó (Margaret Sayers Peden), LIT-146 Attributed to Thomas of Celano (William Josiah Irons, 1849), LIT-026 Vyasa (J. Robert Oppenheimer (his own rendering of Gita 11.32)), LIT-116 Zhuangzi (Burton Watson), LIT-123 The Qur'an (M. A. S. Abdel Haleem), LIT-168 Queen Elizabeth I (no translator), LIT-183 Alexander the Great (Aubrey de Sélincourt), LIT-248 Diogenes of Sinope (R. D. Hicks), LIT-353 Middle Kingdom Egyptian Blind Harper Tradition (Miriam Lichtheim), LIT-397 Søren Kierkegaard (Howard V. Hong and Edna H. Hong), LIT-033 Homer (Richmond Lattimore), LIT-159 Sojourner Truth (no translator), LIT-015 Friedrich Nietzsche (Walter Kaufmann, 1966), LIT-131 Laozi (Gia-fu Feng and Jane English, 1972), LIT-204 Izumi Shikibu (Jane Hirshfield with Mariko Aratani, 1988), LIT-237 Michelangelo Buonarroti (James M. Saslow, 1991), LIT-270 Yosa Buson (R. H. Blyth, 1950), LIT-354 Achaemenid–Babylonian Chancery Scribes (Irving Finkel, British Museum), LIT-029 Farid ud-Din Attar (Afkham Darbandi and Dick Davis), LIT-102 Miguel de Cervantes (Edith Grossman), LIT-134 Papyrus of Ani (Raymond O. Faulkner), LIT-150 Orphic Mystery Initiates (Fritz Graf and Sarah Iles Johnston), LIT-221 Taras Shevchenko (John Weir), LIT-238 Michelangelo Buonarroti (James M. Saslow), LIT-259 Friedrich Nietzsche (Walter Kaufmann), LIT-290 Friedrich Hölderlin (Michael Hamburger), LIT-328 Sant Tukārām (Dilip Chitre), LIT-355 King Hammurabi's Babylonian Scribes (Martha T. Roth), LIT-118 Sei Shōnagon (Ivan Morris), LIT-119 Kamo no Chōmei (Donald Keene), LIT-206 Murasaki Shikibu (Royall Tyler).
+
+**Kept, but a modern standard exists and could not be confirmed in this pass:** Rostam and Sohrab (Davis), Mirabai, Kalevala (Bosley), Nizami, Teika, Pu Songling (Minford), Bhartṛhari (Miller), Pushkin, Abu Nuwas, Meghadūta, Lu You, Mistral, Verlaine, Heine, Lucretius, Kartini (Coté).
+
+Not reviewed: notes (some may mention an old line), and line breaks in quotes taken from search snippets, which show words but not layout.
+
