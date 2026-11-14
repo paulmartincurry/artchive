@@ -624,3 +624,54 @@ Method: strip both texts to letters only, split the piece into sentences and lin
 
 - The two Met tughras (38.149.1 and 38.149.2) have identical titles at the museum; the accession number is now in each title so both show.
 
+## Edition check completed — 13 November 2026 (night)
+
+Paul: "do it all however is best optimized for you." The 187 recognised-only pieces were split into six batches and worked in parallel, each to the same brief (kept in the session, summarised in CLAUDE.md). Every result was machine-checked: a text was only accepted if each sentence and line occurs, letters only, in the downloaded edition. Library is now 521 artworks and 436 writings.
+
+**Result for the 187:** 49 matched their edition as they stood. 126 did not and were replaced with the edition's wording. 6 became short credited quotes. 5 were cut. 1 is still open.
+
+So roughly two in three of the texts the first audit called verified were reworded, stitched or in a wording no edition carries. All 436 writings are now tied to a named edition or are short credited quotes, except LIT-058.
+
+**Cut (5):**
+- LIT-083 Su Shi (Su Dongpo), *Memories of the Red Cliff (Nian Nu Jiao)*: The two English lines could not be tied to any published translation; the record's only source is the Chinese text on zh.wikisource, so the English looks composed. No public-domain or openly offered English version of this ci (Nian Nu Jiao, Red Cliff) was found. To bring Su Shi back: a one-line credited quote from a standard translation (e.g. Burton Watson) once the wording is confirmed on a library page, or Herbert Giles's public-domain version of the Red Cliff prose-poem as a different piece. **A visitor may look for this.**
+- LIT-468 Te Rauparaha (Ngāti Toa Rangatira), *Ka Mate*: neither the Māori nor the English wording could be tied to an edition **A visitor may look for this.**
+- LIT-257 Georg Christoph Lichtenberg, *The Waste Books*: The three aphorisms are in a modern rewording with no credited translator (source was Wikiquote). No public-domain English Lichtenberg could be found on Gutenberg or archive.org (Alliston's 1908 Reflections is not scanned there). The standard version is R. J. Hollingdale's The Waste Books (NYRB, 2000), in copyright; I could not confirm his wording of the mirror aphorism from a publisher or library page (a Chronicle of Higher Education article gives a different wording, uncredited). Bring back as a one-line credited quote once the Hollingdale wording is checked against the book.
+- LIT-472 Queen Liliʻuokalani, *Aloha ʻOe*: English wording matches no source; reads as reworded **A visitor may look for this.**
+- LIT-189 Louis Antoine de Saint-Just, *Speeches to the Convention*: Two lines from two different speeches (13 Nov 1792 on the king; the second from 1793-94), stitched, in an English wording with no translator. No public-domain English edition of Saint-Just carrying these words was found (Gutenberg, archive.org full-text search); every English printing found is a modern history quoting its own rendering ("One cannot reign innocently", "No man can reign innocently", "dig their own tombs"). Could come back as a credited one-line quote from Marian Rothstein's translation in Walzer, Regicide and Revolution (Cambridge, 1974), if the wording is checked against the book.
+
+**Still open (1):** LIT-058 Dickinson, "Tell all the truth but tell it slant". First printed in 1945, so there is no public-domain edition; the two lines are the standard reading but were not re-confirmed against a source this pass.
+
+**Restored or new (10):** LIT-523 Friedrich Hölderlin, Half of Life (Hälfte des Lebens) (quoted); LIT-524 Mirza Ghalib, Hazaaron Khwahishein Aisi (Thousands of Desires) (quoted); LIT-525 Yamamoto Tsunetomo, Hagakure (quoted); LIT-526 Ibn Khaldun, The Muqaddimah (On the Science of History) (public-domain); LIT-527 Heinrich von Kleist, On the Marionette Theatre (public-domain); LIT-528 Natsume Sōseki, Ten Nights of Dream — The First Night (quoted); LIT-529 Comte de Lautréamont (Isidore Ducasse), Les Chants de Maldoror (Canto VI) (quoted); LIT-530 Hildegard von Bingen, The Book of Divine Works (I Am That Supreme and Fiery Force) (public-domain); LIT-531 Yu Xuanji, Sent to a Neighbor Woman Friend (quoted); LIT-532 Guillaume Apollinaire, Il pleut (It's Raining) (quoted).
+
+### Famous wordings that changed, because the familiar words are not in any edition that could be reached
+
+- Dante: "Abandon all hope, ye who enter here" is now Longfellow's "All hope abandon, ye who enter in!"
+- Bhagavad Gita: "destroyer of worlds" is now Edwin Arnold's "Thou seest Me as Time who kills".
+- Elizabeth I at Tilbury: "heart and stomach of a king" is now "the heart of a king, and of a king of England too" (Hume, Aikin).
+- Catullus 101: ends "hail! for ever, adieu!" (Smithers), not "hail and farewell".
+- Simonides: Macaulay's rendering, not "Go tell the Spartans".
+- Diogenes: "Cease to shade me from the sun" (Yonge).
+- La Rochefoucauld: "Neither the sun nor death can be looked at without winking."
+- Dickinson: both poems now follow the 1890s editors' texts; the "Plank in Reason" stanza is gone because that edition omits it.
+- Ida B. Wells: "The way to right wrongs…" could not be found in her writings; the piece is now a passage from Southern Horrors.
+- Sun Tzu: "Victorious warriors win first…" is not in Giles and is gone.
+- Bashō, Issa: now Chamberlain's 1902 versions, which read dated.
+A search for the familiar wording will miss these. Each could be restored as a short credited quote from a modern translation.
+
+### For Paul to decide
+
+- **Sojourner Truth** is now Frances Gage's 1863 report, which is written in dialect. **Harriet Tubman** is Bradford's 1869 text, also in dialect. These are the published sources, but the dialect is the reporters'.
+- **Rubén Darío, Lo fatal** is now the Spanish original only; no public-domain English was found. Same for **Storni** and **Sor Juana**.
+- Notes were not rewritten to match replaced texts, except Pankhurst's (the words turned out to be from her 1908 Bow Street speech, not the 1913 Hartford one). A note may mention a line that is no longer shown.
+
+### Weakest sources (check first)
+
+- Quotes confirmed only through a page summary or a search snippet: Linji (Sasaki), Ryōkan (Stevens), Li Qingzhao (Rexroth), Brás Cubas (Rabassa), Delacroix (Norton), Hölderlin (Hamburger; line breaks inferred), Sōseki, Lautréamont (Lykiard), Hagakure (Wilson), Ghalib (Kanda).
+- Translator credits not on the page: van Gogh letter (credited from memory), Zola (Tucker edition names no translator), Apollinaire's Il pleut (Padgett inferred from the handbook's rule), Tacitus, the Emerald Tablet, Baudelaire's Corpse (Sturm).
+- OCR-only sources where a clean passage was chosen and gaps marked with an ellipsis: Rumi, Zafarnama, Debs, Pitt, Garibaldi, Gracián, Heart Sutra, Cicero, Mirabai, Martí, Hokusai, Seneca, Naidu, Komachi, Heraclitus, Eckhart, Chief Joseph, Toussaint, Du Fu, Wang Wei, Ibn Arabi, John of the Cross, Tecumseh (a late retelling), Kleist, Ibn Khaldun.
+- Bynner's Jade Mountain is 1929 and Trevelyan (Garibaldi) died in 1962: public domain in the US, not everywhere.
+
+### Art medium and museum
+
+Run from Paul's browser. Only 37 of 231 Commons files carry a structured link to a Wikidata item, and most file pages are a bare description. 36 mediums and 19 holders were filled. 168 mediums and 145 holders are still blank and cannot be filled from structured data; each would have to be read off the museum's own page.
+
