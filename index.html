@@ -6238,8 +6238,13 @@
       } else {
         stageReadingWrap.style.display = 'none';
         stageImageWrap.style.display = 'flex';
-        stageLensControls.style.display = 'flex';
-        lbHighResLink.style.display = 'inline';
+        // Works still in copyright: small credited image only. No maker tools, no full-size file.
+        const isFairUse = Boolean(w.fairUse);
+        if (isFairUse && state.activeLens !== 'original') setLens('original');
+        stageLensControls.style.display = isFairUse ? 'none' : 'flex';
+        lbHighResLink.style.display = isFairUse ? 'none' : 'inline';
+        lbImage.style.maxWidth = isFairUse && w.imageW ? `${Math.round(w.imageW * 1.5)}px` : '';
+        lbImage.style.maxHeight = isFairUse && w.imageH ? `${Math.round(w.imageH * 1.5)}px` : '';
         ensembleHeading.textContent = 'Cross-Cultural Visual Rhymes';
 
         lbImage.onload = () => {
@@ -6284,7 +6289,7 @@
 
       lbTitle.textContent = w.title;
       lbArtist.textContent = w.dateLabel ? `${w.artist} · ${w.dateLabel}` : w.artist;
-      lbOrigin.textContent = [w.region, w.museum, w.audit === 'unconfirmed' ? 'details not yet verified' : ''].filter(Boolean).join(' · ');
+      lbOrigin.textContent = [w.region, w.museum, w.audit === 'unconfirmed' ? 'details not yet verified' : '', w.fairUse ? (w.rights || 'In copyright. Small image shown under fair use.') : ''].filter(Boolean).join(' · ');
       lbNote.textContent = w.note || '';
 
       document.getElementById('specMedium').textContent = w.medium || '—';
@@ -6704,6 +6709,7 @@
         exportStencilPngBtn.textContent = 'Exported PNG ✓';
         setTimeout(() => { exportStencilPngBtn.textContent = 'Export Cut PNG ↓'; }, 1500);
       } catch (err) {
+        if (w.fairUse) return;
         window.open(w.highResUrl || w.imageUrl, '_blank');
       }
     });

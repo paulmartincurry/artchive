@@ -832,3 +832,21 @@ Things to know about this pass:
 - Faulkner's odd spellings are the edition's.
 - Wharton, Hemingway, Faulkner are in the public domain in the United States by publication date (1920, 1926, 1929); they may still be in copyright elsewhere.
 - Notes for these 30 were written from well-documented facts and not checked one by one against a second source.
+
+## Works in copyright: how other sites do it (14 Nov 2026)
+
+Paul's instruction: workarounds are fine, do it the way other art sites do, and still do the right thing because the site is headed public.
+
+What other projects do. WikiArt and Obelisk Art History show in-copyright art under a stated fair-use rationale: historically significant work, informational purpose, already widely available, low-resolution copies unsuitable for commercial use. Wikipedia allows low-resolution images of copyrighted art under its non-free content policy, used sparingly. The Getty publishes thumbnail-size images of copyrighted works it has no licence for. The Artists Rights Society licenses most of these estates for a fee. This is a record of practice, not legal advice.
+
+What was done here.
+
+Early works that are public domain in the United States (ten, ordinary records with tools on): VAULT-534 Les Demoiselles d'Avignon and VAULT-535 The Old Guitarist (Picasso), VAULT-536 I and the Village (Chagall), VAULT-537 The Farm (Miró), VAULT-538 Nude Descending a Staircase, No. 2 and VAULT-539 Fountain in Stieglitz's photograph (Duchamp), VAULT-540 Bird in Space (Brâncuși), VAULT-541 Black Iris (O'Keeffe), VAULT-542 Campbell's Soup Cans (Warhol), VAULT-543 Man, Controller of the Universe (Rivera). The first five are hosted on English Wikipedia with file pages marking them public domain in the United States; the rest are on Wikimedia Commons. Two rest on Commons' own judgement and are the weakest of the ten: the Warhol (Commons holds that the 1962 paintings were published without notice or renewal) and the Rivera (a contributor's photograph of a mural in Mexico City).
+
+Small fair-use images (nine, `fairUse: true`, tools off): VAULT-544 The Persistence of Memory (Dalí), VAULT-545 The Two Fridas (Kahlo), VAULT-546 The Treachery of Images (Magritte), VAULT-547 Autumn Rhythm (Pollock), VAULT-548 No. 61 (Rothko), VAULT-549 Untitled (Skull) (Basquiat), VAULT-550 Whaam! (Lichtenstein), VAULT-551 Relativity (Escher), VAULT-552 Girl with Balloon (Banksy). Each is the low-resolution file English Wikipedia uses, between 280 and 490 pixels wide, hosted in `images/fairuse/`. One work per artist. The lightbox caps the display size, shows a rights line, and hides the maker tools, export and full-size link.
+
+All nineteen images were downloaded and looked at against their titles. Dates, materials and holders were checked against Wikidata. Bird in Space has no holder because the cast in the photograph could not be identified. Notes were written from well-documented facts and not checked one by one against a second source.
+
+Three poets, by prose: LIT-587 Ginsberg (a line from his 1959 notes on recording Howl), LIT-588 Bukowski (the first sentence of Post Office), LIT-589 Bishop (a remark to Robert Lowell, known from his 1957 letter to her; the wording is his report, and the record says so).
+
+Open risks, plainly: fair use is a defence, not a permission, and this site's purpose (raw material for makers) is a weaker case than an encyclopedia's, which is why the tools are off for the nine. If the site makes money or a rights holder objects, those nine come down first.
