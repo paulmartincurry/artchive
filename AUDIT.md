@@ -860,3 +860,38 @@ Paul asked for the remaining open items to be handled, not listed.
 - Blank mediums and holders. The Commons file record was read for all 62 artworks with a blank, and the lead of the Wikipedia article for 25 of them. That filled five holders (VAULT-195 Cincinnati Art Museum, VAULT-401 Museum of Fine Arts, Boston, VAULT-402 and VAULT-429 private collection, VAULT-183 University of Groningen Library, the copy the plate was scanned from) and six mediums (VAULT-323 phonolite, VAULT-335 and VAULT-430 carved wood, VAULT-148 carved leather, VAULT-339 geoglyph, VAULT-269 illustrated handscroll). 40 mediums and 29 holders remain blank. Neither source states them, and they are mostly book plates, prints with no identified impression, and buildings or sites. They are left blank on purpose and are no longer an open task.
 - Notes. The 83 notes written on 14 Nov 2026 had every year checked against the Wikipedia article for the work (art) or the author (writing). In 74 every year is on the page. Nine had a year the page does not carry. Eight of those are dates of a translation, an edition, a battle, a birth or a museum accession that the checked page would not be expected to give, and were kept. One, the year The Gleaners entered the Louvre, could not be supported and was removed. Names and anecdotes in these notes were not checked.
 - Not done: a second-source read of the 283 older notes whose names were reviewed by hand. That is a few hours of slow lookups from the sandbox and is the one real item left.
+
+## Growth pass (15 Nov 2026)
+
+Paul's brief after the public test closed: grow it in every direction that serves a working creative. Art in its broadest sense, no advertising, nothing sideshow, medical or morbid, the most-searched names plus the people this audience comes looking for. Run the whole thing.
+
+The site went from 547 artworks and 493 writing pieces to 938 and 731.
+
+**Writing, 238 pieces** (LIT-590 to LIT-827), by four parallel agents, each working a fixed list through `grow_kit.save_new()`, which checks every line against the fetched edition and refuses anything that does not match.
+- Poems by the most-searched poets: 64 (Dickinson, Whitman, Keats, Shelley, Blake, Wordsworth, Frost, Shakespeare, Donne, Hopkins, Tennyson, Yeats and others).
+- Prose passages people quote: 55 (Melville, Austen, Dickens, Twain, Fitzgerald, Joyce, Woolf, Chekhov, Dostoevsky, Thoreau, Emerson, Nietzsche, Marcus Aurelius, Plato, Laozi, Homer, Virgil, Dante and others).
+- Words that are not poems: 55 (Van Gogh's and Keats's letters, Leonardo's notebooks, Whistler, Morris, Kandinsky, Pater, Pepys, Dorothy Wordsworth, Beethoven, the Communist Manifesto, the Declaration of Sentiments and others).
+- The Love, Earth and Fury shelves: 64.
+All are public-domain texts from Project Gutenberg or pre-1931 scans, or A. S. Kline's openly offered translations. No in-copyright poem lines.
+
+Left out on review: a one-sentence letter of Héloïse from a single unchecked scan, a Gauguin passage whose surrounding text uses wording the site avoids, and a second passage from a Douglass speech already on the site.
+
+Things the agents flagged that are still true of what is on the site:
+- Several texts follow an older or edited edition and say so in their auditNote: Dickinson (the edited 1890s texts), Donne (Grierson's original spelling), Wordsworth's Westminster Bridge (1807 spelling), Hopkins (no stress marks), Owen's Parable (the 1920 text, without the last line later editions add), Sassoon's Suicide in the Trenches (the American text reads snug-faced where the London one reads smug-faced), Tennyson's Crossing the Bar (from an anthology, crossed for crost).
+- Dates that are conventions or inferences: the Van Gogh letter extracts (c. 1888), Leonardo's notebook passages, Chekhov's letter (1888 against the edition's 1889), Beethoven's Immortal Beloved letter (1812 is later scholarship; the edition says 1800), Seneca, Plato, Laozi, Confucius, Sun Tzu, Homer.
+- Emily Dickinson's line about the top of her head is her speech as T. W. Higginson reported it, not a letter.
+- Luther's translator (R. S. Grignon) is inferred from matching wording.
+- Notes were written from well-documented facts. Some state a magazine, month or line count from memory. None was checked against a second source.
+- Not found or not attempted: Marinetti's Futurist Manifesto (no pre-1931 English), Sullivan Ballou's letter, Tolstoy's Confession, Woolf's To the Lighthouse, Kafka's Hunger Artist, The Hollow Men, more Rumi, Bashō in a public-domain version, Waley's Japanese poems.
+
+**Art from museum open-access collections, 306 works** (VAULT-555 to VAULT-860): the Met, the Art Institute of Chicago and the Cleveland Museum of Art. Each museum flags these as public domain or CC0 and supplies the title, maker, date, medium and image. 87 for the best-known artists, and from themed searches 55 design pieces, 65 visionary and mythic, 54 photographs and 49 early twentieth-century works. Every candidate title was read and every image looked at on a contact sheet before it went in. Cards (display title, maker's name, note, tags) were written by five agents from the museum record.
+
+Left out on review: a Gettysburg photograph showing the dead, a skull print, a Gauguin portrait whose record turns on the sitter's age, a possibly modern "medieval" initial, duplicates, and seven images with too little to look at.
+
+**Famous works held elsewhere, 85** (VAULT-861 to VAULT-945): Café Terrace at Night, The Milkmaid, Primavera, the Pietà, Vitruvian Man, The Calling of Saint Matthew, The Death of Marat, The Fighting Temeraire, Earthrise, Migrant Mother and others. Records came from Wikidata in one bulk query and images from Wikimedia Commons. Wikidata's date or holder was wrong, garbled or out of date for about twenty of them (a 1700 date on Velázquez's Innocent X, wartime holders for Vermeer's Art of Painting) and each was corrected by hand; the auditNote says where. All 85 images were downloaded and looked at against their titles. Ten have no holder because the image is one of several versions or casts and which one was not established (Bedroom in Arles, Rouen Cathedral, Houses of Parliament, Napoleon Crossing the Alps, The Burghers of Calais, The Gates of Hell and others). Two Matisse paintings (The Red Studio, Woman with a Hat) are included on the ground that they were published before 1931 and Commons hosts them.
+
+Not done from the famous list, because the lookup failed or the image would not download: Judith and the Head of Holofernes (Klimt), The Dance of Life, Rousseau's The Dream, Sudden Shower over Shin-Ōhashi Bridge, The Ten Largest, Ophelia, The Lady of Shalott, Proserpine, Isle of the Dead, The Large Blue Horses, Las Hilanderas, The Triumph of Galatea, The Tempest (Giorgione), Where Do We Come From, The Virgin of the Rocks.
+
+**What "verified" means for this pass.** Texts: matched line by line to a fetched edition. Museum artworks: the museum's own record. Famous works: Wikidata reviewed and corrected by hand, image checked by eye. Notes for all the new art and writing: written from the record plus well-documented facts, not second-sourced. That last part is the same standing as the older notes and is the main open item.
+
+Tested before each push: desktop and phone-size, every view, every Reading Room book paged through, search, the fair-use lightbox, the pull-quote check, counts. Not tested: real devices, Safari, or how the Wall feels with 938 images on a slow connection.
