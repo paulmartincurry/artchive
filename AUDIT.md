@@ -850,3 +850,13 @@ All nineteen images were downloaded and looked at against their titles. Dates, m
 Three poets, by prose: LIT-587 Ginsberg (a line from his 1959 notes on recording Howl), LIT-588 Bukowski (the first sentence of Post Office), LIT-589 Bishop (a remark to Robert Lowell, known from his 1957 letter to her; the wording is his report, and the record says so).
 
 Open risks, plainly: fair use is a defence, not a permission, and this site's purpose (raw material for makers) is a weaker case than an encyclopedia's, which is why the tools are off for the nine. If the site makes money or a rights holder objects, those nine come down first.
+
+## Loose ends closed (14 Nov 2026)
+
+Paul asked for the remaining open items to be handled, not listed.
+
+- Guernica added as VAULT-553, a small fair-use image (the tenth). Nighthawks added as VAULT-554 from a free file on Wikimedia Commons; its Commons file page was not read.
+- The three unseen images (VAULT-144 Hammershøi, VAULT-181 Nainsukh, VAULT-327 the Mapungubwe rhinoceros) were downloaded and looked at. All three show the work named. Every image on the site has now been seen against its title.
+- Blank mediums and holders. The Commons file record was read for all 62 artworks with a blank, and the lead of the Wikipedia article for 25 of them. That filled five holders (VAULT-195 Cincinnati Art Museum, VAULT-401 Museum of Fine Arts, Boston, VAULT-402 and VAULT-429 private collection, VAULT-183 University of Groningen Library, the copy the plate was scanned from) and six mediums (VAULT-323 phonolite, VAULT-335 and VAULT-430 carved wood, VAULT-148 carved leather, VAULT-339 geoglyph, VAULT-269 illustrated handscroll). 40 mediums and 29 holders remain blank. Neither source states them, and they are mostly book plates, prints with no identified impression, and buildings or sites. They are left blank on purpose and are no longer an open task.
+- Notes. The 83 notes written on 14 Nov 2026 had every year checked against the Wikipedia article for the work (art) or the author (writing). In 74 every year is on the page. Nine had a year the page does not carry. Eight of those are dates of a translation, an edition, a battle, a birth or a museum accession that the checked page would not be expected to give, and were kept. One, the year The Gleaners entered the Louvre, could not be supported and was removed. Names and anecdotes in these notes were not checked.
+- Not done: a second-source read of the 283 older notes whose names were reviewed by hand. That is a few hours of slow lookups from the sandbox and is the one real item left.
