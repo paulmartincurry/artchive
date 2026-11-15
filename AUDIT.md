@@ -778,3 +778,57 @@ Things to know:
 - Two older pull quotes (LIT-253 Bacon, LIT-296 Du Bois) joined two phrases with words skipped between them. An ellipsis now marks the skip.
 
 Still missing that a visitor might look for: more Rumi in the popular modern versions (in copyright and loose), Neruda's and Plath's poems, Angelou's poems, Dylan Thomas's poems, Hughes's Harlem, A Room of One's Own and Cavafy's Ithaka (a quick search turned up no public-domain English text; not searched in depth).
+
+
+## Public test, closed (14 Nov 2026)
+
+The question "does the site have what people would look for" had no finish line: each check against a longer list found more. It is now fixed to one list and closed against it.
+
+The list. Writers: Shakespeare, Dickinson, Whitman, Frost, Poe, Keats, Shelley, Byron, Blake, Wordsworth, Coleridge, Tennyson, Browning, Yeats, Eliot, Rilke, Rumi, Hafez, Khayyam, Bashō, Issa, Li Bai, Du Fu, Sappho, Homer, Virgil, Dante, Milton, Donne, Goethe, Baudelaire, Rimbaud, Neruda, Lorca, Pessoa, Akhmatova, Tagore, Gibran, Hughes, Angelou, Plath, Dylan Thomas, Cummings, Pound, Sandburg, Hardy, Hopkins, Owen, Millay, Wilde, Kipling, Burns, Auden, Ginsberg, Bukowski, Mary Oliver, Szymborska, Borges, Kafka, Dostoevsky, Tolstoy, Chekhov, Woolf, Joyce, Proust, Melville, Thoreau, Emerson, Nietzsche, Marcus Aurelius, Seneca, Epictetus, Laozi, Confucius, Sun Tzu, Plato, Aristotle, Montaigne, Pascal, Austen, the Brontës, Dickens, Twain, Hemingway, Fitzgerald, Orwell, Camus, Sartre, Beckett, Baldwin, Morrison, Douglass, Lincoln, Martin Luther King, Sojourner Truth, Machiavelli, Cervantes, Hugo, Ecclesiastes, the Psalms, the Gita, the Tao Te Ching, Heraclitus, Van Gogh's letters, Frankenstein, Carroll, Stevenson, Stoker, Conrad, Wharton, Henley, Housman, Rossetti, Barrett Browning, Pushkin, Mandelstam, Tsvetaeva, Celan, Walcott, Heaney, Larkin, Bishop, Stevens, Williams, Moore, Brooks, Lorde, Rich, Salinger, Nabokov, García Márquez, Kerouac, Vonnegut, Steinbeck, Faulkner. Artists and works: Leonardo, Michelangelo, Raphael, Botticelli, Rembrandt, Vermeer, Caravaggio, Velázquez, Goya, Turner, Monet, Manet, Renoir, Degas, Cézanne, Van Gogh, Gauguin, Seurat, Klimt, Schiele, Munch, Hokusai, Hiroshige, Dürer, Bosch, Bruegel, Van Eyck, El Greco, Rubens, Titian, Giotto, Delacroix, Géricault, David, Ingres, Courbet, Millet, Whistler, Sargent, Homer, Hopper, Cassatt, Morisot, Toulouse-Lautrec, Rousseau, Matisse, Picasso, Kandinsky, Mondrian, Klee, Malevich, Modigliani, Rodin, Blake, Friedrich, Constable, Gentileschi, Bernini, Donatello, Mucha, Beardsley, Kollwitz, Hilma af Klint, Utamaro, Grant Wood, Kahlo, Rivera, Dalí, Magritte, Pollock, Warhol, O'Keeffe, Basquiat, Rothko, Chagall, Miró, Duchamp, Brancusi, Lichtenstein, Escher, Banksy, Nefertiti, Venus de Milo, Winged Victory, the Great Wave, The Scream, Girl with a Pearl Earring, American Gothic, The Last Supper, The Creation of Adam, The Persistence of Memory, The Kiss, The Thinker, Water Lilies, Liberty Leading the People, The Third of May, The Garden of Earthly Delights, the Arnolfini Portrait, Las Meninas, The School of Athens, La Grande Jatte, Tutankhamun, the Terracotta Army, Lascaux, the Book of Kells, the Bayeux Tapestry, the Rosetta Stone.
+
+The check is a name match against artist and title, so it shows that each name is represented, not that every famous work by that name is there.
+
+Added in this pass: 25 writing pieces (writing now 490) and five artworks (art now 526).
+
+| id | writer | piece | kind | source |
+|---|---|---|---|---|
+| LIT-562 | A. E. Housman | Loveliest of Trees | edition text | https://www.gutenberg.org/ebooks/5720 |
+| LIT-563 | Edith Wharton | The Age of Innocence (Ch. VI) | edition text | https://www.gutenberg.org/ebooks/541 |
+| LIT-564 | Ernest Hemingway | The Sun Also Rises (ending) | edition text | https://www.gutenberg.org/ebooks/67138 |
+| LIT-565 | William Faulkner | The Sound and the Fury (June Second, 1910) | edition text | https://www.gutenberg.org/ebooks/75170 |
+| LIT-566 | Osip Mandelstam | Insomnia. Homer. Taut canvas. | edition text | https://www.poetryintranslation.com/PITBR/Russian/Mandelstam.php |
+| LIT-567 | George Orwell | Nineteen Eighty-Four | one-line quote | https://archive.org/details/georgeorwellnine0000welc |
+| LIT-568 | Albert Camus | The Myth of Sisyphus | one-line quote | https://archive.org/details/albertcamusessen0000camu |
+| LIT-569 | Jean-Paul Sartre | No Exit | one-line quote | https://archive.org/details/noexithuisclospl00sartrich |
+| LIT-570 | Samuel Beckett | The Unnamable | one-line quote | https://archive.org/details/samuelbeckettsmo0000unse |
+| LIT-571 | John Steinbeck | East of Eden | one-line quote | https://archive.org/details/eastofeden0000stei |
+| LIT-572 | J. D. Salinger | The Catcher in the Rye | one-line quote | https://archive.org/details/jdsalingerscatch0000unse |
+| LIT-573 | Vladimir Nabokov | Lolita | one-line quote | https://archive.org/details/keystololita0000prof |
+| LIT-574 | Jack Kerouac | On the Road | one-line quote | https://archive.org/details/jackkerouacthero0000wort |
+| LIT-575 | Kurt Vonnegut | Slaughterhouse-Five | one-line quote | https://archive.org/details/slaughterhousefi0000kurt_c9n1 |
+| LIT-576 | Gabriel García Márquez | Love in the Time of Cholera | one-line quote | https://archive.org/details/gabrielgarcamrqu0000unse_w4u6 |
+| LIT-577 | Toni Morrison | Beloved | one-line quote | https://archive.org/details/tonimorrisonsbel0000unse |
+| LIT-578 | Martin Luther King Jr. | Letter from Birmingham Jail | one-line quote | https://archive.org/details/annotationsonlet0000pete |
+| LIT-579 | W. H. Auden | The Dyer's Hand | one-line quote | https://archive.org/details/dyershandotheres00aude |
+| LIT-580 | Mary Oliver | Upstream | one-line quote | https://archive.org/details/upstreamselected0000oliv |
+| LIT-581 | Wisława Szymborska | The Poet and the World (Nobel Lecture) | one-line quote | https://archive.org/details/nobellecturesfro00newy |
+| LIT-582 | Philip Larkin | Required Writing | one-line quote | https://archive.org/details/requiredwritingm0000lark_b1a5 |
+| LIT-583 | Seamus Heaney | Crediting Poetry (Nobel Lecture) | one-line quote | https://archive.org/details/creditingpoetryn00hean |
+| LIT-584 | Derek Walcott | The Antilles: Fragments of Epic Memory (Nobel Lecture) | one-line quote | https://archive.org/details/nobelprizeannual0000unse_o4y3 |
+| LIT-585 | Gwendolyn Brooks | Maud Martha | one-line quote | https://archive.org/details/maudmarthanovel00broo |
+| LIT-586 | Audre Lorde | The Transformation of Silence into Language and Action | one-line quote | https://archive.org/details/cancerjournals00lord |
+
+Artworks: VAULT-529 The Gleaners (Millet, Musée d'Orsay), VAULT-530 The Hay Wain (Constable, National Gallery), VAULT-531 David, detail of the head (Donatello, Bargello), VAULT-532 Venus de Milo (Louvre), VAULT-533 Lascaux Cave Paintings (a site, no holder). The first four were checked against their Wikidata records for date, material and holder. Lascaux's date and medium are from general reference. All five images were downloaded and looked at.
+
+Not on the site, and why:
+- Ginsberg, Bukowski, Elizabeth Bishop: known for poems still in copyright, and no line of their prose was confirmed in a scan. The Bukowski line first considered turned out to be from a poem.
+- Picasso: not added. His early work may be out of copyright in the United States but the position was not checked.
+- Kahlo, Rivera, Dalí, Magritte, Pollock, Warhol, O'Keeffe, Basquiat, Rothko, Chagall, Miró, Duchamp, Brancusi, Lichtenstein, Escher, Banksy: in copyright, cannot be shown.
+
+Things to know about this pass:
+- The twenty one-line quotes are prose only, each under fifteen words, each seen in archive.org full-text search results for the scan its record links to. Eleven were seen in a scan of the book itself; nine (Orwell, Camus, Beckett, Salinger, Nabokov, Kerouac, García Márquez, Morrison, King) in a published study, anthology or annotated edition that quotes the book.
+- Auden's sentence was cut at the front to fit the limit; its auditNote says so. Walcott's is cut at the end, Kerouac's at both ends.
+- Sartre: the wording with a dash is Stuart Gilbert's American text (Knopf, 1947). His British text prints three dots instead.
+- Faulkner's odd spellings are the edition's.
+- Wharton, Hemingway, Faulkner are in the public domain in the United States by publication date (1920, 1926, 1929); they may still be in copyright elsewhere.
+- Notes for these 30 were written from well-documented facts and not checked one by one against a second source.
