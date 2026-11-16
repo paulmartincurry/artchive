@@ -4249,14 +4249,9 @@
         <div class="stage-reading-text" id="lbReadingText"></div>
       </div>
 
-      <div class="stage-controls" id="stageLensControls">
+      <div class="stage-controls" id="stageLensControls" hidden>
+        <!-- Maker tools (plate, stencil, wheatpaste, duotone, broadside, loupe) were removed from the interface on 15 Nov 2026 at Paul's request. Their code below is unreachable and can be stripped or rebuilt later. -->
         <button class="text-action active" data-lens="original">Original</button>
-        <button class="text-action" data-lens="plate">Plate</button>
-        <button class="text-action" data-lens="woodcut" title="Mylar Stencil Cutter (1-Layer or 2-Layer Spray with live threshold)">Stencil</button>
-        <button class="text-action" data-lens="wheatpaste" title="Lo-Fi Xerox Halftone Paste-Up + Street Stamp">Wheatpaste</button>
-        <button class="text-action" data-lens="duotone" title="2-Ink Risograph / Screenprint Duotone (click any palette dot on the right to swap ink)">Duotone</button>
-        <button class="text-action" data-lens="broadside" title="Pair artwork + atomic verse as a broadside poster specimen">Broadside</button>
-        <button class="text-action" data-lens="detail" title="Interactive pan, zoom & detail cropper (scroll wheel or drag)">Detail Loupe</button>
       </div>
 
       <!-- Contextual Stencil & Wheatpaste Workshop Sub-Bar -->
@@ -6123,6 +6118,7 @@
     }
 
     function setLens(mode) {
+      mode = 'original'; // maker tools removed from the interface, 15 Nov 2026
       state.activeLens = mode;
       stageImageWrap.className = 'stage-image-wrap';
       if (mode !== 'original') {
@@ -6240,8 +6236,8 @@
         stageImageWrap.style.display = 'flex';
         // Works still in copyright: small credited image only. No maker tools, no full-size file.
         const isFairUse = Boolean(w.fairUse);
-        if (isFairUse && state.activeLens !== 'original') setLens('original');
-        stageLensControls.style.display = isFairUse ? 'none' : 'flex';
+        if (state.activeLens !== 'original') setLens('original');
+        stageLensControls.style.display = 'none';
         lbHighResLink.style.display = isFairUse ? 'none' : 'inline';
         lbImage.style.maxWidth = isFairUse && w.imageW ? `${Math.round(w.imageW * 1.5)}px` : '';
         lbImage.style.maxHeight = isFairUse && w.imageH ? `${Math.round(w.imageH * 1.5)}px` : '';
@@ -6766,6 +6762,7 @@
     stageImageWrap.addEventListener('wheel', (e) => {
       const w = state.currentList[state.activeWorkIndex];
       if (!w || w.itemType === 'literature') return;
+      return; // scroll-to-zoom loupe removed with the maker tools, 15 Nov 2026
       e.preventDefault();
       if (state.activeLens !== 'detail') {
         state.loupeZoom = 1.4;
