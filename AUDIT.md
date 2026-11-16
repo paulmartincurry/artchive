@@ -926,3 +926,11 @@ What the source check caught: two of the example lines used to sell the voice we
 Thin or compromised: Judith Slaying Holofernes (the article is on the Naples version; the site shows the Uffizi one), The Tyger and The Triumph of Death (little in the article about the making), The Metamorphosis (publication facts only). Ophelia was not done: the fetched page was a disambiguation page. The Ten Largest and Migrant Mother were not fetched.
 
 Limits: the facts are as good as the Wikipedia article they came from, and one source is not two. The check proves the snippets exist and the years match; it cannot prove every clause is covered. The other 1,660-odd notes are still in the older voice and wait on Paul's verdict.
+
+## The note's voice: wave 1 (15 Nov 2026)
+
+Paul approved the pilot. 438 more artwork notes were rewritten in the same voice, by 13 parallel agents, each from the trimmed wikitext of the work's Wikipedia article (or the maker's, or the parent work's, where the piece has no article of its own). Every note went through `save_line()`: each evidence snippet is verbatim in the source file and every year in the note is in the evidence. Afterwards all 438 were machine-checked for praise words, quotation marks, markup and length, and a random 26 were read in full. 490 notes are now `noteRev: 4`.
+
+Not checked: the agents' reading of the source is trusted beyond the snippet match; nothing was second-sourced; Wikipedia is the only source.
+
+Left in the old voice from this wave, because the only article found was about the subject, not the object: VAULT-128, 134, 153, 156, 161, 193, 228, 230, 232, 273, 275, 282, 325, 328, 331, 378, 402, 405, 415, 416, 466, 484, 526, 536. Still to do: about 475 artworks and all 752 writing pieces.
