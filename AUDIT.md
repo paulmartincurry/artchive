@@ -895,3 +895,22 @@ Not done from the famous list, because the lookup failed or the image would not 
 **What "verified" means for this pass.** Texts: matched line by line to a fetched edition. Museum artworks: the museum's own record. Famous works: Wikidata reviewed and corrected by hand, image checked by eye. Notes for all the new art and writing: written from the record plus well-documented facts, not second-sourced. That last part is the same standing as the older notes and is the main open item.
 
 Tested before each push: desktop and phone-size, every view, every Reading Room book paged through, search, the fair-use lightbox, the pull-quote check, counts. Not tested: real devices, Safari, or how the Wall feels with 938 images on a slow connection.
+
+## Growth pass, follow-up (15 Nov 2026): the line on death, and the misses
+
+Paul's correction: death in art is welcome and important (he named Van Gogh's skull and the Isle of the Dead). What stays out is what he does not see as art: medical and specimen photography, sideshow material. The growth pass had cut too much on the wrong side of that line. The rule in CLAUDE.md is rewritten.
+
+Restored or added on that basis (VAULT-946 onward): the Klinger print and the Gettysburg photograph cut earlier; a Lambayeque and an Egyptian funerary mask; a Northern Wei zodiac tomb figure; Posada's Calavera of Francisco Madero; and from the canon of death in art, Van Gogh's Head of a Skeleton with a Burning Cigarette, Cézanne's Pyramid of Skulls, Ensor's Skeletons Fighting over a Pickled Herring, Böcklin's Self-Portrait with Death Playing the Fiddle, Simberg's Garden of Death and Wounded Angel, Bosch's Death and the Miser, a Claesz Vanitas, Vereshchagin's Apotheosis of War, Mantegna's Lamentation, Bouguereau's Dante and Virgil, Caravaggio's Saint Jerome Writing and O'Sullivan's A Harvest of Death. Still out: two medical photographs from the Met's photography department.
+
+The fifteen famous works reported as missed. The first lookup matched on exact Wikipedia titles and failed quietly. A second lookup searched Wikidata by name and matched on the artist. Result: eight of the fifteen were already on the site under a slightly different title (Ophelia, The Lady of Shalott, Isle of the Dead, The Dream, Death and the Maiden, Sudden Shower over Shin-Ōhashi Bridge, La Calavera Catrina, The Death of Socrates), so the earlier report that they were missing was wrong. Added now: Klimt's Judith, Munch's Dance of Life, The Ten Largest No. 2, Proserpine, The Large Blue Horses, Schiele's Self-Portrait with Chinese Lantern Plant, Las Hilanderas, The Tempest, Where Do We Come From, The Virgin of the Rocks (the London version). Not added: The Triumph of Galatea and The Death of Chatterton, because Wikidata's image for each is a later copy, not the original.
+
+All 37 images in this batch were downloaded and looked at against their titles. Dates, mediums and holders from Wikidata were reviewed and corrected by hand (Munch's Dance of Life was dated 2000; The Tempest's holder was a former owner).
+
+The texts reported as having no public-domain English. A second pass looked the way other archives do, in scans of pre-1931 printings and at Standard Ebooks, and found 21 (LIT-828 to LIT-848):
+- Marinetti's manifesto, points 1 to 8, from the English text printed in the 1912 Sackville Gallery catalogue in London. No translator is named there.
+- Sullivan Ballou's letter, from a book printed in 1864. That printing is abridged and garbles the best-known sentence, so the passage shown is the part around it. The famous phrase is not displayed.
+- Tolstoy's Confession (Maude), To the Lighthouse, Orlando, A Room of One's Own, The Hollow Men, Frost's Acquainted with the Night, Stevens's Emperor of Ice-Cream, three more Bashō haiku (Chamberlain, 1902), another Rumi, two Bai Juyi poems (Waley, 1918), Emily Brontë's High Waving Heather, Blake's And Did Those Feet, and further sections of Song of Myself, the Ancient Mariner and Prufrock.
+- Kafka's A Hunger Artist has no public-domain English, so it is one credited sentence from the Muirs' translation.
+For the Marinetti and Ballou texts the scan's OCR was too rough to check against directly, so the agent made a corrected transcription from the page images and checked against that; the auditNote says so. The four Standard Ebooks texts rest on Standard Ebooks' own proofing.
+
+The site stands at 967 artworks and 752 writing pieces.
