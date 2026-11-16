@@ -934,3 +934,19 @@ Paul approved the pilot. 438 more artwork notes were rewritten in the same voice
 Not checked: the agents' reading of the source is trusted beyond the snippet match; nothing was second-sourced; Wikipedia is the only source.
 
 Left in the old voice from this wave, because the only article found was about the subject, not the object: VAULT-128, 134, 153, 156, 161, 193, 228, 230, 232, 273, 275, 282, 325, 328, 331, 378, 402, 405, 415, 416, 466, 484, 526, 536. Still to do: about 475 artworks and all 752 writing pieces.
+
+## The note's voice: wave 2, rollout finished (16 Nov 2026)
+
+Paul: do it all. 1,216 more notes in the new voice: 494 artworks and all 752 writing pieces (less a handful), by 35 parallel agents under `out/BRIEF10.md`, each fact saved with its verbatim source snippet through `save_line()`. 1,711 of 1,719 notes are now `noteRev: 4`.
+
+Sources: for museum works, the museum's own API record (Met, Chicago, Cleveland: size, credit line, description, provenance, exhibitions) plus the Wikipedia article on the work and on the maker; for writing, the article on the work and the author. 38 writing files had been built on a Wikipedia disambiguation page; the right articles were fetched and those 39 notes redone.
+
+Known soft spots:
+- Many writing notes rest on the author's article only (it often never names the piece), so they say what the writer was doing at the label's date. They do not claim facts about the piece the source does not give.
+- Several maker articles were cut off at about 15,000 characters, so facts late in a life were not available.
+- Some of the museum records are bare; those cards are one or two sentences of size, place and donor.
+- Still not second-sourced; Wikipedia and the museum records are the only sources.
+
+Label only (no fact in the record): VAULT-642, 755, 703, 129, LIT-234. Old note kept, no source about the object found: VAULT-128, 275, 325, 328, 331, 484, LIT-447, LIT-130.
+
+Label dates the agents found at odds with their sources (not changed; worth a look): VAULT-585 Munch Girl by the Window (shown in 1892, label 1893); VAULT-955 Harvest of Death (Sketch Book 1865 vs label 1866); VAULT-102 Artemisia Esther (Wikipedia says 1630s); VAULT-087 Caravaggio Musicians; VAULT-966 Bosch; VAULT-632 van Eyck; VAULT-949 Posada (printed 1944, design date unsourced); LIT-139 Genesis and LIT-140 Psalm 23 (c. 600 BCE); LIT-125 Song of Songs (3rd c. BCE in source); LIT-616 The Bells (written 1848); LIT-820 Base Details (diary 1917); LIT-194 Oread (1915); LIT-407 Heart of a Woman (1916 or 1918); LIT-491 Silva Nocturne (published 1908); LIT-252 Montaigne vol. 3. Also: LIT-133/358 credit Lewis Spence's retelling of the Popol Vuh, which may sit badly with the real-texts rule; VAULT-112 credits van Musscher, the Met names Ruysch alone.
