@@ -914,3 +914,15 @@ The texts reported as having no public-domain English. A second pass looked the 
 For the Marinetti and Ballou texts the scan's OCR was too rough to check against directly, so the agent made a corrected transcription from the page images and checked against that; the auditNote says so. The four Standard Ebooks texts rest on Standard Ebooks' own proofing.
 
 The site stands at 967 artworks and 752 writing pieces.
+
+## The note's voice: pilot (15 Nov 2026)
+
+Paul on the notes: the site should sound like a museum with just enough of a person in it to read as a curator or fellow creative. Not cold. Not forced AI conversational, which he said would ruin the project. The voice settled on is a museum run by people who make things: the curator notices what a maker would (age, time taken, materials, money, what went wrong, what happened to the object), in full plain sentences, several facts where a work has several.
+
+Pilot: 52 famous works rewritten in that voice (35 artworks, 17 pieces of writing), `noteRev: 4`. Method: the Wikipedia article for each work was fetched; three agents wrote from that text alone and had to supply the verbatim snippet behind every fact; `grow_kit.save_line()` refused any note whose snippets were not in the article or whose years were not in the snippets, and a list of praise and interpretation words. The snippets are kept in `data/pilot-notes-evidence.json` and the notes they replaced in `data/pilot-notes-old.json`, so the pilot can be reversed.
+
+What the source check caught: two of the example lines used to sell the voice were not supported. The article on Goya's The Dog does not say dining room, and says the murals were not meant for public display, not that he never showed them. The article on the Pietà gives no birth year, so Michelangelo's age was left out. The Night Watch article's own figures for the commission do not add up, so only the total is given.
+
+Thin or compromised: Judith Slaying Holofernes (the article is on the Naples version; the site shows the Uffizi one), The Tyger and The Triumph of Death (little in the article about the making), The Metamorphosis (publication facts only). Ophelia was not done: the fetched page was a disambiguation page. The Ten Largest and Migrant Mother were not fetched.
+
+Limits: the facts are as good as the Wikipedia article they came from, and one source is not two. The check proves the snippets exist and the years match; it cannot prove every clause is covered. The other 1,660-odd notes are still in the older voice and wait on Paul's verdict.
