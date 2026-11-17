@@ -65,7 +65,15 @@ def main():
         if is_lit:
             bits = [w.get('translator') and f'Translated by {w["translator"]}', w.get('license')]
             credit = ' · '.join(x for x in bits if x)
-        rights = w.get('rights') if w.get('fairUse') else ''
+        pc = f'Photo: {w["photoCredit"]}' if w.get('photoCredit') else ''
+        if is_lit:
+            rights = ''
+        elif w.get('fairUse'):
+            rights = ' · '.join(x for x in [w.get('rights') or 'In copyright. Look and learn: shown for study, not for download.', pc] if x)
+        elif w.get('rightsTier') == 'free':
+            rights = f'Free to use with credit. {pc}' if pc else 'Free to use'
+        else:
+            rights = ''
         body = []
         if img:
             body.append(f'<a href="{app}"><img src="{esc(page_img)}" alt="{esc(title)} by {esc(maker)}"></a>')

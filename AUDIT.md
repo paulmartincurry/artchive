@@ -966,3 +966,18 @@ Film stills: 33 frames from A Trip to the Moon, The Cabinet of Dr. Caligari, Nos
 ## Design batch (16 Nov 2026)
 
 56 works from Cooper Hewitt, Smithsonian Design Museum (VAULT-1014 to 1069), all CC0 in the museum's record and dated before 1931. Notes from the museum record (size, technique, inscriptions, credit line) and, for nine, the maker's Wikipedia article, through save_line(). One note (Eisler's silver platter) was trimmed where the writer read the print lettering from general knowledge. Region tags come from the record's place made, or the maker's nationality where none is given.
+
+
+## Rights tiers and the first additions under them (16 Nov 2026)
+
+Paul's decision: two tiers, free to take and look and learn (CLAUDE.md, "Rights: two tiers").
+
+**Rights audit.** Every artwork was assigned `rightsTier`. For the 518 Commons images the file page's licence section was read (`commons.wikimedia.org/w/index.php?title=File:…&action=raw`). 387 are public domain outright. 131 are photographs whose photographer kept a CC, GFDL, Free Art, KOGL or Taiwan open-data licence over a public-domain object; 126 now carry `photoCredit`, and five 2D reproductions (a manuscript page, a Met print, Brooklyn's no-known-restrictions scan) were left without one. Credits whose author field was garbled were fixed by hand from the file page. Two works moved to `look`: Warhol's Campbell's Soup Cans, which Commons tags PD-US-not renewed but the estate licenses, and Rivera's Man, Controller of the Universe (1934). The ten earlier fair-use works now use the look-and-learn line.
+
+**Wrong image found.** Pillars of Creation (VAULT-890) showed a visitor's photo of a planetarium screen playing the 2022 Webb image, not the 1995 Hubble photograph its note describes. Replaced with File:Eagle nebula pillars.jpg (NASA; PD-Hubble), which shows the stair-shaped gap the note mentions.
+
+**WPA posters, 30 (VAULT-1070 to 1099).** Library of Congress WPA Poster Collection, made 1936 to 1943 under the Works Progress Administration. Picked from about 200 candidates by eye; the Sea Cliff, Long Island poster was dropped as a town advertisement. Notes written from the LoC record alone (maker, printer, method, size, date stamps, sponsor, conservation) through `save_line`, batch `wpa`. 22 are 1,024 px, 8 only exist at 640 px.
+
+**FSA/OWI photographs, 20 (VAULT-1100 to 1119).** Library of Congress, made by photographers employed by the Resettlement Administration, Farm Security Administration and Office of War Information. Notes from the LoC record plus the Wikipedia articles on the photographer or the picture (Let Us Now Praise Famous Men, American Gothic (photograph), Migrant Mother, Pie Town), batch `fsa`. Floyd Burroughs Jr. was dropped because its negative is hole-punched; Toward Los Angeles uses the original negative, not the copy of a mounted print. Rothstein's dust storm uses the LoC's scan of the file print, because the worn-out negative was discarded (the record says so). Marion Post Wolcott's juke joint photograph is titled from the holder's caption with its 1939 racial term left out; the full caption is in `auditNote`.
+
+**Not done yet in this round:** look-and-learn additions (modern artists and photographers, post-1931 film stills); unrenewed 1931 to 1963 works; size on the label (WPA records carry `dimensions`, nothing shows it yet).

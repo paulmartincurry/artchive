@@ -4028,7 +4028,8 @@
           <option value="Ancient & Medieval">Ancient &amp; Medieval (&lt;1400)</option>
           <option value="1400–1650">1400–1650 (Renaissance / Ming / Safavid)</option>
           <option value="1650–1800">1650–1800 (Edo / Baroque / Enlightenment)</option>
-          <option value="1800–1920">1800–1920 (Romantic / Late Edo / Modern)</option>
+          <option value="1800–1920">1800–1920 (Romantic / Late Edo / Belle Époque)</option>
+          <option value="1920–Now">1920–Now (Modern / Postwar / Now)</option>
         </select>
 
         <!-- Cosmos / PDIA-inspired Pigment Tone Filter -->
@@ -4371,7 +4372,7 @@
           <button class="quiet-link" id="sameSubjectBtn"></button>
         </div>
         <div class="footer-row">
-          <a class="quiet-link" id="lbHighResLink" href="#" target="_blank" rel="noopener noreferrer">Master file (High-Res) ↗</a>
+          <a class="quiet-link" id="lbHighResLink" href="#" target="_blank" rel="noopener noreferrer">Full-size file ↗</a>
           <button class="quiet-link" id="copyCreditBtn">Copy credit</button>
         </div>
         <div class="footer-row">
@@ -4387,7 +4388,7 @@
 
 
 
-  <script src="data/works.js?v=fba116b9c2"></script>
+  <script src="data/works.js?v=e13f9dd4b5"></script>
 <script>
     const TARGET_TOTAL = 1080;
     const PAGE_BATCH_SIZE = 56;
@@ -4532,7 +4533,8 @@
         if (y < 1400) return 'Ancient & Medieval';
         if (y < 1650) return '1400–1650';
         if (y < 1800) return '1650–1800';
-        return '1800–1920';
+        if (y <= 1920) return '1800–1920';
+        return '1920–Now';
       }
       return '1650–1800';
     }
@@ -6276,9 +6278,10 @@
         const isFairUse = Boolean(w.fairUse);
         if (state.activeLens !== 'original') setLens('original');
         stageLensControls.style.display = 'none';
-        lbHighResLink.style.display = isFairUse ? 'none' : 'inline';
-        lbImage.style.maxWidth = isFairUse && w.imageW ? `${Math.round(w.imageW * 1.5)}px` : '';
-        lbImage.style.maxHeight = isFairUse && w.imageH ? `${Math.round(w.imageH * 1.5)}px` : '';
+        lbHighResLink.style.display = (isFairUse || w.rightsTier === 'look') ? 'none' : 'inline';
+        // Look-and-learn works: shown up to twice their file size, never past about 1,000 px, never the original file.
+        lbImage.style.maxWidth = isFairUse && w.imageW ? `${Math.min(1000, Math.round(w.imageW * 2))}px` : '';
+        lbImage.style.maxHeight = isFairUse && w.imageH ? `${Math.min(1000, Math.round(w.imageH * 2))}px` : '';
         ensembleHeading.textContent = 'Cross-Cultural Visual Rhymes';
 
         lbImage.onload = () => {
@@ -6323,7 +6326,10 @@
 
       lbTitle.textContent = w.title;
       lbArtist.textContent = w.dateLabel ? `${w.artist} · ${w.dateLabel}` : w.artist;
-      lbOrigin.textContent = [w.region, w.museum, w.audit === 'unconfirmed' ? 'details not yet verified' : '', w.fairUse ? (w.rights || 'In copyright. Small image shown under fair use.') : ''].filter(Boolean).join(' · ');
+      const rightsLine = w.itemType === 'literature' ? ''
+        : w.fairUse ? [w.rights || 'In copyright. Look and learn: shown for study, not for download.', w.photoCredit ? `Photo: ${w.photoCredit}` : ''].filter(Boolean).join(' · ')
+        : w.rightsTier === 'free' ? (w.photoCredit ? `Free to use with credit. Photo: ${w.photoCredit}` : 'Free to use') : '';
+      lbOrigin.textContent = [w.region, w.museum, w.audit === 'unconfirmed' ? 'details not yet verified' : '', rightsLine].filter(Boolean).join(' · ');
       lbNote.textContent = w.note || '';
 
       document.getElementById('specMedium').textContent = w.medium || '—';

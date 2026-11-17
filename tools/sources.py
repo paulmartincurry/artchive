@@ -176,10 +176,15 @@ def loc_item(url):
     j = get(url.rstrip('/') + '/?fo=json') or {}
     it = j.get('item') or {}
     res = j.get('resources') or []
+    # Prefer the scan of the original over a film copy; use the 1024 px 'large' JPEG, never the TIFF master.
+    res = sorted(res, key=lambda r: (0 if (r.get('large') and 'notdig' not in r.get('large')) else 1, 0 if 'original' in (r.get('note') or '') else 1))
     big = small = ''
+    ok = lambda u: u and 'notdig' not in u
     for r in res:
-        big = r.get('larger') or r.get('large') or r.get('medium') or big
-        small = r.get('medium') or r.get('large') or small
+        pick = next((u for u in (r.get('large'), r.get('medium')) if ok(u)), '')
+        if pick:
+            big = small = pick
+            break
     rights = it.get('rights_information') or ''
     notes = ' | '.join(n.get('note', '') for n in it.get('notes', []) if isinstance(n, dict))
     return dict(source='loc', id=url.rstrip('/').rsplit('/', 1)[-1], title=it.get('title', ''),
