@@ -4304,6 +4304,7 @@
 
         <h2 class="lb-title" id="lbTitle"></h2>
         <div class="lb-artist" id="lbArtist"></div>
+        <div class="lb-origin" id="lbMediumLine"></div>
         <div class="lb-origin" id="lbOrigin"></div>
 
         <!-- Studio Table Action Strip: File into Named Project Stack -->
@@ -6326,6 +6327,8 @@
 
       lbTitle.textContent = w.title;
       lbArtist.textContent = w.dateLabel ? `${w.artist} · ${w.dateLabel}` : w.artist;
+      const lbMediumLine = document.getElementById('lbMediumLine');
+      if (lbMediumLine) { const ml = w.itemType === 'literature' ? '' : [w.medium, w.dimensions].filter(Boolean).join(' · '); lbMediumLine.textContent = ml; lbMediumLine.style.display = ml ? '' : 'none'; }
       const rightsLine = w.itemType === 'literature' ? ''
         : w.fairUse ? [w.rights || 'In copyright. Look and learn: shown for study, not for download.', w.photoCredit ? `Photo: ${w.photoCredit}` : ''].filter(Boolean).join(' · ')
         : w.rightsTier === 'free' ? (w.photoCredit ? `Free to use with credit. Photo: ${w.photoCredit}` : 'Free to use') : '';

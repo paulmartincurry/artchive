@@ -53,7 +53,7 @@ def main():
         title, maker = w.get('title') or '', w.get('artist') or ''
         note = w.get('note') or ''
         hook = (w.get('hook') or '').strip()
-        label = [x for x in [maker, w.get('dateLabel'), None if is_lit else w.get('medium'), None if is_lit else w.get('museum')] if x]
+        label = [x for x in [maker, w.get('dateLabel'), None if is_lit else w.get('medium'), None if is_lit else w.get('dimensions'), None if is_lit else w.get('museum')] if x]
         desc = (hook.replace('\n', ' / ') if is_lit else note) or ', '.join(label)
         desc = desc[:200]
         img = '' if is_lit else (w.get('imageUrl') or '')
