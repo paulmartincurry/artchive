@@ -16,9 +16,12 @@ Sources (tested from the work sandbox, 16 Nov 2026):
            record, and the image only with care.
   loc()    Library of Congress Prints & Photographs, loc.gov/pictures JSON. Only items
            marked "No known restrictions" count as open.
+  si()     Smithsonian Open Access (all Smithsonian museums: Cooper Hewitt, the Freer
+           and Sackler, American Art, Portrait Gallery, African Art...). Needs Paul's
+           api.data.gov key, read from $SI_API_KEY or ~/.config/artchive/si_key. The key
+           must never go into this repo: the repo is public. Images marked CC0 are open.
   met(), aic(), cma() for the three museums the site started with live in
-  ~/grow/harvest.py; the Smithsonian needs an api.data.gov key (the demo key is
-  rate-limited to nothing).
+  ~/grow/harvest.py.
 """
 import csv, json, os, re, subprocess, urllib.parse
 
@@ -191,3 +194,41 @@ def loc_item(url):
 def loc(q, limit=20):
     j = get('https://www.loc.gov/pictures/search/?' + urllib.parse.urlencode({'q': q, 'fo': 'json', 'c': limit})) or {}
     return [loc_item(r['links']['item']) for r in j.get('results', [])[:limit] if r.get('links', {}).get('item')]
+
+# ---------------------------------------------------------------- Smithsonian
+def _si_key():
+    k = os.environ.get('SI_API_KEY')
+    if k:
+        return k.strip()
+    p = os.path.expanduser('~/.config/artchive/si_key')
+    return open(p).read().strip() if os.path.exists(p) else ''
+
+def _si_free(c, label):
+    return ' | '.join(x.get('content', '') for x in (c.get('freetext') or {}).get(label, []))
+
+def _si_free_named(c, label, name):
+    return ' | '.join(x.get('content', '') for x in (c.get('freetext') or {}).get(label, []) if (x.get('label') or '').lower() == name.lower())
+
+def si(q, limit=20, images_only=True):
+    key = _si_key()
+    if not key:
+        raise RuntimeError('No Smithsonian key: set SI_API_KEY or ~/.config/artchive/si_key')
+    qq = q + (' AND online_media_type:Images' if images_only else '')
+    j = get('https://api.si.edu/openaccess/api/v1.0/search?' + urllib.parse.urlencode({'q': qq, 'rows': limit, 'api_key': key})) or {}
+    out = []
+    for x in (j.get('response') or {}).get('rows', []):
+        c = x.get('content') or {}
+        d = c.get('descriptiveNonRepeating') or {}
+        media = [m for m in ((d.get('online_media') or {}).get('media') or []) if m.get('type') == 'Images']
+        m = media[0] if media else {}
+        cc0 = (m.get('usage') or {}).get('access') == 'CC0'
+        base = m.get('content', '')
+        out.append(dict(source='si', id=d.get('record_ID', x.get('id')), title=(d.get('title') or {}).get('content') or x.get('title', ''),
+                        maker='; '.join(n.get('content', '') for n in (c.get('freetext') or {}).get('name', [])), date=_si_free(c, 'date'),
+                        year=year_of(_si_free(c, 'date')), medium=_si_free_named(c, 'physicalDescription', 'Medium') or _si_free(c, 'physicalDescription'),
+                        dimensions=_si_free_named(c, 'physicalDescription', 'Dimensions'), holder=d.get('data_source', ''),
+                        credit=_si_free(c, 'creditLine'), description=_si_free(c, 'notes'), provenance=_si_free_named(c, 'notes', 'Provenance'),
+                        imageUrl=f'{base}&max=960' if base else '', highResUrl=base, sourceUrl=d.get('record_link') or d.get('guid', ''),
+                        rights='CC0' if cc0 else ((m.get('usage') or {}).get('access') or ''), open=cc0, unit=d.get('unit_code', ''),
+                        accession=_si_free_named(c, 'identifier', 'Object number') or _si_free(c, 'identifier')))
+    return out
