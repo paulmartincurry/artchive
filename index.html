@@ -4387,7 +4387,7 @@
 
 
 
-  <script src="data/works.js?v=8d7edf6b08"></script>
+  <script src="data/works.js?v=fba116b9c2"></script>
 <script>
     const TARGET_TOTAL = 1080;
     const PAGE_BATCH_SIZE = 56;
@@ -4880,6 +4880,7 @@
       if (!u) return '';
       if (u.includes('/960px-')) return u.replace('/960px-', '/500px-');
       if (u.includes('artic.edu/iiif/') && u.includes('/full/843,/')) return u.replace('/full/843,/', '/full/400,/');
+      if (u.includes('ids.si.edu/ids/deliveryService') && u.includes('max=960')) return u.replace('max=960', 'max=500');
       return '';
     }
     function setTileImage(img, u, sizes) {
