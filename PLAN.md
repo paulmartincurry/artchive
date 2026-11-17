@@ -13,7 +13,7 @@ Every round has to pass two tests at once: **people search for it** and **it is 
 1. **Read** CLAUDE.md, this file, AUDIT.md's last two sections.
 2. **Access check.** Tested from the sandbox on 16 Nov:
    - Work: Wellcome catalogue API, NASA Images API, David Rumsey (LUNA search), Library of Congress, Rijksmuseum Linked Art, Commons file pages (`index.php?action=raw`), Met v1.1 search.
-   - Need a free key: Biodiversity Heritage Library (401), NYPL Digital Collections (401), Paris Musées (503 without key). **Ask Paul for these three keys** before the session, stored like the Smithsonian key in `~/.config/artchive/` and never committed. If he would rather not sign up: BHL books are mirrored on archive.org (use `advancedsearch.php`, collection `biodiversity`), and most Paris Musées and NYPL highlights are on Commons.
+   - Need a free key: Biodiversity Heritage Library (401), NYPL Digital Collections (401), Paris Musées (503 without key). BHL and NYPL keys are in hand (see Paul's answers below); Paris Musées is not, stored like the Smithsonian key in `~/.config/artchive/` and never committed. If he would rather not sign up: BHL books are mirrored on archive.org (use `advancedsearch.php`, collection `biodiversity`), and most Paris Musées and NYPL highlights are on Commons.
    - Getty: the search URL tried was wrong (404). Use its SPARQL endpoint `https://data.getty.edu/museum/collection/sparql` or the Commons copies of Getty open-content images.
    - Chicago's API gave a 500 once; retry before assuming it is down.
 3. **Tools to add to `tools/sources.py`:** `wellcome()`, `nasa()`, `rumsey()`, `commons_cat(category)` (lists files in a Commons category with licence and author, using the raw file page), `ia_scan(id)` (archive.org page images for plates). Same record shape as the others.
@@ -100,8 +100,8 @@ Push after each round. After rounds 1, 6 and 7, send Paul a contact sheet of wha
 - Writing in copyright: one prose sentence under fifteen words, confirmed in a scan; never a line of a poem in copyright.
 - Ask Paul before cutting anything that is already on the site.
 
-## Questions for Paul before the session
+## Paul's answers (16 Nov 2026)
 
-1. The BHL, NYPL and Paris Musées keys (all free), or route around them through archive.org and Commons?
-2. The war and news photographs in round 6 (Adams, Ut, Capa): in, given they are about death and are searched for?
-3. Anything on the round lists to kill, or a name that must be there?
+1. Keys: BHL and NYPL keys received and working (stored in `~/.config/artchive/bhl_key` and `nypl_token`, never committed; if a new session lacks them, ask Paul again). Paris Musées: no key yet, so route around it through Commons.
+2. War and news photographs (Adams, Ut, Capa): in.
+3. Kills or must-haves: none named yet. Ask once more at the start of the session.
