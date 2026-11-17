@@ -57,6 +57,7 @@ def main():
         desc = (hook.replace('\n', ' / ') if is_lit else note) or ', '.join(label)
         desc = desc[:200]
         img = '' if is_lit else (w.get('imageUrl') or '')
+        page_img = img if img.startswith('http') else ('../' + img if img else '')
         if img and not img.startswith('http'):
             img = SITE + img
         app = f'../index.html#w/{w["id"]}'
@@ -67,7 +68,7 @@ def main():
         rights = w.get('rights') if w.get('fairUse') else ''
         body = []
         if img:
-            body.append(f'<a href="{app}"><img src="{esc(img)}" alt="{esc(title)} by {esc(maker)}"></a>')
+            body.append(f'<a href="{app}"><img src="{esc(page_img)}" alt="{esc(title)} by {esc(maker)}"></a>')
         if is_lit and hook:
             body.append('<blockquote>' + '<br>'.join(esc(l) for l in hook.split('\n')) + '</blockquote>')
         body.append(f'<h1>{esc(title)}</h1>')

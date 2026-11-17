@@ -3998,6 +3998,7 @@
             <option value="Sculpture & Metalwork">Sculpture &amp; Metalwork</option>
             <option value="Diagram, Cyanotype & Textile">Diagram, Cyanotype &amp; Textile</option>
             <option value="Letterform, Score & Ephemera">Letterform, Score &amp; Ephemera</option>
+            <option value="Photograph & Film">Photograph &amp; Film</option>
           </optgroup>
           <optgroup label="Writing">
             <option value="Literature & Verse">All writing</option>
@@ -4386,7 +4387,7 @@
 
 
 
-  <script src="data/works.js?v=8b7a70f771"></script>
+  <script src="data/works.js?v=8d7edf6b08"></script>
 <script>
     const TARGET_TOTAL = 1080;
     const PAGE_BATCH_SIZE = 56;
@@ -4492,7 +4493,10 @@
       if (/\b(tughra|colophon|calligraphy|seal|broadside|music|notation|senjafuda|ephemera)\b/.test(s)) {
         return 'Letterform, Score & Ephemera';
       }
-      if (/\b(cyanotype|photogram|tapestry|embroidery|embroidered|textile|vellum|codex|star chart|astrolabe)\b/.test(s)) {
+      if (/\b(albumen|gelatin silver|daguerreotype|salted paper|platinum print|photogravure|photograph|cyanotype|photogram|collotype|film still)\b/.test(s)) {
+        return 'Photograph & Film';
+      }
+      if (/\b(tapestry|embroidery|embroidered|textile|vellum|codex|star chart|astrolabe)\b/.test(s)) {
         return 'Diagram, Cyanotype & Textile';
       }
       if (/\b(woodblock|woodcut|etching|engraving|lithograph|aquatint|drypoint|print|linocut|mezzotint)\b/.test(s)) {
