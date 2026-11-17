@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://paulmartincurry.github.io/artchive/sitemap.xml

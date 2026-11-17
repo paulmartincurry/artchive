@@ -2153,6 +2153,8 @@
     .art-frame img.img-loading {
       opacity: 0;
       transform: scale(1.012);
+      /* Hold space until the file arrives, so lazy loading only fetches what is near the screen. */
+      aspect-ratio: 4 / 5;
     }
 
     .art-frame img.img-loaded {
@@ -4372,6 +4374,9 @@
           <button class="quiet-link" id="copyCreditBtn">Copy credit</button>
         </div>
         <div class="footer-row">
+          <button class="quiet-link" id="lbShareBtn" type="button">Copy link</button>
+        </div>
+        <div class="footer-row">
           <a class="quiet-link" id="lbSourceLink" href="#" target="_blank" rel="noopener noreferrer">Source record ↗</a>
           <button class="quiet-link" id="lbOrbitConstellationBtn" type="button" title="Place this work at the center of the Gravity Constellation">✦ Orbit in Constellation</button>
         </div>
@@ -4866,6 +4871,31 @@
       try { localStorage.setItem('archive_stacks_v1', JSON.stringify(state.stacks)); } catch (e) {}
     }
 
+    // Smaller file for grid tiles: Commons 500px step, Chicago IIIF at 400px. The lightbox keeps the full imageUrl.
+    function smallImageUrl(u) {
+      if (!u) return '';
+      if (u.includes('/960px-')) return u.replace('/960px-', '/500px-');
+      if (u.includes('artic.edu/iiif/') && u.includes('/full/843,/')) return u.replace('/full/843,/', '/full/400,/');
+      return '';
+    }
+    function setTileImage(img, u, sizes) {
+      const small = smallImageUrl(u);
+      if (small) {
+        img.srcset = `${small} 500w, ${u} 960w`;
+        img.sizes = sizes || '(max-width: 700px) 50vw, 25vw';
+        // If the small file fails (throttling), retry with the full one before any hide-on-error handler runs.
+        img.addEventListener('error', (e) => {
+          if (img.dataset.fellBack) return;
+          img.dataset.fellBack = '1';
+          e.stopImmediatePropagation();
+          img.removeAttribute('srcset');
+          img.removeAttribute('sizes');
+          img.src = u;
+        });
+      }
+      img.src = u;
+    }
+
     function hexToRgb255(hex) {
       const clean = (hex || '#181818').replace('#', '').trim();
       const n = parseInt(clean.length === 3 ? clean.split('').map(c => c + c).join('') : clean, 16);
@@ -5159,7 +5189,10 @@
 
         const img = document.createElement('img');
         if (!w.isDetailClip) img.className = 'img-loading';
-        img.src = w.imageUrl;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        if (w.isDetailClip) img.src = w.imageUrl;
+        else setTileImage(img, w.imageUrl, `(max-width: 700px) ${Math.round(100 / Math.max(1, state.colCount || 2))}vw, ${Math.round(100 / Math.max(1, state.colCount || 4))}vw`);
         img.alt = w.title;
         img.loading = 'lazy';
         if (w.isDetailClip && w.detailCrop) {
@@ -5829,9 +5862,9 @@
         btn.className = 'ensemble-thumb';
         btn.title = `${rhyme.title} — ${rhyme.artist} (${rhyme.region})`;
         const img = document.createElement('img');
-        img.src = rhyme.imageUrl;
-        img.alt = rhyme.title;
         img.loading = 'lazy';
+        setTileImage(img, rhyme.imageUrl, '160px');
+        img.alt = rhyme.title;
         btn.appendChild(img);
         btn.addEventListener('click', () => {
           let idx = state.currentList.findIndex(x => x.id === rhyme.id);
@@ -6722,8 +6755,8 @@
       icon.textContent = isOpen ? '−' : '+';
     });
 
-    document.getElementById('lbCloseBtn').addEventListener('click', closeLightbox);
-    document.getElementById('stageBackBtn').addEventListener('click', closeLightbox);
+    document.getElementById('lbCloseBtn').addEventListener('click', () => closeLightbox());
+    document.getElementById('stageBackBtn').addEventListener('click', () => closeLightbox());
 
     // Interactive Loupe Drag-to-Pan & Wheel-to-Zoom on Stage
     let didDragStage = false;
@@ -7292,7 +7325,7 @@
         const img = document.createElement('img');
         img.className = 'spatial-card-thumb';
         img.loading = 'lazy';
-        img.src = w.imageUrl;
+        setTileImage(img, w.imageUrl, '240px');
         img.alt = `${w.title} — ${w.artist}`;
         img.addEventListener('error', () => {
           img.style.display = 'none';
@@ -9299,7 +9332,7 @@
             frame.className = 'tl-art-frame';
             const img = document.createElement('img');
             img.loading = 'lazy';
-            img.src = w.imageUrl;
+            setTileImage(img, w.imageUrl, '300px');
             img.alt = w.title;
             img.addEventListener('error', () => { item.style.display = 'none'; });
             frame.appendChild(img);
@@ -10356,9 +10389,9 @@
           tile.appendChild(aSpan);
         } else {
           const img = document.createElement('img');
-          img.src = cousin.imageUrl;
-          img.alt = cousin.title;
           img.loading = 'lazy';
+          setTileImage(img, cousin.imageUrl, '200px');
+          img.alt = cousin.title;
           img.onerror = () => { tile.style.display = 'none'; };
           tile.appendChild(img);
         }
@@ -10550,6 +10583,47 @@
     }
     updateSavedCounter();
     filterWorks(false);
+
+    // Links to single works. The address bar carries #w/<id> while a work is open,
+    // so it can be copied or bookmarked; "Copy link" hands out the work's own page
+    // (w/<slug>.html), which previews properly when shared and can be found by search engines.
+    (function workLinks() {
+      const baseUrl = () => location.href.split('#')[0].replace(/index\.html$/, '');
+      const shareBtn = document.getElementById('lbShareBtn');
+      let current = null;
+      const origOpen = openLightbox;
+      openLightbox = function (index) {
+        origOpen(index);
+        const w = state.currentList[index];
+        if (!w || !w.id || state.activeWorkIndex !== index) return;
+        current = w;
+        if (location.hash !== `#w/${w.id}`) history.replaceState(null, '', `#w/${w.id}`);
+        if (shareBtn) shareBtn.style.display = w.slug ? '' : 'none';
+      };
+      const origClose = closeLightbox;
+      closeLightbox = function () {
+        origClose();
+        current = null;
+        if (location.hash.startsWith('#w/')) history.replaceState(null, '', location.pathname + location.search);
+      };
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          if (!current || !current.slug) return;
+          const url = `${baseUrl()}w/${current.slug}.html`;
+          const done = () => { shareBtn.textContent = 'Link copied ✓'; setTimeout(() => { shareBtn.textContent = 'Copy link'; }, 1400); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => window.prompt('Link to this work', url));
+          else window.prompt('Link to this work', url);
+        });
+      }
+      const openFromHash = () => {
+        const m = location.hash.match(/^#w\/([A-Z]+-\d+)$/);
+        if (!m) return;
+        if (current && current.id === m[1]) return;
+        openWorkById(m[1]);
+      };
+      window.addEventListener('hashchange', openFromHash);
+      openFromHash();
+    })();
   </script>
 </body>
 </html>
