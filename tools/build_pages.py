@@ -1,6 +1,7 @@
 """Build one static page per work in w/<slug>.html, plus sitemap.xml and robots.txt.
 
-Run from the repo root after any change to data/works.js:
+Run from the repo root after any change to data/works.js (it also stamps
+the data file's version into index.html, so browsers never pair new code with a cached library):
     python3 tools/build_pages.py
 
 Each work gets a stable `slug` stored back into data/works.js (never changed once set,
@@ -111,6 +112,15 @@ a{{color:#eae8e3}}
     for fn in os.listdir(out):
         if fn.endswith('.html') and fn not in keep:
             os.remove(os.path.join(out, fn))
+
+    # Stamp the data file's version into index.html so a push never runs fresh code on a cached library.
+    import hashlib
+    ver = hashlib.sha1(open(DATA, 'rb').read()).hexdigest()[:10]
+    ip = os.path.join(ROOT, 'index.html')
+    ih = open(ip, encoding='utf-8').read()
+    ih2 = re.sub(r'<script src="data/works\.js(\?v=[0-9a-f]+)?"></script>', f'<script src="data/works.js?v={ver}"></script>', ih)
+    if ih2 != ih:
+        open(ip, 'w', encoding='utf-8').write(ih2)
 
     urls = [SITE] + [f'{SITE}w/{w["slug"]}.html' for w in works]
     open(os.path.join(ROOT, 'sitemap.xml'), 'w').write(
