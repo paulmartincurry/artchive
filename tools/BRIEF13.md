@@ -60,6 +60,8 @@ audit "verified", auditNote, grow, rightsTier, [photoCredit], [rights], [fairUse
 
 Follow `/home/claude/out/BRIEF10.md` exactly: the voice, nothing from memory, `save_line(batch, pid, note, evidence, derived)`. Build each source file yourself at `/home/claude/grow/wp/<pid>.txt`: first line `SOURCE: <url>`, then the holder's record as `Field: value` lines (everything the API gives: title, maker, dates, medium, dimensions, credit line, accession, description, provenance, exhibition history, inscriptions), then `SOURCE2: <wikipedia url>` and the cleaned Wikipedia text on the work and/or the maker (use `trim()` to keep it under about 15,000 characters, but keep the sections about the work's making and history). Then read the file and write the note. For a series (twelve Disasters of War plates, sixteen Carceri), the series article supplies facts: tell different facts on each card (plate numbers, when the series was printed, how many impressions, what happened to the plates, the artist's age), and use label only when you run out rather than repeating. One card in a series can carry the series' big facts; the others carry their own.
 
+**Keep every hedge.** If the source says probably, likely, apparently, supposedly, is said to, has been identified as or according to, the note says so too. An independent read (18 Nov 2026) found that dropped hedges are the main way agent notes go wrong, and the evidence check cannot catch them because the snippet is real. Do not describe who or what is in a picture unless the source says it.
+
 After notes, put each note into its record from `/home/claude/out/line_<batch>.json` (`note` field). Works with no note: `labelOnly: true`, `note: ''` (not allowed for look tier: drop those instead).
 
 ## Palette and colour
