@@ -1057,3 +1057,21 @@ Paul asked Claude to make the calls on what was outstanding.
 - **I Know Moon-Rise (LIT-888) keeps Higginson's 1870 spelling.** No edition in standard spelling was found, and rule 4 says to keep the public-domain text and record that here rather than respell it.
 - **The blues are allowed** (round w10b) where the lyric was printed before 1929 and every line is confirmed by eye against the page image; the method is in that round's auditNotes.
 - **Commons-only sizes stay held back** (135 works): a spot check found errors, and a wrong size is a wrong fact.
+
+## Round 10: the world and the gaps (17–18 Nov 2026)
+
+Plan in PLAN.md, "Round 10". Run with tools/BRIEF13.md (art) and out/BRIEF6.md plus save_line notes (writing). Every contact sheet was looked at before merging. Added 374 artworks (VAULT-1643 to 2016) and 64 writing pieces (LIT-955 to 1018). Europe's share of the art fell from 56% to 51%; writing from Africa, Oceania and the Indigenous Americas went from 23 pieces to 52.
+
+| Round | Added | Notes |
+|---|---|---|
+| n2 South Asia and Tibet | 52 | Three Koh Ker sculptures dropped by the coordinator (Koh Ker was looted and the provenance is unclear; kept in big/n2/records_all.json). No Chitipati, skull drum or thighbone trumpet (human bone). A Met Bundi drawing given by Subhash Kapoor dropped. Southeast Asia filed under East & Inner Asia, as the site already does. |
+| n7 Silent film, second reel | 33 | 22 films. The Wind and The Man Who Laughs carry "with recorded score". The Phantom Carriage copy was cropped by its uploader; Napoléon is probably the 2024 restoration ("probably" in auditNote). |
+| w10b East Asia and Greek tragedy | 35 | The blues were dropped: the run was stopped by an output filter on the lyrics, so they stay off. Placeholder dates for Tao Qian and the Cathay poems were replaced with "early 5th century" and "8th century; English 1915". Song of the Bowmen of Shu credited to Ezra Pound (Pound gave it to "Kutsugen"; no fetched source confirmed the Classic of Poetry). |
+| w10a Africa, Oceania and the Indigenous Americas | 29 | Chief Joseph's two passages from the North American Review (1879) and his father's dying words (LIT-361, same article) are `audit: attribution`: the article names no interpreter. The Indians' Book songs were transcribed from page images because the OCR interleaves two languages. LIT-359 (Kumulipo) now also cites the Journal of the Polynesian Society 1900 printing. |
+| n1 Persian, Mughal and Islamic | 61 | No images of the Prophet. 13 works rest on Commons file records because the Freer, Brooklyn, Walters and Bodleian sites refused the sandbox. |
+| n6 Avant-garde, early photography, four famous works | 54 | Published before 1931 = free even where Chicago's record shows an estate notice (Dix's Der Krieg, the Soviet posters, Sander, Man Ray's rayograph), matching Le Violon d'Ingres; five never published that early are look (Nolde ×2, Grosz's collage, Rodchenko's Mayakovsky, the Sagrada Família interior). The Stenberg posters for Man with a Movie Camera, The General and Potemkin had no reachable image; October, A Sixth Part of the World and Bed and Sofa stand in. Rodin's The Kiss, Chartres, the Alhambra and the Sagrada Família are now on the site, which clears the famous list. |
+| n4 Africa, Oceania and the Americas | 65 | The Songye figure with human teeth and the Asmat bisj poles (c. 1960, not open) left out. Codex Borgia page 29 retitled "Codex Borgia, Page 29" to avoid the title rule clash with VAULT-236. |
+| n3 China and Korea | 57 | Eight scrolls shown as details and titled so. The Met's Dong Yuan Riverbank keeps Wikipedia's hedge that it may be a Zhang Daqian forgery. |
+| n5 Illustration and early comics | 52 | A 1922 Krazy Kat original known only from a fan-site scan was dropped. The agent found that VAULT-405's image is not Baba Yaga in her mortar but plate 3 of Russian Wonder Tales (1912); checked by eye and retitled with the book's caption (slug unchanged). The Baba Yaga plate is now its own record. |
+
+The front of house pool gained 26 artworks (Kali, Yamantaka, the Wheel of Life, The Phantom Carriage, the Red Wedge, the Fourth King of Hell, Rackham's Valkyries, Clarke's Maelström, The Kiss, Little Nemo and others) and eight lines of writing.
