@@ -122,12 +122,33 @@ a{{color:#eae8e3}}
         if fn.endswith('.html') and fn not in keep:
             os.remove(os.path.join(out, fn))
 
+    # The site loads a slim copy of the library (data/site.js); data/works.js stays the full master record
+    # with provenance fields the app never reads (auditNote unless it is shown, noteSource, craftSpec, etc.).
+    DROP = {'noteSource', 'isSeed', 'noteRev', 'olderAuditNote', 'mediumUnchecked', 'license', 'craftSpec', 'grow'}
+    slim = []
+    for w in works:
+        r = {k: v for k, v in w.items() if k not in DROP}
+        if r.get('auditNote') and r.get('audit') not in ('attribution', 'unconfirmed'):
+            del r['auditNote']
+        if r.get('itemType') == 'literature':
+            # Fields the app rebuilds on load (index.html, just after SEED_WORKS): drop them only when equal.
+            derived = {'quote': r.get('hook'), 'quoteAuthor': f"{r.get('artist')} — {r.get('title')} ({r.get('dateLabel')})",
+                       'highResUrl': r.get('sourceUrl', ''), 'excerpt': r.get('hook') or '',
+                       'pocketNo': f"POCKET POETS · NO. {int(r['id'][4:])}" if re.fullmatch(r'LIT-\d+', r['id']) else None}
+            for k, v in derived.items():
+                if k in r and v is not None and r[k] == v:
+                    del r[k]
+        slim.append(r)
+    site_js = 'window.SEED_WORKS=' + json.dumps(slim, ensure_ascii=False, separators=(',', ':')) + ';\n'
+    SITE_DATA = os.path.join(ROOT, 'data', 'site.js')
+    if not os.path.exists(SITE_DATA) or open(SITE_DATA, encoding='utf-8').read() != site_js:
+        open(SITE_DATA, 'w', encoding='utf-8').write(site_js)
     # Stamp the data file's version into index.html so a push never runs fresh code on a cached library.
     import hashlib
-    ver = hashlib.sha1(open(DATA, 'rb').read()).hexdigest()[:10]
+    ver = hashlib.sha1(site_js.encode('utf-8')).hexdigest()[:10]
     ip = os.path.join(ROOT, 'index.html')
     ih = open(ip, encoding='utf-8').read()
-    ih2 = re.sub(r'<script src="data/works\.js(\?v=[0-9a-f]+)?"></script>', f'<script src="data/works.js?v={ver}"></script>', ih)
+    ih2 = re.sub(r'<script src="data/(?:works|site)\.js(\?v=[0-9a-f]+)?"></script>', f'<script src="data/site.js?v={ver}"></script>', ih)
     if ih2 != ih:
         open(ip, 'w', encoding='utf-8').write(ih2)
 

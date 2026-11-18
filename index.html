@@ -4389,11 +4389,21 @@
 
 
 
-  <script src="data/works.js?v=43033215fc"></script>
+  <script src="data/site.js?v=8d6b23f9f1"></script>
 <script>
     const TARGET_TOTAL = 1080;
     const PAGE_BATCH_SIZE = 56;
     const SEED_WORKS = window.SEED_WORKS || [];
+    // data/site.js leaves out fields that repeat others; restore them here (see tools/build_pages.py).
+    for (const w of SEED_WORKS) {
+      if (w.itemType === 'literature') {
+        if (w.quote == null && w.hook) w.quote = w.hook;
+        if (w.quoteAuthor == null) w.quoteAuthor = `${w.artist} — ${w.title} (${w.dateLabel})`;
+        if (w.highResUrl == null) w.highResUrl = w.sourceUrl || '';
+        if (w.excerpt == null) w.excerpt = w.hook || '';
+        if (w.pocketNo == null && /^LIT-\d+$/.test(w.id)) w.pocketNo = `POCKET POETS · NO. ${parseInt(w.id.slice(4), 10)}`;
+      }
+    }
     const LIT_CANON = SEED_WORKS.filter(w => w.itemType === 'literature');
 
     let WORKS = [...SEED_WORKS];
