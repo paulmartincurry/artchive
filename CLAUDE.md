@@ -10,7 +10,7 @@ Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from 
 - **Art leads.** It is a visual experience first. Writing takes less room but gets equal care. Art-and-text pairings are a future experiment, not the spine.
 - **Point of view:** drama, intensity, life, poetry. A personal canon with a bias, not a neutral survey.
 - **Famous first, deep cuts inside.** The works people will search for must be there, or it fails the public test. Over time, lean further into the overlooked.
-- **Scale:** tens of thousands eventually, behind a curated front of house.
+- **Scale:** tens of thousands eventually, behind a curated front of house. **Next goal (Paul, 18 Nov 2026): 5,000 works.** Compared with the open-access dumps (the Met, the Smithsonian, Europeana) and the aggregators (Artvee), the site's edge is curation, verified writing beside the art, and images that show the work; the nearest peer is the Public Domain Review's hand-picked Image Archive. **Quality over everything:** don't fill an under-represented region or medium with weaker work just to balance the numbers; a gap stays open until something that meets the bar turns up.
 
 ## Rules for content
 
