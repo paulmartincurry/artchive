@@ -105,3 +105,27 @@ Push after each round. After rounds 1, 6 and 7, send Paul a contact sheet of wha
 1. Keys: BHL and NYPL keys received and working (stored in `~/.config/artchive/bhl_key` and `nypl_token`, never committed; if a new session lacks them, ask Paul again). Paris Musées: no key yet, so route around it through Commons.
 2. War and news photographs (Adams, Ut, Capa): in.
 3. Kills or must-haves: none named yet. Ask once more at the start of the session.
+
+## Round 10: the world and the gaps (17 Nov 2026)
+
+Paul: "yep go for it, and make your own calls on anything outstanding." Art is 56% European and writing from Africa, Oceania and Indigenous sources is 23 pieces, so most of this round goes there. Same pipeline (tools/BRIEF13.md for art, out/BRIEF6.md plus save_line notes for writing). New `grow` values: world, illus, avant.
+
+| Round | What | Size | Tier |
+|---|---|---|---|
+| n1 | Persian, Mughal, Ottoman and Islamic painting and calligraphy: Shahnama of Shah Tahmasp, Hamzanama, Khamsa, Jahangir and Shah Jahan album leaves, Siyah Qalam, Wonders of Creation, the tughra, Blue Qur'an, Kufic leaves | ~60 | free |
+| n2 | South and Southeast Asia and Tibet: Chola bronzes, Kali and Durga, Rajput and Pahari painting, Kota hunts, thangkas (Mahakala, Chitipati, the Wheel of Life), Khmer and Javanese sculpture | ~55 | free |
+| n3 | China and Korea: ink landscapes (Guo Xi, Ma Yuan, Wang Ximeng, Along the River), Bada Shanren, Shitao, Chen Rong's Nine Dragons, the Ten Kings of Hell, calligraphy, Jeong Seon, Kim Hong-do, minhwa tigers | ~60 | free |
+| n4 | Africa, Oceania and the Indigenous Americas: Benin, Ife, Fang, Kongo, Yoruba, Ethiopian manuscripts, Lalibela, Asmat bisj poles, Kū, Rapa Nui, Māori carving, codices (Borgia, Mendoza, Florentine, Zouche-Nuttall), Maya lintels, Moche, Northwest Coast masks, ledger drawings | ~65 | free |
+| n5 | Golden-age illustration and early comics: Rackham, Dulac, Nielsen, Harry Clarke, John Bauer, Bilibin, Sime, more Beardsley, Mucha's decorative panels, Little Nemo, Rarebit Fiend, Krazy Kat, Kin-der-Kids | ~55 | free (pre-1931) |
+| n6 | Avant-garde, Weimar and early photography, plus the four missing famous works: Rodchenko, Lissitzky, Klutsis, Stenberg, Dix's Der Krieg, Grosz, Beckmann, Kollwitz-era prints, Riis, Strand, Atget, Sander, Blossfeldt, Man Ray; Rodin's The Kiss, Chartres, the Alhambra, the Sagrada Família | ~55 | mostly free |
+| n7 | Silent film, second reel: Greed, The Wind, Pandora's Box, The Unknown, The Last Laugh, Napoléon, Spies, Woman in the Moon, The Crowd, Destiny, The Phantom Carriage, The Man Who Laughs, Steamboat Bill Jr., The Cameraman, Gertie the Dinosaur, Strike, Earth, Ballet Mécanique, Salomé | ~30 frames | free |
+| w10a | Writing from Africa, Oceania and the Indigenous Americas in pre-1931 translations: Brinton's Nahuatl poems, Navajo Night Chant, Densmore's Chippewa songs, Ghost Dance songs, Chief Joseph, the Kumulipo (Liliʻuokalani), Grey's Polynesian Mythology, Kebra Nagast, Book of the Dead, Hymn to the Aten, Ollantay | ~30 | free |
+| w10b | East Asia, Greek tragedy and the blues: Waley (170 Chinese Poems, Genji, the Pillow Book), Pound's Cathay, Sansom's Essays in Idleness, Hōjōki, Giles's Zhuangzi, Legge's Laozi, Murray's Euripides and Aeschylus, Jebb's Sophocles, Handy's Blues: An Anthology (1926) | ~40 | free |
+
+Calls made (Paul said to make them):
+- **The blues: in.** Lyrics printed before 1929 are public domain. A lyric goes on the site only when its words are in the OCR text of a pre-1929 printing and each line is confirmed by eye against the page image; the kit still checks every line against the OCR source file, with corrections recorded in `auditNote`.
+- **I Know Moon-Rise stays as Higginson printed it** (rule 4: no standard-spelling edition exists, so keep the public-domain text and say so). Recorded in AUDIT.md.
+- **VAULT-116 and VAULT-061 are cut.** Their holder withdrew the images, no free copy exists, and both artists are on the site through other works.
+- **Commons-only sizes stay held back** (a spot check found errors).
+- **No images of the Prophet Muhammad, no human remains, no objects a community restricts as secret or sacred.** Respect, and Paul's line on specimen material.
+- **Film posters are in** when they advertise a film (the same footing as the Federal Theatre posters); posters that sell a product stay out.

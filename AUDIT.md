@@ -1049,3 +1049,11 @@ An independent agent read a random 50 of the ~568 new notes against their source
 ## Writing round 9b: war, earth and love (18 Nov 2026)
 
 28 pieces (LIT-927 to 954) for the thinner shelves. War (12): Owen (Strange Meeting, Futility), Sassoon (The General, Attack, Glory of Women, Everyone Sang), Rosenberg (Break of Day in the Trenches, Dead Man's Dump, read against the 1922 page images), McCrae, Crane's War Is Kind, Hardy (Channel Firing, The Man He Killed). Earth (8): Hopkins (Spring, The Starlight Night, Hurrahing in Harvest, with Bridges's 1918 notes as the source for dates), Thoreau's Ponds, Muir (Our National Parks, Hetch Hetchy), Clare's I Am, Edward Thomas's Rain. Love (8): Sappho in Wharton's translation (2), the Song of Songs (2), Rossetti's Echo, Teasdale, Millay (Thursday, Time does not bring relief; both published before 1931). Three texts are OCR checked across two scans; Rossetti's Echo is dated 1862 from its place in the Goblin Market section of the 1906 edition, not from a source that names the year. Six notes are about the writer at the time, not the poem, because the sources say nothing specific about it. Seven of the new lines joined the front-of-house pool.
+
+## Open decisions closed (17 Nov 2026)
+
+Paul asked Claude to make the calls on what was outstanding.
+- **VAULT-116 (Kollwitz, Sleeping Woman and Child) and VAULT-061 (Arms, The Gargoyle and His Quarry) were cut.** Cleveland withdrew both image files and no free copy exists at the Met, Chicago, NGA or the Library of Congress. Both artists stay on the site through other works (VAULT-975 to 980).
+- **I Know Moon-Rise (LIT-888) keeps Higginson's 1870 spelling.** No edition in standard spelling was found, and rule 4 says to keep the public-domain text and record that here rather than respell it.
+- **The blues are allowed** (round w10b) where the lyric was printed before 1929 and every line is confirmed by eye against the page image; the method is in that round's auditNotes.
+- **Commons-only sizes stay held back** (135 works): a spot check found errors, and a wrong size is a wrong fact.
