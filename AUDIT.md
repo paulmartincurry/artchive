@@ -1075,3 +1075,18 @@ Plan in PLAN.md, "Round 10". Run with tools/BRIEF13.md (art) and out/BRIEF6.md p
 | n5 Illustration and early comics | 52 | A 1922 Krazy Kat original known only from a fan-site scan was dropped. The agent found that VAULT-405's image is not Baba Yaga in her mortar but plate 3 of Russian Wonder Tales (1912); checked by eye and retitled with the book's caption (slug unchanged). The Baba Yaga plate is now its own record. |
 
 The front of house pool gained 26 artworks (Kali, Yamantaka, the Wheel of Life, The Phantom Carriage, the Red Wedge, the Fourth King of Hell, Rackham's Valkyries, Clarke's Maelström, The Kiss, Little Nemo and others) and eight lines of writing.
+
+## Round 11: writing first (19 Nov 2026)
+
+Paul set a goal of 5,000 works with quality over everything. Six writing batches under out/BRIEF14.md (a piece goes in only if its pull quote stands alone; coming in short is fine). 297 pieces added (LIT-1019 to 1315); writing went from 922 to 1,219.
+
+| Batch | Added | Notes |
+|---|---|---|
+| w11f Beyond Europe | 37 | Short of 50 on purpose (Porter's Hyakunin Isshu too weak; no usable source for Ghalib, Martí, Mistral, the Blunts' Mu'allaqat). Three titles the agent invented were replaced with first lines. Cullen's Incident carries the slur as printed, in the full text only. Dunbar's collections and years confirmed afterwards. |
+| w11b Scripture and mystics | 31 | Seven held back in out/g_w11b_held.json: longer passages around verses already on the site (Psalm 23, Psalm 137, 1 Cor 13, John 1, Eccl 1, Rev 6) and a second wording of Gita 11:32. Pickthall from the 1930 Allen & Unwin scan (Gutenberg's text is a later revision). Gilgamesh (Thompson), Rumi (Nicholson), Eckhart and St John of the Cross not done: OCR needs page-image correction. |
+| w11c English and American poetry | 63 | Most listed poems were already on the site, so other famous poems by the same writers went in. Dickinson in the Todd/Higginson edited texts. All poems first published before 1929. Thirteen more are extracted but unsaved in w11c/pieces.py. |
+| w11a Greek and Latin | 49 | Two notes trimmed of clauses their source did not fully cover (Marcus Aurelius XII.36, Heraclitus). The Medea passage retitled with Riley's words. Edition years for Butler, Riley, Cornish and Gummere are from memory or archive.org metadata and say so. |
+| w11e Prose | 64 | Chapter numbers the agent had from memory were taken off 11 titles (Gutenberg refused the check). Trotter's Pascal confirmed as Harvard Classics vol. 48, copyright 1910. Frankenstein uses the 1831 text under an 1818 label, as the existing pieces do. |
+| w11d Europe in translation | 53 | Two notes trimmed (Huysmans on Moreau, Verlaine on the fête galante: the source did not tie the fact to the work). Wyatt's Petrarch dated "English before 1542". Several composition dates are from the agent's knowledge and are flagged in auditNotes. Pushkin and Hölderlin skipped on quality. |
+
+Egypt is filed under Africa, Oceania & Indigenous Americas throughout (VAULT-146, LIT-247 and LIT-134 moved). Found, not fixed: Hafez is spelled two ways and "Where Are the Tidings of Union?" is on the site twice (LIT-780, LIT-892); Paul to decide which to cut.
