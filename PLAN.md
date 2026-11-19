@@ -129,3 +129,16 @@ Calls made (Paul said to make them):
 - **Commons-only sizes stay held back** (a spot check found errors).
 - **No images of the Prophet Muhammad, no human remains, no objects a community restricts as secret or sacred.** Respect, and Paul's line on specimen material.
 - **Film posters are in** when they advertise a film (the same footing as the Federal Theatre posters); posters that sell a product stay out.
+
+## Round 11: writing first (18 Nov 2026)
+
+Paul: goal of 5,000 works, quality over everything ("if we do the thing where we will just take anything from an underrepresented part of the world we will end up with things that don't fit our style or quality bar"). Writing is the thinner half (922 to 2,007), so this round is writing only. Each batch has a finish line, but coming in short is fine: a piece goes in only if its pull quote would stop a creative person cold and its text is tied to an edition. Egypt is filed under Africa, Oceania & Indigenous Americas from now on (three records moved for consistency with the art).
+
+| Batch | What | Size |
+|---|---|---|
+| w11a | Greek and Latin: Sappho, Homer (Butler; Chapman), Virgil's underworld, Catullus, Lucretius, Seneca's letters (Gummere), Marcus Aurelius, Heraclitus, Horace | ~45 |
+| w11b | Scripture and the mystics: King James (Job, Ecclesiastes, Song of Songs, Psalms, Revelation, 1 Corinthians 13), Gilgamesh (Thompson 1928), the Gita (Arnold), the Dhammapada (Müller), the Upanishads, Pickthall's Qur'an (1930), Rumi (Nicholson), Hafez (Bell), Kabir (Tagore) | ~45 |
+| w11c | English and American poetry, famous first: Shakespeare, Donne, Milton, Blake, Keats, Shelley, Byron, Poe, Whitman, Dickinson, Hopkins, Rossetti, Brontë, Tennyson, the war poets, Yeats, Eliot (Prufrock, The Waste Land), Stevens, Williams, Millay, McKay, Toomer, Hughes before 1927 | ~60 |
+| w11d | Europe in pre-1931 translation: Dante (Longfellow), Villon, Baudelaire, Rimbaud, Verlaine, Heine, Goethe, Hölderlin, Novalis, Leopardi, Pushkin, Lermontov, Rilke, Nietzsche, Dostoevsky (Garnett), Tolstoy, Chekhov | ~50 |
+| w11e | Prose that hits: Moby-Dick, Frankenstein, Dracula, Heart of Darkness, Wuthering Heights, Jane Eyre, Bartleby, Walden, Emerson, Montaigne, Pascal, Browne's Urn Burial, Wilde's De Profundis, Keats's letters, Joyce's Ulysses, Woolf (Mrs Dalloway, To the Lighthouse), The Great Gatsby, The Sun Also Rises, The Sound and the Fury | ~60 |
+| w11f | Voices beyond Europe: Tagore's Gitanjali, Kalidasa, the Mu'allaqat (Blunt), Ghalib, Hearn's Japan, more Chinese (Giles), Swahili and Yoruba (Werner, Ellis), Du Bois's The Souls of Black Folk, Douglass, Dunbar, the Harlem Renaissance before 1931, Martí and Darío | ~50 |
