@@ -1090,3 +1090,12 @@ Paul set a goal of 5,000 works with quality over everything. Six writing batches
 | w11d Europe in translation | 53 | Two notes trimmed (Huysmans on Moreau, Verlaine on the fête galante: the source did not tie the fact to the work). Wyatt's Petrarch dated "English before 1542". Several composition dates are from the agent's knowledge and are flagged in auditNotes. Pushkin and Hölderlin skipped on quality. |
 
 Egypt is filed under Africa, Oceania & Indigenous Americas throughout (VAULT-146, LIT-247 and LIT-134 moved). Found, not fixed: Hafez is spelled two ways and "Where Are the Tidings of Union?" is on the site twice (LIT-780, LIT-892); Paul to decide which to cut.
+
+## Round 12, p8: free works by look-tier artists (19 Nov 2026)
+
+Paul asked for every legitimate route from look-and-learn to usable. Four routes only, each with fetched evidence in auditNote: the holder's own open-access flag; publication before 1931; US federal government work; documented non-renewal. 43 works added. No existing look work could be moved: the Met and Chicago flag every look work they hold as not public domain, and no pre-1931 reproduction was found for Three Musicians, Automat, Early Sunday Morning, Celebes, the pre-1931 Magrittes or Rodchenko's Mayakovsky.
+- Holder's flag (30): Cleveland CC0 (Picasso's Frugal Meal, The Poor and Two Saltimbanques, two Klee, Mondrian's Chrysanthemum, Hopper's Lighthouse Village, three O'Keeffe, Sheeler, Demuth); Chicago public-domain flag (two Matisse, three Kandinsky, a 1935 Mondrian, two Stieglitz portraits of O'Keeffe, Hartley, Evans's Penny Picture Display); NGA open access (three Klee, Malevich, three Hopper etchings, Gris). For O'Keeffe, Hopper, Sheeler, Matisse and the 1935 Mondrian the tier rests on the holder's flag alone; take down at once if an estate objects.
+- US government work (11): Evans, Lange, Parks, Shahn's OWI poster, Robert F. Sargent's D-Day photograph.
+- Published before 1931 (2): two Magritte pages from La Révolution surréaliste no. 12 (15 Dec 1929), public domain in the United States only; hosted in images/plates.
+- Dropped: two Kubrick Look photographs (the Library's rights statement could not be read), a faint Picasso etching.
+- Leads: Grosz's The Guilty One Remains Unknown may have been reproduced in Bazalgette's George Grosz (1926), unproven. L.H.O.O.Q.'s 1920 printing in 391 was Picabia's replica, so it is not a basis for a move. Nolde's Prophet was unpublished per MoMA.

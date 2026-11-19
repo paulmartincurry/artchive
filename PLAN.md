@@ -142,3 +142,18 @@ Paul: goal of 5,000 works, quality over everything ("if we do the thing where we
 | w11d | Europe in pre-1931 translation: Dante (Longfellow), Villon, Baudelaire, Rimbaud, Verlaine, Heine, Goethe, Hölderlin, Novalis, Leopardi, Pushkin, Lermontov, Rilke, Nietzsche, Dostoevsky (Garnett), Tolstoy, Chekhov | ~50 |
 | w11e | Prose that hits: Moby-Dick, Frankenstein, Dracula, Heart of Darkness, Wuthering Heights, Jane Eyre, Bartleby, Walden, Emerson, Montaigne, Pascal, Browne's Urn Burial, Wilde's De Profundis, Keats's letters, Joyce's Ulysses, Woolf (Mrs Dalloway, To the Lighthouse), The Great Gatsby, The Sun Also Rises, The Sound and the Fury | ~60 |
 | w11f | Voices beyond Europe: Tagore's Gitanjali, Kalidasa, the Mu'allaqat (Blunt), Ghalib, Hearn's Japan, more Chinese (Giles), Swahili and Yoruba (Werner, Ellis), Du Bois's The Souls of Black Folk, Douglass, Dunbar, the Harlem Renaissance before 1931, Martí and Darío | ~50 |
+
+## Round 12: art toward 5,000 (19 Nov 2026)
+
+Paul: "go for it, and as always, any workarounds or ways to get something from look-and-learn to stuff people can use we should find it." Eight batches under tools/BRIEF13.md, quality over everything (short is fine). The free-the-look batch uses only real routes: the holder's own CC0 or open-access flag, documented publication before 1931, US federal government work, or a documented non-renewal; each with evidence in auditNote. No route, no move.
+
+| Batch | What | Size |
+|---|---|---|
+| p1 | Dark masters II: Dürer, Bruegel, Blake's illuminated books, Fuseli, Redon's noirs, Munch's prints, Klinger, Rops, Schongauer, Kubin | ~60 |
+| p2 | Japan II: Yoshitoshi's Moon, Hokusai Manga and waterfalls, Hiroshige's Edo, Jakuchū, Sesshū, Tōhaku, screens, Koson, Hasui before 1931, Noh masks | ~60 |
+| p3 | Photography II and US government work: Cameron, Nadar, Muybridge, Marey, Atkins, Civil War, O'Sullivan, Watkins, Curtis, Käsebier; NASA; Ansel Adams's Manzanar and national parks work for the government | ~60 |
+| p4 | Painting depth: Turner, Friedrich, Géricault, Delacroix, Artemisia, El Greco, Ribera, Zurbarán, Vermeer, Whistler, Sargent, Homer, Ryder, Klimt, Schiele, Vallotton, Hammershøi, the Symbolists | ~65 |
+| p5 | Manuscripts and the medieval: Beatus apocalypses, bestiaries, Books of Hours, the Très Riches Heures, Codex Gigas, Hildegard, dance of death, the Angers Apocalypse, the Unicorn tapestries, stained glass | ~55 |
+| p6 | Sculpture, buildings and objects: Bernini, Michelangelo, Claudel, Rodin, gargoyles and cathedrals, armour, memento mori objects, reliquaries, masks | ~55 |
+| p7 | Design to steal II: Vienna Secession and Ver Sacrum, Toulouse-Lautrec, Steinlen, Kelmscott, Owen Jones, tarot (Visconti, Marseille, Rider-Waite 1909), Barbier's pochoir, type specimens, First World War posters | ~60 |
+| p8 | Free the look tier: free works by look-tier artists, and an evidence-backed list of existing look works that can move | ~40 |
