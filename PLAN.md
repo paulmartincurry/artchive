@@ -167,3 +167,12 @@ Paul: popular works in, however it can be defended. Four batches, run together (
 | g4 | Look tier: iconic photographs and film stills after 1931 the site lacks | ~50 |
 | w12a | One-line credited quotes from the famous modern prose people search for (novels, essays, speeches, letters) | ~70 |
 | w12b | Public-domain writing left undone: Gilgamesh, Rumi, Eckhart, Whitman and Dickinson depth, the thirteen extracted poems, more non-European texts that meet the bar | ~50 |
+
+## Round 14 (19–20 Nov 2026, run overnight while Paul is away)
+
+Three at a time. Free tier only this round.
+| Batch | What | Size |
+|---|---|---|
+| q1 | Posada and the Americas: Posada's calaveras and broadsides, Manuel Manilla, colonial Mexican and Andean painting (casta is out; Cuzco angels, ex-votos), Bellows's boxers and the Ashcan painters, Eakins, Homer beyond the site, Remington's nocturnes, Audubon's most dramatic plates, Catlin, quilts and American folk art | ~60 |
+| q2 | Nature, science and the heavens II: Merian, Seba's Thesaurus, Haeckel beyond the site, Redouté, Gould's birds, anatomical art that is art (Vesalius, Albinus, Gautier d'Agoty) but no specimen photography, Cellarius's celestial atlas, Trouvelot's astronomical drawings, Flammarion, comets and eclipses, crystal and snow studies, early X-rays are out | ~60 |
+| w13a | Letters, diaries, speeches and last words, plus what the filter kept out: Lincoln, Douglass, FDR and JFK (government work), Seneca and Pliny letters, Keats, Van Gogh is covered, Kafka's letters in German are out, Thoreau's journal, Dorothy Wordsworth, Pepys, Scott's last entry, Rossetti, Li Bai and Du Fu (Waley, Pound, Bynner before 1931), Bashō and Issa in pre-1931 translations that are not jingly | ~50 |
