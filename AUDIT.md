@@ -1099,3 +1099,20 @@ Paul asked for every legitimate route from look-and-learn to usable. Four routes
 - Published before 1931 (2): two Magritte pages from La Révolution surréaliste no. 12 (15 Dec 1929), public domain in the United States only; hosted in images/plates.
 - Dropped: two Kubrick Look photographs (the Library's rights statement could not be read), a faint Picasso etching.
 - Leads: Grosz's The Guilty One Remains Unknown may have been reproduced in Bazalgette's George Grosz (1926), unproven. L.H.O.O.Q.'s 1920 printing in 391 was Picabia's replica, so it is not a basis for a move. Nolde's Prophet was unpublished per MoMA.
+
+## Round 12: art toward 5,000 (19 Nov 2026)
+
+Plan in PLAN.md, "Round 12". Eight batches under tools/BRIEF13.md, every contact sheet looked at, 457 artworks added (VAULT-2017 to 2473). The site holds 2,464 artworks and 1,219 writing pieces: 3,683 works. p8 (free works by look-tier artists) has its own section above.
+
+| Batch | Added | Notes |
+|---|---|---|
+| p8 Free the look tier | 43 | See the section above. |
+| p1 Dark masters II | 62 | Dürer, Bruegel's Sins, Blake, Redon, Munch's prints, Klinger, Rops, Martin, Kollwitz, Hugo. Munch's Madonna and an NGA Blake left out (title clashes); Kubin has nothing openly held. Rops prints undated by their holders. |
+| p4 Painting depth | 69 | NGA lists Lucretia as Rembrandt; the note records van de Wetering's 2015 rejection. Hammershøi's English title is the common one, not from SMK's record. Five carry photoCredit. |
+| p3 Photography II and government work | 61 | Trinity dropped (a Los Alamos contractor's photograph; only a Commons tag as evidence). Adams's Manzanar pictures are a private gift to the Library of Congress marked no known restrictions, not government work; his Mural Project is contract work marked Unrestricted by the National Archives. Abbott rests on NYPL's No Copyright – United States statement. |
+| p2 Japan II | 61 | A Hokusai Manga spread and Rosetsu's tiger doors dropped (weak at tile size). Thirteen rest on Commons and Wikipedia. Yoshitoshi's English titles come from Wikipedia. |
+| p6 Sculpture, buildings, objects | 52 | An arm reliquary dropped (the bone is still inside). The Veiled Christ and Sainte Foy left out for want of a good photograph. 28 carry photoCredit. |
+| p5 Manuscripts and the medieval | 51 | A Hildegard vision numbered by eye and a prayer-book spread dropped. Five images (Kells ×2, the Rohan dead man, the Très Riches Heures Hell, the Angers pale horse) are Commons scans with no holder source, kept on the footing of the site's other PD-Art files. Facundus, the Morgan Beatus and the Scivias left out (facsimile scans only). Conques uses a Free Art License photograph. |
+| p7 Design to steal II | 58 | The Chap-Book poster dropped (it advertises a magazine) and a second Beethoven Frieze panel (already in p4). Ten Rider-Waite-Smith cards from the 1910 printing. 32 have a blank medium. |
+
+`tools/merge_round.py` now accepts a blank medium when the record carries `mediumBlank: true` (no fetched source states one). The front of house pool gained 46 works. All 457 images were loaded in Paul's Chrome.
