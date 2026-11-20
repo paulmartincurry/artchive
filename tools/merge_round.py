@@ -16,6 +16,7 @@ seen = set()
 for r in recs:
     p = []
     for f in REQ:
+        if f=='medium' and r.get('mediumBlank'): continue  # a blank medium is allowed when no source states it
         if r.get(f) in (None, '', []): p.append('missing ' + f)
     try: r['yearNum'] = int(r['yearNum'])
     except Exception: p.append('yearNum')
