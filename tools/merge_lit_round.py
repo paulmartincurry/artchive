@@ -20,7 +20,8 @@ for k in N:
     if not all(norm(x) in norm(k['fullText']) for x in k['hook'].split('…') if len(norm(x)) > 3): p.append('hook not in fullText')
     if '"' in k['note']: p.append('quote marks in note')
     line = LINES.get(f"{B}-{k['key']}")
-    if not line or line['note'].strip() != k['note'].strip(): p.append('note not saved through save_line (or differs)')
+    if k.get('labelOnly') and not k.get('note','').strip(): pass
+    elif not line or line['note'].strip() != k['note'].strip(): p.append('note not saved through save_line (or differs)')
     key = (re.sub(r'\([^)]*\)', '', k['title']).strip().lower(), k['artist'].lower())
     if key in seen: p.append('duplicate')
     if p: probs.append((k['key'], k['title'], p)); continue
@@ -31,9 +32,10 @@ for k in N:
          'region': k['region'], 'medium': k['medium'], 'subjectShort': k['subjectShort'], 'emotionShort': k['emotionShort'], 'macroRegion': k['macroRegion'], 'macroMedium': 'Literature & Verse',
          'hook': k['hook'], 'excerpt': k['hook'], 'fullText': k['fullText'], 'originalScript': k.get('originalScript', ''), 'scriptName': k.get('scriptName', ''), 'imageUrl': '', 'highResUrl': k['sourceUrl'], 'sourceUrl': k['sourceUrl'],
          'museum': 'Pocket Poets Canon', 'note': k['note'], 'quote': k['hook'], 'quoteAuthor': f"{k['artist']} — {k['title']} ({k['dateLabel']})", 'palette': pal[cf], 'iconicScore': 145, 'isSeed': True,
-         'shelf': k['shelf'], 'audit': 'quoted' if k.get('quoted') else 'verified', 'auditNote': k['auditNote'], 'noteRev': 4, 'noteSource': line['source'], 'grow': 'words'}
+         'shelf': k['shelf'], 'audit': 'quoted' if k.get('quoted') else 'verified', 'auditNote': k['auditNote'], 'noteRev': 4, 'noteSource': (line or {}).get('source',''), 'grow': 'words'}
     if k.get('translator'): r['translator'] = k['translator']
     if k.get('license'): r['license'] = k['license']
+    if k.get('labelOnly'): r['labelOnly'] = True
     d.append(r); added.append((r['id'], k['artist'], k['title']))
 print(B, 'ok', len(added), 'problems', len(probs))
 for x in probs: print('  ', x)
