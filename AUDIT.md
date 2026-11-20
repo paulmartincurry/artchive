@@ -1116,3 +1116,12 @@ Plan in PLAN.md, "Round 12". Eight batches under tools/BRIEF13.md, every contact
 | p7 Design to steal II | 58 | The Chap-Book poster dropped (it advertises a magazine) and a second Beethoven Frieze panel (already in p4). Ten Rider-Waite-Smith cards from the 1910 printing. 32 have a blank medium. |
 
 `tools/merge_round.py` now accepts a blank medium when the record carries `mediumBlank: true` (no fetched source states one). The front of house pool gained 46 works. All 457 images were loaded in Paul's Chrome.
+
+## Calls Paul handed over (19 Nov 2026)
+
+Paul: "you decide all of em, also remember our desire for inclusion of popular works etc however we can get around it or defend it."
+- **Hafez:** LIT-892 cut (the same Bell translation of the same poem as LIT-780); the name is "Hafez of Shiraz" throughout, with "Hafiz" in search tags.
+- **Rembrandt's Lucretia stays**, under the holder's attribution, with the dispute in the note.
+- **The five manuscript images without a holder source stay** (Kells ×2, Rohan, Très Riches Heures Hell, Angers).
+- **Works free on a holder's flag alone stay free** (O'Keeffe, Hopper, Sheeler, Matisse, the 1935 Mondrian); first to come down if an estate objects.
+- **Popular works:** where no free route exists, a work people come looking for goes in the look tier (screen-size image, no download, sourced note: the commentary is the defence). In-copyright writing stays at one prose sentence under fifteen words, confirmed in a scan; no lines from poems or songs in copyright.

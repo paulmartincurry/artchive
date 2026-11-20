@@ -157,3 +157,13 @@ Paul: "go for it, and as always, any workarounds or ways to get something from l
 | p6 | Sculpture, buildings and objects: Bernini, Michelangelo, Claudel, Rodin, gargoyles and cathedrals, armour, memento mori objects, reliquaries, masks | ~55 |
 | p7 | Design to steal II: Vienna Secession and Ver Sacrum, Toulouse-Lautrec, Steinlen, Kelmscott, Owen Jones, tarot (Visconti, Marseille, Rider-Waite 1909), Barbier's pochoir, type specimens, First World War posters | ~60 |
 | p8 | Free the look tier: free works by look-tier artists, and an evidence-backed list of existing look works that can move | ~40 |
+
+## Round 13: the popular works, and writing catches up (19 Nov 2026)
+
+Paul: popular works in, however it can be defended. Four batches, run together (no more than four at once).
+| Batch | What | Size |
+|---|---|---|
+| g3 | Look tier: the most-searched modern and contemporary art the site lacks | ~60 |
+| g4 | Look tier: iconic photographs and film stills after 1931 the site lacks | ~50 |
+| w12a | One-line credited quotes from the famous modern prose people search for (novels, essays, speeches, letters) | ~70 |
+| w12b | Public-domain writing left undone: Gilgamesh, Rumi, Eckhart, Whitman and Dickinson depth, the thirteen extracted poems, more non-European texts that meet the bar | ~50 |
