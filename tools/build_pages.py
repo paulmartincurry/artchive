@@ -127,8 +127,11 @@ a{{color:#eae8e3}}
     DROP = {'noteSource', 'isSeed', 'noteRev', 'olderAuditNote', 'mediumUnchecked', 'license', 'craftSpec', 'grow',
             'seeText', 'colorFamilyOld', 'paletteOld'}  # seeText ships separately in data/see.json, loaded after the wall
     slim = []
+    texts = {}   # full texts ship in data/texts.json, loaded just after the wall appears (speed pass, 21 Nov 2026)
     for w in works:
         r = {k: v for k, v in w.items() if k not in DROP}
+        if r.get('itemType') == 'literature' and (r.get('fullText') or r.get('olderText')):
+            texts[r['id']] = [r.pop('fullText', '') or ''] + ([r.pop('olderText')] if r.get('olderText') else [])
         if r.get('auditNote') and r.get('audit') not in ('attribution', 'unconfirmed'):
             del r['auditNote']
         if r.get('itemType') == 'literature':
@@ -141,12 +144,16 @@ a{{color:#eae8e3}}
                     del r[k]
         slim.append(r)
     site_js = 'window.SEED_WORKS=' + json.dumps(slim, ensure_ascii=False, separators=(',', ':')) + ';\n'
+    texts_json = json.dumps(texts, ensure_ascii=False, separators=(',', ':'))
+    TEXTS = os.path.join(ROOT, 'data', 'texts.json')
+    if not os.path.exists(TEXTS) or open(TEXTS, encoding='utf-8').read() != texts_json:
+        open(TEXTS, 'w', encoding='utf-8').write(texts_json)
     SITE_DATA = os.path.join(ROOT, 'data', 'site.js')
     if not os.path.exists(SITE_DATA) or open(SITE_DATA, encoding='utf-8').read() != site_js:
         open(SITE_DATA, 'w', encoding='utf-8').write(site_js)
     # Stamp the data file's version into index.html so a push never runs fresh code on a cached library.
     import hashlib
-    ver = hashlib.sha1(site_js.encode('utf-8')).hexdigest()[:10]
+    ver = hashlib.sha1((site_js + texts_json).encode('utf-8')).hexdigest()[:10]
     ip = os.path.join(ROOT, 'index.html')
     ih = open(ip, encoding='utf-8').read()
     ih2 = re.sub(r'<script src="data/(?:works|site)\.js(\?v=[0-9a-f]+)?"></script>', f'<script src="data/site.js?v={ver}"></script>', ih)
