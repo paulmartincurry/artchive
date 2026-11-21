@@ -31,7 +31,8 @@ s = sub_once('<head>', '<head>\n  <meta name="robots" content="noindex">', s, 'h
 s = sub_once("      tone: 'ALL',", "      tone: 'ALL',\n      mood: 'ALL',", s, 'state.tone')
 s = sub_once("        if (state.tone !== 'ALL' && w.colorFamily !== state.tone) return false;",
              "        if (state.tone !== 'ALL' && w.colorFamily !== state.tone) return false;\n"
-             "        if (state.mood && state.mood !== 'ALL' && w.emotionShort !== state.mood) return false;",
+             "        if (state.mood && state.mood !== 'ALL' && w.emotionShort !== state.mood) return false;\n"
+             "        if (state.artOnly && state.spatialView === 'wall' && w.macroMedium === 'Literature & Verse') return false;",
              s, 'filter tone')
 s = sub_once("      state.tone = 'ALL';\n      state.pigmentHex = '';",
              "      state.tone = 'ALL';\n      state.mood = 'ALL';\n      state.pigmentHex = '';", s, 'reset tone')
@@ -46,7 +47,8 @@ s = sub_once('placeholder="Search artist, mood, era or line…"',
 TOOLROW = '''
     <div class="pv-toolrow" id="pvToolRow">
       <nav class="pv-tabs" aria-label="Sections">
-        <button type="button" class="pv-tab is-on" data-pv-view="wall">Art</button>
+        <button type="button" class="pv-tab is-on" data-pv-view="wall">All</button>
+        <button type="button" class="pv-tab" data-pv-view="art">Art</button>
         <button type="button" class="pv-tab" data-pv-view="reading">Writing</button>
         <button type="button" class="pv-tab" data-pv-view="timeline">Timeline</button>
       </nav>
@@ -226,10 +228,22 @@ JS = r'''
 
   // Section tabs drive the existing views.
   function syncTabs() {
-    const v = (typeof state !== 'undefined' && state.spatialView) || 'wall';
+    let v = (typeof state !== 'undefined' && state.spatialView) || 'wall';
+    if (v === 'wall' && state.artOnly) v = 'art';
     document.querySelectorAll('.pv-tab').forEach(b => b.classList.toggle('is-on', b.dataset.pvView === v));
   }
-  document.querySelectorAll('.pv-tab').forEach(b => b.addEventListener('click', () => { setSpatialView(b.dataset.pvView); syncTabs(); }));
+  // Art = the wall with no writing. The choice is remembered on this browser.
+  try { state.artOnly = localStorage.getItem('pvArtOnly') === '1'; } catch (e) { state.artOnly = false; }
+  document.querySelectorAll('.pv-tab').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.pvView;
+    if (v === 'art' || v === 'wall') {
+      state.artOnly = v === 'art';
+      try { localStorage.setItem('pvArtOnly', state.artOnly ? '1' : '0'); } catch (e) {}
+      if (state.spatialView !== 'wall') setSpatialView('wall');
+      filterWorks(false);
+    } else setSpatialView(v);
+    syncTabs();
+  }));
   if (typeof setSpatialView === 'function') {
     const orig = setSpatialView;
     setSpatialView = function (v) { const r = orig(v); syncTabs(); return r; };
@@ -253,6 +267,7 @@ JS = r'''
   const clr = document.getElementById('clearFiltersBtn'); if (clr) clr.addEventListener('click', () => setTimeout(drawTools, 0));
   const brand = document.getElementById('resetAllBtn'); if (brand) brand.addEventListener('click', () => setTimeout(() => { drawTools(); syncTabs(); }, 0));
 
+  if (state.artOnly) filterWorks(false);
   drawTools(); syncTabs();
 })();
 </script>
