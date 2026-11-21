@@ -1181,3 +1181,23 @@ Paul asked whether a work with several colours should sit high under each of the
 - **Tests read by eye (first ten of each):** Red opens on Haring, Malevich, Dalí, Mondrian, Matisse's Red Studio and af Klint; Blue on the Blue Nude, Dürer's Praying Hands and Anna Atkins; Gold on Sunflowers and Basquiat; Green on Hirst's shark, Gauguin and Warhol's Mao; Black on deep-field photographs, Caravaggio and Las Meninas; Cream on prints and plates. Oxblood: Caravaggio's Death of the Virgin, Piero, Gentileschi, Sargent, McCurry. Klein blue: the Blue Nude then WPA posters. Vermilion: Malevich, Mondrian, Rothko, Hokusai's dragon. Verdigris: Almond Blossom, Whistler, Hockney. Lilac: Klimt's Mäda Primavesi, Emin's bed, Monet's Camille (it found sky before the OKLab switch). Red with Gold: the R.U.R. poster, the Magician tarot, Lichtenstein. Blue with Gold: Marc, Picasso's Weeping Woman, Dalí.
 - **Known limit.** Sage and other quiet greige shades still match aged paper on prints; the paper really is that colour. Left as is rather than tuned into dishonesty.
 - **Change in behaviour.** Colour now applies to art only; writing had carried colour tags from the old system that meant nothing for a text.
+
+## Go-live and loose ends (21 Nov 2026)
+
+Paul: move the preview live, and "solve all that now" before he moves to a new chat.
+
+- **Held items, Paul's decisions.** In: Bellows's The Law Is Too Slow (VAULT-3246); Vallotton's Crimes et Châtiments plates 6 and 8 (3247, 3248); nine publication posters, which now count like theatre and film posters rather than ads (Lautrec's Reine de Joie, Au Pied de l'Echafaud and La Revue Blanche, Mucha's Zodiaque, Steinlen's La Traite des Blanches, Les Temps Nouveaux and Ten Assassinations for a Penny, the Jugend poster, Bradley's Chap-Book; 3249 to 3257); Hughes's Suicide's Note (LIT-1872). Out, unchanged: Bronzino's Allegory with Venus and Cupid and Caravaggio's Amor Vincit Omnia. Each new record's auditNote names the approval.
+- **Hemingway and Faulkner.** A Farewell to Arms (1929) and As I Lay Dying (1930) are public domain in the United States. Both passages were read word by word against the page image of the same scan (Hemingway: in.ernet.dli.2015.209262, leaf n266, page 264; Faulkner: dli.ernet.285658, leaf n134, page 134); both match. Added as LIT-1873 and 1874.
+- **Images fixed, 21 Nov 2026** (found by the describers; all checked by eye, details in each auditNote):
+  - VAULT-057 The Bedroom: showed another painting; now Chicago's image for artwork 28560 (fixed 20 Nov).
+  - VAULT-248 Wild Turkey: was a modern book cover; now Plate 1 from the Boston Public Library copy (W. H. Lizars engraving, per the library).
+  - VAULT-399 Tournée du Chat Noir: was a photograph of Steinlen; now the Rijksmuseum's poster (RP-P-1969-78, CC0).
+  - VAULT-470 Bonampak Murals: was the site's ruins; now a photograph of a painted wall (Jacob Rus, CC BY-SA 2.0, credited).
+  - VAULT-234 Copernicus: was the title page; now folio 9 verso with the sun-centred diagram, from the Smithsonian Libraries copy of the 1543 first edition (archive.org), hosted in images/plates/.
+  - VAULT-233 Uranometria (Title Page): was a crop of a 1661 constellation figure; now the 1603 title page from the US Naval Observatory Library's copy.
+  - VAULT-3127 Wiener Werkstätte sample book: was the cover logo; now Chicago's own view of the book open on a swatch.
+  - VAULT-1865 Kota: the image was right; the title now follows the Met's ("Reliquary Figure (Kota peoples, Mbete group)").
+  - VAULT-143 and 046: SMK's thumbnail server stopped serving them; now SMK's main IIIF server.
+- **Speed.** Full texts moved to data/texts.json, loaded when the browser is idle: site.js 8.5 to 7.3 MB raw, 2.1 to 1.7 MB gzipped.
+- **Pipeline cache.** Picture embeddings for all 3,248 artworks are in tools/search/cache (int8). Rebuilding neighbours from the cache alone matched the full-precision build at 97% overlap (every list shares at least 6 of 8).
+- **Site now:** 5,025 works (3,248 art, 1,777 writing).

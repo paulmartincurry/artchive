@@ -26,7 +26,24 @@ for (let i = 0; i < N; i += 32) {
 const q = new Int8Array(N * D); for (let k = 0; k < q.length; k++) q[k] = Math.max(-127, Math.min(127, Math.round(T[k] * 127)));
 fs.writeFileSync(path.join(ROOT, 'data/vec.bin'), Buffer.from(q.buffer));
 // neighbours
-const emb = JSON.parse(fs.readFileSync(path.join(VIS, 'emb.json'), 'utf8'));
+// Picture embeddings: the cache in tools/search/cache (int8, 512 per artwork) is the base; a fresh
+// <vis>/emb.json from embed.mjs overrides it for the works it holds. The merged set is written back.
+const CACHE = path.join(ROOT, 'tools/search/cache');
+const emb = {};
+try {
+  const ids0 = JSON.parse(fs.readFileSync(path.join(CACHE, 'clip_ids.json'), 'utf8'));
+  const q8 = new Int8Array(fs.readFileSync(path.join(CACHE, 'clip.bin')).buffer.slice(0));
+  ids0.forEach((id, i) => { emb[id] = Array.from(q8.subarray(i * 512, i * 512 + 512), v => v / 127); });
+} catch (e) { console.log('no picture cache yet'); }
+try { Object.assign(emb, JSON.parse(fs.readFileSync(path.join(VIS, 'emb.json'), 'utf8'))); } catch (e) {}
+for (const k in emb) { const v = emb[k]; const n = Math.hypot(...v) || 1; emb[k] = v.map(x => x / n); }
+{
+  const live = new Set(works.map(w => w.id)); const ids1 = Object.keys(emb).filter(id => live.has(id));
+  const q = new Int8Array(ids1.length * 512);
+  ids1.forEach((id, i) => emb[id].forEach((x, d) => { q[i * 512 + d] = Math.max(-127, Math.min(127, Math.round(x * 127))); }));
+  fs.mkdirSync(CACHE, { recursive: true });
+  fs.writeFileSync(path.join(CACHE, 'clip.bin'), Buffer.from(q.buffer)); fs.writeFileSync(path.join(CACHE, 'clip_ids.json'), JSON.stringify(ids1));
+}
 const dot = (A, ao, B, bo, d) => { let s = 0; for (let k = 0; k < d; k++) s += A[ao + k] * B[bo + k]; return s; };
 const artIdx = [], litIdx = []; works.forEach((w, i) => (isLit(w) ? litIdx : artIdx).push(i));
 const C = new Float32Array(N * 512); const hasC = new Uint8Array(N);
