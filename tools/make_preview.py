@@ -131,6 +131,18 @@ CSS = r'''
     .wall-micro-btn { color: var(--text-muted) !important; }
     .wall-micro-btn:hover { color: var(--text) !important; }
 
+    .pv-like:empty { display: none; }
+    .pv-like { margin: 22px 0 6px; }
+    .pv-like-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .pv-like-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pv-like-row button { border: 0; padding: 0; background: none; cursor: pointer; height: 72px; opacity: .85; }
+    .pv-like-row button:hover { opacity: 1; }
+    .pv-like-row img { height: 72px; width: auto; max-width: 140px; object-fit: cover; display: block; }
+    .pv-like-word { height: 72px; max-width: 140px; padding: 8px !important; font-size: 0.72rem; line-height: 1.25; color: var(--text-muted); border: 1px solid var(--border) !important; text-align: left; font-style: italic; overflow: hidden; }
+    .pv-like-lines { display: flex; flex-direction: column; gap: 10px; }
+    .pv-like-lines button { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; color: var(--text); font: inherit; font-size: 0.92rem; line-height: 1.4; }
+    .pv-like-lines button em { display: block; font-style: normal; font-size: 0.74rem; color: var(--text-muted); margin-top: 2px; }
+    .pv-like-lines button:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--text-muted); }
     @media (max-width: 760px) {
       header { padding: 10px 14px 0 !important; }
       .nav-primary { flex-wrap: wrap !important; row-gap: 8px !important; }

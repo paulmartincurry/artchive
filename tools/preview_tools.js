@@ -40,6 +40,7 @@
       const s = sel[f.id];
       if (!s.size) continue;
       let v = w[f.field];
+      if (f.id === 'tone' && Array.isArray(w.colours)) { if (!w.colours.some(c => s.has(c))) return false; continue; }
       if (f.id === 'medium') {
         if (isLit(w)) return false;   // a medium choice means art
         if (v === 'Diagram' || v === 'Cyanotype & Textile') v = 'Diagram, Cyanotype & Textile';
@@ -278,6 +279,131 @@
     tb.addEventListener('click', () => document.getElementById('wallThemeBtn').click());
     acts.appendChild(tb);
   }
+
+  // ---- data that loads after the wall is up: neighbours, meaning vectors, picture descriptions ----
+  const BASE = location.pathname.replace(/[^/]*$/, '');
+  const V = (document.querySelector('script[src*="data/site.js"]') || {}).src || '';
+  const ver = (V.split('?')[1] || '');
+  let SIM = null, simP = null;
+  function loadSim() {
+    return simP || (simP = fetch(BASE + 'data/similar.json?' + ver).then(r => r.json()).then(j => {
+      const ids = j.ids; SIM = new Map(ids.map((id, i) => [id, j.nb[i].map(k => ids[k])])); return SIM;
+    }).catch(() => null));
+  }
+  // Hidden picture descriptions: searchable, never shown.
+  function loadSee() {
+    return fetch(BASE + 'data/see.json?' + ver).then(r => r.json()).then(j => {
+      const by = new Map(WORKS.map(w => [w.id, w]));
+      for (const id in j) { const w = by.get(id); if (w) { w.searchTags = ((w.searchTags || '') + ' ' + j[id]).trim(); w._searchIdx = null; } }
+      if ((state.query || '').trim()) filterWorks(true);
+    }).catch(() => {});
+  }
+  (window.requestIdleCallback || (f => setTimeout(f, 2500)))(() => { loadSee(); });
+
+  // More like this, under the note in the lightbox.
+  const lbNote = document.getElementById('lbNote');
+  const more = document.createElement('div'); more.className = 'pv-like'; more.id = 'pvLike';
+  const lbAnchor = document.querySelector('.lb-palette-row') || lbNote;
+  if (lbAnchor) lbAnchor.parentNode.insertBefore(more, lbAnchor.nextSibling);
+  function thumbUrl(w) {
+    const u = w.imageUrl || '';
+    if (/upload\.wikimedia\.org\/.*\/thumb\//.test(u)) return u.replace(/\/\d+px-/, '/330px-');
+    if (/artic\.edu\/iiif/.test(u)) return u.replace(/\/full\/[^/]+\//, '/full/200,/');
+    return u;
+  }
+  async function showLike(w) {
+    more.innerHTML = '';
+    if (!w) return;
+    const sim = await loadSim(); if (!sim) return;
+    const by = new Map(WORKS.map(x => [x.id, x]));
+    const nb = (sim.get(w.id) || []).map(id => by.get(id)).filter(x => x && !x._broken);
+    if (!nb.length || state.currentList[state.activeWorkIndex] !== w) return;
+    const lit = isLit(w);
+    more.innerHTML = `<div class="pv-like-h">More like this</div>` + (lit
+      ? `<div class="pv-like-lines">` + nb.slice(0, 4).map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`
+      : `<div class="pv-like-row">` + nb.slice(0, 8).map(x => isLit(x)
+          ? `<button type="button" class="pv-like-word" data-id="${x.id}" title="${esc(x.title)}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
+          : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`);
+    more.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
+  }
+  if (location.hash.startsWith('#w/')) setTimeout(() => showLike(state.currentList[state.activeWorkIndex]), 0);
+  more.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (b) openWorkById(b.dataset.id); });
+  if (typeof openLightbox === 'function') {
+    const origOpenLb = openLightbox;
+    openLightbox = function (index) { const r = origOpenLb(index); showLike(state.currentList[index]); return r; };
+  }
+
+  // Search by meaning. Word matches still come first (names, titles, quotes); works that match the
+  // meaning of the search follow. The small model loads on the first search and is cached by the browser.
+  let VEC = null, VIDX = null, D = 384, vecP = null, ex = null, exP = null; const qVec = new Map();
+  function loadVec() {
+    return vecP || (vecP = Promise.all([
+      fetch(BASE + 'data/vec.bin?' + ver).then(r => r.arrayBuffer()),
+      loadSim()
+    ]).then(([buf]) => fetch(BASE + 'data/similar.json?' + ver).then(r => r.json()).then(j => {
+      VEC = new Int8Array(buf); D = VEC.length / j.ids.length; VIDX = new Map(j.ids.map((id, i) => [id, i]));
+    })).catch(() => null));
+  }
+  function loadModel() {
+    return exP || (exP = import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1').then(async m => {
+      m.env.allowLocalModels = false;
+      ex = await m.pipeline('feature-extraction', 'Xenova/bge-small-en-v1.5', { dtype: 'q8' });
+      return ex;
+    }).catch(() => null));
+  }
+  const normQ = q => q.trim().toLowerCase().replace(/\s+/g, ' ');
+  let semTimer = null;
+  async function embedQuery(q) {
+    const k = normQ(q); if (k.length < 3 || qVec.has(k)) return;
+    await Promise.all([loadModel(), loadVec()]); if (!ex || !VEC) return;
+    const out = await ex('Represent this sentence for searching relevant passages: ' + k, { pooling: 'cls', normalize: true });
+    qVec.set(k, out.data);
+    if (normQ(state.query || '') === k) { const before = snap(); filterWorks(false); play(before); drawRead(); }
+  }
+  const inp = document.querySelector('.header-search-input');
+  if (inp) {
+    inp.addEventListener('focus', () => { loadModel(); loadVec(); }, { once: true });
+    inp.addEventListener('input', () => { clearTimeout(semTimer); const q = inp.value; semTimer = setTimeout(() => embedQuery(q), 380); });
+  }
+  if (typeof runFiveStageArchiveSearch === 'function') {
+    const origSearch = runFiveStageArchiveSearch;
+    runFiveStageArchiveSearch = function (pool, raw) {
+      const r = origSearch(pool, raw);
+      const v = qVec.get(normQ(raw || ''));
+      if (!v || !VEC) return r;
+      // One score: meaning, plus a boost when the words appear whole in the title, maker, mood or subject,
+      // and a small one for whole words in the note, text or picture description. Word fragments don't count.
+      const toks = normalizeSearchStr(raw).split(' ').filter(t => t && !SEARCH_STOP_WORDS.has(t));
+      const phrase = toks.join(' ');
+      const has = (set, t) => set.has(t) || set.has(t + 's') || set.has(t + 'es') || (t.endsWith('s') && set.has(t.slice(0, -1)));
+      const floor = window.pvSemFloor || 0.56, band = window.pvSemBand || 0.12;
+      const scored = [];
+      let top = 0;
+      for (const w of pool) {
+        const i = VIDX.get(w.id); if (i === undefined) continue;
+        let sem = 0; const o = i * D; for (let d = 0; d < D; d++) sem += VEC[o + d] * v[d]; sem /= 127;
+        const idx = getWorkSearchIndex(w);
+        if (!idx._hi) { idx._hi = new Set(idx.highWords); idx._lo = new Set((idx.mid + ' ' + idx.low).split(' ')); }
+        let kw = 0;
+        if (toks.length) {
+          if (toks.length > 1 && (' ' + idx.high + ' ').includes(' ' + phrase + ' ')) kw = 0.3;
+          else if (toks.every(t => has(idx._hi, t))) kw = 0.2;
+          else if (toks.every(t => has(idx._hi, t) || has(idx._lo, t))) kw = 0.06;
+        }
+        if (sem > top) top = sem;
+        scored.push([w, sem, kw]);
+      }
+      const cut = Math.max(floor, top - band);
+      const items = scored.filter(x => x[2] >= 0.2 || x[1] >= cut || (x[2] > 0 && x[1] + x[2] >= cut))
+        .sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 400).map(x => x[0]);
+      // Typos and odd names: if none of the words occur anywhere, the old search's typo matching knows better.
+      if (r.items.length && !r.relaxed && !scored.some(x => x[2] > 0)) return r;
+      if (items.length < 4 && r.items.length) return r;
+      const relaxEl = document.getElementById('relaxedSearchBadge'); if (relaxEl) { relaxEl.textContent = ''; relaxEl.classList.remove('visible'); }
+      return { items, relaxed: false, matchedTokens: r.totalTokens, totalTokens: r.totalTokens };
+    };
+  }
+  window.pvSem = { qVec, embedQuery, loadVec, loadModel };
 
   if (show !== 'both') filterWorks(false);
   drawTools(); drawRead(); syncShow();
