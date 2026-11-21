@@ -11126,9 +11126,10 @@
   window.pvPass = function (w) {
     if (show === 'art' && isLit(w)) return false;
     if (show === 'writing' && !isLit(w)) return false;
+    const inRoom = state.spatialView === 'reading';   // colour and medium are for art: the Reading Room ignores them
     for (const f of FACETS) {
       const s = sel[f.id];
-      if (!s.size) continue;
+      if (!s.size || (inRoom && (f.id === 'tone' || f.id === 'medium'))) continue;
       let v = w[f.field];
       if (f.id === 'tone') { if (isLit(w)) return false; const fl = s.size > 1 ? 4 : CFLOOR; for (const n of s) if (strength(w, n) < fl) return false; continue; }
       if (f.id === 'medium') {
@@ -11138,7 +11139,7 @@
       }
       if (!s.has(v)) return false;
     }
-    if (shade) {
+    if (shade && !inRoom) {
       if (isLit(w) || !shadeScore) return false;
       const sc = shadeScore.get(w.id) || 0;
       if (sc < shadeCut) return false;
@@ -11338,7 +11339,12 @@
   document.getElementById('pvRoom').addEventListener('click', () => { setSpatialView('reading'); syncShow(); });
   if (typeof setSpatialView === 'function') {
     const orig = setSpatialView;
-    setSpatialView = function (v) { const r = orig(v); syncShow(); return r; };
+    setSpatialView = function (v) {
+      const was = state.spatialView, r = orig(v);
+      // the Reading Room ignores colour and medium, so the list has to be rebuilt going in and out
+      if ((v === 'reading') !== (was === 'reading') && (colourOn() || sel.medium.size)) filterWorks(false);
+      syncShow(); return r;
+    };
   }
 
   // ---- the read-back line: what you asked for, and how many works it found ----
