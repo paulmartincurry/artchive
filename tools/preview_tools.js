@@ -4,9 +4,10 @@
 (function () {
   const LIT = 'Literature & Verse';
   const FACETS = [
-    { id: 'tone', label: 'Colour', field: 'colorFamily', opts: [
-      ['Obsidian & Ink', 'Black', '#1c1c1e'], ['Crimson & Rust', 'Red', '#9e2f24'], ['Ochre & Gold', 'Gold', '#c89d3c'],
-      ['Indigo & Prussian', 'Blue', '#24486b'], ['Verdigris & Forest', 'Green', '#3b6352'], ['Parchment & Bone', 'Cream', '#d8ceb8'] ] },
+    { id: 'tone', label: 'Colour', field: 'colourStrength', opts: [
+      ['Red', 'Red', '#b3261e'], ['Orange', 'Orange', '#d9752b'], ['Gold', 'Gold', '#c9a227'], ['Green', 'Green', '#3f7a4d'],
+      ['Blue', 'Blue', '#2a4f9c'], ['Brown', 'Brown', '#6b4a2b'], ['Black', 'Black', '#151515'], ['Grey', 'Grey', '#8a8a8a'],
+      ['Cream', 'Cream', '#e8dfc8'] ] },
     { id: 'mood', label: 'Mood', field: 'emotionShort', opts: ['Dread', 'Fury', 'Melancholy', 'Yearning', 'Sublime', 'Resolve', 'Dark Humor'].map(m => [m, m]) },
     { id: 'era', label: 'Era', field: 'eraBucket', opts: [
       ['Ancient & Medieval', 'Before 1400'], ['1400–1650', '1400–1650'], ['1650–1800', '1650–1800'], ['1800–1920', '1800–1920'], ['1920–Now', '1920–now'] ] },
@@ -22,6 +23,69 @@
   const MOOD_ORDER = FACETS[1].opts.map(o => o[0]);
 
   const sel = {}; FACETS.forEach(f => sel[f.id] = new Set());
+  // ---- colour: names by measured strength, or one exact shade (21 Nov 2026) ----
+  const CNAMES = ['Red', 'Orange', 'Gold', 'Green', 'Blue', 'Brown', 'Black', 'Grey', 'Cream'];
+  const CFLOOR = 6;                                  // a named colour must carry at least this much of the picture (0-100)
+  const PIGMENTS = [['Vermilion', '#E34234'], ['Oxblood', '#4A0E0E'], ['Rose madder', '#E32636'], ['Tyrian purple', '#66023C'],
+    ['Ultramarine', '#120A8F'], ['Klein blue', '#002FA7'], ['Prussian blue', '#003153'], ['Verdigris', '#43B3AE'],
+    ['Viridian', '#40826D'], ['Sap green', '#507D2A'], ['Naples yellow', '#FADA5E'], ['Ochre', '#CC7722'],
+    ['Burnt sienna', '#E97451'], ['Raw umber', '#826644']];
+  let shade = null;                                  // {hex, label}
+  let shadeScore = null, shadeTop = 0, shadeCut = 0, CDATA = null, cdataP = null;
+  const strength = (w, n) => (Array.isArray(w.colourStrength) ? w.colourStrength[CNAMES.indexOf(n)] || 0 : 0);
+  function hexToOk(hex) {
+    const n = parseInt(hex.slice(1), 16), lin = v => { v /= 255; return v > 0.04045 ? Math.pow((v + 0.055) / 1.055, 2.4) : v / 12.92; };
+    const r = lin(n >> 16), g = lin(n >> 8 & 255), b = lin(n & 255);
+    const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+    const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+    const q = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+    return [0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * q, 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * q,
+      0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * q];
+  }
+  function loadColour() {
+    const BASEc = location.pathname.replace(/[^/]*$/, '');
+    const verc = ((document.querySelector('script[src*="data/site.js"]') || {}).src || '').split('?')[1] || '';
+    return cdataP || (cdataP = fetch(BASEc + 'data/colour.json?' + verc).then(r => r.json()).then(j => (CDATA = j)).catch(() => null));
+  }
+  function scoreShade() {
+    shadeScore = new Map(); shadeTop = 0;
+    if (!shade || !CDATA) return;
+    const [qL, qa, qb] = hexToOk(shade.hex), SIG = 0.075;
+    CDATA.ids.forEach((id, i) => {
+      let sc = 0;
+      for (const c of CDATA.cl[i]) {
+        const d2 = (c[0] / 100 - qL) ** 2 + (c[1] / 500 - qa) ** 2 + (c[2] / 500 - qb) ** 2;
+        sc += (c[3] / 1000) * Math.exp(-d2 / (SIG * SIG));
+      }
+      shadeScore.set(id, sc); if (sc > shadeTop) shadeTop = sc;
+    });
+    // Keep everything within a quarter of the best match, and never fewer than the 60 closest.
+    const sorted = [...shadeScore.values()].sort((a, b) => b - a);
+    shadeCut = Math.max(0.0015, Math.min(shadeTop * 0.25, sorted[59] || 0));
+  }
+  function colourRank(w) {
+    if (shade) return shadeScore ? (shadeScore.get(w.id) || 0) : 0;
+    const names = [...sel.tone]; if (!names.length) return 0;
+    return Math.min(...names.map(n => strength(w, n)));
+  }
+  function colourOn() { return !!shade || sel.tone.size > 0; }
+  async function setShade(hex, label) {
+    shade = hex ? { hex: hex.toUpperCase(), label: label || hex.toUpperCase() } : null;
+    if (shade) { sel.tone.clear(); await loadColour(); }
+    scoreShade(); refresh(); if (openId) drawPop();
+  }
+  // Variety on the first screens: at most two per artist and eight per medium in each run of 24.
+  function vary(list) {
+    const head = list.slice(0, 240), rest = list.slice(240), out = [], held = [];
+    let ca = {}, cm = {};
+    for (const w of head) {
+      if (out.length % 24 === 0) { ca = {}; cm = {}; }
+      const a = w.artist || '?', m = w.macroMedium || '?';
+      if ((ca[a] || 0) >= 2 || (cm[m] || 0) >= 8) { held.push(w); continue; }
+      ca[a] = (ca[a] || 0) + 1; cm[m] = (cm[m] || 0) + 1; out.push(w);
+    }
+    return out.concat(held, rest);
+  }
   let show = 'both', arrange = 'wall', openId = '';
   try { show = localStorage.getItem('pvShow') || 'both'; } catch (e) {}
   if (!['both', 'art', 'writing'].includes(show)) show = 'both';
@@ -40,7 +104,7 @@
       const s = sel[f.id];
       if (!s.size) continue;
       let v = w[f.field];
-      if (f.id === 'tone' && Array.isArray(w.colours)) { if (!w.colours.some(c => s.has(c))) return false; continue; }
+      if (f.id === 'tone') { if (isLit(w)) return false; const fl = s.size > 1 ? 4 : CFLOOR; for (const n of s) if (strength(w, n) < fl) return false; continue; }
       if (f.id === 'medium') {
         if (isLit(w)) return false;   // a medium choice means art
         if (v === 'Diagram' || v === 'Cyanotype & Textile') v = 'Diagram, Cyanotype & Textile';
@@ -48,9 +112,14 @@
       }
       if (!s.has(v)) return false;
     }
+    if (shade) {
+      if (isLit(w) || !shadeScore) return false;
+      const sc = shadeScore.get(w.id) || 0;
+      if (sc < shadeCut) return false;
+    }
     return true;
   };
-  window.pvActive = () => show !== 'both' || arrange !== 'wall' || FACETS.some(f => sel[f.id].size);
+  window.pvActive = () => show !== 'both' || arrange !== 'wall' || !!shade || FACETS.some(f => sel[f.id].size);
 
   function hsl(hex) {
     const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return null;
@@ -73,7 +142,14 @@
   }
   const yr = w => (typeof w.yearNum === 'number' ? w.yearNum : 99999);
   window.pvArrange = function (list, searchRanked) {
-    if (arrange === 'wall') return list;
+    if (arrange === 'wall') {
+      // Colour alone: strongest first, with variety. With a search, the search order leads and colour only filters.
+      if (colourOn() && !(state.query || '').trim()) {
+        const k = new Map(list.map(w => [w.id, colourRank(w)]));
+        return vary(list.slice().sort((x, y) => k.get(y.id) - k.get(x.id)));
+      }
+      return list;
+    }
     const a = list.slice();
     if (arrange === 'date') a.sort((x, y) => yr(x) - yr(y));
     if (arrange === 'colour') { const k = new Map(a.map(w => [w.id, colourKey(w)])); a.sort((x, y) => k.get(x.id) - k.get(y.id)); }
@@ -127,6 +203,7 @@
 
   // ---- tool row ----
   function facetLabel(f) {
+    if (f.id === 'tone' && shade) return `<span class="pv-dot" style="background:${shade.hex}"></span>${esc(shade.label)}<span class="pv-x" aria-hidden="true">×</span>`;
     const s = [...sel[f.id]];
     if (!s.length) return `${esc(f.label)} ▾`;
     const o = f.opts.filter(x => sel[f.id].has(x[0]));
@@ -137,7 +214,7 @@
   function drawTools() {
     const arrLbl = arrange === 'wall' ? 'Arrange ▾' : `${esc(ARRANGE.find(a => a[0] === arrange)[1])}<span class="pv-x" aria-hidden="true">×</span>`;
     toolsEl.innerHTML = FACETS.map(f => {
-      const set = sel[f.id].size > 0;
+      const set = sel[f.id].size > 0 || (f.id === 'tone' && !!shade);
       return `<button type="button" class="pv-tool${openId === f.id ? ' is-open' : ''}${set ? ' is-set' : ''}" data-pv-tool="${f.id}" aria-expanded="${openId === f.id}" aria-label="${esc(f.label)}">${facetLabel(f)}</button>`;
     }).join('') +
       `<button type="button" class="pv-tool is-arr${openId === 'arrange' ? ' is-open' : ''}${arrange !== 'wall' ? ' is-set' : ''}" data-pv-tool="arrange" aria-expanded="${openId === 'arrange'}">${arrLbl}</button>` +
@@ -149,13 +226,23 @@
     if (openId === 'more') {
       pop.innerHTML = `<h3>More</h3><div class="pv-opts">
         <button type="button" class="pv-opt" data-pv-more="timeline">Timeline view</button>
-        <button type="button" class="pv-opt" data-pv-more="chromatic">Colour view</button>
         <button type="button" class="pv-opt" data-pv-more="reading">Reading Room</button>
         <button type="button" class="pv-opt" data-pv-more="drawer">Collection, form and sort</button>
         <button type="button" class="pv-opt" data-pv-more="theme">Light or dark wall</button></div>`;
     } else if (openId === 'arrange') {
       pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.map(a =>
         `<button type="button" class="pv-opt${arrange === a[0] ? ' is-on' : ''}" data-pv-arr="${a[0]}">${esc(a[1])}</button>`).join('') + `</div>`;
+    } else if (openId === 'tone') {
+      const f = FACETS[0];
+      pop.innerHTML = `<h3>Colour <span style="letter-spacing:0;text-transform:none;opacity:.7">· pick one, or two to have both</span></h3><div class="pv-opts">` + f.opts.map(o =>
+        `<button type="button" class="pv-opt${sel.tone.has(o[0]) ? ' is-on' : ''}" data-pv-opt="${esc(o[0])}" aria-pressed="${sel.tone.has(o[0])}"><span class="pv-dot" style="background:${o[2]}"></span>${esc(o[1])}</button>`
+      ).join('') + `</div><h3 style="margin-top:16px">Or a shade</h3><div class="pv-pig">` + PIGMENTS.map(p =>
+        `<button type="button" class="pv-sw${shade && shade.hex === p[1].toUpperCase() ? ' is-on' : ''}" data-pv-shade="${p[1]}" data-label="${esc(p[0])}" title="${esc(p[0])}" aria-label="${esc(p[0])}" style="background:${p[1]}"></button>`
+      ).join('') + `<label class="pv-any" title="Any colour"><input type="color" id="pvPick" value="${shade ? shade.hex : '#8a2b1f'}"><span>Any colour</span></label></div>` +
+        `<div class="pv-done"><span>${shade ? esc(shade.label) + ' · ' : ''}${state.currentList.length.toLocaleString()} works</span>` +
+        (colourOn() ? `<button type="button" data-pv-clear="1">Clear colour</button>` : '') + `<button type="button" data-pv-close="1">Done</button></div>`;
+      const pk = pop.querySelector('#pvPick');
+      if (pk) pk.addEventListener('change', () => setShade(pk.value, pk.value.toUpperCase()));
     } else {
       const f = FACETS.find(x => x.id === openId);
       pop.innerHTML = `<h3>${esc(f.label)} <span style="letter-spacing:0;text-transform:none;opacity:.7">· pick one or more</span></h3><div class="pv-opts">` + f.opts.map(o =>
@@ -175,6 +262,7 @@
     const id = b.dataset.pvTool;
     if (e.target.classList.contains('pv-x')) {
       if (id === 'arrange') arrange = 'wall'; else if (sel[id]) sel[id].clear();
+      if (id === 'tone') { shade = null; scoreShade(); }
       openId = ''; refresh(); drawPop(); return;
     }
     openId = openId === id ? '' : id;
@@ -182,12 +270,15 @@
   });
   pop.addEventListener('click', (e) => {
     const o = e.target.closest('[data-pv-opt]');
+    const sw = e.target.closest('[data-pv-shade]');
+    if (sw) { const same = shade && shade.hex === sw.dataset.pvShade.toUpperCase(); setShade(same ? null : sw.dataset.pvShade, sw.dataset.label); return; }
     if (o) {   // several values per facet: toggle and keep the panel open
+      if (openId === 'tone' && shade) { shade = null; scoreShade(); }
       const s = sel[openId], v = o.dataset.pvOpt;
       s.has(v) ? s.delete(v) : s.add(v);
       refresh(); drawPop(); return;
     }
-    if (e.target.closest('[data-pv-clear]')) { sel[openId].clear(); refresh(); drawPop(); return; }
+    if (e.target.closest('[data-pv-clear]')) { sel[openId].clear(); if (openId === 'tone') { shade = null; scoreShade(); } refresh(); drawPop(); return; }
     if (e.target.closest('[data-pv-close]')) { close(); return; }
     const a = e.target.closest('[data-pv-arr]');
     if (a) { arrange = a.dataset.pvArr; openId = ''; refresh(); drawPop(); window.scrollTo({ top: 0 }); return; }
@@ -228,13 +319,16 @@
   function drawRead() {
     const parts = [];
     if (show !== 'both') parts.push(['show', '', show === 'art' ? 'Art only' : 'Writing only']);
-    FACETS.forEach(f => f.opts.forEach(o => { if (sel[f.id].has(o[0])) parts.push([f.id, o[0], o[1]]); }));
+    if (shade) parts.push(['shade', '', shade.label]);
+    const tones = FACETS[0].opts.filter(o => sel.tone.has(o[0]));
+    if (tones.length) parts.push(['tone', '', tones.map(o => o[1]).join(' with ')]);
+    FACETS.slice(1).forEach(f => f.opts.forEach(o => { if (sel[f.id].has(o[0])) parts.push([f.id, o[0], o[1]]); }));
     const q = (state.query || '').trim();
     if (q) parts.push(['q', '', `“${q}”`]);
     if (arrange !== 'wall') parts.push(['arr', '', ARRANGE.find(a => a[0] === arrange)[1].toLowerCase()]);
     if (!parts.length) { read.innerHTML = ''; return; }
     const n = state.currentList.length;
-    read.innerHTML = parts.map(p => `<button type="button" class="pv-chip" data-k="${p[0]}" data-v="${esc(p[1])}" title="Remove">${esc(p[2])}</button>`).join('<span class="pv-sep">·</span>') +
+    read.innerHTML = parts.map(p => `<button type="button" class="pv-chip" data-k="${p[0]}" data-v="${esc(p[1])}" title="Remove">${p[0] === 'shade' ? `<span class="pv-dot" style="background:${shade.hex};display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px"></span>` : ''}${esc(p[2])}</button>`).join('<span class="pv-sep">·</span>') +
       `<span class="pv-count">— ${n.toLocaleString()} ${n === 1 ? 'work' : 'works'}</span><button type="button" class="pv-clear" data-k="all">Clear</button>`;
   }
   read.addEventListener('click', (e) => {
@@ -244,11 +338,13 @@
     if (k === 'show') { show = 'both'; try { localStorage.setItem('pvShow', show); } catch (er) {} }
     else if (k === 'arr') arrange = 'wall';
     else if (k === 'q') { state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; }
+    else if (k === 'shade') { shade = null; scoreShade(); }
+    else if (k === 'tone') sel.tone.clear();
     else sel[k].delete(v);
     refresh();
   });
   function clearAll() {
-    FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; show = 'both';
+    FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; show = 'both'; shade = null; scoreShade();
     try { localStorage.setItem('pvShow', show); } catch (e) {}
     state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = '';
     refresh();
@@ -261,7 +357,7 @@
   // The logo and the old Reset go back to the front of house: filters off, the woven wall.
   ['resetAllBtn', 'emptyResetBtn', 'clearFiltersBtn'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('click', () => { FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; setTimeout(() => {
+    if (el) el.addEventListener('click', () => { FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; shade = null; scoreShade(); setTimeout(() => {
       if (id === 'resetAllBtn' && state.spatialView !== 'wall') setSpatialView('wall'); filterWorks(false); drawTools(); drawRead(); syncShow(); }, 0); });
   });
   // Shuffle leaves any arrangement and animates too.
@@ -325,6 +421,21 @@
           ? `<button type="button" class="pv-like-word" data-id="${x.id}" title="${esc(x.title)}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
           : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`);
     more.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
+  }
+  // A colour in the lightbox's palette is a way in: tap it to see that shade across the collection.
+  const lbPal = document.getElementById('lbPalette');
+  if (lbPal) {
+    lbPal.addEventListener('click', (e) => {
+      const d = e.target.closest('.swatch-dot'); if (!d) return;
+      e.stopImmediatePropagation(); e.preventDefault();
+      const w = state.currentList[state.activeWorkIndex];
+      closeLightbox();
+      if (show === 'writing') { show = 'both'; try { localStorage.setItem('pvShow', show); } catch (er) {} }
+      setShade(d.dataset.hex, 'Colour from ' + (w ? (w.title.length > 34 ? w.title.slice(0, 32) + '…' : w.title) : 'this work'));
+      window.scrollTo({ top: 0 });
+    }, true);
+    new MutationObserver(() => lbPal.querySelectorAll('.swatch-dot').forEach(d => { d.title = 'More in this colour'; }))
+      .observe(lbPal, { childList: true });
   }
   if (location.hash.startsWith('#w/')) setTimeout(() => showLike(state.currentList[state.activeWorkIndex]), 0);
   more.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (b) openWorkById(b.dataset.id); });

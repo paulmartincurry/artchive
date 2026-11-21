@@ -131,6 +131,16 @@ CSS = r'''
     .wall-micro-btn { color: var(--text-muted) !important; }
     .wall-micro-btn:hover { color: var(--text) !important; }
 
+    .pv-done { gap: 16px; }
+    .pv-done span { margin-right: auto; }
+    .pv-dot { box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); }
+    .pv-pig { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .pv-sw { width: 28px; height: 28px; border-radius: 14px; border: 1px solid rgba(255,255,255,.18); cursor: pointer; padding: 0; }
+    .pv-sw:hover { transform: scale(1.12); }
+    .pv-sw.is-on { outline: 2px solid var(--text); outline-offset: 2px; }
+    .pv-any { display: inline-flex; align-items: center; gap: 8px; margin-left: 4px; font-size: 0.82rem; color: var(--text-muted); cursor: pointer; }
+    .pv-any input { width: 30px; height: 30px; border: 0; padding: 0; background: none; cursor: pointer; }
+    #lbPalette .swatch-dot { cursor: pointer; }
     .pv-like:empty { display: none; }
     .pv-like { margin: 22px 0 6px; }
     .pv-like-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
