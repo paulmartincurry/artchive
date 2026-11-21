@@ -11,7 +11,8 @@ os.makedirs('sheets', exist_ok=True)
 sheeted = set()
 for f in os.listdir('sheets'):
     if f.endswith('.txt'):
-        for line in open('sheets/' + f): sheeted.add(line.split('\t')[1])
+        for line in open('sheets/' + f):
+            if '\t' in line: sheeted.add(line.split('\t')[1])
 ids = [i for i in sorted(art) if os.path.exists(f'img/{i}.jpg') and i not in done and i not in sheeted]
 start = len([f for f in os.listdir('sheets') if f.endswith('.txt')])
 try: font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 30)
