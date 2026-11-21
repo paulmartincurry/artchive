@@ -27,17 +27,14 @@ s = src
 # 1. Not for search engines.
 s = sub_once('<head>', '<head>\n  <meta name="robots" content="noindex">', s, 'head')
 
-# 2. Mood filter: state, filter, reset, "has filters" check.
-s = sub_once("      tone: 'ALL',", "      tone: 'ALL',\n      mood: 'ALL',", s, 'state.tone')
+# 2. Hooks: the new tools filter, arrange and report through three window functions.
 s = sub_once("        if (state.tone !== 'ALL' && w.colorFamily !== state.tone) return false;",
              "        if (state.tone !== 'ALL' && w.colorFamily !== state.tone) return false;\n"
-             "        if (state.mood && state.mood !== 'ALL' && w.emotionShort !== state.mood) return false;\n"
-             "        if (state.artOnly && state.spatialView === 'wall' && w.macroMedium === 'Literature & Verse') return false;",
-             s, 'filter tone')
-s = sub_once("      state.tone = 'ALL';\n      state.pigmentHex = '';",
-             "      state.tone = 'ALL';\n      state.mood = 'ALL';\n      state.pigmentHex = '';", s, 'reset tone')
+             "        if (window.pvPass && !window.pvPass(w)) return false;", s, 'filter hook')
+s = sub_once("      state.currentList = filtered;\n",
+             "      state.currentList = window.pvArrange ? window.pvArrange(filtered, searchRanked) : filtered;\n", s, 'arrange hook')
 s = sub_once("state.tone !== 'ALL' || state.pigmentHex !== ''",
-             "state.tone !== 'ALL' || (state.mood && state.mood !== 'ALL') || state.pigmentHex !== ''", s, 'has filters')
+             "state.tone !== 'ALL' || (window.pvActive && window.pvActive()) || state.pigmentHex !== ''", s, 'has filters')
 
 # 3. Placeholder.
 s = sub_once('placeholder="Search artist, mood, era or line…"',
@@ -46,14 +43,14 @@ s = sub_once('placeholder="Search artist, mood, era or line…"',
 # 4. The tool row, right under the top bar inside the sticky header.
 TOOLROW = '''
     <div class="pv-toolrow" id="pvToolRow">
-      <nav class="pv-tabs" aria-label="Sections">
-        <button type="button" class="pv-tab is-on" data-pv-view="wall">All</button>
-        <button type="button" class="pv-tab" data-pv-view="art">Art</button>
-        <button type="button" class="pv-tab" data-pv-view="reading">Writing</button>
-        <button type="button" class="pv-tab" data-pv-view="timeline">Timeline</button>
-      </nav>
+      <div class="pv-show" role="group" aria-label="Show">
+        <button type="button" class="pv-seg is-on" data-pv-show="both">All</button>
+        <button type="button" class="pv-seg" data-pv-show="art">Art</button>
+        <button type="button" class="pv-seg" data-pv-show="writing">Writing</button>
+      </div>
       <span class="pv-rule" aria-hidden="true"></span>
       <div class="pv-tools" id="pvTools"></div>
+      <button type="button" class="pv-room" id="pvRoom">Reading Room</button>
       <div class="pv-pop" id="pvPop" role="dialog" aria-label="Choices" hidden></div>
     </div>
 '''
@@ -87,10 +84,30 @@ CSS = r'''
 
     /* Tool row */
     .pv-toolrow { max-width: 1744px; margin: 12px auto 0; height: 56px; display: flex; align-items: center; gap: 8px; position: relative; }
-    .pv-tabs { display: flex; gap: 22px; margin-right: 14px; }
-    .pv-tab { background: none; border: 0; padding: 12px 0; font: inherit; font-size: 0.92rem; color: var(--text-muted); cursor: pointer; border-bottom: 1px solid transparent; }
-    .pv-tab:hover { color: var(--text); }
-    .pv-tab.is-on { color: var(--text); border-bottom-color: var(--text); }
+    .pv-show { display: flex; gap: 20px; margin-right: 12px; flex: 0 0 auto; }
+    .pv-seg { background: none; border: 0; padding: 12px 0; font: inherit; font-size: 0.92rem; color: var(--text-muted); cursor: pointer; border-bottom: 1px solid transparent; }
+    .pv-seg:hover { color: var(--text); }
+    .pv-seg.is-on { color: var(--text); border-bottom-color: var(--text); }
+    .pv-room { margin-left: auto; flex: 0 0 auto; background: none; border: 0; font: inherit; font-size: 0.86rem; color: var(--text-muted); cursor: pointer; padding: 12px 0 12px 16px; }
+    .pv-room:hover, .pv-room.is-on { color: var(--text); }
+    .pv-tool.is-arr { border-style: dashed; }
+    .pv-done { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-muted); }
+    .pv-done button { background: none; border: 0; color: var(--text-muted); font: inherit; cursor: pointer; padding: 6px 0; }
+    .pv-done button:hover { color: var(--text); }
+    /* The read-back line, left of Shuffle / Captions */
+    .wall-controls-bar { justify-content: flex-end; }
+    .pv-read { margin-right: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; font-size: 0.88rem; color: var(--text-muted); min-height: 32px; }
+    .pv-read:empty { display: none; }
+    .pv-chip { background: none; border: 0; font: inherit; color: var(--text); cursor: pointer; padding: 4px 2px; }
+    .pv-chip:hover { text-decoration: line-through; text-decoration-color: var(--text-muted); }
+    .pv-sep { color: var(--text-muted); opacity: .6; padding: 0 2px; }
+    .pv-count { margin-left: 8px; }
+    .pv-clear { background: none; border: 0; font: inherit; color: var(--text-muted); cursor: pointer; margin-left: 12px; text-decoration: underline; text-underline-offset: 3px; }
+    .pv-clear:hover { color: var(--text); }
+    #visibleCount { display: none !important; }
+    .art-piece.pv-in { animation: pvIn 380ms ease-out both; }
+    @keyframes pvIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .art-piece.pv-in { animation: none; } }
     .pv-rule { width: 1px; height: 22px; background: var(--border); margin-right: 8px; flex: 0 0 1px; }
     .pv-tools { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
     .pv-tools::-webkit-scrollbar { display: none; }
@@ -120,7 +137,10 @@ CSS = r'''
       .header-search-cluster, .header-search-cluster:focus-within,
       header.is-scrolled .header-search-cluster { order: 3 !important; flex: 1 1 100% !important; max-width: none !important; }
       .pv-toolrow { margin-top: 4px; }
-      .pv-tabs { gap: 16px; margin-right: 6px; }
+      .pv-show { gap: 14px; margin-right: 4px; }
+      .pv-room { display: none; }
+      .wall-controls-bar { flex-wrap: wrap; }
+      .pv-read { flex: 1 1 100%; margin-bottom: 6px; }
       .pv-rule { display: none; }
       .pv-pop { left: 0 !important; right: 0; width: auto; }
     }
@@ -129,149 +149,7 @@ CSS = r'''
 s = sub_once('</head>', CSS + '</head>', s, '</head>')
 
 # 6. Script, last in <body>.
-JS = r'''
-<script id="pvScript">
-(function () {
-  const TOOLS = [
-    { id: 'colour', label: 'Colour', key: 'tone', opts: [
-      ['Obsidian & Ink', 'Black', '#1c1c1e'], ['Crimson & Rust', 'Red', '#9e2f24'], ['Ochre & Gold', 'Gold', '#c89d3c'],
-      ['Indigo & Prussian', 'Blue', '#24486b'], ['Verdigris & Forest', 'Green', '#3b6352'], ['Parchment & Bone', 'Cream', '#d8ceb8'] ] },
-    { id: 'mood', label: 'Mood', key: 'mood', opts: ['Dread', 'Sublime', 'Melancholy', 'Fury', 'Yearning', 'Resolve', 'Dark Humor'].map(m => [m, m]) },
-    { id: 'era', label: 'Era', key: 'era', select: 'eraSelect', opts: [
-      ['Ancient & Medieval', 'Before 1400'], ['1400–1650', '1400–1650'], ['1650–1800', '1650–1800'], ['1800–1920', '1800–1920'], ['1920–Now', '1920–now'] ] },
-    { id: 'region', label: 'Region', key: 'region', select: 'regionSelect', opts: [
-      ['Europe', 'Europe'], ['Americas', 'Americas'], ['East & Inner Asia', 'East & Inner Asia'],
-      ['Near East & South Asia', 'Near East & South Asia'], ['Africa, Oceania & Indigenous Americas', 'Africa, Oceania & Indigenous Americas'] ] },
-    { id: 'medium', label: 'Medium', key: 'medium', select: 'mediumSelect', opts: [
-      ['Painting', 'Painting'], ['Print & Woodcut', 'Print & Woodcut'], ['Photograph & Film', 'Photograph & Film'],
-      ['Sculpture & Metalwork', 'Sculpture & Metalwork'], ['Scroll & Paper', 'Scroll & Paper'],
-      ['Diagram, Cyanotype & Textile', 'Diagram, Cyanotype & Textile'], ['Letterform, Score & Ephemera', 'Letterform, Score & Ephemera'],
-      ['Literature & Verse', 'Writing'] ] }
-  ];
-  const toolsEl = document.getElementById('pvTools');
-  const pop = document.getElementById('pvPop');
-  const row = document.getElementById('pvToolRow');
-  let openId = '';
-
-  function cur(t) { return (typeof state !== 'undefined' && state[t.key]) || 'ALL'; }
-  function esc(x) { return String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
-
-  function setVal(t, val) {
-    if (t.key === 'tone' && typeof setToneFilter === 'function') { setToneFilter(val); }
-    else {
-      state[t.key] = val;
-      if (t.select) { const el = document.getElementById(t.select); if (el) el.value = val; }
-      if (typeof filterWorks === 'function') filterWorks(false);
-    }
-    drawTools();
-  }
-
-  function drawTools() {
-    toolsEl.innerHTML = TOOLS.map(t => {
-      const v = cur(t);
-      const o = t.opts.find(x => x[0] === v);
-      const set = v !== 'ALL' && o;
-      const dot = set && o[2] ? `<span class="pv-dot" style="background:${o[2]}"></span>` : '';
-      const lbl = set ? `${dot}${esc(o[1])}<span class="pv-x" aria-hidden="true">×</span>` : `${esc(t.label)} ▾`;
-      return `<button type="button" class="pv-tool${openId === t.id ? ' is-open' : ''}${set ? ' is-set' : ''}" data-pv-tool="${t.id}" aria-expanded="${openId === t.id}" aria-label="${esc(t.label)}${set ? ': ' + esc(o[1]) : ''}">${lbl}</button>`;
-    }).join('') + `<button type="button" class="pv-tool${openId === 'more' ? ' is-open' : ''}" data-pv-tool="more" aria-expanded="${openId === 'more'}">More ▾</button>`;
-  }
-
-  function drawPop() {
-    if (!openId) { pop.hidden = true; return; }
-    const btn = toolsEl.querySelector(`[data-pv-tool="${openId}"]`);
-    if (openId === 'more') {
-      pop.innerHTML = `<h3>More</h3><div class="pv-opts">
-        <button type="button" class="pv-opt" data-pv-more="drawer">Collection, form and sort</button>
-        <button type="button" class="pv-opt" data-pv-more="chromatic">Colour view</button>
-        <button type="button" class="pv-opt" data-pv-more="theme">Light or dark wall</button>
-        <button type="button" class="pv-opt" data-pv-more="reset">Clear every filter</button></div>`;
-    } else {
-      const t = TOOLS.find(x => x.id === openId);
-      const v = cur(t);
-      pop.innerHTML = `<h3>${esc(t.label)}</h3><div class="pv-opts">` + t.opts.map(o =>
-        `<button type="button" class="pv-opt${v === o[0] ? ' is-on' : ''}" data-pv-opt="${esc(o[0])}">${o[2] ? `<span class="pv-dot" style="background:${o[2]}"></span>` : ''}${esc(o[1])}</button>`
-      ).join('') + `</div>` + (v !== 'ALL' ? `<div class="pv-more"><button type="button" data-pv-clear="1">Clear ${esc(t.label.toLowerCase())}</button></div>` : '');
-    }
-    const r = btn.getBoundingClientRect(), rr = row.getBoundingClientRect();
-    pop.style.left = Math.max(0, Math.min(r.left - rr.left, rr.width - 380)) + 'px';
-    pop.hidden = false;
-  }
-
-  toolsEl.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-pv-tool]'); if (!b) return;
-    const id = b.dataset.pvTool;
-    const t = TOOLS.find(x => x.id === id);
-    // A tool that is set: clicking its × area clears it; clicking elsewhere opens it.
-    if (t && cur(t) !== 'ALL' && e.target.classList.contains('pv-x')) { openId = ''; setVal(t, 'ALL'); drawPop(); return; }
-    openId = openId === id ? '' : id;
-    drawTools(); drawPop();
-  });
-  pop.addEventListener('click', (e) => {
-    const t = TOOLS.find(x => x.id === openId);
-    const o = e.target.closest('[data-pv-opt]');
-    if (o && t) { const v = o.dataset.pvOpt; openId = ''; setVal(t, cur(t) === v ? 'ALL' : v); drawPop(); return; }
-    if (e.target.closest('[data-pv-clear]') && t) { openId = ''; setVal(t, 'ALL'); drawPop(); return; }
-    const m = e.target.closest('[data-pv-more]'); if (!m) return;
-    const k = m.dataset.pvMore; openId = ''; drawTools(); drawPop();
-    if (k === 'drawer') document.getElementById('toggleDrawerBtn').click();
-    if (k === 'chromatic') setSpatialView('chromatic');
-    if (k === 'theme') document.getElementById('wallThemeBtn').click();
-    if (k === 'reset') { const c = document.getElementById('clearFiltersBtn'); if (c) c.click(); else if (typeof resetAll === 'function') resetAll(); drawTools(); }
-  });
-  document.addEventListener('click', (e) => {
-    if (!openId) return;
-    if (e.composedPath().some(n => n === pop || n === toolsEl)) return;
-    openId = ''; drawTools(); drawPop();
-  });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && openId) { openId = ''; drawTools(); drawPop(); } });
-
-  // Section tabs drive the existing views.
-  function syncTabs() {
-    let v = (typeof state !== 'undefined' && state.spatialView) || 'wall';
-    if (v === 'wall' && state.artOnly) v = 'art';
-    document.querySelectorAll('.pv-tab').forEach(b => b.classList.toggle('is-on', b.dataset.pvView === v));
-  }
-  // Art = the wall with no writing. The choice is remembered on this browser.
-  try { state.artOnly = localStorage.getItem('pvArtOnly') === '1'; } catch (e) { state.artOnly = false; }
-  document.querySelectorAll('.pv-tab').forEach(b => b.addEventListener('click', () => {
-    const v = b.dataset.pvView;
-    if (v === 'art' || v === 'wall') {
-      state.artOnly = v === 'art';
-      try { localStorage.setItem('pvArtOnly', state.artOnly ? '1' : '0'); } catch (e) {}
-      if (state.spatialView !== 'wall') setSpatialView('wall');
-      filterWorks(false);
-    } else setSpatialView(v);
-    syncTabs();
-  }));
-  if (typeof setSpatialView === 'function') {
-    const orig = setSpatialView;
-    setSpatialView = function (v) { const r = orig(v); syncTabs(); return r; };
-  }
-
-  // Saved: "Saved 3", always shown.
-  const sb = document.getElementById('savedFilterBtn');
-  if (sb) sb.childNodes.forEach(n => { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Saved (', 'Saved ').replace(')', ''); });
-
-  // Theme as a small icon.
-  const acts = document.querySelector('.nav-actions');
-  if (acts) {
-    const tb = document.createElement('button');
-    tb.type = 'button'; tb.className = 'pv-theme'; tb.setAttribute('aria-label', 'Switch between dark and light wall');
-    tb.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"></path></svg>';
-    tb.addEventListener('click', () => document.getElementById('wallThemeBtn').click());
-    acts.appendChild(tb);
-  }
-
-  // Keep the tool labels in step when the old controls (Reset, pigment chips) change state.
-  const clr = document.getElementById('clearFiltersBtn'); if (clr) clr.addEventListener('click', () => setTimeout(drawTools, 0));
-  const brand = document.getElementById('resetAllBtn'); if (brand) brand.addEventListener('click', () => setTimeout(() => { drawTools(); syncTabs(); }, 0));
-
-  if (state.artOnly) filterWorks(false);
-  drawTools(); syncTabs();
-})();
-</script>
-'''
+JS = '\n<script id="pvScript">\n' + (ROOT / 'tools' / 'preview_tools.js').read_text() + '</script>\n'
 idx = s.rfind('</body>')
 s = s[:idx] + JS + s[idx:]
 
