@@ -3951,8 +3951,17 @@
     .pv-sw { width: 28px; height: 28px; border-radius: 14px; border: 1px solid rgba(255,255,255,.18); cursor: pointer; padding: 0; }
     .pv-sw:hover { transform: scale(1.12); }
     .pv-sw.is-on { outline: 2px solid var(--text); outline-offset: 2px; }
-    .pv-any { display: inline-flex; align-items: center; gap: 8px; margin-left: 4px; font-size: 0.82rem; color: var(--text-muted); cursor: pointer; }
-    .pv-any input { width: 30px; height: 30px; border: 0; padding: 0; background: none; cursor: pointer; }
+    .pv-any { display: inline-flex; align-items: center; gap: 8px; margin-left: 4px; font: inherit; font-size: 0.82rem; color: var(--text-muted); cursor: pointer; background: none; border: 0; padding: 0; }
+    .pv-any:hover, .pv-any.is-on { color: var(--text); }
+    .pv-any-sw { width: 28px; height: 28px; border-radius: 14px; border: 1px dashed rgba(255,255,255,.35); box-sizing: border-box; }
+    .pv-any.is-on .pv-any-sw { border-style: solid; outline: 2px solid var(--text); outline-offset: 2px; }
+    .pv-picker { position: relative; margin-top: 14px; }
+    .pv-pad { display: block; width: 100%; height: 120px; border-radius: 10px; cursor: crosshair; touch-action: none; }
+    .pv-pad-dot, .pv-viv-dot { position: absolute; width: 16px; height: 16px; border-radius: 8px; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.5); transform: translate(-50%, -50%); pointer-events: none; box-sizing: border-box; }
+    .pv-vivid { position: relative; margin-top: 14px; padding: 6px 0; cursor: pointer; touch-action: none; }
+    .pv-vivid canvas { display: block; width: 100%; height: 6px; border-radius: 3px; }
+    .pv-viv-dot { top: 50%; }
+    .pv-vivid-lbl { display: flex; justify-content: space-between; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
     #lbPalette .swatch-dot { cursor: pointer; }
     .pv-like:empty { display: none; }
     .pv-like { margin: 22px 0 6px; }
@@ -11011,7 +11020,85 @@
   async function setShade(hex, label) {
     shade = hex ? { hex: hex.toUpperCase(), label: label || hex.toUpperCase() } : null;
     if (shade) { sel.tone.clear(); await loadColour(); }
+    if (shade) pick = hexToHsl(shade.hex);
     scoreShade(); refresh(); if (openId) drawPop();
+  }
+  // Any colour: our own picker (the browser's is a white box that only fires when it closes).
+  // A pad of hue across and lightness down, and a muted-to-vivid strip. Results follow the drag.
+  let pickOpen = false, pick = { h: 228, s: 0.62, l: 0.42 }, pickT = 0;
+  function hslHex(h, s, l) {
+    const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
+    const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))));
+    return '#' + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+  }
+  function hexToHsl(hex) {
+    const n = parseInt(hex.slice(1), 16), r = (n >> 16) / 255, g = (n >> 8 & 255) / 255, b = (n & 255) / 255;
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
+    let h = 0, s = 0;
+    if (d) {
+      s = d / (1 - Math.abs(2 * l - 1));
+      h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+      h = (h * 60 + 360) % 360;
+    }
+    return { h, s: Math.min(1, s), l };
+  }
+  const pickHex = () => hslHex(pick.h, pick.s, pick.l);
+  const L_TOP = 0.9, L_BOT = 0.1;
+  function paintPicker() {
+    const pad = pop.querySelector('.pv-pad'), viv = pop.querySelector('.pv-vivid canvas');
+    if (!pad || !viv) return;
+    const W = pad.width, H = pad.height, cx = pad.getContext('2d'), img = cx.createImageData(W, H);
+    for (let y = 0; y < H; y++) {
+      const l = L_TOP - (L_TOP - L_BOT) * y / (H - 1);
+      for (let x = 0; x < W; x++) {
+        const hx = hslHex(360 * x / (W - 1), pick.s, l), n = parseInt(hx.slice(1), 16), i = (y * W + x) * 4;
+        img.data[i] = n >> 16; img.data[i + 1] = n >> 8 & 255; img.data[i + 2] = n & 255; img.data[i + 3] = 255;
+      }
+    }
+    cx.putImageData(img, 0, 0);
+    const vx = viv.getContext('2d'), g = vx.createLinearGradient(0, 0, viv.width, 0);
+    for (let i = 0; i <= 10; i++) g.addColorStop(i / 10, hslHex(pick.h, i / 10, pick.l));
+    vx.fillStyle = g; vx.fillRect(0, 0, viv.width, viv.height);
+    placeDots();
+  }
+  function placeDots() {
+    const d = pop.querySelector('.pv-pad-dot'), v = pop.querySelector('.pv-viv-dot'), hx = pickHex();
+    if (d) { d.style.left = (pick.h / 360 * 100) + '%'; d.style.top = ((L_TOP - pick.l) / (L_TOP - L_BOT) * 100) + '%'; d.style.background = hx; }
+    if (v) { v.style.left = (pick.s * 100) + '%'; v.style.background = hx; }
+    const sw = pop.querySelector('.pv-any-sw'); if (sw) sw.style.background = hx;
+  }
+  function applyPick() {   // live, but without redrawing the panel under the finger
+    clearTimeout(pickT);
+    pickT = setTimeout(async () => {
+      const hx = pickHex();
+      shade = { hex: hx, label: hx }; sel.tone.clear();
+      if (!CDATA) await loadColour();
+      scoreShade(); refresh();
+      const c = pop.querySelector('[data-pv-count]');
+      if (c) c.textContent = `${hx} · ${state.currentList.length.toLocaleString()} works`;
+      pop.querySelectorAll('.pv-sw.is-on').forEach(b => b.classList.remove('is-on'));
+      if (!pop.querySelector('[data-pv-clear]')) {
+        const done = pop.querySelector('.pv-done'), cl = document.createElement('button');
+        cl.type = 'button'; cl.dataset.pvClear = '1'; cl.textContent = 'Clear colour';
+        done.insertBefore(cl, done.querySelector('[data-pv-close]'));
+      }
+    }, 110);
+  }
+  function bindPicker() {
+    const drag = (el, fn) => {
+      const go = e => { const r = el.getBoundingClientRect(); fn(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), Math.max(0, Math.min(1, (e.clientY - r.top) / r.height))); };
+      el.addEventListener('pointerdown', e => { el.setPointerCapture(e.pointerId); go(e); e.preventDefault(); });
+      el.addEventListener('pointermove', e => { if (el.hasPointerCapture(e.pointerId)) go(e); });
+    };
+    drag(pop.querySelector('.pv-pad'), (x, y) => { pick.h = x * 360; pick.l = L_TOP - (L_TOP - L_BOT) * y; placeDots(); paintVivid(); applyPick(); });
+    drag(pop.querySelector('.pv-vivid'), x => { pick.s = x; paintPicker(); applyPick(); });
+    paintPicker();
+  }
+  function paintVivid() {
+    const viv = pop.querySelector('.pv-vivid canvas'); if (!viv) return;
+    const vx = viv.getContext('2d'), g = vx.createLinearGradient(0, 0, viv.width, 0);
+    for (let i = 0; i <= 10; i++) g.addColorStop(i / 10, hslHex(pick.h, i / 10, pick.l));
+    vx.fillStyle = g; vx.fillRect(0, 0, viv.width, viv.height);
   }
   // Variety on the first screens: at most two per artist and eight per medium in each run of 24.
   function vary(list) {
@@ -11177,11 +11264,13 @@
         `<button type="button" class="pv-opt${sel.tone.has(o[0]) ? ' is-on' : ''}" data-pv-opt="${esc(o[0])}" aria-pressed="${sel.tone.has(o[0])}"><span class="pv-dot" style="background:${o[2]}"></span>${esc(o[1])}</button>`
       ).join('') + `</div><h3 style="margin-top:16px">Or a shade</h3><div class="pv-pig">` + PIGMENTS.map(p =>
         `<button type="button" class="pv-sw${shade && shade.hex === p[1].toUpperCase() ? ' is-on' : ''}" data-pv-shade="${p[1]}" data-label="${esc(p[0])}" title="${esc(p[0])}" aria-label="${esc(p[0])}" style="background:${p[1]}"></button>`
-      ).join('') + `<label class="pv-any" title="Any colour"><input type="color" id="pvPick" value="${shade ? shade.hex : '#8a2b1f'}"><span>Any colour</span></label></div>` +
-        `<div class="pv-done"><span>${shade ? esc(shade.label) + ' · ' : ''}${state.currentList.length.toLocaleString()} works</span>` +
+      ).join('') + `<button type="button" class="pv-any${pickOpen ? ' is-on' : ''}" data-pv-anytoggle="1" aria-expanded="${pickOpen}"><span class="pv-any-sw" style="background:${pickHex()}"></span>Any colour</button></div>` +
+        (pickOpen ? `<div class="pv-picker"><canvas class="pv-pad" width="344" height="120" aria-label="Hue and lightness"></canvas><i class="pv-pad-dot"></i>` +
+          `<div class="pv-vivid"><canvas width="344" height="10" aria-label="Muted to vivid"></canvas><i class="pv-viv-dot"></i></div>` +
+          `<div class="pv-vivid-lbl"><span>Muted</span><span>Vivid</span></div></div>` : '') +
+        `<div class="pv-done"><span data-pv-count="1">${shade ? esc(shade.label) + ' · ' : ''}${state.currentList.length.toLocaleString()} works</span>` +
         (colourOn() ? `<button type="button" data-pv-clear="1">Clear colour</button>` : '') + `<button type="button" data-pv-close="1">Done</button></div>`;
-      const pk = pop.querySelector('#pvPick');
-      if (pk) pk.addEventListener('change', () => setShade(pk.value, pk.value.toUpperCase()));
+      if (pickOpen) bindPicker();
     } else {
       const f = FACETS.find(x => x.id === openId);
       pop.innerHTML = `<h3>${esc(f.label)} <span style="letter-spacing:0;text-transform:none;opacity:.7">· pick one or more</span></h3><div class="pv-opts">` + f.opts.map(o =>
@@ -11210,6 +11299,7 @@
   pop.addEventListener('click', (e) => {
     const o = e.target.closest('[data-pv-opt]');
     const sw = e.target.closest('[data-pv-shade]');
+    if (e.target.closest('[data-pv-anytoggle]')) { pickOpen = !pickOpen; drawPop(); return; }
     if (sw) { const same = shade && shade.hex === sw.dataset.pvShade.toUpperCase(); setShade(same ? null : sw.dataset.pvShade, sw.dataset.label); return; }
     if (o) {   // several values per facet: toggle and keep the panel open
       if (openId === 'tone' && shade) { shade = null; scoreShade(); }
