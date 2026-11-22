@@ -99,6 +99,10 @@ def _la_name(obj, prefer_en=True):
     pick = (en or names or [{}])[0]
     return pick.get('content', '')
 
+def _notes(x):
+    v = x.get('notation', []) if isinstance(x, dict) else []
+    return [n if isinstance(n, dict) else {'@value': n} for n in (v if isinstance(v, list) else [v])]
+
 def rijks_record(uri):
     j = get(uri, 'application/ld+json')
     if not j:
@@ -108,7 +112,7 @@ def rijks_record(uri):
     makers = []
     for p in parts:
         for c in p.get('carried_out_by', []):
-            n = [x['@value'] for x in c.get('notation', []) if x.get('@language') == 'en'] or [x['@value'] for x in c.get('notation', [])]
+            n = [x['@value'] for x in _notes(c) if x.get('@language') == 'en'] or [x['@value'] for x in _notes(c)]
             if n:
                 makers.append(n[0])
     ts = prod.get('timespan') or {}
@@ -117,11 +121,11 @@ def rijks_record(uri):
         date = x.get('content', '') or date
     dims = []
     for d in j.get('dimension', []):
-        lab = [x['@value'] for x in (d.get('classified_as') or [{}])[0].get('notation', []) if x.get('@language') == 'en']
+        lab = [x['@value'] for x in _notes((d.get('classified_as') or [{}])[0]) if x.get('@language') == 'en']
         dims.append(f"{lab[0] if lab else ''} {d.get('value')}")
     mats = []
     for m in j.get('made_of', []):
-        en = [x['@value'] for x in m.get('notation', []) if x.get('@language') == 'en']
+        en = [x['@value'] for x in _notes(m) if x.get('@language') == 'en']
         if en:
             mats.append(en[0])
     texts = [r.get('content', '') for r in j.get('referred_to_by', []) if r.get('content')]

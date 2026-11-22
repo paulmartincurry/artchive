@@ -3994,6 +3994,9 @@
        for controls, hairlines instead of rounded buttons, square corners. One accent, oxblood, and only where
        something is on (a filter you set, a work you saved, the shade you picked). Edit here; it sits last so it wins. -->
   <style id="brandStyles">
+    .pv-padbox { position: relative; }
+    .pv-picker-big .pv-pad { height: 200px; }
+
     :root { --accent: #b33a2c; --accent-ink: #f3ece6; --ui-track: 0.16em; }
     body.light-wall { --accent: #8c2419; --accent-ink: #fff; }
     ::selection { background: var(--accent); color: var(--accent-ink); }
@@ -4654,7 +4657,7 @@
 
 
 
-  <script src="data/site.js?v=86b28753c0"></script>
+  <script src="data/site.js?v=875c781653"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -11501,15 +11504,12 @@
       pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => show === 'writing' ? a[0] !== 'colour' : !WRITING_ONLY_ARR.includes(a[0])).map(a =>
         `<button type="button" class="pv-opt${arrange === a[0] ? ' is-on' : ''}" data-pv-arr="${a[0]}">${esc(a[1])}</button>`).join('') + `</div>`;
     } else if (openId === 'tone') {
-      const f = FACETS[0];
-      pop.innerHTML = `<h3>Colour <span style="letter-spacing:0;text-transform:none;opacity:.7">· pick one, or two to have both</span></h3><div class="pv-opts">` + f.opts.map(o =>
-        `<button type="button" class="pv-opt${sel.tone.has(o[0]) ? ' is-on' : ''}" data-pv-opt="${esc(o[0])}" aria-pressed="${sel.tone.has(o[0])}"><span class="pv-dot" style="background:${o[2]}"></span>${esc(o[1])}</button>`
-      ).join('') + `</div><h3 style="margin-top:16px">Or a shade</h3><div class="pv-pig">` + PIGMENTS.map(p =>
-        `<button type="button" class="pv-sw${shade && shade.hex === p[1].toUpperCase() ? ' is-on' : ''}" data-pv-shade="${p[1]}" data-label="${esc(p[0])}" title="${esc(p[0])}" aria-label="${esc(p[0])}" style="background:${p[1]}"></button>`
-      ).join('') + `<button type="button" class="pv-any${pickOpen ? ' is-on' : ''}" data-pv-anytoggle="1" aria-expanded="${pickOpen}"><span class="pv-any-sw" style="background:${pickHex()}"></span>Any colour</button></div>` +
-        (pickOpen ? `<div class="pv-picker"><canvas class="pv-pad" width="344" height="120" aria-label="Hue and lightness"></canvas><i class="pv-pad-dot"></i>` +
+      // Colour is one picker (Paul, 22 Nov 2026): touch any point on the spectrum, slide muted to vivid.
+      pickOpen = true;
+      pop.innerHTML = `<h3>Colour <span style="letter-spacing:0;text-transform:none;opacity:.7">· touch any colour</span></h3>` +
+        `<div class="pv-picker pv-picker-big"><div class="pv-padbox"><canvas class="pv-pad" width="344" height="200" aria-label="Hue and lightness"></canvas><i class="pv-pad-dot"></i></div>` +
           `<div class="pv-vivid"><canvas width="344" height="10" aria-label="Muted to vivid"></canvas><i class="pv-viv-dot"></i></div>` +
-          `<div class="pv-vivid-lbl"><span>Muted</span><span>Vivid</span></div></div>` : '') +
+          `<div class="pv-vivid-lbl"><span>Muted</span><span>Vivid</span></div></div>` +
         `<div class="pv-done"><span data-pv-count="1">${shade ? esc(shade.label) + ' · ' : ''}${state.currentList.length.toLocaleString()} works</span>` +
         (colourOn() ? `<button type="button" data-pv-clear="1">Clear colour</button>` : '') + `<button type="button" data-pv-close="1">Done</button></div>`;
       if (pickOpen) bindPicker();
