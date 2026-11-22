@@ -3965,6 +3965,7 @@
     #lbPalette .swatch-dot { cursor: pointer; }
     .pv-like:empty { display: none; }
     .pv-like { margin: 22px 0 6px; }
+    .pv-near { margin-top: 22px; }
     .pv-like-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
     .pv-like-row { display: flex; flex-wrap: wrap; gap: 8px; }
     .pv-like-row button { border: 0; padding: 0; background: none; cursor: pointer; height: 72px; opacity: .85; }
@@ -11696,7 +11697,19 @@
           ? `<button type="button" class="pv-like-word" data-id="${x.id}" title="${esc(x.title)}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
           : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`);
     more.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
+    // Pictures near these words / words near this picture: chosen by the meaning vectors, shown only when the match is strong
+    const pr = await loadPairs(); if (!pr || state.currentList[state.activeWorkIndex] !== w) return;
+    const near = (pr[w.id] || []).map(id => by.get(id)).filter(x => x && !x._broken);
+    if (!near.length) return;
+    const box = document.createElement('div'); box.className = 'pv-near';
+    box.innerHTML = lit
+      ? `<div class="pv-like-h">Pictures near these words</div><div class="pv-like-row">` + near.map(x => `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`
+      : `<div class="pv-like-h">Words near this picture</div><div class="pv-like-lines">` + near.map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`;
+    box.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
+    more.appendChild(box);
   }
+  let pairsP = null;
+  const loadPairs = () => pairsP || (pairsP = fetch(BASE + 'data/pairs.json?' + ver).then(r => r.ok ? r.json() : null).catch(() => null));
   // A colour in the lightbox's palette is a way in: tap it to see that shade across the collection.
   const lbPal = document.getElementById('lbPalette');
   if (lbPal) {
