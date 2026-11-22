@@ -1274,3 +1274,18 @@ VAULT-3333 to 3345. Delort's Game for the Cardinal left out (Commons dates it ab
 ## Edges round (22 Nov 2026)
 
 VAULT-3346 to 3357, under Paul's edges policy (CLAUDE.md, What it is). Holders left blank where the file record names none (Nuda Veritas, Water Serpents I, Schiele's Seated Male Nude). Schiele works with young models were not considered. Beardsley's Lysistrata drawings and Courbet's Le Sommeil held for a later look: defensible as art, but the bar here was work museums hang and the public knows.
+
+
+## Met leads (22 Nov 2026)
+
+VAULT-3358 to 3364 (`grow: 'metleads'`). From the list lost to the Met's bot page: Blake's Songs of Innocence title page (Met 17.10.3, printed about 1825), The Lamb (Library of Congress, Rosenwald copy) and Infant Joy (Fitzwilliam, copy AA, 1826); Beardsley's frontispiece to Le Morte d'Arthur (1893); a page of the Hokusai Manga, volume 1 (1814); the Emperor's Carpet (Met 43.121.1) and a silk and metal-thread tapestry carpet (Met 51.197), both Iran. The Tahmasp Shahnama was already well covered (16 folios), so none added. Met images are shown from the Met's own files mirrored on Commons (the Met's web-large images are only 300 to 600 px wide); the source link is the Met record. Not taken: more Manga pages and Morte d'Arthur plates (one each for now).
+
+## Estates and open releases: leads only (22 Nov 2026)
+
+Paul asked for a check of estates and foundations that have given work to the public. Nothing added; leads for Paul to decide:
+- **Carol M. Highsmith** gave her photographs of America to the Library of Congress; the record reads: No known restrictions on publication. Photographs are in the public domain. Tens of thousands of colour photographs, 1980 onward.
+- **John Margolies, Roadside America photograph archive (1969–2008)**, Library of Congress: No known restrictions on publication. Dinosaurs, giant signs, motels, mini golf: strong colour, and a good fit for the colour gaps.
+- **Toni Frissell collection (1930–1969)**, Library of Congress: No known restrictions on publication for most images (some restricted; check each). Fashion, wartime, the Tuskegee Airmen.
+- **Art UK** has Creative Commons licences agreed with more than 10,000 artists and estates, but most are non-commercial or no-derivatives, so they would not make work free to use here; worth searching its licence filter for any CC BY or public-domain marks on modern British work.
+- **Museum waivers:** the Art Institute of Chicago's CC0 covers works believed to be in the public domain or to which the museum otherwise waives any copyright; worth a pass for twentieth-century works it marks CC0.
+- **The permission route** (CLAUDE.md 0d, route 5) is still untried. Lawyers have proposed a standing posthumous licence for artists who want their work to stay available after death (ABA Landslide, 2025); the same idea makes a permission letter to a small estate easier to say yes to.
