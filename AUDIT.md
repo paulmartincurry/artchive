@@ -1224,3 +1224,27 @@ Bartlett's texts are OCR; a missed match only costs a piece its nudge.
 45 Slogan & chant cards (LIT-1875 to 1919) and 29 Library of Congress pictures (VAULT-3258 to 3286). Method: 81 candidate slogans, each matched to its Wikipedia article fetched as raw wikitext; the card's wording had to occur in the article, and every fact in the note was taken from it. 36 candidates were dropped: no article or no documented first use (Bread or Blood, Don't mourn organize, Wir sind das Volk, ¡Ya basta!, Be water, Que se vayan todos, Hasta la victoria siempre, All power to the Soviets, Peace, Land and Bread, There is no Planet B), songs (We Shall Overcome, Lift Every Voice, Down by the Riverside, the Internationale), duplicates of pieces already on the site (Give me liberty, Ain't I a Woman), or too vague (Solidarity, Velvet Revolution, Free speech, Peace Now, Save the Whales, We Demand, Stonewall, Remember the ladies, Out of the closets, Land to the tiller, Deeds not words, Votes for Women as a newspaper title, Failure is impossible). Notes trimmed where a draft said more than the article: Live Free or Die (no reunion), Silence=Death (poster 1986, not 1987), Woman, Life, Freedom (late twentieth century, not 1990s), Amandla (no decade), the IWW motto (no year). Pictures: chosen by eye from 125 open LoC results; one dropped (an Iran hostage-crisis demonstration, too unclear to caption). Picture notes use only what the LoC record says; claims read off the image were cut (the broadsides' contents, Milholland riding at the head of the parade). Descriptions for search written from the contact sheets.
 
 Same day, Paul's bar for protest pictures: a sign is art; a crowd shot only with real drama or action. Cut ten wide shots from the LoC set (VAULT-3258, 3264, 3265, 3266, 3269, 3270, 3271, 3273, 3275, 3278: the long picket line, the head of the 1913 parade, the aerial parade crowd, four March on Washington crowd views, the Reflecting Pool, the Eartha Kitt picket, the 1976 march, the Lawrence children). Added ten Commons photos (VAULT-3287 to 3296), chosen by eye from 275 openly licensed results: signs, and one water-cannon scene. Left out: Women's March pictures dominated by election signs (no campaign material), school-strike photos centred on children, an ACT UP Silence=Death button marked public domain on Commons whose design rights are unclear, and Keith Haring's Ignorance = Fear (in copyright).
+
+
+## Round 16: folk songs (22 Nov 2026)
+
+Paul asked for public-domain folk lyrics from traditions around the world, with an English translation for everything, overlapping with the protest songs. Finish line set at the start: what the downloaded pre-1931 collections could give cleanly, about 15. 14 merged (LIT-1920 to 1933).
+
+| Id | Song | Source | Fixes |
+|---|---|---|---|
+| 1920 | Home on the Range | Lomax 1918 | drop cap |
+| 1921 | Jesse James (first three verses) | Lomax 1918 | soft wrap joined |
+| 1922 | The Old Chisholm Trail (opening) | Lomax 1918 | drop cap, hyphen join |
+| 1923 | The Cowboy's Lament (first three verses) | Lomax 1918 | drop cap |
+| 1924 | The Preacher and the Slave | IWW Songs of the Workers, Oct 1919 | 'bout, we'll, you'll (page image) |
+| 1925 | Solidarity Forever (first three verses) | same | sun (page image); the book's 'insipration' kept |
+| 1926 | Sir Patrick Spens (Child 58 A, Percy 1765) | Sargent & Kittredge 1904 | they'll, fiftie |
+| 1927 | The Wife of Usher's Well (Child 79 A, Scott 1802) | same | stanza number |
+| 1928 | Many Thousand Go | Slave Songs of the US, 1867 | 'Man-y' to Many |
+| 1929 | My Grief on the Sea (tr. Hyde) | Love Songs of Connacht, 1893 | soul!, bound. (page image) |
+| 1930 | Olympos and Kissavos (tr. Stuart-Glennie with Demosthenes) | Greek Folk Poesy, 1896 | Olympos, gazes!’ (page image) |
+| 1931 | Charon and the Souls (tr. Garnett) | same | them |
+| 1932 | Dirge for the Dead, closing part (Badaga, tr. Gover from Metz) | Folk-Songs of Southern India, 1871 | thread, (page image), pillar's, dashes closed as printed |
+| 1933 | Song of War (Zulu, tr. Curtis, metrical version) | Songs and Tales from the Dark Continent, 1920 | Gully-Wall |
+
+Calls: the cowboy and IWW songs that run long are cut to their opening verses (said in auditNote). Curtis's book frames its singers in the racial language of 1920; only the song and her facts about it (singer, occasion, translation) are used. Gover's headnote is a missionary's; only the funeral custom it records is used. Home on the Range is credited 'Traditional, words after Brewster M. Higley' because Lomax prints the sung version. The IWW songs are authored (Joe Hill, Ralph Chaplin), published before 1931, and sit here because they are the protest tradition Paul named. Nothing from Ralston (Russian) or Curtis's Ndau songs yet: leads for another pass.
