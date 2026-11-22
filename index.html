@@ -4082,6 +4082,35 @@
     .rr-cover:hover { filter: none; }
     body.light-wall .rr-cover { filter: saturate(.7); }
 
+
+    /* Writing cards (21 Nov 2026): one style, sized by what you take away.
+       A line gets a square card and big type; a few lines the standard card; a passage a taller card in roman. */
+    .pocket-poet-cover .pocket-hook { border-left: 0 !important; padding-left: 0 !important; font-style: italic !important; letter-spacing: 0 !important; }
+    .pocket-poet-cover[data-len="line"] { aspect-ratio: 1 / 1; }
+    .pocket-poet-cover[data-len="line"] .pocket-hook { font-size: 2rem; line-height: 1.22; }
+    .pocket-poet-cover[data-len="passage"] { aspect-ratio: auto; min-height: 0; }
+    .pocket-poet-cover[data-len="passage"] .pocket-hook { font-size: 1.22rem; line-height: 1.5; font-style: normal !important; margin: 22px 0; }
+    .gallery-grid.density-large .pocket-poet-cover[data-len="line"] .pocket-hook { font-size: 2.6rem; }
+    .pocket-full { display: none; }
+    @media (max-width: 560px) { .pocket-poet-cover[data-len="line"] .pocket-hook { font-size: 1.7rem; } }
+
+    /* Read as a column: the writing wall as one column of whole passages */
+    .gallery-grid.pv-column { max-width: 760px; margin: 0 auto; }
+    .gallery-grid.pv-column .pocket-poet-cover { aspect-ratio: auto !important; padding: 34px 40px; }
+    .gallery-grid.pv-column .pocket-hook { font-size: 1.7rem !important; margin: 26px 0 18px; font-style: italic !important; line-height: 1.34; }
+    .gallery-grid.pv-column .pocket-full:not(:empty) { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.18rem; line-height: 1.62;
+      color: var(--text-muted); white-space: pre-line; padding: 18px 0 26px; border-top: 1px solid var(--border-rule); margin-bottom: 8px; }
+    .gallery-grid.pv-column .art-piece:hover .pocket-poet-cover { transform: none; }
+
+    /* Peek: rest on a writing card to read the whole passage without leaving the wall */
+    .pv-peek { position: fixed; z-index: 60; background: var(--bg-plate); border: 1px solid var(--border-active); box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      padding: 26px 28px 22px; overflow-y: auto; overscroll-behavior: contain; opacity: 0; transform: translateY(4px); transition: opacity .18s ease, transform .18s ease; cursor: pointer; }
+    body.light-wall .pv-peek { box-shadow: 0 20px 50px rgba(0,0,0,.14); }
+    .pv-peek.is-on { opacity: 1; transform: none; }
+    .pv-peek-q { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 1.36rem; line-height: 1.34; color: var(--text); white-space: pre-line; margin-bottom: 16px; }
+    .pv-peek-t { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.08rem; line-height: 1.6; color: var(--text-muted); white-space: pre-line; padding-top: 14px; border-top: 1px solid var(--border-rule); }
+    .pv-peek-c { margin-top: 16px; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); display: flex; justify-content: space-between; gap: 12px; }
+
     @media (max-width: 760px) {
       .pv-tools { gap: 20px; }
       .header-search-box { height: 46px !important; }
@@ -4622,7 +4651,7 @@
 
 
 
-  <script src="data/site.js?v=ecb945946c"></script>
+  <script src="data/site.js?v=4cbab9c064"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -4650,6 +4679,17 @@
   }
   // Length of the pull quote, the thing you actually take away
   window.pvFormOf = formOf;   // the writing cards use the same names as the Form filter
+  window.pvLengthOf = (w) => lengthOf(w);
+  // The longer passage after the pull quote: when the passage opens with the quote, start where the quote ends.
+  window.pvRest = function (full, hook) {
+    full = String(full || ''); const h = String(hook || '').toLowerCase().replace(/[^a-z\u00c0-\u024f]+/g, '');
+    if (!h) return full;
+    let i = 0, n = 0; const lower = full.toLowerCase();
+    while (i < full.length && n < h.length) { const ch = lower[i]; if (/[a-z\u00c0-\u024f]/.test(ch)) { if (ch !== h[n]) return full; n++; } i++; }
+    if (n < h.length) return full;
+    const rest = full.slice(i).replace(/^[\s.,;:!?’'”"—–-]+/, '');
+    return rest ? rest : '';
+  };
   function lengthOf(w) {
     const n = String(w.hook || '').split(/\s+/).filter(Boolean).length;
     return n <= 16 ? 'line' : n <= 40 ? 'few' : 'passage';
@@ -5187,6 +5227,7 @@
     const scrollSentinel = document.getElementById('scrollSentinel');
 
     function computeColumnCount() {
+      if (window.pvColumn && window.pvColumn()) return 1;   // writing read as a column
       const w = window.innerWidth;
       if (state.largeDensity) {
         return w <= 900 ? 1 : 2;
@@ -5479,7 +5520,8 @@
         const topBar = document.createElement('div');
         topBar.className = 'pocket-header';
         const seriesSpan = document.createElement('span');
-        seriesSpan.textContent = (window.pvFormOf && window.pvFormOf(w)) || (w.graphicForm || 'Verse').split('&')[0].trim();
+        seriesSpan.textContent = ((window.pvFormOf && window.pvFormOf(w)) || w.graphicForm || 'Verse').split('&')[0].trim();
+        if (window.pvLengthOf) cover.dataset.len = window.pvLengthOf(w);
         const moodSpan = document.createElement('span');
         moodSpan.textContent = w.emotionShort;
         topBar.appendChild(seriesSpan);
@@ -5498,8 +5540,16 @@
         footBar.appendChild(authorSpan);
         footBar.appendChild(dateSpan);
 
+        // the longer passage rides along hidden; Read as a column shows it under the quote
+        const fullDiv = document.createElement('div');
+        fullDiv.className = 'pocket-full';
+        const fullT = w.fullText || w.olderText || '';
+        const bareT = t => String(t).toLowerCase().replace(/[^a-z\u00c0-\u024f]+/g, '');
+        if (fullT && bareT(fullT).length > bareT(w.hook || '').length * 1.15) fullDiv.textContent = window.pvRest ? window.pvRest(fullT, w.hook) : fullT;
+
         cover.appendChild(topBar);
         cover.appendChild(hookDiv);
+        cover.appendChild(fullDiv);
         cover.appendChild(footBar);
         article.appendChild(cover);
       } else {
@@ -11119,7 +11169,8 @@
   ];
   const ROW_ART = ['tone', 'mood', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'mood', 'form', 'length', 'era', 'region'];
   const rowFacets = () => (show === 'writing' ? ROW_WRITING : ROW_ART).map(id => FACETS.find(f => f.id === id));
-  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['short', 'Shortest first'], ['mood', 'By mood']];
+  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['short', 'Shortest first'], ['mood', 'By mood'], ['column', 'Read as a column']];
+  const WRITING_ONLY_ARR = ['short', 'column'];
   const MOOD_ORDER = FACETS[1].opts.map(o => o[0]);
 
   const sel = {}; FACETS.forEach(f => sel[f.id] = new Set());
@@ -11270,7 +11321,24 @@
     }
     return out.concat(held, rest);
   }
+  function writingWall(list) {
+    let seed = 0; const d = new Date().toISOString().slice(0, 10);
+    for (const ch of d) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    const rnd = (id) => { let h = seed; for (const ch of id) h = Math.imul(h ^ ch.charCodeAt(0), 2654435761) >>> 0; return ((h >>> 0) % 1e6 + 0.5) / 1e6; };
+    // weighted shuffle: a famous line is about six times as likely as an unknown one to come early, never certain
+    const key = new Map(list.map(w => [w.id, Math.pow(rnd(w.id), 1 / (1 + (w.fame || 0) / 20))]));
+    const sorted = list.slice().sort((x, y) => key.get(y.id) - key.get(x.id));
+    const out = [], held = []; let ca = {};
+    for (const w of sorted.slice(0, 300)) {
+      if (out.length % 24 === 0) ca = {};
+      const a = w.artist || '?';
+      if ((ca[a] || 0) >= 2) { held.push(w); continue; }
+      ca[a] = (ca[a] || 0) + 1; out.push(w);
+    }
+    return out.concat(held, sorted.slice(300));
+  }
   let show = 'both', arrange = 'wall', openId = '';
+  window.pvColumn = () => show === 'writing' && arrange === 'column';
   try { show = localStorage.getItem('pvShow') || 'both'; } catch (e) {}
   if (!['both', 'art', 'writing'].includes(show)) show = 'both';
 
@@ -11334,8 +11402,12 @@
         const k = new Map(list.map(w => [w.id, colourRank(w)]));
         return vary(list.slice().sort((x, y) => k.get(y.id) - k.get(x.id)));
       }
+      // Writing on its own: a daily order that leans toward the lines people know (fame, from Bartlett's
+      // Familiar Quotations and the public-test lists), at most two per writer in each run of 24.
+      if (show === 'writing' && !(state.query || '').trim()) return writingWall(list);
       return list;
     }
+    if (arrange === 'column') return (state.query || '').trim() ? list : writingWall(list);
     const a = list.slice();
     if (arrange === 'date') a.sort((x, y) => yr(x) - yr(y));
     if (arrange === 'colour') { const k = new Map(a.map(w => [w.id, colourKey(w)])); a.sort((x, y) => k.get(x.id) - k.get(y.id)); }
@@ -11385,7 +11457,8 @@
     const vis = new Set((show === 'writing' ? ROW_WRITING : ROW_ART));
     FACETS.forEach(f => { if (!vis.has(f.id)) sel[f.id].clear(); });
     if (show === 'writing') { if (shade) { shade = null; scoreShade(); } if (arrange === 'colour') arrange = 'wall'; }
-    else if (arrange === 'short') arrange = 'wall';
+    else if (WRITING_ONLY_ARR.includes(arrange)) arrange = 'wall';
+    const gg = document.getElementById('galleryGrid'); if (gg) gg.classList.toggle('pv-column', show === 'writing' && arrange === 'column');
     if (state.spatialView && !['wall', 'timeline', 'chromatic'].includes(state.spatialView)) setSpatialView('wall');
     const before = snap();
     filterWorks(false);
@@ -11421,7 +11494,7 @@
         <button type="button" class="pv-opt" data-pv-more="drawer">Collection, form and sort</button>
         <button type="button" class="pv-opt" data-pv-more="theme">Light or dark wall</button></div>`;
     } else if (openId === 'arrange') {
-      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => show === 'writing' ? a[0] !== 'colour' : a[0] !== 'short').map(a =>
+      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => show === 'writing' ? a[0] !== 'colour' : !WRITING_ONLY_ARR.includes(a[0])).map(a =>
         `<button type="button" class="pv-opt${arrange === a[0] ? ' is-on' : ''}" data-pv-arr="${a[0]}">${esc(a[1])}</button>`).join('') + `</div>`;
     } else if (openId === 'tone') {
       const f = FACETS[0];
@@ -11720,6 +11793,61 @@
 
   if (show !== 'both') filterWorks(false);
   drawTools(); drawRead(); syncShow();
+
+  // ---- Read as a column needs the longer passages, which load after the wall ----
+  document.addEventListener('artchive:texts', () => { if (window.pvColumn()) refresh(); });
+  const origRefreshForTexts = refresh;
+  refresh = function () { if (window.pvColumn() && typeof ensureTexts === 'function' && !TEXTS_READY) ensureTexts(); return origRefreshForTexts(); };
+
+  // ---- Peek: rest on a writing card and the whole passage opens over it, without leaving the wall ----
+  // Mouse only (phones have no hover; a tap opens the reader, which leads with the quote). Nothing on the wall moves.
+  const fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine) {
+    let peekEl = null, peekFor = null, tOpen = 0, tClose = 0;
+    const bare = t => String(t || '').toLowerCase().replace(/[^a-zÀ-ɏ]+/g, '');
+    const closePeek = () => { clearTimeout(tOpen); if (peekEl) { peekEl.remove(); peekEl = null; peekFor = null; } };
+    const openPeek = (art) => {
+      const w = state.currentList[+art.dataset.idx]; if (!w || w.itemType !== 'literature') return;
+      const full = w.fullText || w.olderText || '';
+      if (!full || bare(full).length <= bare(w.hook).length * 1.15) return;   // nothing more to read
+      closePeek();
+      const card = art.querySelector('.pocket-poet-cover') || art, r = card.getBoundingClientRect();
+      const el = document.createElement('div'); el.className = 'pv-peek';
+      el.innerHTML = `<div class="pv-peek-q"></div><div class="pv-peek-t"></div><div class="pv-peek-c"><span></span><span>Open</span></div>`;
+      el.querySelector('.pv-peek-q').textContent = `“${w.hook}”`;
+      el.querySelector('.pv-peek-t').textContent = window.pvRest(full, w.hook);
+      el.querySelector('.pv-peek-c span').textContent = `${w.artist}${w.dateLabel ? ' · ' + w.dateLabel : ''}`;
+      const width = Math.max(r.width, 340), left = Math.min(Math.max(12, r.left - (width - r.width) / 2), innerWidth - width - 12);
+      const top = Math.max(12, Math.min(r.top, innerHeight - 160));
+      el.style.cssText = `left:${left}px;top:${top}px;width:${width}px;max-height:${Math.min(innerHeight - top - 16, innerHeight * 0.78)}px`;
+      el.addEventListener('mouseleave', () => { tClose = setTimeout(closePeek, 160); });
+      el.addEventListener('mouseenter', () => clearTimeout(tClose));
+      el.addEventListener('click', () => { closePeek(); art.click(); });
+      document.body.appendChild(el); peekEl = el; peekFor = art;
+      requestAnimationFrame(() => el.classList.add('is-on'));
+    };
+    const grid = document.getElementById('galleryGrid');
+    if (grid) {
+      grid.addEventListener('mouseover', (e) => {
+        const art = e.target.closest('.art-piece'); if (!art || art === peekFor || !art.querySelector('.pocket-poet-cover')) return;
+        if (window.pvColumn()) return;   // the column already shows everything
+        clearTimeout(tOpen); clearTimeout(tClose);
+        tOpen = setTimeout(() => {
+          if (!art.matches(':hover')) return;
+          if (typeof ensureTexts === 'function' && !TEXTS_READY) ensureTexts().then(() => { if (art.matches(':hover')) openPeek(art); });
+          else openPeek(art);
+        }, 450);
+      });
+      grid.addEventListener('mouseout', (e) => {
+        const art = e.target.closest('.art-piece'); if (!art || art.contains(e.relatedTarget)) return;
+        clearTimeout(tOpen);
+        if (peekEl && !(e.relatedTarget && peekEl.contains(e.relatedTarget))) tClose = setTimeout(closePeek, 160);
+      });
+    }
+    window.addEventListener('scroll', closePeek, { passive: true });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePeek(); });
+    if (typeof openLightbox === 'function') { const o = openLightbox; openLightbox = function () { closePeek(); return o.apply(this, arguments); }; }
+  }
 })();
 </script>
 </body>
