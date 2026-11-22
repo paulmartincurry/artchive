@@ -3989,6 +3989,91 @@
       .pv-pop { left: 0 !important; right: 0; width: auto; }
     }
   </style>
+  <!-- The house style (21 Nov 2026). The interface talks like a wall label: serif for names, small capitals
+       for controls, hairlines instead of rounded buttons, square corners. One accent, oxblood, and only where
+       something is on (a filter you set, a work you saved, the shade you picked). Edit here; it sits last so it wins. -->
+  <style id="brandStyles">
+    :root { --accent: #b33a2c; --accent-ink: #f3ece6; --ui-track: 0.16em; }
+    body.light-wall { --accent: #8c2419; --accent-ink: #fff; }
+    ::selection { background: var(--accent); color: var(--accent-ink); }
+    :focus-visible { outline: 1px solid var(--accent) !important; outline-offset: 3px; }
+
+    /* Masthead */
+    .brand-title { font-size: 1.18rem; letter-spacing: 0.2em; font-weight: 500; }
+    .header-search-box, .header-search-box:focus-within {
+      border: 0 !important; border-bottom: 1px solid var(--border-rule) !important; border-radius: 0 !important;
+      background: transparent !important; box-shadow: none !important; padding-left: 2px !important; height: 52px !important; }
+    .header-search-box:focus-within { border-bottom-color: var(--text) !important; }
+    .header-search-input { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.3rem !important; }
+    .header-search-icon { opacity: .55; }
+    #savedFilterBtn { font-size: 0.72rem !important; letter-spacing: var(--ui-track); text-transform: uppercase; color: var(--text-muted) !important; }
+    #savedFilterBtn:hover { color: var(--text) !important; }
+    #savedFilterBtn.has-saved, #savedFilterBtn.has-saved #savedCount { color: var(--text) !important; }
+    #savedFilterBtn.has-saved::before { background: var(--accent); border-color: var(--accent); }
+
+    /* The row of controls: words, not buttons */
+    .pv-tools { gap: 26px; }
+    .pv-tool, .pv-tool.is-arr {
+      height: 40px; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important;
+      color: var(--text-muted) !important; font-size: 0.72rem; letter-spacing: var(--ui-track); text-transform: uppercase; position: relative; gap: 7px; }
+    .pv-tool:hover, .pv-tool.is-open, .pv-tool.is-set { color: var(--text) !important; }
+    .pv-tool.is-open::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: currentColor; }
+    .pv-tool.is-set:not(:has(.pv-dot))::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: 0 0 5px; }
+    .pv-tool .pv-dot { width: 9px; height: 9px; }
+    .pv-tool .pv-x { font-size: 0.9rem; letter-spacing: 0; }
+    .pv-tool.is-arr { margin-left: 10px; }
+    .pv-tool.is-arr::before { content: ''; position: absolute; left: -18px; top: 13px; bottom: 13px; width: 1px; background: var(--border-rule); }
+    .pv-seg, .pv-room { font-size: 0.72rem !important; letter-spacing: var(--ui-track); text-transform: uppercase; }
+    .pv-seg.is-on { border-bottom-color: var(--text); }
+    .pv-rule { background: var(--border-rule); }
+
+    /* Panels that drop from the row */
+    .pv-pop { border-radius: 2px; border-color: var(--border-rule); box-shadow: 0 24px 60px rgba(0,0,0,.45); padding: 20px 22px; }
+    body.light-wall .pv-pop { box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+    .pv-pop h3 { font-size: 0.64rem; letter-spacing: 0.2em; }
+    .pv-opts { gap: 2px 22px; }
+    .pv-opt { height: 34px; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important;
+      color: var(--text-muted) !important; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.12rem; gap: 9px; }
+    .pv-opt:hover { color: var(--text) !important; }
+    .pv-opt.is-on { color: var(--text) !important; box-shadow: inset 0 -1px 0 var(--accent); }
+    .pv-opt .pv-dot { width: 10px; height: 10px; }
+    .pv-done, .pv-done button { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .pv-sw { border-radius: 50%; }
+    .pv-sw.is-on, .pv-any.is-on .pv-any-sw { outline: 1px solid var(--accent); outline-offset: 3px; }
+    .pv-any { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .pv-pad { border-radius: 2px; }
+
+    /* What you asked for, read back */
+    .pv-read { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .pv-chip { color: var(--text); text-transform: none; letter-spacing: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.12rem; }
+    .pv-chip:hover { text-decoration-color: var(--accent); }
+    .pv-clear { text-decoration: none; letter-spacing: 0.12em; }
+    .pv-clear:hover { color: var(--accent); }
+
+    /* The open work */
+    #stageBackBtn { background: none !important; border: 0 !important; border-radius: 0 !important; padding: 6px 0 !important;
+      font-size: 0.68rem; letter-spacing: var(--ui-track); text-transform: uppercase; color: var(--text-muted); }
+    #stageBackBtn:hover { color: var(--text); }
+    .lightbox .text-action, #lbSaveBtn, #lbPrev, #lbNext, #lbClose { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    #lbSaveBtn.active { color: var(--accent) !important; }
+    #huntActivePigmentBtn { display: none !important; }   /* the swatches search on tap */
+    /* Hidden, not deleted: the tag-matched 'visual rhymes' strip and the live pulls from other museums.
+       More like this does the first job better, and the second brings in work nobody chose. */
+    .ensemble-section, #expandLiveSearchBtn { display: none !important; }
+    .lb-palette .swatch-dot { transition: transform .15s ease; }
+    .lb-palette .swatch-dot:hover { transform: scale(1.15); }
+    .minimal-select { border-radius: 0; }
+
+    /* Reading Room covers sit in the same muted light as the wall */
+    .rr-cover { filter: saturate(.62) brightness(.82); transition: filter .25s ease; }
+    .rr-cover:hover { filter: none; }
+    body.light-wall .rr-cover { filter: saturate(.7); }
+
+    @media (max-width: 760px) {
+      .pv-tools { gap: 20px; }
+      .header-search-box { height: 46px !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -4459,17 +4544,17 @@
         <!-- Collapsible Museum & Craft Specs Dossier (hidden until clicked) -->
         <div class="specs-accordion-wrap">
           <button class="specs-toggle-btn" id="toggleSpecsBtn" type="button">
-            <span>Museum Specs</span>
+            <span>Details</span>
             <span id="specsToggleIcon">+</span>
           </button>
           <div class="specs-drawer" id="specsDrawer">
             <span class="spec-key">Medium</span>
             <span class="spec-val" id="specMedium"></span>
-            <span class="spec-key">Form / Cut</span>
+            <span class="spec-key">Form</span>
             <span class="spec-val" id="specForm"></span>
-            <span class="spec-key">Tradition &amp; Era</span>
+            <span class="spec-key">Era</span>
             <span class="spec-val" id="specEra"></span>
-            <span class="spec-key">Pigment Hex</span>
+            <span class="spec-key">Colours</span>
             <span class="spec-val" id="specHex"></span>
             <span class="spec-key">Provenance</span>
             <span class="spec-val" id="specProvenance"></span>
@@ -4514,7 +4599,7 @@
         </div>
         <div class="footer-row">
           <a class="quiet-link" id="lbSourceLink" href="#" target="_blank" rel="noopener noreferrer">Source record ↗</a>
-          <button class="quiet-link" id="lbOrbitConstellationBtn" type="button" title="Place this work at the center of the Gravity Constellation">✦ Orbit in Constellation</button>
+          <button class="quiet-link" id="lbOrbitConstellationBtn" type="button" title="Place this work at the center of the Gravity Constellation">Constellation view</button>
         </div>
       </div>
     </aside>
@@ -11043,6 +11128,12 @@
     return { h, s: Math.min(1, s), l };
   }
   const pickHex = () => hslHex(pick.h, pick.s, pick.l);
+  function nearPigment(hex) {
+    const q = hexToOk(hex); let best = null, bd = 1e9;
+    PIGMENTS.concat([['Lamp black', '#1B1B1B'], ['Lead white', '#EDE6D6'], ['Slate', '#6B7078'], ['Lilac', '#B59BC8'], ['Rose', '#D98A9A']]).forEach(p => {
+      const o = hexToOk(p[1]), d = Math.hypot(q[0] - o[0], q[1] - o[1], q[2] - o[2]); if (d < bd) { bd = d; best = p[0]; } });
+    return bd < 0.09 ? 'Near ' + (/^(Prussian|Klein|Naples|Tyrian)/.test(best) ? best : best.toLowerCase()) : hex;
+  }
   const L_TOP = 0.9, L_BOT = 0.1;
   function paintPicker() {
     const pad = pop.querySelector('.pv-pad'), viv = pop.querySelector('.pv-vivid canvas');
@@ -11070,12 +11161,12 @@
   function applyPick() {   // live, but without redrawing the panel under the finger
     clearTimeout(pickT);
     pickT = setTimeout(async () => {
-      const hx = pickHex();
-      shade = { hex: hx, label: hx }; sel.tone.clear();
+      const hx = pickHex(), nm = nearPigment(hx);
+      shade = { hex: hx, label: nm }; sel.tone.clear();
       if (!CDATA) await loadColour();
       scoreShade(); refresh();
       const c = pop.querySelector('[data-pv-count]');
-      if (c) c.textContent = `${hx} · ${state.currentList.length.toLocaleString()} works`;
+      if (c) c.textContent = `${nm} · ${state.currentList.length.toLocaleString()} works`;
       pop.querySelectorAll('.pv-sw.is-on').forEach(b => b.classList.remove('is-on'));
       if (!pop.querySelector('[data-pv-clear]')) {
         const done = pop.querySelector('.pv-done'), cl = document.createElement('button');
@@ -11232,20 +11323,20 @@
   function facetLabel(f) {
     if (f.id === 'tone' && shade) return `<span class="pv-dot" style="background:${shade.hex}"></span>${esc(shade.label)}<span class="pv-x" aria-hidden="true">×</span>`;
     const s = [...sel[f.id]];
-    if (!s.length) return `${esc(f.label)} ▾`;
+    if (!s.length) return esc(f.label);
     const o = f.opts.filter(x => sel[f.id].has(x[0]));
     const dots = f.id === 'tone' ? o.map(x => `<span class="pv-dot" style="background:${x[2]}"></span>`).join('') : '';
     const words = o.length <= 2 ? o.map(x => esc(x[1])).join(' + ') : `${esc(f.label)} · ${o.length}`;
     return `${dots}${words}<span class="pv-x" aria-hidden="true">×</span>`;
   }
   function drawTools() {
-    const arrLbl = arrange === 'wall' ? 'Arrange ▾' : `${esc(ARRANGE.find(a => a[0] === arrange)[1])}<span class="pv-x" aria-hidden="true">×</span>`;
+    const arrLbl = arrange === 'wall' ? 'Arrange' : `${esc(ARRANGE.find(a => a[0] === arrange)[1])}<span class="pv-x" aria-hidden="true">×</span>`;
     toolsEl.innerHTML = FACETS.map(f => {
       const set = sel[f.id].size > 0 || (f.id === 'tone' && !!shade);
       return `<button type="button" class="pv-tool${openId === f.id ? ' is-open' : ''}${set ? ' is-set' : ''}" data-pv-tool="${f.id}" aria-expanded="${openId === f.id}" aria-label="${esc(f.label)}">${facetLabel(f)}</button>`;
     }).join('') +
       `<button type="button" class="pv-tool is-arr${openId === 'arrange' ? ' is-open' : ''}${arrange !== 'wall' ? ' is-set' : ''}" data-pv-tool="arrange" aria-expanded="${openId === 'arrange'}">${arrLbl}</button>` +
-      `<button type="button" class="pv-tool${openId === 'more' ? ' is-open' : ''}" data-pv-tool="more" aria-expanded="${openId === 'more'}">More ▾</button>`;
+      `<button type="button" class="pv-tool${openId === 'more' ? ' is-open' : ''}" data-pv-tool="more" aria-expanded="${openId === 'more'}">More</button>`;
   }
   function drawPop() {
     if (!openId) { pop.hidden = true; return; }
@@ -11402,6 +11493,9 @@
   // ---- top bar extras ----
   const sb = document.getElementById('savedFilterBtn');
   if (sb) sb.childNodes.forEach(n => { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Saved (', 'Saved ').replace(')', ''); });
+  const sc = document.getElementById('savedCount');
+  if (sb && sc) { const lit = () => sb.classList.toggle('has-saved', (parseInt(sc.textContent, 10) || 0) > 0); lit();
+    new MutationObserver(lit).observe(sc, { childList: true, characterData: true, subtree: true }); }
   const acts = document.querySelector('.nav-actions');
   if (acts) {
     const tb = document.createElement('button');
