@@ -1299,3 +1299,13 @@ Calls: left out a Rijksmuseum advertisement for a lithography firm (no ads) and 
 Images: every imageUrl returned an image to curl from the sandbox on 22 Nov after the Chicago resize. Not yet loaded in Paul's Chrome (Chicago, Commons and Smithsonian refuse the headless browser).
 
 Coverage (OKLab hue bands, works with a 10% cluster at chroma 0.07 or more): red 92 to 130, orange 393 to 421, gold 570 to 611, yellow 97 to 115, yellow-green 21 to 23, green 49 to 60, teal 5 to 6, cyan 4 to 17, sky 13 to 17, blue 72 to 85, indigo 7 to 11, violet 2 to 5, purple 0 to 0, magenta 2 to 7, pink 0 to 6. Empty cells (hue band by lightness) 48 to 35 of 120. The cool and purple end stays open.
+
+## Spectrum round II (22 Nov 2026)
+
+72 artworks, VAULT-3495 to 3566, `grow: 'spectrum'`, all free: Chicago and Cleveland open access (34), Séguy's Papillons plates 1, 6, 7, 11, 13, 16 to 20 (BHL public domain, published c. 1925; images are the Commons copies of the BHL scan), Owen Jones's Grammar of Ornament plates from NYPL (public domain, 1856; titles from the NYPL record), and Gazette du Bon Ton / La Guirlande pochoirs from the Rijksmuseum (public domain, published 1914 to 1921; titles from the plate and the Rijksmuseum record, designer as the Rijksmuseum credits). Notes only from the holder's description (19 works), or for two Séguy plates from the portfolio's title page; the rest are label only.
+
+Left out: a micromosaic table and a Gazette plate whose scans show the photographer's colour bar; Redon's Orpheus, Cassatt's The Child's Bath, Seurat's Grande Jatte, Kandinsky's Painting with Troika, Marc's Bewitched Mill and Monet's 1906 Water Lilies (already on the site); a Song shard and a second kingfisher ornament (weak or repetitive).
+
+Picker change: a pick more vivid than anything in the collection at that hue is pulled back to the collection's 97th-percentile chroma for that 15° band, and the result always includes the 60 closest works. Tested headless: violet 4 works before, 144 after; purple 48, magenta 33, pink 38, red 42, cyan 406, green 217, yellow 403; no script errors.
+
+Images: Chicago, Cleveland, NYPL and Rijksmuseum images returned images to curl; the Séguy Commons thumbnails could not be fetched from the sandbox (Commons 429) but the file pages exist. Not yet loaded in Paul's Chrome.

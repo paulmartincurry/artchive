@@ -4657,7 +4657,7 @@
 
 
 
-  <script src="data/site.js?v=875c781653"></script>
+  <script src="data/site.js?v=59e4ad27ec"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -11208,7 +11208,21 @@
   function scoreShade() {
     shadeScore = new Map(); shadeTop = 0;
     if (!shade || !CDATA) return;
-    const [qL, qa, qb] = hexToOk(shade.hex), SIG = 0.075;
+    let [qL, qa, qb] = hexToOk(shade.hex); const SIG = 0.075;
+    // Pull a very vivid pick back to the most vivid colour the collection actually holds at that hue,
+    // so a neon violet finds the most violet works instead of almost nothing (22 Nov 2026).
+    if (!CDATA.cmax) {
+      const bins = Array.from({ length: 24 }, () => []);
+      CDATA.cl.forEach(cls => cls.forEach(c => {
+        if (c[3] < 50) return;
+        const a = c[1] / 500, b = c[2] / 500, C = Math.hypot(a, b);
+        if (C < 0.02) return;
+        bins[Math.floor(((Math.atan2(b, a) * 180 / Math.PI) + 360) % 360 / 15)].push(C);
+      }));
+      CDATA.cmax = bins.map(v => { v.sort((x, y) => x - y); return Math.max(0.04, v.length ? v[Math.floor(v.length * 0.97)] : 0.04); });
+    }
+    { const C = Math.hypot(qa, qb), h = Math.atan2(qb, qa), bin = Math.floor(((h * 180 / Math.PI) + 360) % 360 / 15);
+      const cap = CDATA.cmax[bin]; if (C > cap) { qa = cap * Math.cos(h); qb = cap * Math.sin(h); } }
     CDATA.ids.forEach((id, i) => {
       let sc = 0;
       for (const c of CDATA.cl[i]) {
@@ -11219,7 +11233,7 @@
     });
     // Keep everything within a quarter of the best match, and never fewer than the 60 closest.
     const sorted = [...shadeScore.values()].sort((a, b) => b - a);
-    shadeCut = Math.max(0.0015, Math.min(shadeTop * 0.25, sorted[59] || 0));
+    shadeCut = Math.max(0.00005, Math.min(shadeTop * 0.25, sorted[59] || 0));
   }
   function colourRank(w) {
     if (shade) return shadeScore ? (shadeScore.get(w.id) || 0) : 0;

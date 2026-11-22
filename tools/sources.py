@@ -116,6 +116,8 @@ def rijks_record(uri):
             if n:
                 makers.append(n[0])
     ts = prod.get('timespan') or {}
+    if isinstance(ts, list):
+        ts = ts[0] if ts else {}
     date = ''
     for x in ts.get('identified_by', []):
         date = x.get('content', '') or date
