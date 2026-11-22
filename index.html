@@ -4608,6 +4608,38 @@
 
 
   <script src="data/site.js?v=ecb945946c"></script>
+<script id="writingForms">
+  // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
+  // The first rule that matches wins; a rule can carry words that rule it out.
+  const POEMISH = /poem|poetry|verse|lyric|masnavi|epic|ode\b|sonnet|couplets(?!.*kuṛaḷ)/i;
+  const FORM_RULES = [
+    ['Play', /^play$|verse drama|lyrical drama|tragedy|tragic|soliloquy|stage|chorus|dramatic verse|monologue/i, /fever|prose|dramatic monologue|free-verse|epitaph/i],
+    ['Speech', /oratory|speech|address|lecture|sermon|oration|council reply|last words|interview|reported remark|^conversation$/i],
+    ['Letter', /letter|epistle|epistolary manifesto/i, /novel/i],
+    ['Diary & notebook', /diary|journal|notebook|memoir|autobiograph|pillow book|zuihitsu|riḥla|travelogue|testimony/i],
+    ['Manifesto', /manifesto|pamphlet|editorial|formal protest|proclamation|charter/i],
+    ['Scripture & prayer', /sacred|scripture|psalm|upanishad|sutra|rigveda|prayer|biblical|hymn(?! & anthem)|canticle|devotional|spiritual|analects|stotra|vachana|vakh|bhajan|abhang|karakia|^prophecy$/i],
+    ['Aphorism & philosophy', /aphoris|maxim|proverb|sayings|philosoph|treatise|wisdom|parable|fable|dialogue|axiom|precept|subhāṣita|śubhāṣita|kuṛaḷ|military order|lexicon|counsel|oracle|sebayt|poetics/i, null, true],
+    ['Poem', /dramatic monologue|poem|poetry|verse|sonnet|lyric|ode|ballad|haiku|waka|ghazal|quatrain|song|elegy|epic|chant|epigram|couplet|masnavi|qa[sṣ][iī]da|rub[aā]|jueju|wǔjué|qījué|gǔfēng|yuefu|stanza|rondeau|ballade|redondilla|letrilla|carol|rhyme|lament|dirge|marthiya|khamriyya|ottava|terza|hexameter|chu ci|octet|epitaph|dinggedicht|fragment|mele|xóchitl|kalevala|anthem|dactylic|alexandrine|bhakti|kolomyika|runo|canoe|refrain|imagist|image|meditation/i],
+    ['Prose', /novel|story|tale|prose|fever|essay|sketch|romance|myth|narrative|historiograph|satire|book|unfinished|chronicle|pulp|phantasmagoria|preface|science writing|nachtstück/i],
+  ];
+  function formOf(w) {
+    // labels like "Aphorism & Treatise (Tower Essay)" carry the real form in the brackets
+    const m = String(w.medium || '').replace(/^Aphorism & Treatise \((.*)\)$/, (a, inner) => /maxim|aphoris|epigram|proverb|precept|counsel|oracle|lexicon|sebayt|subhāṣita|stele|manual/i.test(inner) ? 'Aphorisms' : inner);
+    for (const [name, re, not, notPoem] of FORM_RULES) {
+      if (!re.test(m) || (not && not.test(m))) continue;
+      if (notPoem && POEMISH.test(m) && !/aphoris|maxim|proverb|sayings|kuṛaḷ|subhāṣita|śubhāṣita/i.test(m)) continue;
+      return name;
+    }
+    return '';
+  }
+  // Length of the pull quote, the thing you actually take away
+  window.pvFormOf = formOf;   // the writing cards use the same names as the Form filter
+  function lengthOf(w) {
+    const n = String(w.hook || '').split(/\s+/).filter(Boolean).length;
+    return n <= 16 ? 'line' : n <= 40 ? 'few' : 'passage';
+  }
+</script>
 <script>
     const TARGET_TOTAL = 1080;
     const PAGE_BATCH_SIZE = 56;
@@ -5432,7 +5464,7 @@
         const topBar = document.createElement('div');
         topBar.className = 'pocket-header';
         const seriesSpan = document.createElement('span');
-        seriesSpan.textContent = (w.graphicForm || 'Verse').split('&')[0].trim();
+        seriesSpan.textContent = (window.pvFormOf && window.pvFormOf(w)) || (w.graphicForm || 'Verse').split('&')[0].trim();
         const moodSpan = document.createElement('span');
         moodSpan.textContent = w.emotionShort;
         topBar.appendChild(seriesSpan);
@@ -7708,7 +7740,7 @@
         verseDiv.style.borderTop = `3px solid ${pal[1] || pal[0]}`;
         const kicker = document.createElement('div');
         kicker.className = 'spatial-card-verse-kicker';
-        kicker.textContent = (w.graphicForm || 'Verse').split('&')[0].trim();
+        kicker.textContent = (window.pvFormOf && window.pvFormOf(w)) || (w.graphicForm || 'Verse').split('&')[0].trim();
         const hook = document.createElement('div');
         hook.className = 'spatial-card-verse-hook';
         hook.textContent = `“${(w.hook || w.excerpt || w.title || '').replace(/\n/g, ' / ')}”`;
@@ -11036,8 +11068,10 @@
 // search, and Arrange (the daily wall, by date, by colour, by mood). The wall animates between states.
 (function () {
   const LIT = 'Literature & Verse';
+  // formOf and lengthOf live in the small script before the main one, so the cards can use them too.
+  // The row changes with All / Art / Writing: art gets Colour and Medium, writing gets Theme, Form and Length.
   const FACETS = [
-    { id: 'tone', label: 'Colour', field: 'colourStrength', opts: [
+    { id: 'tone', label: 'Colour', field: 'colourStrength', only: 'art', opts: [
       ['Red', 'Red', '#b3261e'], ['Orange', 'Orange', '#d9752b'], ['Gold', 'Gold', '#c9a227'], ['Green', 'Green', '#3f7a4d'],
       ['Blue', 'Blue', '#2a4f9c'], ['Brown', 'Brown', '#6b4a2b'], ['Black', 'Black', '#151515'], ['Grey', 'Grey', '#8a8a8a'],
       ['Cream', 'Cream', '#e8dfc8'] ] },
@@ -11047,11 +11081,16 @@
     { id: 'region', label: 'Region', field: 'macroRegion', opts: [
       ['Europe', 'Europe'], ['Americas', 'Americas'], ['East & Inner Asia', 'East & Inner Asia'],
       ['Near East & South Asia', 'Near East & South Asia'], ['Africa, Oceania & Indigenous Americas', 'Africa, Oceania & Indigenous Americas'] ] },
-    { id: 'medium', label: 'Medium', field: 'macroMedium', opts: [
+    { id: 'medium', label: 'Medium', field: 'macroMedium', only: 'art', opts: [
       ['Painting', 'Painting'], ['Print & Woodcut', 'Print & Woodcut'], ['Photograph & Film', 'Photograph & Film'],
       ['Sculpture & Metalwork', 'Sculpture & Metalwork'], ['Scroll & Paper', 'Scroll & Paper'],
-      ['Diagram, Cyanotype & Textile', 'Diagram, Cyanotype & Textile'], ['Letterform, Score & Ephemera', 'Letterform, Score & Ephemera'] ] }
+      ['Diagram, Cyanotype & Textile', 'Diagram, Cyanotype & Textile'], ['Letterform, Score & Ephemera', 'Letterform, Score & Ephemera'] ] },
+    { id: 'theme', label: 'Theme', field: 'shelf', only: 'writing', opts: ['Love', 'God', 'Earth', 'Death', 'War', 'Art'].map(m => [m, m]) },
+    { id: 'form', label: 'Form', get: formOf, only: 'writing', opts: ['Poem', 'Prose', 'Letter', 'Speech', 'Play', 'Scripture & prayer', 'Aphorism & philosophy', 'Diary & notebook', 'Manifesto'].map(m => [m, m]) },
+    { id: 'length', label: 'Length', get: lengthOf, only: 'writing', opts: [['line', 'A line'], ['few', 'A few lines'], ['passage', 'A passage']] }
   ];
+  const ROW_ART = ['tone', 'mood', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'mood', 'form', 'length', 'era', 'region'];
+  const rowFacets = () => (show === 'writing' ? ROW_WRITING : ROW_ART).map(id => FACETS.find(f => f.id === id));
   const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['mood', 'By mood']];
   const MOOD_ORDER = FACETS[1].opts.map(o => o[0]);
 
@@ -11215,13 +11254,14 @@
 
   // ---- hooks read by filterWorks ----
   window.pvPass = function (w) {
-    if (show === 'art' && isLit(w)) return false;
+    const inRoom = state.spatialView === 'reading';   // the Reading Room is all writing: it ignores Art only, colour and medium
+    if (show === 'art' && isLit(w) && !inRoom) return false;
     if (show === 'writing' && !isLit(w)) return false;
-    const inRoom = state.spatialView === 'reading';   // colour and medium are for art: the Reading Room ignores them
     for (const f of FACETS) {
       const s = sel[f.id];
-      if (!s.size || (inRoom && (f.id === 'tone' || f.id === 'medium'))) continue;
-      let v = w[f.field];
+      if (!s.size || (inRoom && f.only === 'art')) continue;
+      if (f.only === 'writing' && !isLit(w)) return false;
+      let v = f.get ? f.get(w) : w[f.field];
       if (f.id === 'tone') { if (isLit(w)) return false; const fl = s.size > 1 ? 4 : CFLOOR; for (const n of s) if (strength(w, n) < fl) return false; continue; }
       if (f.id === 'medium') {
         if (isLit(w)) return false;   // a medium choice means art
@@ -11312,6 +11352,10 @@
     createCardElement = function (w, idx) { const el = origCard(w, idx); if (el && w) el.dataset.wid = w.id; return el; };
   }
   function refresh() {
+    // a filter that is not on the row any more stops filtering
+    const vis = new Set((show === 'writing' ? ROW_WRITING : ROW_ART));
+    FACETS.forEach(f => { if (!vis.has(f.id)) sel[f.id].clear(); });
+    if (show === 'writing') { if (shade) { shade = null; scoreShade(); } if (arrange === 'colour') arrange = 'wall'; }
     if (state.spatialView && !['wall', 'timeline', 'chromatic'].includes(state.spatialView)) setSpatialView('wall');
     const before = snap();
     filterWorks(false);
@@ -11331,7 +11375,7 @@
   }
   function drawTools() {
     const arrLbl = arrange === 'wall' ? 'Arrange' : `${esc(ARRANGE.find(a => a[0] === arrange)[1])}<span class="pv-x" aria-hidden="true">×</span>`;
-    toolsEl.innerHTML = FACETS.map(f => {
+    toolsEl.innerHTML = rowFacets().map(f => {
       const set = sel[f.id].size > 0 || (f.id === 'tone' && !!shade);
       return `<button type="button" class="pv-tool${openId === f.id ? ' is-open' : ''}${set ? ' is-set' : ''}" data-pv-tool="${f.id}" aria-expanded="${openId === f.id}" aria-label="${esc(f.label)}">${facetLabel(f)}</button>`;
     }).join('') +
@@ -11348,7 +11392,7 @@
         <button type="button" class="pv-opt" data-pv-more="drawer">Collection, form and sort</button>
         <button type="button" class="pv-opt" data-pv-more="theme">Light or dark wall</button></div>`;
     } else if (openId === 'arrange') {
-      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.map(a =>
+      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => !(show === 'writing' && a[0] === 'colour')).map(a =>
         `<button type="button" class="pv-opt${arrange === a[0] ? ' is-on' : ''}" data-pv-arr="${a[0]}">${esc(a[1])}</button>`).join('') + `</div>`;
     } else if (openId === 'tone') {
       const f = FACETS[0];
@@ -11433,7 +11477,7 @@
     setSpatialView = function (v) {
       const was = state.spatialView, r = orig(v);
       // the Reading Room ignores colour and medium, so the list has to be rebuilt going in and out
-      if ((v === 'reading') !== (was === 'reading') && (colourOn() || sel.medium.size)) filterWorks(false);
+      if ((v === 'reading') !== (was === 'reading') && (colourOn() || sel.medium.size || show === 'art')) filterWorks(false);
       syncShow(); return r;
     };
   }
