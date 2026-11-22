@@ -4042,6 +4042,16 @@
     .pv-sw.is-on, .pv-any.is-on .pv-any-sw { outline: 1px solid var(--accent); outline-offset: 3px; }
     .pv-any { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; }
     .pv-pad { border-radius: 2px; }
+    /* The reader: pull quote first, then who and what, then the longer passage */
+    #stageReadingWrap { flex-direction: column; }
+    #stageReadingWrap .chapbook-meta-top { order: 0; }
+    #stageReadingWrap .stage-pull { order: 1; margin: 34px 0 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 2rem; line-height: 1.32; color: var(--text); white-space: pre-line; }
+    #stageReadingWrap .chapbook-title { order: 2; font-size: 1.15rem; margin: 0 0 4px; }
+    #stageReadingWrap .chapbook-author { order: 3; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    #stageReadingWrap .chapbook-orig-script { order: 4; }
+    #stageReadingWrap .stage-longer { order: 5; margin: 40px 0 16px; padding-top: 18px; border-top: 1px solid var(--border-rule); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+    #stageReadingWrap .stage-reading-text { order: 6; font-size: 1.22rem; color: var(--text-muted); }
+    @media (max-width: 760px) { #stageReadingWrap .stage-pull { font-size: 1.5rem; } }
 
     /* What you asked for, read back */
     .pv-read { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
@@ -4065,6 +4075,9 @@
     .minimal-select { border-radius: 0; }
 
     /* Reading Room covers sit in the same muted light as the wall */
+    /* The Reading Room is retired (Paul, 21 Nov 2026): the Writing wall, its row and the reader replace it.
+       Hidden, not deleted; the view code is still in the script. */
+    #pvRoom, #spatialLensPills [data-spatial-view="reading"] { display: none !important; }
     .rr-cover { filter: saturate(.62) brightness(.82); transition: filter .25s ease; }
     .rr-cover:hover { filter: none; }
     body.light-wall .rr-cover { filter: saturate(.7); }
@@ -4468,6 +4481,8 @@
         <h2 class="chapbook-title" id="chapbookTitle"></h2>
         <div class="chapbook-author" id="chapbookAuthor"></div>
         <div class="chapbook-orig-script" id="chapbookOriginalScript" dir="auto"></div>
+        <blockquote class="stage-pull" id="lbPull"></blockquote>
+        <div class="stage-longer" id="lbLongerLbl">Longer passage</div>
         <div class="stage-reading-text" id="lbReadingText"></div>
       </div>
 
@@ -6534,14 +6549,25 @@
         if (minedDetailsSection) minedDetailsSection.classList.remove('visible');
         stageLensControls.style.display = 'none';
         if (stencilWorkshopBar) stencilWorkshopBar.classList.remove('visible');
-        stageReadingWrap.style.display = 'block';
+        stageReadingWrap.style.display = 'flex';
         chapbookSeriesNo.textContent = w.pocketNo ? (w.pocketNo.includes('·') ? w.pocketNo : `POCKET POETS · ${w.pocketNo}`) : 'POCKET POETS EDITION';
         stageReadingWrap.classList.toggle('prose-layout', w.graphicForm === 'Fever Prose & Monologue');
         chapbookMoodSubj.textContent = `${w.emotionShort} · ${w.subjectShort}`;
         chapbookTitle.textContent = w.title;
         chapbookAuthor.textContent = `${w.artist} (${w.dateLabel || 'historic'})`;
-        lbReadingText.textContent = w.fullText || w.excerpt;
-        if (!TEXTS_READY) ensureTexts().then(() => { if (state.currentList[state.activeWorkIndex] === w) lbReadingText.textContent = w.fullText || w.excerpt; });
+        // the pull quote first, as on the wall; the longer passage under it, unless it is the same words
+        const fillReader = () => {
+          const full = w.fullText || w.olderText || w.excerpt || '', hook = w.hook || '';
+          const bare = t => String(t).toLowerCase().replace(/[^a-z\u00c0-\u024f\u0370-\u1fff\u3040-\u9fff]+/g, '');
+          const same = !full || bare(full).length <= bare(hook).length * 1.15;
+          lbPull.textContent = hook || full;
+          lbLongerLbl.style.display = same ? 'none' : '';
+          lbReadingText.style.display = same ? 'none' : '';
+          lbReadingText.textContent = same ? '' : full;
+        };
+        const lbPull = document.getElementById('lbPull'), lbLongerLbl = document.getElementById('lbLongerLbl');
+        fillReader();
+        if (!TEXTS_READY) ensureTexts().then(() => { if (state.currentList[state.activeWorkIndex] === w) fillReader(); });
 
         const origBtn = document.getElementById('toggleOriginalScriptBtn');
         const origBox = document.getElementById('chapbookOriginalScript');
@@ -6574,6 +6600,7 @@
           lbQuote.textContent = 'Copied hook to clipboard ✓';
           setTimeout(() => { lbQuote.textContent = orig; }, 1200);
         };
+        lbQuote.style.display = 'none';   // the reader already leads with it
         lbHighResLink.style.display = 'none';
         copyCreditBtn.textContent = 'Copy full poem';
         copyCreditBtn.onclick = () => {
@@ -6583,6 +6610,7 @@
           setTimeout(() => { copyCreditBtn.textContent = 'Copy full poem'; }, 1400);
         };
       } else {
+        lbQuote.style.display = '';
         stageReadingWrap.style.display = 'none';
         stageImageWrap.style.display = 'flex';
         // Works still in copyright: small credited image only. No maker tools, no full-size file.
@@ -11091,7 +11119,7 @@
   ];
   const ROW_ART = ['tone', 'mood', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'mood', 'form', 'length', 'era', 'region'];
   const rowFacets = () => (show === 'writing' ? ROW_WRITING : ROW_ART).map(id => FACETS.find(f => f.id === id));
-  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['mood', 'By mood']];
+  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['short', 'Shortest first'], ['mood', 'By mood']];
   const MOOD_ORDER = FACETS[1].opts.map(o => o[0]);
 
   const sel = {}; FACETS.forEach(f => sel[f.id] = new Set());
@@ -11311,6 +11339,7 @@
     const a = list.slice();
     if (arrange === 'date') a.sort((x, y) => yr(x) - yr(y));
     if (arrange === 'colour') { const k = new Map(a.map(w => [w.id, colourKey(w)])); a.sort((x, y) => k.get(x.id) - k.get(y.id)); }
+    if (arrange === 'short') { const n = w => String(w.hook || '').split(/\s+/).length; a.sort((x, y) => n(x) - n(y)); }
     if (arrange === 'mood') a.sort((x, y) => (MOOD_ORDER.indexOf(x.emotionShort) - MOOD_ORDER.indexOf(y.emotionShort)) || (yr(x) - yr(y)));
     return a;
   };
@@ -11356,6 +11385,7 @@
     const vis = new Set((show === 'writing' ? ROW_WRITING : ROW_ART));
     FACETS.forEach(f => { if (!vis.has(f.id)) sel[f.id].clear(); });
     if (show === 'writing') { if (shade) { shade = null; scoreShade(); } if (arrange === 'colour') arrange = 'wall'; }
+    else if (arrange === 'short') arrange = 'wall';
     if (state.spatialView && !['wall', 'timeline', 'chromatic'].includes(state.spatialView)) setSpatialView('wall');
     const before = snap();
     filterWorks(false);
@@ -11388,11 +11418,10 @@
     if (openId === 'more') {
       pop.innerHTML = `<h3>More</h3><div class="pv-opts">
         <button type="button" class="pv-opt" data-pv-more="timeline">Timeline view</button>
-        <button type="button" class="pv-opt" data-pv-more="reading">Reading Room</button>
         <button type="button" class="pv-opt" data-pv-more="drawer">Collection, form and sort</button>
         <button type="button" class="pv-opt" data-pv-more="theme">Light or dark wall</button></div>`;
     } else if (openId === 'arrange') {
-      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => !(show === 'writing' && a[0] === 'colour')).map(a =>
+      pop.innerHTML = `<h3>Arrange what you see</h3><div class="pv-opts">` + ARRANGE.filter(a => show === 'writing' ? a[0] !== 'colour' : a[0] !== 'short').map(a =>
         `<button type="button" class="pv-opt${arrange === a[0] ? ' is-on' : ''}" data-pv-arr="${a[0]}">${esc(a[1])}</button>`).join('') + `</div>`;
     } else if (openId === 'tone') {
       const f = FACETS[0];
