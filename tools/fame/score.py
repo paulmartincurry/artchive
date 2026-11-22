@@ -1,12 +1,13 @@
 """Recognition score for the writing, from Bartlett's Familiar Quotations (10th ed., 1919, and the
-# Run from a working folder holding bart1922.txt and bart1914.txt (archive.org: familia00bart and
-# familiarquotati00dolegoog, the _djvu.txt files) and publictest.json. Then write 'fame' into works.js and run build_pages.
 1914 printing, both open on archive.org). Three signals, each read from the books, not guessed:
   line  - share of the pull quote's 5-word runs that Bartlett's prints (the line itself is famous)
   work  - whether any 7-word run of the longer passage is in Bartlett's (the work is quoted)
   maker - how often the writer's surname appears (how much room the canon gives them)
 Pieces added in the public-test rounds (AUDIT.md) as works people search for get a floor of 65.
 Writes pop/fame.json: {id: {fame 0-100, line, work, maker}}."""
+# Run from a working folder holding bart1922.txt and bart1914.txt (archive.org: familia00bart and
+# familiarquotati00dolegoog, the _djvu.txt files) and publictest.json. Then write 'fame' into works.js and run build_pages.
+
 import json, re, math, sys, collections
 
 def norm(t):

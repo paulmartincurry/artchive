@@ -1201,3 +1201,20 @@ Paul: move the preview live, and "solve all that now" before he moves to a new c
 - **Speed.** Full texts moved to data/texts.json, loaded when the browser is idle: site.js 8.5 to 7.3 MB raw, 2.1 to 1.7 MB gzipped.
 - **Pipeline cache.** Picture embeddings for all 3,248 artworks are in tools/search/cache (int8). Rebuilding neighbours from the cache alone matched the full-precision build at 97% overlap (every list shares at least 6 of 8).
 - **Site now:** 5,025 works (3,248 art, 1,777 writing).
+
+## Writing as rich as the art (21 Nov 2026, evening)
+
+Paul asked for the writing to feel as rich as the art, retired the Reading Room, and told Claude to make the calls and put them live. Calls made, for Paul to overrule:
+
+| Call | Why |
+|---|---|
+| Reading Room hidden, not deleted | The Writing wall, its row and the reader do its job; the code stays in case it comes back. |
+| Writing row: Theme, Mood, Form, Length, Era, Region | Paul's list. "Use it for" and "Spoken to" left for later (they need tagging). |
+| Form in nine groups | The 400-odd labels on writing include many invented ones ("Fever Prose", "Modernist Polyrhythmic Free-Stanza Indictment"); the nine are what a reader asks for. Labels in `medium` are unchanged in the data. |
+| Length thresholds 16 / 40 words | 481 lines, 1,080 few lines, 216 passages. |
+| Peek on mouse only | Hover does not exist on a phone; a tap opens the reader, which now leads with the quote. |
+| "Grow on hover" rejected | The wall would shuffle under the mouse. |
+| Recognition from Bartlett's 1919 | Open, sourced, and matches the famous lines exactly. Biased to the English canon, so the weighting is light and capped per writer. |
+| Pairs only above a floor | A weak pairing reads as random; better to show nothing. |
+
+Bartlett's texts are OCR; a missed match only costs a piece its nudge.
