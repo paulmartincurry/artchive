@@ -1260,3 +1260,8 @@ Left out: Tiananmen's Tank Man, Solidarność's logo, the Atelier Populaire post
 ## Protest photographs cut (22 Nov 2026)
 
 Paul, after seeing them: protest signs don't make the cut, only actual artwork images. Cut: VAULT-3259 to 3263, 3267, 3268, 3272, 3274, 3280 to 3296, 3300 to 3312 (39 photographs, including the Dwornik Moratorium poster, which is a photograph of a placard in a crowd). Kept: VAULT-3276, 3277 (abolitionist broadsides), 3279 (Seattle handbill), 3297 (Moor), 3298 (Minor), 3299 (Easter Proclamation). The slogan cards on the writing side stay.
+
+
+## Colour round (22 Nov 2026)
+
+20 paintings, VAULT-3313 to 3332, chosen by measuring candidates with colour2.py (about 95 probed from Commons) and keeping the strongest in a thin colour, then looking at a contact sheet. Calls: holders for Red Deer and Bathing of a Red Horse left blank (not in the file record); Irises in a Vase given to the Van Gogh Museum although Commons names the Rijksmuseum; the framed Met photograph of Red Sunset replaced by the Met's own frameless file; Water Lilies, Irises and Sunflowers retitled with a comma (not brackets) so the app does not merge them with works already on the site. Eleven carry a sourced note, nine are label only.
