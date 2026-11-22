@@ -1265,3 +1265,12 @@ Paul, after seeing them: protest signs don't make the cut, only actual artwork i
 ## Colour round (22 Nov 2026)
 
 20 paintings, VAULT-3313 to 3332, chosen by measuring candidates with colour2.py (about 95 probed from Commons) and keeping the strongest in a thin colour, then looking at a contact sheet. Calls: holders for Red Deer and Bathing of a Red Horse left blank (not in the file record); Irises in a Vase given to the Van Gogh Museum although Commons names the Rijksmuseum; the framed Met photograph of Red Sunset replaced by the Met's own frameless file; Water Lilies, Irises and Sunflowers retitled with a comma (not brackets) so the app does not merge them with works already on the site. Eleven carry a sourced note, nine are label only.
+
+
+## Vibert round (22 Nov 2026)
+
+VAULT-3333 to 3345. Delort's Game for the Cardinal left out (Commons dates it about 1900, after Delort's death in 1895). Holders blank where the file record names none (Friendly Chat, Committee on Moral Books, Landini). The Met's Missionary's Adventures uses the Met's own 600 px web image.
+
+## Edges round (22 Nov 2026)
+
+VAULT-3346 to 3357, under Paul's edges policy (CLAUDE.md, What it is). Holders left blank where the file record names none (Nuda Veritas, Water Serpents I, Schiele's Seated Male Nude). Schiele works with young models were not considered. Beardsley's Lysistrata drawings and Courbet's Le Sommeil held for a later look: defensible as art, but the bar here was work museums hang and the public knows.
