@@ -1209,7 +1209,7 @@ Paul asked for the writing to feel as rich as the art, retired the Reading Room,
 | Call | Why |
 |---|---|
 | Reading Room hidden, not deleted | The Writing wall, its row and the reader do its job; the code stays in case it comes back. |
-| Writing row: Theme, Mood, Form, Length, Era, Region | Paul's list. "Use it for" and "Spoken to" left for later (they need tagging). |
+| Writing row: Theme, Mood, Form, Length, Era, Region | Paul's list. "Use it for" and "Spoken to" are out (Paul, 22 Nov 2026). |
 | Form in nine groups | The 400-odd labels on writing include many invented ones ("Fever Prose", "Modernist Polyrhythmic Free-Stanza Indictment"); the nine are what a reader asks for. Labels in `medium` are unchanged in the data. |
 | Length thresholds 16 / 40 words | 481 lines, 1,080 few lines, 216 passages. |
 | Peek on mouse only | Hover does not exist on a phone; a tap opens the reader, which now leads with the quote. |
