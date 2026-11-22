@@ -4093,6 +4093,8 @@
     .pocket-poet-cover[data-len="passage"] .pocket-hook { font-size: 1.22rem; line-height: 1.5; font-style: normal !important; margin: 22px 0; }
     .gallery-grid.density-large .pocket-poet-cover[data-len="line"] .pocket-hook { font-size: 2.6rem; }
     .pocket-full { display: none; }
+    .pocket-poet-cover .pocket-footer { gap: 14px; }
+    .pocket-poet-cover .pocket-footer span:last-child { flex: 0 0 auto; }
     @media (max-width: 560px) { .pocket-poet-cover[data-len="line"] .pocket-hook { font-size: 1.7rem; } }
 
     /* Read as a column: the writing wall as one column of whole passages */
@@ -4652,12 +4654,13 @@
 
 
 
-  <script src="data/site.js?v=4cbab9c064"></script>
+  <script src="data/site.js?v=38f4698bcd"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
   const POEMISH = /poem|poetry|verse|lyric|masnavi|epic|ode\b|sonnet|couplets(?!.*kuṛaḷ)/i;
   const FORM_RULES = [
+    ['Slogan & chant', /^slogan/i],
     ['Play', /^play$|verse drama|lyrical drama|tragedy|tragic|soliloquy|stage|chorus|dramatic verse|monologue/i, /fever|prose|dramatic monologue|free-verse|epitaph/i],
     ['Speech', /oratory|speech|address|lecture|sermon|oration|council reply|last words|interview|reported remark|^conversation$/i],
     ['Letter', /letter|epistle|epistolary manifesto/i, /novel/i],
@@ -11165,7 +11168,7 @@
       ['Sculpture & Metalwork', 'Sculpture & Metalwork'], ['Scroll & Paper', 'Scroll & Paper'],
       ['Diagram, Cyanotype & Textile', 'Diagram, Cyanotype & Textile'], ['Letterform, Score & Ephemera', 'Letterform, Score & Ephemera'] ] },
     { id: 'theme', label: 'Theme', field: 'shelf', only: 'writing', opts: ['Love', 'God', 'Earth', 'Death', 'War', 'Art'].map(m => [m, m]) },
-    { id: 'form', label: 'Form', get: formOf, only: 'writing', opts: ['Poem', 'Prose', 'Letter', 'Speech', 'Play', 'Scripture & prayer', 'Aphorism & philosophy', 'Diary & notebook', 'Manifesto'].map(m => [m, m]) },
+    { id: 'form', label: 'Form', get: formOf, only: 'writing', opts: ['Poem', 'Prose', 'Letter', 'Speech', 'Slogan & chant', 'Play', 'Scripture & prayer', 'Aphorism & philosophy', 'Diary & notebook', 'Manifesto'].map(m => [m, m]) },
     { id: 'length', label: 'Length', get: lengthOf, only: 'writing', opts: [['line', 'A line'], ['few', 'A few lines'], ['passage', 'A passage']] }
   ];
   const ROW_ART = ['tone', 'mood', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'mood', 'form', 'length', 'era', 'region'];
