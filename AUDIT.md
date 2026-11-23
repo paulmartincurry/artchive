@@ -1367,3 +1367,8 @@ Mood cut from the row and from Arrange. Era is now a drawn span on a histogram o
 - The Guna mola panel (VAULT-4082) is dated "before 1960" by Cleveland; its free tier rests on Cleveland's CC0.
 - Every image URL returned an image from the sandbox on 23 Nov; not yet seen in Paul's Chrome (his machine was asleep).
 - Third pass, VAULT-4126 to 4130 (`grow: 'search4'`). Kerr Eby's The Refugees carries SAAM's own date range (ca. 1918–1935) and SAAM's CC0; its place is left blank because the record does not say where it shows. Pether's long holder title is cut after "Discovers Phosphorus"; the full title is in sourceUrl. Stieglitz's The Steerage and Bruegel's Alchemist turned up again and were skipped (VAULT-784, VAULT-1573).
+
+## The West and flight (23 Nov 2026)
+
+- 21 works VAULT-4131 to 4151 (`grow: 'west'`), all Commons, PD by the maker's death (Russell 1926, Remington 1909) or, for Klinger's two posters, publication before 1931. Holders from the Commons record or Wikidata; blank where neither names one (Camp Cook's Troubles, Lassoing a Steer, Round-Up on the Musselshell, York, Downing the Nigh Leader, Casuals on the Range). VAULT-4147's place is blank: the record does not say where it shows. York's medium is blank. Klinger's dates come from secondary sources on Commons (c. 1910, 1913).
+- All 21 images and all 245 overnight images loaded in Paul's Chrome on 23 Nov.
