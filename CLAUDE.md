@@ -1,7 +1,7 @@
 # The Artchive — project brief
 
 Paul's site: iconic art and short, powerful writing for creative people.
-Live at https://paulmartincurry.github.io/artchive/ (GitHub Pages, deploys from `main`).
+Live at https://www.paulmartincurry.com/artchive/ (since 23 Nov 2026). The files are still built and served by GitHub Pages from `main` (paulmartincurry.github.io/artchive/); paulmartincurry.com is Paul's Vercel project, deployed from the repo paulmartincurry/paulmartincurry, whose `vercel.json` rewrites `/artchive/*` to the GitHub Pages copy (and sends `/artchive` to `/artchive/`). A push to this repo still goes live the same way. A visitor who lands on github.io is sent to the same path on www.paulmartincurry.com by one line at the top of index.html and of every `w/` page; `SITE` in build_pages.py, the canonical links, link previews and the sitemap all use the new address. Don't touch the homepage repo except for the rewrite.
 
 ## What it is
 

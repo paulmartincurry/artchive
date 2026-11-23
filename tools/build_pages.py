@@ -13,7 +13,9 @@ at index.html#w/<id>, which opens the work.
 import html, json, os, re, unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = 'https://paulmartincurry.github.io/artchive/'
+SITE = 'https://www.paulmartincurry.com/artchive/'
+# GitHub Pages still serves the files (paulmartincurry.com/artchive is a Vercel rewrite of it); a visitor who lands on github.io is sent on.
+MOVE = '<script>if(location.hostname.endsWith("github.io"))location.replace("https://www.paulmartincurry.com"+location.pathname+location.search+location.hash)</script>'
 DATA = os.path.join(ROOT, 'data', 'works.js')
 
 def slugify(s):
@@ -90,6 +92,7 @@ def main():
         body.append(f'<p class="go"><a href="{app}">Open in The Artchive</a></p>')
         page = f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+{MOVE}
 <title>{esc(title)} — {esc(maker)} · The Artchive</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{SITE}w/{w["slug"]}.html">
