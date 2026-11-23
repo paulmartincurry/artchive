@@ -124,7 +124,7 @@ a{{color:#eae8e3}}
 
     # The site loads a slim copy of the library (data/site.js); data/works.js stays the full master record
     # with provenance fields the app never reads (auditNote unless it is shown, noteSource, craftSpec, etc.).
-    DROP = {'noteSource', 'isSeed', 'noteRev', 'olderAuditNote', 'mediumUnchecked', 'license', 'craftSpec', 'grow',
+    DROP = {'noteSource', 'rawImageUrl', 'rawHighResUrl', 'crop', 'isSeed', 'noteRev', 'olderAuditNote', 'mediumUnchecked', 'license', 'craftSpec', 'grow',
             'seeText', 'colorFamilyOld', 'paletteOld'}  # seeText ships separately in data/see.json, loaded after the wall
     slim = []
     texts = {}   # full texts ship in data/texts.json, loaded just after the wall appears (speed pass, 21 Nov 2026)

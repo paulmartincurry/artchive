@@ -1372,3 +1372,8 @@ Mood cut from the row and from Arrange. Era is now a drawn span on a histogram o
 
 - 21 works VAULT-4131 to 4151 (`grow: 'west'`), all Commons, PD by the maker's death (Russell 1926, Remington 1909) or, for Klinger's two posters, publication before 1931. Holders from the Commons record or Wikidata; blank where neither names one (Camp Cook's Troubles, Lassoing a Steer, Round-Up on the Musselshell, York, Downing the Nigh Leader, Casuals on the Range). VAULT-4147's place is blank: the record does not say where it shows. York's medium is blank. Klinger's dates come from secondary sources on Commons (c. 1910, 1913).
 - All 21 images and all 245 overnight images loaded in Paul's Chrome on 23 Nov.
+
+
+## Clean crops, Library of Congress (23 Nov 2026)
+
+135 LoC artworks cropped to the work itself, removing colour targets, grey scales, rulers, scan backdrops, film edges and negative numbers, mounts and book surrounds. Each box set by eye on a 5% grid and checked on a contact sheet of the actual IIIF output. Served as LoC IIIF `pct:` regions; originals kept in `rawImageUrl` / `rawHighResUrl`, box in `crop`. Not cropped: VAULT-1098, 3243, 3244 (already clean). Damage on the object itself (VAULT-2208's chipped plate) left as is. Colour, picture embeddings, vectors, hubs and pairs re-run.

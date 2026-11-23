@@ -4175,6 +4175,17 @@
     header .pv-toolrow { margin: 0; height: 44px; flex: 0 1 auto; max-width: none; gap: 4px; }
     header .header-search-cluster, header.is-scrolled .header-search-cluster,
     header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { order: 0; flex: 1 1 220px; max-width: 520px; margin: 0 0 0 auto; }
+    /* Search (Paul, 23 Nov 2026): a short plain bar with room around it; it widens while someone types. */
+    @media (min-width: 1181px) {
+      header .header-search-cluster, header.is-scrolled .header-search-cluster { flex: 0 1 240px !important; max-width: 240px !important; margin: 0 36px 0 auto !important; transition: flex-basis 260ms ease, max-width 260ms ease; }
+      header .header-search-cluster:focus-within, header .header-search-cluster.has-q,
+      header.is-scrolled .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster.has-q { flex-basis: 400px !important; max-width: 400px !important; }
+      header .header-search-box, header.is-scrolled .header-search-box { height: 38px !important; }
+      header .header-search-input:focus, header .header-search-input:focus-visible { outline: none !important; box-shadow: none !important; }
+      header .header-search-clear { background: none !important; border: 0 !important; color: var(--text-muted) !important; }
+      header .header-search-clear:hover { color: var(--text) !important; }
+    }
+    header .header-search-kbd { display: none !important; }
     header .header-search-box, header.is-scrolled .header-search-box { height: 40px; }
     header .header-search-input, header.is-scrolled .header-search-input { font-size: 1.08rem; }
     header.is-scrolled { margin-bottom: 0; }
@@ -4246,7 +4257,7 @@
             type="search"
             class="header-search-input"
             id="searchInput"
-            placeholder="Search an artist, a mood, a line…"
+            placeholder=""
             aria-label="Search The Artchive by artist, mood, subject, color, era, medium, or poems"
             autocomplete="off"
             spellcheck="false"
@@ -4739,7 +4750,7 @@
 
 
 
-  <script src="data/site.js?v=82a95697b1"></script>
+  <script src="data/site.js?v=2ed6c6e023"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -11909,6 +11920,7 @@
     acts.appendChild(tb);
   }
   // ---- one bar: the filters move up beside the name, Shuffle and Captions become icons on the right ----
+  (function(){const i=document.getElementById('searchInput');if(!i)return;const c=i.closest('.header-search-cluster');const f=()=>c&&c.classList.toggle('has-q',!!i.value.trim());i.addEventListener('input',f);i.addEventListener('search',f);document.addEventListener('click',()=>setTimeout(f,0));f();})();
   (function oneBar() {
     const nav = document.querySelector('header .nav-primary'), srch = document.querySelector('header .header-search-cluster');
     if (nav && row && srch) nav.insertBefore(row, srch);
