@@ -776,6 +776,8 @@
       margin: 0 auto;
     }
 
+    .gallery-grid.pv-mason { display: block !important; position: relative; }
+    .gallery-grid.pv-mason > .art-piece { position: absolute !important; margin: 0; }
     .masonry-col {
       flex: 1;
       min-width: 0;
@@ -5758,12 +5760,10 @@
       galleryGrid.style.display = 'flex';
       emptyState.style.display = 'none';
 
-      for (let c = 0; c < state.colCount; c++) {
-        const col = document.createElement('div');
-        col.className = 'masonry-col';
-        galleryGrid.appendChild(col);
-        state.colElements.push(col);
-      }
+      // The wall is one positioned layer (23 Nov 2026): every card is placed in the shortest column, and a wide picture
+      // takes two columns so it is not shrunk to a sliver (Paul: wide work was at a disadvantage). See masonLayout().
+      galleryGrid.classList.add('pv-mason');
+      state.colElements = [galleryGrid];
 
       if (typeof triggerRoomSoftSettle === 'function') triggerRoomSoftSettle(galleryGrid);
       appendNextBatch();
@@ -5774,14 +5774,71 @@
       const startIdx = state.renderedCount;
       const nextEnd = Math.min(startIdx + PAGE_BATCH_SIZE, state.currentList.length);
       for (let i = startIdx; i < nextEnd; i++) {
-        const colIdx = i % state.colElements.length;
         const cardEl = createCardElement(state.currentList[i], i);
         const staggerMs = Math.min(240, (i - startIdx) * 20);
         cardEl.style.setProperty('--stagger-ms', `${staggerMs}ms`);
         cardEl.classList.add('cascade-in');
-        state.colElements[colIdx].appendChild(cardEl);
+        galleryGrid.appendChild(cardEl);
       }
       state.renderedCount = nextEnd;
+      masonLayout();
+    }
+
+    // Wide works span two columns: at three or four columns anything 1.7 times wider than tall, at two columns
+    // anything 2.2 times wider (then it is the full width). One column stays one column. A wide work waits up to
+    // three places for two neighbouring columns that end near the same height, so it does not leave a hole.
+    function masonSpan(w, cols) {
+      if (!w || w.itemType === 'literature' || !(w.ar > 0)) return 1;
+      if (cols >= 3 && w.ar >= 1.7) return 2;
+      if (cols === 2 && w.ar >= 2.2) return 2;
+      return 1;
+    }
+    let masonProbe = null;
+    function masonGaps() {
+      const cs = getComputedStyle(galleryGrid);
+      const colGap = parseFloat(cs.columnGap) || 38;
+      if (!masonProbe) { masonProbe = document.createElement('div'); masonProbe.className = 'masonry-col'; masonProbe.style.cssText = 'position:absolute;visibility:hidden;height:0;'; }
+      galleryGrid.appendChild(masonProbe);
+      const rowGap = parseFloat(getComputedStyle(masonProbe).rowGap) || 48;
+      masonProbe.remove();
+      return { colGap, rowGap };
+    }
+    function masonLayout() {
+      if (!galleryGrid.classList.contains('pv-mason') || galleryGrid.style.display === 'none') return;
+      const cards = [...galleryGrid.children].filter(el => el.classList.contains('art-piece'));
+      const cols = state.colCount || 1;
+      const W = galleryGrid.clientWidth; if (!W) return;
+      const { colGap, rowGap } = masonGaps();
+      const colW = (W - colGap * (cols - 1)) / cols;
+      // widths first, then read every height, then write every position (one read pass, one write pass)
+      const spans = cards.map(el => masonSpan(state.currentList[+el.dataset.idx], cols));
+      cards.forEach((el, k) => { el.style.width = (spans[k] === 2 ? colW * 2 + colGap : colW) + 'px'; });
+      const hs = cards.map(el => el.offsetHeight);
+      const H = new Array(cols).fill(0), pos = new Array(cards.length);
+      const placeOne = k => { let c = 0; for (let j = 1; j < cols; j++) if (H[j] < H[c] - 0.5) c = j; pos[k] = [c, H[c]]; H[c] += hs[k] + rowGap; };
+      const bestPair = () => { let b = 0, bh = Infinity; for (let j = 0; j < cols - 1; j++) { const h = Math.max(H[j], H[j + 1]); if (h < bh - 0.5) { bh = h; b = j; } } return b; };
+      const placeTwo = k => { const j = bestPair(), t = Math.max(H[j], H[j + 1]); pos[k] = [j, t]; H[j] = H[j + 1] = t + hs[k] + rowGap; };
+      const level = () => { const j = bestPair(); return Math.abs(H[j] - H[j + 1]) <= colW * 0.3; };
+      let wait = [];   // [card index, places waited]
+      const tryWaiting = (force) => { wait = wait.filter(([k, n]) => { if (force || n >= 3 || level()) { placeTwo(k); return false; } return true; }); };
+      for (let k = 0; k < cards.length; k++) {
+        if (!hs[k]) { pos[k] = [0, 0]; continue; }   // a hidden card (its picture failed) takes no room
+        if (spans[k] === 2) { wait.push([k, 0]); tryWaiting(false); continue; }
+        placeOne(k);
+        wait.forEach(x => x[1]++); tryWaiting(false);
+      }
+      tryWaiting(true);
+      cards.forEach((el, k) => { const [c, t] = pos[k]; el.style.left = (c * (colW + colGap)) + 'px'; el.style.top = t + 'px'; });
+      galleryGrid.style.height = Math.max(0, Math.max(...H) - rowGap) + 'px';
+    }
+    window.pvMasonLayout = masonLayout;
+    let masonRaf = 0;
+    const masonSoon = () => { cancelAnimationFrame(masonRaf); masonRaf = requestAnimationFrame(masonLayout); };
+    if (window.ResizeObserver) {
+      // a card that changes height (captions on or off, a font arriving, a picture whose shape was unknown) re-lays the wall
+      const masonRO = new ResizeObserver(masonSoon);
+      new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => { if (n.classList && n.classList.contains('art-piece')) masonRO.observe(n); })))
+        .observe(galleryGrid, { childList: true });
     }
 
     window.addEventListener('resize', () => {
@@ -5789,7 +5846,7 @@
       const nextCols = computeColumnCount();
       if (nextCols !== state.colCount) {
         renderGalleryInitial();
-      }
+      } else masonSoon();
     });
 
     const io = new IntersectionObserver((entries) => {
