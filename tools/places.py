@@ -20,8 +20,15 @@ SPACE = re.compile(r'^(Space|The Moon|Moon|Mars|Antarctica|International|Worldwi
 def place(w):
     t = (w.get('region') or '')
     if SPACE.search(t): return None, True
-    for n, rx in CR:
-        if rx.search(t): return n, True
+    # the place named first wins (a writer's "Britain / Egypt" is British); rule order breaks ties
+    hits = [(m.start(), k, n, m.group(0)) for k, (n, rx) in enumerate(CR) for m in [rx.search(t)] if m]
+    # an adjective of empire ("French Polynesia", "British India", "Roman Egypt") names the ruler, not the place
+    if len(hits) > 1: hits = [h for h in hits if not re.match(r'(?i)(french|british|roman|english|dutch|spanish|portuguese)$', h[3])] or hits
+    # overseas places beat the country that ruled them
+    if re.search(r'(?i)martinique|guadeloupe|bahamas|haiti', t): return 'Latin America & Caribbean', True
+    if re.search(r'(?i)tahiti|polynesia|marquesas|hawai', t): return 'Oceania', True
+    if re.search(r'(?i)great lakes|indiana territory', t): return 'North America', True
+    if hits: return min(hits)[2], True
     return FALLBACK.get(w.get('macroRegion'), 'Europe'), False
 if __name__ == '__main__':
     s = open(P, encoding='utf8').read(); a, b = s.index('['), s.rindex(']') + 1; d = json.loads(s[a:b])

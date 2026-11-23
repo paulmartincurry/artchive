@@ -4702,7 +4702,7 @@
 
 
 
-  <script src="data/site.js?v=561d6a6043"></script>
+  <script src="data/site.js?v=f03888581a"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -9504,9 +9504,9 @@
 
     function getWorkSearchIndex(w) {
       if (w._searchIdx) return w._searchIdx;
-      const high = normalizeSearchStr(`${w.title || ''} ${w.artist || ''} ${w.emotionShort || ''} ${w.subjectShort || ''}`);
+      const high = normalizeSearchStr(`${w.title || ''} ${w.artist || ''} ${w.emotionShort || ''} ${w.subjectShort || ''} ${w.aliases || ''}`);
       const mid = normalizeSearchStr(`${w.region || ''} ${w.macroRegion || ''} ${w.medium || ''} ${w.macroMedium || ''} ${w.colorFamily || ''} ${w.graphicForm || ''} ${w.dateLabel || ''}`);
-      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.fullText || ''} ${w.olderText || ''} ${w.translator || ''} ${w.olderTranslator || ''} ${w.searchTags || ''} ${w.museum || ''}`);
+      const low = normalizeSearchStr(`${w.craftSpec || ''} ${w.note || ''} ${w.hook || ''} ${w.excerpt || ''} ${w.fullText || ''} ${w.olderText || ''} ${w.translator || ''} ${w.olderTranslator || ''} ${w.searchTags || ''} ${w.museum || ''} ${w.themes || ''}`);
       const vocab = Array.from(new Set(`${high} ${mid}`.split(' ').filter(t => t.length >= 4)));
       const yNum = typeof w.yearNum === 'number' ? w.yearNum : parseYearNumJs(null, w.dateLabel);
       w._searchIdx = { high, mid, low, highWords: high.split(' '), midWords: mid.split(' '), vocab, yNum };
@@ -11912,13 +11912,17 @@
 
   // Search by meaning. Word matches still come first (names, titles, quotes); works that match the
   // meaning of the search follow. The small model loads on the first search and is cached by the browser.
-  let VEC = null, VIDX = null, D = 384, vecP = null, ex = null, exP = null; const qVec = new Map();
+  let VEC = null, VIDX = null, D = 384, vecP = null, ex = null, exP = null, HUB = null; const qVec = new Map();
   function loadVec() {
     return vecP || (vecP = Promise.all([
       fetch(BASE + 'data/vec.bin?' + ver).then(r => r.arrayBuffer()),
       loadSim()
     ]).then(([buf]) => fetch(BASE + 'data/similar.json?' + ver).then(r => r.json()).then(j => {
       VEC = new Int8Array(buf); D = VEC.length / j.ids.length; VIDX = new Map(j.ids.map((id, i) => [id, i]));
+      // works that sit close to almost any search (data/hub.json, tools/search/hubs.mjs) give back a share of that closeness
+      return fetch(BASE + 'data/hub.json?' + ver).then(r => r.json()).then(h => {
+        if (h.hub && h.hub.length === j.ids.length) HUB = h.hub.map(x => Math.max(0, x - h.med) * (window.pvHubK || 0.6));
+      }).catch(() => {});
     })).catch(() => null));
   }
   function loadModel() {
@@ -11929,17 +11933,30 @@
     }).catch(() => null));
   }
   const normQ = q => q.trim().toLowerCase().replace(/\s+/g, ' ');
+  // Widening (22 Nov 2026): data/lexicon.json maps words people type (slang, regional, abstract) to the words
+  // the collection uses. The search embeds the query with its widening and counts the wider words as weak matches.
+  let LEX = null, lexP = null;
+  function loadLex() { return lexP || (lexP = fetch(BASE + 'data/lexicon.json?' + ver).then(r => r.json()).then(j => (LEX = j)).catch(() => (LEX = {}))); }
+  function widen(k) {
+    if (!LEX) return '';
+    if (LEX[k]) return LEX[k];
+    // word by word only for short searches; a long one is usually a remembered title or line
+    const toks = k.split(' ').filter(t => t.length > 2 && !['the', 'and', 'with', 'for'].includes(t));
+    if (toks.length > 2) return '';
+    return toks.map(t => LEX[t] || '').filter(Boolean).join(', ');
+  }
   let semTimer = null;
   async function embedQuery(q) {
     const k = normQ(q); if (k.length < 3 || qVec.has(k)) return;
-    await Promise.all([loadModel(), loadVec()]); if (!ex || !VEC) return;
-    const out = await ex('Represent this sentence for searching relevant passages: ' + k, { pooling: 'cls', normalize: true });
+    await Promise.all([loadModel(), loadVec(), loadLex()]); if (!ex || !VEC) return;
+    const wide = widen(k);
+    const out = await ex('Represent this sentence for searching relevant passages: ' + k + (wide ? ' (' + wide + ')' : ''), { pooling: 'cls', normalize: true });
     qVec.set(k, out.data);
     if (normQ(state.query || '') === k) { const before = snap(); filterWorks(false); play(before); drawRead(); }
   }
   const inp = document.querySelector('.header-search-input');
   if (inp) {
-    inp.addEventListener('focus', () => { loadModel(); loadVec(); }, { once: true });
+    inp.addEventListener('focus', () => { loadModel(); loadVec(); loadLex(); }, { once: true });
     inp.addEventListener('input', () => { clearTimeout(semTimer); const q = inp.value; semTimer = setTimeout(() => embedQuery(q), 380); });
   }
   if (typeof runFiveStageArchiveSearch === 'function') {
@@ -11952,6 +11969,8 @@
       // and a small one for whole words in the note, text or picture description. Word fragments don't count.
       const toks = normalizeSearchStr(raw).split(' ').filter(t => t && !SEARCH_STOP_WORDS.has(t));
       const phrase = toks.join(' ');
+      const rawN = normalizeSearchStr(raw || ''), rawLong = rawN.split(' ').length >= 3;
+      const wideToks = [...new Set(normalizeSearchStr(widen(normQ(raw || ''))).split(' ').filter(t => t.length > 3 && !SEARCH_STOP_WORDS.has(t) && !toks.includes(t)))];
       const has = (set, t) => set.has(t) || set.has(t + 's') || set.has(t + 'es') || (t.endsWith('s') && set.has(t.slice(0, -1)));
       const floor = window.pvSemFloor || 0.56, band = window.pvSemBand || 0.12;
       const scored = [];
@@ -11959,22 +11978,40 @@
       for (const w of pool) {
         const i = VIDX.get(w.id); if (i === undefined) continue;
         let sem = 0; const o = i * D; for (let d = 0; d < D; d++) sem += VEC[o + d] * v[d]; sem /= 127;
+        if (HUB) sem -= HUB[i];
         const idx = getWorkSearchIndex(w);
         if (!idx._hi) { idx._hi = new Set(idx.highWords); idx._lo = new Set((idx.mid + ' ' + idx.low).split(' ')); }
         let kw = 0;
         if (toks.length) {
           if (toks.length > 1 && (' ' + idx.high + ' ').includes(' ' + phrase + ' ')) kw = 0.3;
+          // a line someone half remembers, word for word, in the quote or the text
+          else if (rawLong && (' ' + idx.low + ' ').includes(' ' + rawN + ' ')) kw = 0.25;
           else if (toks.every(t => has(idx._hi, t))) kw = 0.2;
-          else if (toks.every(t => has(idx._hi, t) || has(idx._lo, t))) kw = 0.06;
+          else {
+            // partly in the title or maker ("hokusai red mountain"): graded by how many words land there
+            const inHi = toks.filter(t => has(idx._hi, t)).length;
+            if (toks.length > 1 && inHi / toks.length >= 0.5) kw = 0.08 + 0.1 * inHi / toks.length;
+            else if (toks.every(t => has(idx._hi, t) || has(idx._lo, t))) kw = 0.06;
+          }
         }
+        if (!kw && wideToks.length) { if (wideToks.some(t => has(idx._hi, t))) kw = 0.05; else if (wideToks.some(t => has(idx._lo, t))) kw = 0.03; }
         if (sem > top) top = sem;
         scored.push([w, sem, kw]);
       }
       const cut = Math.max(floor, top - band);
-      const items = scored.filter(x => x[2] >= 0.2 || x[1] >= cut || (x[2] > 0 && x[1] + x[2] >= cut))
-        .sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 400).map(x => x[0]);
-      // Typos and odd names: if none of the words occur anywhere, the old search's typo matching knows better.
-      if (r.items.length && !r.relaxed && !scored.some(x => x[2] > 0)) return r;
+      let keep = scored.filter(x => x[2] >= 0.2 || x[1] >= cut || (x[2] > 0 && x[1] + x[2] >= cut));
+      // Enough to choose from: when the band is narrow, go on down the meaning ranking to at least 40, never below the floor.
+      if (keep.length < 40) {
+        const have = new Set(keep.map(x => x[0].id));
+        keep = keep.concat(scored.filter(x => !have.has(x[0].id) && x[1] + x[2] >= floor - 0.03).sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 40 - keep.length));
+      }
+      const items = keep.sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 400).map(x => x[0]);
+      // Typos and odd names: if none of the words occur anywhere, the old search's typo matching leads,
+      // and the meaning results follow it so there is always something to choose from.
+      if (r.items.length && !r.relaxed && !scored.some(x => x[2] > 0)) {
+        const seen = new Set(r.items.map(w => w.id));
+        return { ...r, items: r.items.concat(items.filter(w => !seen.has(w.id))).slice(0, 400) };
+      }
       if (items.length < 4 && r.items.length) return r;
       const relaxEl = document.getElementById('relaxedSearchBadge'); if (relaxEl) { relaxEl.textContent = ''; relaxEl.classList.remove('visible'); }
       return { items, relaxed: false, matchedTokens: r.totalTokens, totalTokens: r.totalTokens };

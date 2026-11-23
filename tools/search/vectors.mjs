@@ -12,8 +12,8 @@ const works = JSON.parse(raw.slice(raw.indexOf('['), raw.lastIndexOf(']') + 1));
 const isLit = w => w.itemType === 'literature';
 const clean = s => String(s || '').replace(/\s+/g, ' ').trim();
 const docText = w => isLit(w)
-  ? [w.title, w.artist, w.emotionShort, w.shelf, w.hook, w.note, clean(w.fullText).slice(0, 700)].filter(Boolean).join('. ')
-  : [w.title, w.artist, w.medium || w.macroMedium, w.emotionShort, w.seeText, w.note].filter(Boolean).join('. ');
+  ? [w.title, w.aliases, w.artist, w.emotionShort, w.shelf, w.themes, w.hook, w.note, clean(w.fullText).slice(0, 700)].filter(Boolean).join('. ')
+  : [w.title, w.aliases, w.artist, w.medium || w.macroMedium, w.emotionShort, w.seeText, w.themes, w.note].filter(Boolean).join('. ');
 const ex = await pipeline('feature-extraction', 'Xenova/bge-small-en-v1.5', { dtype: 'q8' });
 const ids = works.map(w => w.id); const N = ids.length; let D = 384;
 const T = new Float32Array(N * D);
