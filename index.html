@@ -3997,6 +3997,20 @@
       font-size: 0.72rem !important; letter-spacing: 0.06em; padding: 6px 12px !important; box-shadow: none !important; }
     #savedKitBar .pill:hover, #emptyState .pill:hover { color: var(--text) !important; border-color: var(--text-muted) !important; }
     #savedKitBar [data-stack].active, #savedKitBar .stack-tab.active, #savedKitBar .pill.active:not(#downloadPileBtn) { color: var(--text) !important; border-color: var(--accent) !important; }
+    /* slow tips and board delete (23 Nov 2026) */
+    .pv-tip { position: fixed; z-index: 200; max-width: 240px; padding: 8px 11px; background: var(--bg-elevated, #151515); color: var(--text);
+      border: 1px solid var(--border); font-size: 0.74rem; line-height: 1.45; letter-spacing: 0; text-transform: none; pointer-events: none;
+      opacity: 0; transform: translateY(-2px); transition: opacity 180ms ease, transform 180ms ease; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+    .pv-tip.show { opacity: 1; transform: none; }
+    .pv-board { display: inline-flex; align-items: center; gap: 2px; }
+    .pv-board-x { background: none; border: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1; padding: 4px 6px; cursor: pointer; opacity: 0; transition: opacity 150ms ease; }
+    .pv-board:hover .pv-board-x, .pv-board-x:focus-visible { opacity: .75; }
+    .pv-board-x:hover { opacity: 1 !important; color: var(--text); }
+    @media (hover: none) { .pv-board-x { opacity: .6; } }
+    .pv-board-ask { font-size: 0.78rem; color: var(--text); margin-right: 10px; }
+    .pv-board-yes, .pv-board-no { background: none; border: 0; font: inherit; font-size: 0.76rem; padding: 4px 8px; cursor: pointer; color: var(--text-muted); }
+    .pv-board-yes { color: var(--accent); }
+    .pv-board-yes:hover, .pv-board-no:hover { color: var(--text); }
     /* saving: one button, a small card for boards (23 Nov 2026) */
     #lbStudioBar { display: none !important; }
     .pv-savecard { position: absolute; top: calc(100% + 10px); right: 0; z-index: 60; width: 220px; padding: 14px 16px 12px; background: var(--bg-elevated, #151515);
@@ -4592,13 +4606,13 @@
     <div class="saved-kit-actions">
       <button class="text-action" id="copyCssKitBtn" style="display:none;">Copy CSS Palette + Hooks</button>
       <button class="text-action" id="exportJsonPackBtn" style="display:none;">Export JSON Pack</button>
-      <button class="text-action" id="exportTearSheetBtn" title="One page with every saved work, its label and credit">Tear sheet</button>
-      <button class="pill active" id="downloadPileBtn" type="button" title="A .zip of the free-to-use files in this board, with a credits file">Download pile</button>
+      <button class="text-action" id="exportTearSheetBtn" data-tip="Opens one printable page of the works in view, each with its label, credit and a link to the file.">Tear sheet</button>
+      <button class="pill active" id="downloadPileBtn" type="button" data-tip="Downloads a .zip of the free-to-use files in view, full size, with a credits file. Look-and-learn works are listed, not included.">Download pile</button>
     </div>
     <div class="stack-bar-row">
       <div class="stack-pills-wrap" id="stackPillsRow"></div>
       <div style="display:flex;align-items:center;gap:8px;">
-        <button class="text-action" id="toggleNewStackBtn" type="button">+ New board</button>
+        <button class="text-action" id="toggleNewStackBtn" type="button" data-tip="Start an empty board. You can also make one from the Save button on any work.">+ New board</button>
         <div class="inline-stack-form" id="newStackForm">
           <input type="text" class="inline-stack-input" id="newStackNameInput" placeholder="Board name" maxlength="28" />
           <button class="pill active" id="confirmNewStackBtn" type="button">Create</button>
@@ -5474,7 +5488,26 @@
           renderStackPills();
           filterWorks(false);
         });
-        row.appendChild(btn);
+        // delete a board (23 Nov 2026): a small × on each board, then an inline yes/no. The works stay saved.
+        const wrap = document.createElement('span'); wrap.className = 'pv-board';
+        const x = document.createElement('button'); x.type = 'button'; x.className = 'pv-board-x';
+        x.setAttribute('aria-label', `Delete the board ${stackName}`); x.dataset.tip = 'Delete this board. The works stay saved.'; x.textContent = '×';
+        x.addEventListener('click', (e) => {
+          e.stopPropagation();
+          wrap.innerHTML = '';
+          const q = document.createElement('span'); q.className = 'pv-board-ask'; q.textContent = `Delete “${stackName}”?`;
+          const yes = document.createElement('button'); yes.type = 'button'; yes.className = 'pv-board-yes'; yes.textContent = 'Delete';
+          const no = document.createElement('button'); no.type = 'button'; no.className = 'pv-board-no'; no.textContent = 'Keep';
+          yes.addEventListener('click', () => {
+            delete state.stacks[stackName];
+            if (state.activeStack === stackName) state.activeStack = 'ALL';
+            persistStacks(); renderStackPills(); filterWorks(false);
+          });
+          no.addEventListener('click', () => renderStackPills());
+          wrap.append(q, yes, no);
+        });
+        wrap.append(btn, x);
+        row.appendChild(wrap);
       });
     }
 
@@ -5806,7 +5839,9 @@
         // say what the empty wall means, plainly (23 Nov 2026)
         const et = document.getElementById('emptyStateTitle'), ep = document.getElementById('emptyRecoveryPills');
         if (ep) ep.style.display = 'none';
-        if (et) et.textContent = state.onlySaved && !(state.savedIds && state.savedIds.size) ? 'Nothing saved yet. Open a work and press Save.'
+        const emptyBoard = state.onlySaved && state.activeStack && state.activeStack !== 'ALL' && !((state.stacks[state.activeStack] || []).length);
+        if (et) et.textContent = emptyBoard ? 'This board is empty. Open a work, press Save and pick this board.'
+          : state.onlySaved && !(state.savedIds && state.savedIds.size) ? 'Nothing saved yet. Open a work and press Save.'
           : state.onlySaved ? 'Nothing saved matches this. Clear the search or a filter.' : 'Nothing matches all of that. Drop a filter to widen it.';
         return;
       }
@@ -12102,7 +12137,7 @@
   (function boardLinkBtn() {
     const acts = document.querySelector('#savedKitBar .saved-kit-actions'); if (!acts) return;
     const b = document.createElement('button'); b.type = 'button'; b.className = 'text-action'; b.id = 'copyBoardLinkBtn'; b.textContent = 'Copy board link';
-    b.title = 'A link that shows this board to anyone who opens it';
+    b.dataset.tip = 'Copies a link to this board. Anyone who opens it sees these works and can keep the board.';
     acts.appendChild(b);
     const ids = () => (state.activeStack && state.activeStack !== 'ALL' ? (state.stacks[state.activeStack] || []) : [...state.savedIds]);
     b.addEventListener('click', async () => {
@@ -12144,7 +12179,7 @@
   const acts = document.querySelector('.nav-actions');
   if (acts) {
     const tb = document.createElement('button');
-    tb.type = 'button'; tb.className = 'pv-theme'; tb.setAttribute('aria-label', 'Switch between dark and light wall');
+    tb.type = 'button'; tb.className = 'pv-theme'; tb.setAttribute('aria-label', 'Switch between dark and light wall'); tb.dataset.tip = 'Dark or light wall';
     tb.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"></path></svg>';
     tb.addEventListener('click', () => document.getElementById('wallThemeBtn').click());
     acts.appendChild(tb);
@@ -12158,13 +12193,38 @@
       if(v.trim()||focused){w=Math.round(Math.min(420,256+cv.measureText(v).width));}
       c.style.setProperty('--qw',w+'px');c.classList.toggle('has-q',!!v.trim());});};
     ['input','search','focus','blur','change'].forEach(e=>i.addEventListener(e,f));document.addEventListener('click',()=>setTimeout(f,0));f();})();
+  // Slow tips (Paul, 23 Nov 2026): a short explanation appears only when the mouse rests on a control for 0.7 s, never
+  // while it is just passing over. Any element with data-tip gets one; touch screens never see them.
+  (function slowTips() {
+    const t = document.createElement('div'); t.className = 'pv-tip'; t.setAttribute('role', 'tooltip'); t.hidden = true; document.body.appendChild(t);
+    let timer = 0, on = null;
+    const hide = () => { clearTimeout(timer); timer = 0; on = null; t.hidden = true; t.classList.remove('show'); };
+    document.addEventListener('pointerover', (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const el = e.target.closest('[data-tip]');
+      if (el === on) return;
+      hide(); if (!el) return;
+      on = el;
+      timer = setTimeout(() => {
+        if (!on || !document.contains(on)) return;
+        t.textContent = on.dataset.tip; t.hidden = false;
+        const r = on.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+        let x = r.left + r.width / 2 - w / 2; x = Math.max(10, Math.min(x, innerWidth - w - 10));
+        let y = r.bottom + 10; if (y + h > innerHeight - 10) y = r.top - h - 10;
+        t.style.left = x + 'px'; t.style.top = y + 'px';
+        requestAnimationFrame(() => t.classList.add('show'));
+      }, 700);
+    });
+    document.addEventListener('pointerout', (e) => { if (on && !on.contains(e.relatedTarget)) hide(); });
+    ['pointerdown', 'scroll', 'keydown'].forEach(ev => addEventListener(ev, hide, true));
+  })();
   (function oneBar() {
     const nav = document.querySelector('header .nav-primary'), srch = document.querySelector('header .header-search-cluster');
     if (nav && row && srch) nav.insertBefore(row, srch);
     if (!acts) return;
     const icon = (id, label, svg, onClick) => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'pv-icon'; b.id = id;
-      b.setAttribute('aria-label', label); b.title = label; b.innerHTML = svg; b.addEventListener('click', onClick); return b;
+      b.setAttribute('aria-label', label); b.dataset.tip = label; b.innerHTML = svg; b.addEventListener('click', onClick); return b;
     };
     const SV = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
     const shuf = icon('pvShuffle', 'Shuffle the wall', SV('<path d="M3 7h4c4 0 6 10 10 10h4"/><path d="M3 17h4c1.6 0 2.8-1.6 3.9-3.6M13.1 9.6C14.2 7.6 15.4 7 17 7h4"/><path d="M18 4l3 3-3 3M18 14l3 3-3 3"/>'),
@@ -12175,7 +12235,7 @@
     cap.classList.toggle('is-on', !galleryGrid.classList.contains('pure-wall'));
     acts.insertBefore(cap, acts.firstChild); acts.insertBefore(shuf, acts.firstChild);
     if (sb) sb.childNodes.forEach(n => { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Saved ', ''); });
-    if (sb) { sb.title = 'Saved'; sb.setAttribute('aria-label', 'Saved works'); }
+    if (sb) { sb.removeAttribute('title'); sb.dataset.tip = 'Your saved works and boards'; sb.setAttribute('aria-label', 'Saved works'); }
   })();
 
   // ---- data that loads after the wall is up: neighbours, meaning vectors, picture descriptions ----
