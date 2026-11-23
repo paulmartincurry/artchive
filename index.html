@@ -3999,19 +3999,35 @@
     #savedKitBar [data-stack].active, #savedKitBar .stack-tab.active, #savedKitBar .pill.active:not(#downloadPileBtn) { color: var(--text) !important; border-color: var(--accent) !important; }
     /* welcome card (23 Nov 2026) */
     .pv-welcome { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 24px;
-      background: rgba(0,0,0,.38); opacity: 0; transition: opacity 320ms ease; }
+      background: rgba(0,0,0,0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+      transition: background 900ms ease, backdrop-filter 900ms ease, -webkit-backdrop-filter 900ms ease; }
     .pv-welcome[hidden] { display: none; }
-    .pv-welcome.show { opacity: 1; }
-    .pv-welcome-in { max-width: 540px; width: 100%; padding: 38px 40px 30px; background: var(--bg-elevated, #141414); border: 1px solid var(--border);
-      box-shadow: 0 30px 80px rgba(0,0,0,.55); transform: translateY(8px); transition: transform 420ms cubic-bezier(.22,.61,.36,1); }
-    .pv-welcome.show .pv-welcome-in { transform: none; }
-    .pv-welcome h2 { font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif); font-weight: 400; font-size: 1.9rem; line-height: 1.15; margin: 0 0 18px; color: var(--text); letter-spacing: 0; text-transform: none; }
-    .pv-welcome p { margin: 0; color: var(--text); opacity: .86; font-size: 0.98rem; line-height: 1.7; }
-    .pv-welcome .pv-welcome-sig { margin-top: 16px; opacity: .6; font-size: 0.9rem; }
+    .pv-welcome.show { background: rgba(0,0,0,.42); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+    .pv-welcome-in { width: max-content; max-width: min(640px, 100%); padding: 40px 44px 32px; background: var(--bg-elevated, #141414); border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,.5); opacity: 0; transform: translateY(14px) scale(.985);
+      transition: opacity 700ms cubic-bezier(.22,.61,.36,1) 120ms, transform 900ms cubic-bezier(.22,.61,.36,1) 120ms; }
+    .pv-welcome.show .pv-welcome-in { opacity: 1; transform: none; }
+    .pv-welcome h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 1.9rem; line-height: 1.15; margin: 0 0 18px; color: var(--text); letter-spacing: 0; text-transform: none; }
+    .pv-welcome p { margin: 0; color: var(--text); font-size: 0.98rem; line-height: 1.7; }
+    .pv-welcome p span { display: block; white-space: nowrap; }
+    .pv-welcome h2, .pv-welcome p span, .pv-welcome .pv-welcome-sig, .pv-welcome-go { opacity: 0; transform: translateY(6px); transition: opacity 700ms ease, transform 800ms cubic-bezier(.22,.61,.36,1); }
+    .pv-welcome.show h2 { transition-delay: 300ms; }
+    .pv-welcome.show p span:nth-child(1) { transition-delay: 460ms; }
+    .pv-welcome.show p span:nth-child(2) { transition-delay: 600ms; }
+    .pv-welcome.show p span:nth-child(3) { transition-delay: 740ms; }
+    .pv-welcome.show .pv-welcome-sig { transition-delay: 900ms; }
+    .pv-welcome.show .pv-welcome-go { transition-delay: 1020ms; }
+    .pv-welcome.show h2, .pv-welcome.show p span, .pv-welcome.show .pv-welcome-go { opacity: 1; transform: none; }
+    .pv-welcome.show p span { opacity: .86; }
+    .pv-welcome.show .pv-welcome-sig { opacity: .6; transform: none; }
+    .pv-welcome.closing { background: rgba(0,0,0,0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); transition-duration: 450ms; }
+    .pv-welcome.closing .pv-welcome-in { opacity: 0; transform: translateY(-6px) scale(.99); transition: opacity 380ms ease, transform 450ms ease; transition-delay: 0ms; }
+    .pv-welcome .pv-welcome-sig { margin-top: 16px; font-size: 0.9rem; }
     .pv-welcome-go { margin-top: 26px; background: none; border: 1px solid var(--border); color: var(--text); font: inherit; font-size: 0.72rem;
-      letter-spacing: 0.16em; text-transform: uppercase; padding: 10px 18px; cursor: pointer; border-radius: 0; }
+      letter-spacing: 0.16em; text-transform: uppercase; padding: 10px 18px; cursor: pointer; border-radius: 0; transition: opacity 700ms ease, transform 800ms cubic-bezier(.22,.61,.36,1), border-color 250ms ease; }
     .pv-welcome-go:hover, .pv-welcome-go:focus, .pv-welcome-go:focus-visible { border-color: var(--text-muted); outline: none !important; box-shadow: none !important; }
-    @media (max-width: 600px) { .pv-welcome-in { padding: 28px 24px 22px; } .pv-welcome h2 { font-size: 1.55rem; } .pv-welcome p { font-size: 0.95rem; } }
+    @media (max-width: 600px) { .pv-welcome-in { width: 100%; padding: 30px 24px 24px; } .pv-welcome h2 { font-size: 1.55rem; } .pv-welcome p { font-size: 0.95rem; } .pv-welcome p span { white-space: normal; } .pv-welcome p span + span { margin-top: 6px; } }
+    @media (prefers-reduced-motion: reduce) { .pv-welcome, .pv-welcome * { transition-duration: 1ms !important; transition-delay: 0ms !important; } }
     /* slow tips and board delete (23 Nov 2026) */
     .pv-tip { position: fixed; z-index: 200; max-width: 240px; padding: 8px 11px; background: var(--bg-elevated, #151515); color: var(--text);
       border: 1px solid var(--border); font-size: 0.74rem; line-height: 1.45; letter-spacing: 0; text-transform: none; pointer-events: none;
@@ -12279,7 +12295,7 @@
     card.setAttribute('role', 'dialog'); card.setAttribute('aria-modal', 'true'); card.setAttribute('aria-label', 'Welcome to the Artchive');
     card.innerHTML = `<div class="pv-welcome-in">
       <h2>Welcome to the Artchive.</h2>
-      <p>An archive of art, works, and words for people who make things.<br>Download it, print it, cut it up, make it yours.<br>Search by anything. Save what finds you.</p>
+      <p><span>An archive of art, works, and words for people who make things.</span><span>Download it, print it, cut it up, make it yours.</span><span>Search by anything. Save what finds you.</span></p>
       <p class="pv-welcome-sig">— Paul</p>
       <button type="button" class="pv-welcome-go">Go look</button>
     </div>`;
@@ -12287,20 +12303,21 @@
     let lastFocus = null;
     const close = () => {
       if (card.hidden) return;
-      card.classList.remove('show');
+      card.classList.add('closing');
       try { localStorage.setItem('pvWelcomeSeen', '1'); } catch (e) {}
-      setTimeout(() => { card.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }, 320);
+      setTimeout(() => { card.hidden = true; card.classList.remove('show', 'closing'); if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true }); }, 480);
     };
     window.pvWelcome = function (force) {
       lastFocus = document.activeElement;
-      card.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add('show')));
-      setTimeout(() => card.querySelector('.pv-welcome-go').focus({ preventScroll: true }), 60);
+      card.classList.remove('closing', 'show'); card.hidden = false; void card.offsetWidth;
+      requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add('show')));
+      setTimeout(() => card.querySelector('.pv-welcome-go').focus({ preventScroll: true }), 1100);
     };
     card.addEventListener('click', (e) => { if (e.target === card || e.target.closest('.pv-welcome-go')) close(); });
     document.addEventListener('keydown', (e) => { if (!card.hidden && (e.key === 'Escape' || e.key === 'Enter')) { e.preventDefault(); e.stopPropagation(); close(); } }, true);
     let seen = false; try { seen = localStorage.getItem('pvWelcomeSeen') === '1'; } catch (e) {}
     const deep = /^#(w|b)[\/=]/.test(location.hash);
-    if (!seen && !deep) setTimeout(() => window.pvWelcome(), 900);
+    if (!seen && !deep) setTimeout(() => window.pvWelcome(), 1200);
   })();
 
   // ---- data that loads after the wall is up: neighbours, meaning vectors, picture descriptions ----
