@@ -93,6 +93,7 @@ def main():
         page = f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 {MOVE}
+<link rel="icon" href="{SITE}favicon.svg" type="image/svg+xml"><link rel="icon" href="{SITE}favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{SITE}apple-touch-icon.png">
 <title>{esc(title)} — {esc(maker)} · The Artchive</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{SITE}w/{w["slug"]}.html">
