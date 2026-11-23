@@ -776,7 +776,8 @@
       margin: 0 auto;
     }
 
-    .gallery-grid.pv-mason { display: block !important; position: relative; }
+    .gallery-grid.pv-mason { position: relative; }
+    .gallery-grid.pv-mason:not([style*="none"]) { display: block !important; }
     .gallery-grid.pv-mason > .art-piece { position: absolute !important; margin: 0; }
     .masonry-col {
       flex: 1;
@@ -1203,6 +1204,7 @@
       font-weight: 600;
       color: var(--text);
     }
+    .stage-reading-text::first-letter, .stage-reading-wrap.prose-layout .stage-reading-text::first-letter { float: none !important; font-size: inherit !important; line-height: inherit !important; margin: 0 !important; padding: 0 !important; font-weight: inherit !important; color: inherit !important; }
 
     /* Lightbox optical & screenprint modes */
     .stage-image-wrap.lens-plate img {
@@ -3990,6 +3992,11 @@
     .specs-accordion-wrap { border-bottom: 1px solid var(--border) !important; margin-bottom: 0 !important; padding: 0 !important; }
     #toggleSpecsBtn { padding: 13px 0 !important; font-size: 0.68rem !important; letter-spacing: 0.16em !important; }
     #toggleSpecsBtn:hover { color: var(--text); }
+    /* Saved view and the empty wall in house style: hairline, square, no filled pills (23 Nov 2026) */
+    #savedKitBar .pill, #emptyState .pill { background: none !important; border: 1px solid var(--border) !important; border-radius: 0 !important; color: var(--text-muted) !important;
+      font-size: 0.72rem !important; letter-spacing: 0.06em; padding: 6px 12px !important; box-shadow: none !important; }
+    #savedKitBar .pill:hover, #emptyState .pill:hover { color: var(--text) !important; border-color: var(--text-muted) !important; }
+    #savedKitBar [data-stack].active, #savedKitBar .stack-tab.active, #savedKitBar .pill.active:not(#downloadPileBtn) { color: var(--text) !important; border-color: var(--accent) !important; }
     /* the footer keeps only the full-size file and the source record */
     #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
     .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink)) { display: none !important; }
@@ -5780,11 +5787,16 @@
         if (wallBarEl) wallBarEl.style.display = 'none';
         galleryGrid.style.display = 'none';
         emptyState.style.display = 'block';
+        // say what the empty wall means, plainly (23 Nov 2026)
+        const et = document.getElementById('emptyStateTitle'), ep = document.getElementById('emptyRecoveryPills');
+        if (ep) ep.style.display = 'none';
+        if (et) et.textContent = state.onlySaved && !(state.savedIds && state.savedIds.size) ? 'Nothing saved yet. Open a work and press Save.'
+          : state.onlySaved ? 'Nothing saved matches this. Clear the search or a filter.' : 'Nothing matches all of that. Drop a filter to widen it.';
         return;
       }
 
       if (wallBarEl && (!state.spatialView || state.spatialView === 'wall')) wallBarEl.style.display = '';
-      galleryGrid.style.display = 'flex';
+      galleryGrid.style.display = 'block';
       emptyState.style.display = 'none';
 
       // The wall is one positioned layer (23 Nov 2026): every card is placed in the shortest column, and a wide picture
@@ -6793,9 +6805,10 @@
         stageLensControls.style.display = 'none';
         if (stencilWorkshopBar) stencilWorkshopBar.classList.remove('visible');
         stageReadingWrap.style.display = 'flex';
-        chapbookSeriesNo.textContent = w.pocketNo ? (w.pocketNo.includes('·') ? w.pocketNo : `POCKET POETS · ${w.pocketNo}`) : 'POCKET POETS EDITION';
+        // the reader's top line matches the wall card: the Form on the left, the mood on the right (23 Nov 2026)
+        chapbookSeriesNo.textContent = (window.pvFormOf ? window.pvFormOf(w) : '') || '';
         stageReadingWrap.classList.toggle('prose-layout', w.graphicForm === 'Fever Prose & Monologue');
-        chapbookMoodSubj.textContent = `${w.emotionShort} · ${w.subjectShort}`;
+        chapbookMoodSubj.textContent = w.emotionShort || '';
         chapbookTitle.textContent = w.title;
         chapbookAuthor.textContent = `${w.artist} (${w.dateLabel || 'historic'})`;
         // the pull quote first, as on the wall; the longer passage under it, unless it is the same words
