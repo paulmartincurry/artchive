@@ -12005,6 +12005,11 @@
         const have = new Set(keep.map(x => x[0].id));
         keep = keep.concat(scored.filter(x => !have.has(x[0].id) && x[1] + x[2] >= floor - 0.03).sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 40 - keep.length));
       }
+      // Still short (one abstract word, "thresholds"): works that carry the word itself, best meaning first.
+      if (keep.length < 40) {
+        const have = new Set(keep.map(x => x[0].id));
+        keep = keep.concat(scored.filter(x => !have.has(x[0].id) && x[2] >= 0.06).sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 40 - keep.length));
+      }
       const items = keep.sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 400).map(x => x[0]);
       // Typos and odd names: if none of the words occur anywhere, the old search's typo matching leads,
       // and the meaning results follow it so there is always something to choose from.
