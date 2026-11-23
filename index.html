@@ -9748,7 +9748,7 @@
       state.query = newQuery || '';
       if (inp) inp.value = state.query;
       syncSearchUiAffordances(state.query);
-      filterWorks(false);
+      if (window.pvSearchSettle) window.pvSearchSettle(state.query, true); else filterWorks(false);
     }
 
     const headerSearchEl = document.getElementById('searchInput');
@@ -9758,6 +9758,7 @@
         state.query = val;
         syncSearchUiAffordances(val);
         if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+        if (window.pvSearchSettle) { window.pvSearchSettle(val, false); return; }   // one change when the typing pauses (23 Nov 2026)
         searchDebounceTimer = setTimeout(() => {
           searchDebounceTimer = null;
           filterWorks(false);
@@ -9770,7 +9771,7 @@
             clearTimeout(searchDebounceTimer);
             searchDebounceTimer = null;
           }
-          filterWorks(false);
+          if (window.pvSearchSettle) window.pvSearchSettle(headerSearchEl.value, true); else filterWorks(false);
         } else if (e.key === 'Escape') {
           e.stopPropagation();
           if (headerSearchEl.value) {
@@ -12065,18 +12066,44 @@
     return toks.map(t => LEX[t] || '').filter(Boolean).join(', ');
   }
   let semTimer = null;
-  async function embedQuery(q) {
-    const k = normQ(q); if (k.length < 3 || qVec.has(k)) return;
+  const inflight = new Map();
+  function embedQuery(q, quiet) {
+    const k = normQ(q); if (k.length < 3 || qVec.has(k)) return Promise.resolve();
+    if (!inflight.has(k)) inflight.set(k, embedCore(q, quiet).catch(() => {}).finally(() => inflight.delete(k)));
+    return inflight.get(k);
+  }
+  async function embedCore(q, quiet) {
+    const k = normQ(q);
     await Promise.all([loadModel(), loadVec(), loadLex()]); if (!ex || !VEC) return;
     const wide = widen(k);
     const out = await ex('Represent this sentence for searching relevant passages: ' + k + (wide ? ' (' + wide + ')' : ''), { pooling: 'cls', normalize: true });
     qVec.set(k, out.data);
-    if (normQ(state.query || '') === k) { const before = snap(); filterWorks(false); play(before); drawRead(); }
+    if (!quiet && normQ(state.query || '') === k) { const before = snap(); filterWorks(false); play(before); drawRead(); }
   }
+  // Search waits for the typing to pause (about 0.45 s, or Enter), works out the meaning first, then changes the wall once,
+  // with the same crossfade as a filter, instead of reshuffling on every letter (Paul, 23 Nov 2026).
+  let settleTimer = null, settleSeq = 0, shownQ = normQ(state.query || '');
+  async function settleNow(val) {
+    const seq = ++settleSeq, k = normQ(val || '');
+    if (k === shownQ && !(k.length >= 3 && !qVec.has(k))) return;
+    let late = null;
+    if (k.length >= 3 && !qVec.has(k)) {
+      const p = embedQuery(val, true);
+      const ok = await Promise.race([p.then(() => true), new Promise(r => setTimeout(() => r(false), 1400))]);
+      if (seq !== settleSeq) return;
+      if (!ok) late = p;
+    }
+    shownQ = k; await refresh({ fade: true });
+    if (late) late.then(() => { if (seq === settleSeq && normQ(state.query || '') === k) refresh({ fade: true }); });
+  }
+  window.pvSearchSettle = function (val, now) {
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(() => settleNow(val), now ? 0 : 450);
+  };
   const inp = document.querySelector('.header-search-input');
   if (inp) {
     inp.addEventListener('focus', () => { loadModel(); loadVec(); loadLex(); }, { once: true });
-    inp.addEventListener('input', () => { clearTimeout(semTimer); const q = inp.value; semTimer = setTimeout(() => embedQuery(q), 380); });
+    inp.addEventListener('input', () => { clearTimeout(semTimer); const q = inp.value; semTimer = setTimeout(() => embedQuery(q, true), 250); });   // start the meaning early, quietly
   }
   if (typeof runFiveStageArchiveSearch === 'function') {
     const origSearch = runFiveStageArchiveSearch;
