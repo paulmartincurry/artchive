@@ -1359,3 +1359,10 @@ Mood cut from the row and from Arrange. Era is now a drawn span on a histogram o
 - Whole texts for 17 short poems (list in CLAUDE.md). Charge of the Light Brigade: the 1855 edition's "blunder' d" printed blunder'd.
 - Depth round: 185 artworks VAULT-3886 to 4070 (`grow: 'search2'`); 12 passages LIT-1940 to 1951. Dropped on the way: Remington's Bronco Buster (Chicago cast; the Met's cast is already VAULT-500), a Koshiro Onchi woodcut dated anywhere from 1915 to 1955, Méryon's Vampire prints (Le Stryge is already on the site), a bicycle maker's poster (no ads), Duchenne's laughter photograph (medical photography). VAULT-3905's title carries its accession number to tell it from another The Lovers by an unknown maker. All 184 shown images loaded in Paul's Chrome.
 - Places now go by the first place a region string names (Shelley's Britain / Egypt is Europe), with empire adjectives (French Polynesia, British India, Roman Egypt) and overseas places handled.
+
+## Search-depth round II (23 Nov 2026)
+
+- 55 artworks VAULT-4071 to 4125 (`grow: 'search3'`), 6 passages LIT-1952 to 1957. List in CLAUDE.md.
+- Dropped: Chicago's El Greco Saint Martin and the Beggar (small replica of the altarpiece NGA holds, already VAULT-2838); a Macbeth Tomorrow card (LIT-009 has it). VAULT-4080's title carries its accession number to tell it from Eisen's Courtesan VAULT-210.
+- The Guna mola panel (VAULT-4082) is dated "before 1960" by Cleveland; its free tier rests on Cleveland's CC0.
+- Every image URL returned an image from the sandbox on 23 Nov; not yet seen in Paul's Chrome (his machine was asleep).
