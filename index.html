@@ -4177,10 +4177,11 @@
     header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { order: 0; flex: 1 1 220px; max-width: 520px; margin: 0 0 0 auto; }
     /* Search (Paul, 23 Nov 2026): a short plain bar with room around it; it widens while someone types. */
     @media (min-width: 1181px) {
-      header .header-search-cluster, header.is-scrolled .header-search-cluster { flex: 0 1 240px !important; max-width: 240px !important; margin: 0 36px 0 auto !important; transition: flex-basis 260ms ease, max-width 260ms ease; }
-      header .header-search-cluster:focus-within, header .header-search-cluster.has-q,
-      header.is-scrolled .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster.has-q { flex-basis: 400px !important; max-width: 400px !important; }
-      header .header-search-box, header.is-scrolled .header-search-box { height: 38px !important; }
+      header .header-search-cluster, header.is-scrolled .header-search-cluster, header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { flex: 0 1 var(--qw, 240px) !important; max-width: var(--qw, 240px) !important; margin: 0 36px 0 auto !important; transition: flex-basis 520ms cubic-bezier(.22,.61,.36,1), max-width 520ms cubic-bezier(.22,.61,.36,1) !important; }
+      header .header-search-box { transition: border-color 400ms ease; }
+      header .header-search-box, header.is-scrolled .header-search-box, header .header-search-box:focus-within { height: 38px !important; }
+      header .header-search-cluster { position: relative; }
+      header .active-chips-row { position: absolute !important; top: 100%; left: 0; margin: 4px 0 0 !important; }
       header .header-search-input:focus, header .header-search-input:focus-visible { outline: none !important; box-shadow: none !important; }
       header .header-search-clear { background: none !important; border: 0 !important; color: var(--text-muted) !important; }
       header .header-search-clear:hover { color: var(--text) !important; }
@@ -11920,7 +11921,14 @@
     acts.appendChild(tb);
   }
   // ---- one bar: the filters move up beside the name, Shuffle and Captions become icons on the right ----
-  (function(){const i=document.getElementById('searchInput');if(!i)return;const c=i.closest('.header-search-cluster');const f=()=>c&&c.classList.toggle('has-q',!!i.value.trim());i.addEventListener('input',f);i.addEventListener('search',f);document.addEventListener('click',()=>setTimeout(f,0));f();})();
+  // Search width follows the words (Paul, 23 Nov 2026): 240 px at rest, a touch wider on focus, then it grows with what is typed, up to 420 px.
+  (function(){const i=document.getElementById('searchInput');if(!i)return;const c=i.closest('.header-search-cluster');if(!c)return;
+    const cv=document.createElement('canvas').getContext('2d');let raf=0;
+    const f=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const v=i.value;const cs=getComputedStyle(i);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+      const focused=document.activeElement===i;let w=240;
+      if(v.trim()||focused){w=Math.round(Math.min(420,256+cv.measureText(v).width));}
+      c.style.setProperty('--qw',w+'px');c.classList.toggle('has-q',!!v.trim());});};
+    ['input','search','focus','blur','change'].forEach(e=>i.addEventListener(e,f));document.addEventListener('click',()=>setTimeout(f,0));f();})();
   (function oneBar() {
     const nav = document.querySelector('header .nav-primary'), srch = document.querySelector('header .header-search-cluster');
     if (nav && row && srch) nav.insertBefore(row, srch);
