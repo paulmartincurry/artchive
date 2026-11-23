@@ -4081,6 +4081,15 @@
     /* the footer keeps only the full-size file and the source record */
     #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
     html.pv-can-share #lbShareBtn { display: inline-block !important; }
+    /* zoom into an open work (23 Nov 2026) */
+    .stage-image-wrap.pv-zoomable { cursor: zoom-in; touch-action: none; }
+    .stage-image-wrap.pv-zoomed { cursor: grab; }
+    .stage-image-wrap.pv-zoomed.pv-panning { cursor: grabbing; }
+    .stage-image-wrap #lbImage.pv-zt { transition: opacity 0.32s ease !important; will-change: transform; }
+    .stage-image-wrap #lbImage.pv-zt.pv-zease { transition: opacity 0.32s ease, transform 0.32s cubic-bezier(.22,.61,.36,1) !important; }
+    .pv-zoomhint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); font-size: 0.68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(234,232,227,.75); background: rgba(11,11,12,.55); padding: 6px 10px; pointer-events: none; opacity: 0; transition: opacity 300ms ease; z-index: 5; }
+    .pv-zoomhint.on { opacity: 1; }
     #pvBoot { position: fixed; inset: 0; z-index: 400; background: #0b0b0c; display: flex; align-items: center; justify-content: center; transition: opacity 600ms ease; pointer-events: none; }
     #pvBoot span { font-family: 'Cormorant Garamond', Georgia, serif; color: #eae8e3; font-size: 1.15rem; letter-spacing: 0.32em; opacity: .85; animation: pvBootIn 900ms ease both; }
     #pvBoot.gone { opacity: 0; }
@@ -7012,7 +7021,6 @@
           }
         };
         lbImage.src = w.imageUrl; lbImage.alt = [w.title, w.artist, w.dateLabel].filter(Boolean).join(', ');
-        lbImage.alt = w.title;
 
         broadsideVerseLine.textContent = w.quote ? `“${w.quote}”` : '';
         if (streetStampBanner) streetStampBanner.textContent = extractStreetSlogan(w.quote);
@@ -7228,8 +7236,8 @@
       const u = w.highResUrl || w.imageUrl || '';
       const m = u.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+)$/);
       if (m) {
-        // Commons originals can run to hundreds of megabytes; take the 2560px rendering instead.
-        let thumb = `2560px-${m[4]}`;
+        // Commons originals can run to hundreds of megabytes; take the 3840px rendering instead.
+        let thumb = `3840px-${m[4]}`;   // Commons now serves only its standard widths (1280, 1920, 3840…); 2560 answers 400
         if (/\.tiff?$/i.test(m[4])) thumb += '.jpg';
         if (/\.svg$/i.test(m[4])) thumb += '.png';
         return `${m[1]}/thumb/${m[2]}/${m[3]}/${m[4]}/${thumb}`;
@@ -12697,6 +12705,139 @@
   const inp = document.getElementById('searchInput');
   if (inp) { inp.value = q; inp.dispatchEvent(new Event('input', { bubbles: true })); }
   if (window.pvSearchSettle) window.pvSearchSettle(q, true);
+})();
+
+// Zoom into an open work (Paul, 23 Nov 2026): pinch on a trackpad or a phone, double-click or double-tap to jump in or out,
+// drag to look around, Esc or a double-click to come back out. Past about 1.6x the picture swaps to a larger file from the
+// same holder, so the detail is really there.
+(function zoomer() {
+  const wrap = document.getElementById('stageImageWrap'), img = document.getElementById('lbImage');
+  if (!wrap || !img) return;
+  const MAX = 8;
+  let s = 1, tx = 0, ty = 0, hiTried = null, hint = null, hintShown = false;
+  const cur = () => state.currentList[state.activeWorkIndex];
+  const isArt = () => { const w = cur(); return !!(w && w.itemType !== 'literature' && document.getElementById('lightbox').classList.contains('open')); };
+  function bigSrc(w, level) {
+    const u = w.imageUrl || '';
+    // Commons serves only its standard widths: 1920 for a first look closer, 3840 for the deep end
+    let m = u.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\/.+\/)(\d+)px-([^/]+)$/);
+    if (m) return m[1] + (level > 1 ? '3840' : '1920') + 'px-' + m[3];
+    if (/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/[0-9a-f]\//.test(u)) return null;   // already the original
+    m = u.match(/^(.*\/(?:full|pct:[^/]+|\d+,\d+,\d+,\d+)\/)(!?\d*,\d*|\d+,|max|full)(\/0\/(?:default|native)\.\w+)$/);
+    if (m) return m[1] + '2400,' + m[3];
+    if (/images\.metmuseum\.org\/CRDImages\/.+\/web-large\//.test(u)) return u.replace('/web-large/', '/original/');
+    if (/_web\.jpg$/.test(u) && w.highResUrl && /_print\.jpg$/.test(w.highResUrl)) return w.highResUrl;
+    if (/ids\.si\.edu\/ids\/deliveryService/.test(u)) return u.replace(/([?&]max=)\d+/, '$13000');
+    return null;
+  }
+  function clamp() {
+    const r = wrap.getBoundingClientRect(), bw = img.offsetWidth, bh = img.offsetHeight;
+    const mx = Math.max(0, (bw * s - Math.min(bw, r.width)) / 2), my = Math.max(0, (bh * s - Math.min(bh, r.height)) / 2);
+    tx = Math.max(-mx, Math.min(mx, tx)); ty = Math.max(-my, Math.min(my, ty));
+  }
+  function apply(ease) {
+    if (s <= 1.001) { s = 1; tx = 0; ty = 0; }
+    clamp();
+    img.classList.add('pv-zt'); img.classList.toggle('pv-zease', !!ease);
+    img.style.transform = s === 1 ? '' : `translate(${tx}px, ${ty}px) scale(${s})`;
+    wrap.classList.toggle('pv-zoomed', s > 1);
+    if (s > 1.6) loadBig(s > 3.2 ? 2 : 1);
+  }
+  function zoomAt(ns, cx, cy, ease) {
+    ns = Math.max(1, Math.min(MAX, ns));
+    const r = img.getBoundingClientRect();
+    // the point under the cursor stays under the cursor
+    const ox = cx - (r.left + r.width / 2), oy = cy - (r.top + r.height / 2);
+    const k = ns / s;
+    tx = tx + ox - ox * k; ty = ty + oy - oy * k;
+    s = ns; apply(ease);
+  }
+  function reset(ease) { s = 1; tx = 0; ty = 0; apply(ease); }
+  function loadBig(level) {
+    const w = cur(); if (!w) return;
+    const key = w.id + ':' + level; if (hiTried && hiTried >= key) return;
+    hiTried = key;
+    const big = bigSrc(w, level); if (!big || big === img.src) return;
+    const pre = new Image();
+    pre.onload = () => {
+      if (cur() !== w || pre.naturalWidth <= img.naturalWidth) return;
+      const bw = img.offsetWidth, bh = img.offsetHeight;
+      img.style.width = bw + 'px'; img.style.height = bh + 'px';   // same box, sharper file
+      const keep = img.onload; img.onload = null; img.src = big; setTimeout(() => { img.onload = keep; }, 0);
+    };
+    pre.src = big;
+  }
+  function showHint() {
+    if (hintShown || matchMedia('(hover: none)').matches) return;
+    try { if (localStorage.getItem('pvZoomHint')) { hintShown = true; return; } } catch (e) {}
+    hint = hint || Object.assign(document.createElement('div'), { className: 'pv-zoomhint', textContent: 'Pinch or double-click to zoom' });
+    wrap.appendChild(hint); requestAnimationFrame(() => hint.classList.add('on'));
+    setTimeout(() => hint && hint.classList.remove('on'), 2600);
+    hintShown = true; try { localStorage.setItem('pvZoomHint', '1'); } catch (e) {}
+  }
+  // a new work starts unzoomed, in its own box
+  const o = openLightbox;
+  openLightbox = function () {
+    s = 1; tx = 0; ty = 0; hiTried = null;
+    img.style.transform = ''; img.style.width = ''; img.style.height = ''; img.classList.remove('pv-zt', 'pv-zease'); wrap.classList.remove('pv-zoomed');
+    const r = o.apply(this, arguments);
+    wrap.classList.toggle('pv-zoomable', isArt());
+    if (isArt()) setTimeout(showHint, 900);
+    return r;
+  };
+  // trackpad pinch arrives as a wheel event with ctrlKey; two-finger scroll pans while zoomed
+  wrap.addEventListener('wheel', (e) => {
+    if (!isArt()) return;
+    if (e.ctrlKey) { e.preventDefault(); e.stopImmediatePropagation(); zoomAt(s * Math.exp(-e.deltaY * 0.012), e.clientX, e.clientY); return; }
+    if (s > 1) { e.preventDefault(); e.stopImmediatePropagation(); tx -= e.deltaX; ty -= e.deltaY; apply(); }
+  }, { passive: false, capture: true });
+  // Safari's own pinch events
+  let gs = 1;
+  wrap.addEventListener('gesturestart', (e) => { if (!isArt()) return; e.preventDefault(); gs = s; }, { capture: true });
+  wrap.addEventListener('gesturechange', (e) => { if (!isArt()) return; e.preventDefault(); zoomAt(gs * e.scale, e.clientX, e.clientY); }, { capture: true });
+  wrap.addEventListener('gestureend', (e) => { if (isArt()) e.preventDefault(); }, { capture: true });
+  // drag to look around
+  let drag = null;
+  wrap.addEventListener('pointerdown', (e) => {
+    if (!isArt() || s <= 1 || e.pointerType === 'touch') return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    drag = { x: e.clientX - tx, y: e.clientY - ty, moved: false }; wrap.classList.add('pv-panning');
+  }, { capture: true });
+  window.addEventListener('pointermove', (e) => { if (!drag) return; tx = e.clientX - drag.x; ty = e.clientY - drag.y; drag.moved = true; apply(); });
+  window.addEventListener('pointerup', () => { if (drag) { wrap.classList.remove('pv-panning'); setTimeout(() => { drag = null; }, 0); } });
+  wrap.addEventListener('click', (e) => { if (drag && drag.moved) { e.stopImmediatePropagation(); e.preventDefault(); } }, { capture: true });
+  wrap.addEventListener('dblclick', (e) => {
+    if (!isArt()) return; e.preventDefault(); e.stopImmediatePropagation();
+    if (s > 1) reset(true); else zoomAt(2.5, e.clientX, e.clientY, true);
+  }, { capture: true });
+  // touch: two fingers pinch, one finger pans while zoomed, double-tap jumps
+  let t0 = null, lastTap = 0;
+  const dist = (a, b) => Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+  wrap.addEventListener('touchstart', (e) => {
+    if (!isArt()) return;
+    if (e.touches.length === 2) { const [a, b] = e.touches; t0 = { d: dist(a, b), s, mx: (a.clientX + b.clientX) / 2, my: (a.clientY + b.clientY) / 2, pinch: true }; e.preventDefault(); }
+    else if (e.touches.length === 1) {
+      const now = Date.now(), t = e.touches[0];
+      if (now - lastTap < 300) { e.preventDefault(); if (s > 1) reset(true); else zoomAt(2.5, t.clientX, t.clientY, true); lastTap = 0; t0 = null; return; }
+      lastTap = now;
+      if (s > 1) { t0 = { x: t.clientX - tx, y: t.clientY - ty }; e.preventDefault(); }
+    }
+  }, { passive: false, capture: true });
+  wrap.addEventListener('touchmove', (e) => {
+    if (!t0 || !isArt()) return; e.preventDefault(); e.stopImmediatePropagation();
+    if (t0.pinch && e.touches.length === 2) { const [a, b] = e.touches; zoomAt(t0.s * dist(a, b) / t0.d, (a.clientX + b.clientX) / 2, (a.clientY + b.clientY) / 2); }
+    else if (!t0.pinch && e.touches.length === 1) { tx = e.touches[0].clientX - t0.x; ty = e.touches[0].clientY - t0.y; apply(); }
+  }, { passive: false, capture: true });
+  wrap.addEventListener('touchend', (e) => { if (e.touches.length === 0) t0 = null; }, { capture: true });
+  // Esc steps out of the zoom before it closes the work; the arrows still page to the next work, which starts unzoomed
+  document.addEventListener('keydown', (e) => {
+    if (!isArt() || s <= 1) return;
+    if (e.key === 'Escape') { e.preventDefault(); e.stopImmediatePropagation(); reset(true); }
+    else if (e.key === '0') { reset(true); }
+  }, true);
+  window.addEventListener('resize', () => { if (s > 1) apply(); });
+  window.pvZoom = { at: zoomAt, reset, get: () => ({ s, tx, ty }) };
+  wrap.classList.toggle('pv-zoomable', isArt());
 })();
 
 // Phones get the system share sheet for an open work: its own page, which previews properly (23 Nov 2026).
