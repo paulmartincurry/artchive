@@ -1351,3 +1351,11 @@ Mood cut from the row and from Arrange. Era is now a drawn span on a histogram o
 - Calls made in the place rules: Byzantine works count as Europe; ancient Egypt as Middle East & North Africa (the map follows the modern region, so Egypt sits with the Maghreb); Hawaiʻi as Oceania; Russia as Europe.
 
 - Cut on Paul's word (22 Nov 2026): LIT-1906, Me Too (Tarana Burke, 2006), from the slogans round. Record kept in the sandbox at /home/claude/cut_LIT-1906.json.
+
+## Search tested like a stranger, and the depth round (22–23 Nov 2026)
+
+- Test kit in the sandbox at /home/claude/sq. Training set 143 known + 276 open queries; fresh sets holdout (53 + 135) and holdout2 (58 + 108).
+- Training set: known items in the top 5, 123 → 143 of 143; open precision@12 0.82 → 0.91. Holdout: 41 → 49 of 53, 0.80 → 0.84 before its own words were added to the lexicon. Holdout2: 54 → 55 of 58, 0.84 → 0.85 before, 0.87 after. Under-8-result searches 11 → 0.
+- Whole texts for 17 short poems (list in CLAUDE.md). Charge of the Light Brigade: the 1855 edition's "blunder' d" printed blunder'd.
+- Depth round: 185 artworks VAULT-3886 to 4070 (`grow: 'search2'`); 12 passages LIT-1940 to 1951. Dropped on the way: Remington's Bronco Buster (Chicago cast; the Met's cast is already VAULT-500), a Koshiro Onchi woodcut dated anywhere from 1915 to 1955, Méryon's Vampire prints (Le Stryge is already on the site), a bicycle maker's poster (no ads), Duchenne's laughter photograph (medical photography). VAULT-3905's title carries its accession number to tell it from another The Lovers by an unknown maker. All 184 shown images loaded in Paul's Chrome.
+- Places now go by the first place a region string names (Shelley's Britain / Egypt is Europe), with empire adjectives (French Polynesia, British India, Roman Egypt) and overseas places handled.
