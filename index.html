@@ -5566,7 +5566,7 @@
       savedCount.textContent = state.savedIds.size;
       const savedBtnEl = document.getElementById('savedFilterBtn');
       if (savedBtnEl) savedBtnEl.style.display = (state.savedIds.size || state.onlySaved) ? '' : 'none';
-      try { localStorage.setItem('archive_saved_v2', JSON.stringify([...state.savedIds])); } catch (e) {}
+      try { const ids = JSON.stringify([...state.savedIds]); localStorage.setItem('archive_saved_v2', ids); localStorage.setItem('archive_saved_ids_v1', ids); } catch (e) {}
       savedKitBar.classList.toggle('visible', state.onlySaved);
       renderStackPills();
     }
@@ -10941,6 +10941,9 @@
 
     function loadSavedIdsFromStorage() {
       try {
+        // Two keys used to hold saved ids; archive_saved_v2 is the one kept in step. The older key only fills in when the
+        // newer one has never been written, so a work removed from Saved no longer comes back on reload (23 Nov 2026).
+        if (localStorage.getItem('archive_saved_v2') !== null) return [];
         const raw = JSON.parse(localStorage.getItem('archive_saved_ids_v1') || '[]');
         return Array.isArray(raw) ? raw : [];
       } catch (e) {
