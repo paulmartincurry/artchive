@@ -11861,44 +11861,37 @@
       const c = pop.querySelector('[data-pv-count]');
       if (c && (openId === 'era' || openId === 'region')) c.textContent = (openId === 'era' ? (span ? spanLabel() : 'All years') + ' · ' : '') + state.currentList.length.toLocaleString() + (state.currentList.length === 1 ? ' work' : ' works');
     };
-    if (fade) {   // a big change (a new colour, a filter, a span) crossfades from one wall to the next instead of jumping
-      // One move (23 Nov 2026): a still copy of the old wall sits over the page, the new wall is built under it, its first
-      // screen of pictures is decoded, then the copy fades away. Taps go straight through the copy, so nothing is lost.
+    if (fade) {
+      // One change, no double exposure (Paul, 23 Nov 2026): the old crossfade laid a copy of the old wall over the new one,
+      // which read as a flash and as pictures stacking, and the copy drifted when the read-back line pushed the wall down.
+      // Now the wall dips to the page colour, is rebuilt while it is out of sight, waits for its first screen of
+      // pictures, then comes back up. Nothing is ever shown twice.
       const g = document.getElementById('galleryGrid');
-      if (!g || !g.children.length) { filterWorks(false); done(); return Promise.resolve(); }
       if (window.__pvVeil) { window.__pvVeil.remove(); window.__pvVeil = null; }
-      const r = g.getBoundingClientRect();
-      // the old tiles themselves move into the veil (a copy would have to decode its pictures again and blink)
-      const veil = document.createElement('div');
-      veil.className = g.className;
-      veil.style.display = getComputedStyle(g).display;
-      veil.style.gap = getComputedStyle(g).gap;
-      veil.style.padding = getComputedStyle(g).padding;
-      veil.style.boxSizing = 'border-box';
-      while (g.firstChild) veil.appendChild(g.firstChild);
-      veil.querySelectorAll('.cascade-in, .pv-in').forEach(n => n.classList.remove('cascade-in', 'pv-in'));
-      const bg = getComputedStyle(document.body).backgroundColor;
-      Object.assign(veil.style, { position: 'absolute', left: (r.left + scrollX) + 'px', top: (r.top + scrollY) + 'px', width: r.width + 'px',
-        height: Math.min(r.height, innerHeight - r.top + 40) + 'px', overflow: 'hidden', margin: '0', zIndex: '30', pointerEvents: 'none',
-        background: bg, transition: 'opacity 380ms cubic-bezier(.25,.6,.3,1)', opacity: '1' });
-      veil.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(veil); window.__pvVeil = veil;
-      filterWorks(false); done();
-      g.querySelectorAll('.art-piece.cascade-in').forEach(e => e.classList.remove('cascade-in'));
-      const vh = innerHeight;
-      const first = [...g.querySelectorAll('.art-frame img')].filter(im => { const b = im.getBoundingClientRect(); return b.top < vh * 1.1 && b.bottom > -50; });
-      first.forEach(im => { im.loading = 'eager'; im.style.transition = 'none'; });
-      const reveal = () => first.forEach(im => { if (im.complete && im.naturalWidth) { im.classList.remove('img-loading'); im.classList.add('img-loaded'); } });
-      return Promise.race([Promise.all(first.map(im => (im.decode ? im.decode() : Promise.resolve()).catch(() => {}))), new Promise(res => setTimeout(res, 350))])
-        .then(() => {
-          reveal();
+      if (!g || !g.children.length) { filterWorks(false); done(); return Promise.resolve(); }
+      const seq = (window.__pvDip = (window.__pvDip || 0) + 1);
+      const wait = ms => new Promise(res => setTimeout(res, ms));
+      const out = parseFloat(getComputedStyle(g).opacity) < 0.5 ? 0 : 150;
+      g.style.transition = `opacity ${out}ms ease-out`; g.style.opacity = '0';
+      return wait(out).then(() => {
+        if (seq !== window.__pvDip) return;
+        filterWorks(false); done();
+        g.querySelectorAll('.art-piece.cascade-in, .art-piece.pv-in').forEach(e => e.classList.remove('cascade-in', 'pv-in'));
+        const vh = innerHeight;
+        const first = [...g.querySelectorAll('.art-frame img')].filter(im => { const b = im.getBoundingClientRect(); return b.top < vh * 1.1 && b.bottom > -50; });
+        first.forEach(im => { im.loading = 'eager'; im.style.transition = 'none'; });
+        return Promise.race([Promise.all(first.map(im => (im.decode ? im.decode() : Promise.resolve()).catch(() => {}))), wait(700)]).then(() => {
+          if (seq !== window.__pvDip) return;
+          first.forEach(im => { if (im.complete && im.naturalWidth) { im.classList.remove('img-loading'); im.classList.add('img-loaded'); } });
           requestAnimationFrame(() => {
-            first.forEach(im => { im.style.transition = ''; });
-            veil.style.opacity = '0';
-            setTimeout(() => { veil.remove(); if (window.__pvVeil === veil) window.__pvVeil = null; }, 420);
+            if (seq !== window.__pvDip) return;
+            g.style.transition = 'opacity 340ms cubic-bezier(.25,.6,.3,1)'; g.style.opacity = '1';
+            setTimeout(() => { first.forEach(im => { im.style.transition = ''; }); if (seq === window.__pvDip) g.style.transition = ''; }, 360);
           });
         });
+      });
     }
+    { const g0 = document.getElementById('galleryGrid'); if (g0 && g0.style.opacity === '0') { window.__pvDip = (window.__pvDip || 0) + 1; g0.style.transition = ''; g0.style.opacity = '1'; } }
     const before = snap();
     filterWorks(false);
     play(before);
