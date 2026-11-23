@@ -1341,3 +1341,13 @@ Follows "Whole-archive scan for thin spots". Paul: "yep do all of it and more".
 - Writing: LIT-1934 to 1939. Modern standard translations of the Nō plays (Royall Tyler) and of The Cloud Dream of the Nine (Heinz Insu Fenkl) were not confirmed, so the 1922 public-domain wordings are kept. Heloise's line is the Radice/Clanchy Penguin wording, confirmed in archive.org full-text search of the Penguin edition; the 1974 text has mistress where the revision has friend [amica].
 - Not done: Nasir Khusraw's travel diary (Le Strange's 1888 translation not found on archive.org in this pass), Viking material, more aeroplanes.
 - Waterhouse: 16 paintings from Commons (VAULT-3870 to 3885), PD-Art; holders from Wikidata, blank for private collections; notes only for Ulysses and the Sirens and I Am Half-Sick of Shadows (Wikipedia). Chagall and Miró: no free route found (no holder open flag; paintings are not publications).
+
+## The row, round two (22 Nov 2026)
+
+Mood cut from the row and from Arrange. Era is now a drawn span on a histogram of the collection; Region is a clickable map of ten regions (`place`, from `tools/places.py`); Medium is twelve groups (`medGroup`, from `tools/medgroup.py`).
+
+- Places: Europe 3,066, North America 1,088, East Asia 645, Middle East & North Africa 299, South Asia 203, Latin America & Caribbean 164, Africa 76, Southeast Asia 40, Oceania 38, Central Asia 7, none 43 (space, the Moon, Antarctica, international). Africa, Oceania, Southeast and Central Asia are thin on the map and say so with their counts; per the brief, they stay open until work that meets the bar turns up.
+- Medium groups: Painting 1,241, Print 950, Photograph 434, Sculpture 297, Drawing & Watercolour 175, Craft & Object 172, Poster & Graphic 134, Book & Manuscript 125, Film still 125, Textile 86, Building & Site 53, Map & Chart 35.
+- Calls made in the place rules: Byzantine works count as Europe; ancient Egypt as Middle East & North Africa (the map follows the modern region, so Egypt sits with the Maghreb); Hawaiʻi as Oceania; Russia as Europe.
+
+- Cut on Paul's word (22 Nov 2026): LIT-1906, Me Too (Tarana Burke, 2006), from the slogans round. Record kept in the sandbox at /home/claude/cut_LIT-1906.json.

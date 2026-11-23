@@ -4121,6 +4121,51 @@
       .pv-tools { gap: 20px; }
       .header-search-box { height: 46px !important; }
     }
+  
+    /* Era as a timeline you draw on, Region as a map (22 Nov 2026) */
+    .pv-pop.pv-pop-wide { width: 600px; }
+    .pv-pop-in { animation: pvPopIn 180ms cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes pvPopIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    .pv-tl { position: relative; padding: 6px 0 22px; cursor: crosshair; touch-action: none; user-select: none; }
+    .pv-tl-svg { display: block; width: 100%; height: 92px; }
+    .pv-tl-svg rect { fill: var(--text-muted); opacity: .42; transition: fill 160ms ease, opacity 160ms ease; }
+    .pv-tl-svg rect.is-on { fill: var(--accent); opacity: 1; }
+    .pv-tl-band { position: absolute; top: 0; bottom: 22px; border-left: 1px solid var(--accent); border-right: 1px solid var(--accent); pointer-events: none; }
+    .pv-tl-ticks { position: absolute; left: 0; right: 0; bottom: 0; height: 16px; border-top: 1px solid var(--border-rule); }
+    .pv-tl-ticks span { position: absolute; top: 5px; transform: translateX(-50%); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap; }
+    .pv-tl-ticks span:first-child { transform: none; }
+    .pv-tl-ticks span:last-child { transform: translateX(-100%); }
+    .pv-map { display: block; width: 100%; height: auto; margin: 2px 0 10px; }
+    .pv-map-sphere { fill: none; stroke: var(--border-rule); stroke-width: .6; }
+    .pv-map path[data-pv-opt] { fill: var(--text-muted); opacity: .34; stroke: var(--bg-elevated, #141413); stroke-width: .5; cursor: pointer; transition: fill 160ms ease, opacity 160ms ease; }
+    .pv-map path[data-pv-opt].is-hot { opacity: .62; }
+    .pv-map path[data-pv-opt].is-on { fill: var(--accent); opacity: 1; }
+    .pv-map path[data-pv-opt].is-none { opacity: .14; }
+    .pv-map-names { display: flex; flex-wrap: wrap; gap: 0 18px; }
+    .pv-map-name { background: none; border: 0; padding: 4px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.02rem; color: var(--text-muted); cursor: pointer; }
+    .pv-map-name em { font-style: normal; font-family: inherit; font-size: 0.72rem; margin-left: 6px; opacity: .6; }
+    .pv-map-name.is-hot { color: var(--text); }
+    .pv-map-name.is-on { color: var(--text); box-shadow: inset 0 -1px 0 var(--accent); }
+    .pv-map-wait { height: 300px; }
+    /* the dissolve between walls; the page stays live under it so a drag is never interrupted */
+    ::view-transition { pointer-events: none; }
+    html.pv-vt::view-transition-old(root) { animation: pvVtOut 300ms ease both; }
+    html.pv-vt::view-transition-new(root) { animation: pvVtIn 420ms cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes pvVtOut { to { opacity: 0; } }
+    @keyframes pvVtIn { from { opacity: 0; } }
+    /* the bar and the open panel stay live and still; only the wall dissolves */
+    html.pv-vt header { view-transition-name: pvhead; }
+    html.pv-vt #pvToolRow { view-transition-name: pvrow; }
+    html.pv-vt::view-transition-group(pvhead), html.pv-vt::view-transition-group(pvrow),
+    html.pv-vt::view-transition-new(pvhead), html.pv-vt::view-transition-new(pvrow) { animation: none; }
+    html.pv-vt::view-transition-old(pvhead), html.pv-vt::view-transition-old(pvrow) { display: none; }
+    /* Tiles arrive on their own colour and fade in, at their own shape */
+    .art-frame { transition: background-color 400ms ease; }
+    .art-frame img.img-loaded { transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .art-piece.pv-out { animation: pvOut 220ms ease-in both; }
+    @keyframes pvOut { to { opacity: 0; transform: scale(.985); } }
+    @media (prefers-reduced-motion: reduce) { .pv-pop-in, .art-piece.pv-out { animation: none; } }
+    @media (max-width: 760px) { .pv-pop.pv-pop-wide { width: auto; } }
   </style>
 </head>
 <body>
@@ -4657,7 +4702,7 @@
 
 
 
-  <script src="data/site.js?v=3c1ceb56cc"></script>
+  <script src="data/site.js?v=6366d0bdd1"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -5573,8 +5618,9 @@
           frame.appendChild(badge);
         }
 
-        const [pr, pg, pb] = hexToRgb255((w.palette && (w.palette[1] || w.palette[0])) || '#181818');
-        frame.style.backgroundColor = `rgba(${pr}, ${pg}, ${pb}, 0.09)`;
+        // Until the file arrives the tile holds the picture's own main colour at its own shape, so nothing jumps (22 Nov 2026).
+        const [pr, pg, pb] = hexToRgb255((w.palette && w.palette[0]) || '#181818');
+        frame.style.backgroundColor = `rgba(${pr}, ${pg}, ${pb}, 0.55)`;
 
         const img = document.createElement('img');
         if (!w.isDetailClip) img.className = 'img-loading';
@@ -5584,6 +5630,7 @@
         else setTileImage(img, w.imageUrl, `(max-width: 700px) ${Math.round(100 / Math.max(1, state.colCount || 2))}vw, ${Math.round(100 / Math.max(1, state.colCount || 4))}vw`);
         img.alt = w.title;
         img.loading = 'lazy';
+        if (!w.isDetailClip && w.ar > 0) img.style.aspectRatio = String(w.ar);
         if (w.isDetailClip && w.detailCrop) {
           img.style.width = '100%';
           img.style.height = '100%';
@@ -11155,30 +11202,49 @@
   const LIT = 'Literature & Verse';
   // formOf and lengthOf live in the small script before the main one, so the cards can use them too.
   // The row changes with All / Art / Writing: art gets Colour and Medium, writing gets Theme, Form and Length.
+  // Places and medium groups are worked out from the records by tools/places.py and tools/medgroup.py.
+  const PLACES = ['North America', 'Latin America & Caribbean', 'Europe', 'Middle East & North Africa', 'Africa',
+    'South Asia', 'Central Asia', 'East Asia', 'Southeast Asia', 'Oceania'];
+  const MEDGROUPS = ['Painting', 'Drawing & Watercolour', 'Print', 'Photograph', 'Film still', 'Sculpture', 'Craft & Object',
+    'Textile', 'Book & Manuscript', 'Poster & Graphic', 'Map & Chart', 'Building & Site'];
   const FACETS = [
     { id: 'tone', label: 'Colour', field: 'colourStrength', only: 'art', opts: [
       ['Red', 'Red', '#b3261e'], ['Orange', 'Orange', '#d9752b'], ['Gold', 'Gold', '#c9a227'], ['Green', 'Green', '#3f7a4d'],
       ['Blue', 'Blue', '#2a4f9c'], ['Brown', 'Brown', '#6b4a2b'], ['Black', 'Black', '#151515'], ['Grey', 'Grey', '#8a8a8a'],
       ['Cream', 'Cream', '#e8dfc8'] ] },
-    { id: 'mood', label: 'Mood', field: 'emotionShort', opts: ['Dread', 'Fury', 'Melancholy', 'Yearning', 'Sublime', 'Resolve', 'Dark Humor'].map(m => [m, m]) },
-    { id: 'era', label: 'Era', field: 'eraBucket', opts: [
-      ['Ancient & Medieval', 'Before 1400'], ['1400–1650', '1400–1650'], ['1650–1800', '1650–1800'], ['1800–1920', '1800–1920'], ['1920–Now', '1920–now'] ] },
-    { id: 'region', label: 'Region', field: 'macroRegion', opts: [
-      ['Europe', 'Europe'], ['Americas', 'Americas'], ['East & Inner Asia', 'East & Inner Asia'],
-      ['Near East & South Asia', 'Near East & South Asia'], ['Africa, Oceania & Indigenous Americas', 'Africa, Oceania & Indigenous Americas'] ] },
-    { id: 'medium', label: 'Medium', field: 'macroMedium', only: 'art', opts: [
-      ['Painting', 'Painting'], ['Print & Woodcut', 'Print & Woodcut'], ['Photograph & Film', 'Photograph & Film'],
-      ['Sculpture & Metalwork', 'Sculpture & Metalwork'], ['Scroll & Paper', 'Scroll & Paper'],
-      ['Diagram, Cyanotype & Textile', 'Diagram, Cyanotype & Textile'], ['Letterform, Score & Ephemera', 'Letterform, Score & Ephemera'] ] },
+    // Era is a span you draw on a timeline; Region is a map (22 Nov 2026). Both keep their own state below.
+    { id: 'era', label: 'Era', opts: [] },
+    { id: 'region', label: 'Region', field: 'place', opts: PLACES.map(r => [r, r]) },
+    { id: 'medium', label: 'Medium', field: 'medGroup', only: 'art', opts: MEDGROUPS.map(m => [m, m]) },
     { id: 'theme', label: 'Theme', field: 'shelf', only: 'writing', opts: ['Love', 'God', 'Earth', 'Death', 'War', 'Art'].map(m => [m, m]) },
     { id: 'form', label: 'Form', get: formOf, only: 'writing', opts: ['Poem', 'Prose', 'Letter', 'Speech', 'Slogan & chant', 'Play', 'Scripture & prayer', 'Aphorism & philosophy', 'Diary & notebook', 'Manifesto'].map(m => [m, m]) },
     { id: 'length', label: 'Length', get: lengthOf, only: 'writing', opts: [['line', 'A line'], ['few', 'A few lines'], ['passage', 'A passage']] }
   ];
-  const ROW_ART = ['tone', 'mood', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'mood', 'form', 'length', 'era', 'region'];
+  const ROW_ART = ['tone', 'era', 'region', 'medium'], ROW_WRITING = ['theme', 'form', 'length', 'era', 'region'];
   const rowFacets = () => (show === 'writing' ? ROW_WRITING : ROW_ART).map(id => FACETS.find(f => f.id === id));
-  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['short', 'Shortest first'], ['mood', 'By mood'], ['column', 'Read as a column']];
+  const ARRANGE = [['wall', 'The wall'], ['date', 'By date'], ['colour', 'By colour'], ['short', 'Shortest first'], ['column', 'Read as a column']];
   const WRITING_ONLY_ARR = ['short', 'column'];
-  const MOOD_ORDER = FACETS[1].opts.map(o => o[0]);
+  // ---- era: a span drawn on a timeline. The axis is squeezed in the deep past, where there are few works. ----
+  let span = null;                                   // [fromYear, toYear] or null
+  const TK = [[-40000, 0], [-3000, 0.04], [0, 0.13], [1000, 0.23], [1400, 0.32], [1600, 0.46], [1800, 0.63], [1900, 0.81], [2030, 1]];
+  function yToT(y) {
+    if (y <= TK[0][0]) return 0; if (y >= TK[TK.length - 1][0]) return 1;
+    for (let i = 1; i < TK.length; i++) if (y <= TK[i][0]) { const [y0, t0] = TK[i - 1], [y1, t1] = TK[i]; return t0 + (t1 - t0) * (y - y0) / (y1 - y0); }
+    return 1;
+  }
+  function tToY(t) {
+    for (let i = 1; i < TK.length; i++) if (t <= TK[i][1]) { const [y0, t0] = TK[i - 1], [y1, t1] = TK[i]; return y0 + (y1 - y0) * (t - t0) / (t1 - t0); }
+    return TK[TK.length - 1][0];
+  }
+  const niceY = (y, up) => { const st = y < -3000 ? 1000 : y < 0 ? 100 : y < 1400 ? 50 : y < 1800 ? 10 : 5; return (up ? Math.ceil : Math.floor)(y / st) * st; };
+  const fmtY = y => (y < 0 ? `${Math.abs(y).toLocaleString()} BC` : String(Math.min(y, 2026)));
+  const spanLabel = () => span ? (span[0] === span[1] ? fmtY(span[0]) : `${fmtY(span[0])}–${fmtY(span[1])}`) : '';
+  // ---- region: a map, loaded the first time it opens ----
+  let MAP = null, mapP = null;
+  function loadMap() {
+    const B = location.pathname.replace(/[^/]*$/, '');
+    return mapP || (mapP = fetch(B + 'data/regions.json').then(r => r.json()).then(j => (MAP = j)).catch(() => null));
+  }
 
   const sel = {}; FACETS.forEach(f => sel[f.id] = new Set());
   // ---- colour: names by measured strength, or one exact shade (21 Nov 2026) ----
@@ -11303,7 +11369,7 @@
       const hx = pickHex(), nm = nearPigment(hx);
       shade = { hex: hx, label: nm }; sel.tone.clear();
       if (!CDATA) await loadColour();
-      scoreShade(); refresh();
+      scoreShade(); refresh({ fade: true });
       const c = pop.querySelector('[data-pv-count]');
       if (c) c.textContent = `${nm} · ${state.currentList.length.toLocaleString()} works`;
       pop.querySelectorAll('.pv-sw.is-on').forEach(b => b.classList.remove('is-on'));
@@ -11312,7 +11378,7 @@
         cl.type = 'button'; cl.dataset.pvClear = '1'; cl.textContent = 'Clear colour';
         done.insertBefore(cl, done.querySelector('[data-pv-close]'));
       }
-    }, 110);
+    }, 240);   // follow the hand when it pauses, not every pixel of the drag
   }
   function bindPicker() {
     const drag = (el, fn) => {
@@ -11336,7 +11402,7 @@
     let ca = {}, cm = {};
     for (const w of head) {
       if (out.length % 24 === 0) { ca = {}; cm = {}; }
-      const a = w.artist || '?', m = w.macroMedium || '?';
+      const a = w.artist || '?', m = w.medGroup || w.macroMedium || '?';
       if ((ca[a] || 0) >= 2 || (cm[m] || 0) >= 8) { held.push(w); continue; }
       ca[a] = (ca[a] || 0) + 1; cm[m] = (cm[m] || 0) + 1; out.push(w);
     }
@@ -11370,34 +11436,28 @@
   const isLit = w => w.itemType === 'literature' || w.macroMedium === LIT;
 
   // ---- hooks read by filterWorks ----
-  const AMERICAS_RX = /Mexic|Mesoameric|Maya|Aztec|Nahua|Peru|Bolivia|Colombia|Guatemala|Argentina|Brazil|Ecuador|Chile|Andean|Suriname|Jamaica|Caribbean|Haiti|Cuba|Canada|United States|Alaska|Arizona|New Mexico|Ojibwe|Kiowa|Nez Perce|Navajo|Diné|Lakota|Sioux|Cheyenne|Cherokee|Hopi|Zuni|Pueblo|Pacific Northwest|Tlingit|Haida|Kwakwaka|Inuit|Taíno/i;
-  window.pvPass = function (w) {
+  window.pvPass = function (w, skip) {
     const inRoom = state.spatialView === 'reading';   // the Reading Room is all writing: it ignores Art only, colour and medium
     if (show === 'art' && isLit(w) && !inRoom) return false;
     if (show === 'writing' && !isLit(w)) return false;
     for (const f of FACETS) {
       const s = sel[f.id];
-      if (!s.size || (inRoom && f.only === 'art')) continue;
+      if (f.id === skip || !s.size || (inRoom && f.only === 'art')) continue;
       if (f.only === 'writing' && !isLit(w)) return false;
       let v = f.get ? f.get(w) : w[f.field];
       if (f.id === 'tone') { if (isLit(w)) return false; const fl = s.size > 1 ? 4 : CFLOOR; for (const n of s) if (strength(w, n) < fl) return false; continue; }
-      if (f.id === 'medium') {
-        if (isLit(w)) return false;   // a medium choice means art
-        if (v === 'Diagram' || v === 'Cyanotype & Textile') v = 'Diagram, Cyanotype & Textile';
-        if (v === 'Letterform' || v === 'Score & Ephemera') v = 'Letterform, Score & Ephemera';
-      }
-      // Indigenous American works are filed with Africa and Oceania, but someone asking for the Americas expects them too (22 Nov 2026).
-      if (f.id === 'region' && !s.has(v) && s.has('Americas') && v === 'Africa, Oceania & Indigenous Americas' && AMERICAS_RX.test(w.region || '')) continue;
+      if (f.id === 'medium' && isLit(w)) return false;   // a medium choice means art
       if (!s.has(v)) return false;
     }
-    if (shade && !inRoom) {
+    if (span && skip !== 'era') { const y = w.yearNum; if (typeof y !== 'number' || y < span[0] || y > span[1]) return false; }
+    if (shade && !inRoom && skip !== 'tone') {
       if (isLit(w) || !shadeScore) return false;
       const sc = shadeScore.get(w.id) || 0;
       if (sc < shadeCut) return false;
     }
     return true;
   };
-  window.pvActive = () => show !== 'both' || arrange !== 'wall' || !!shade || FACETS.some(f => sel[f.id].size);
+  window.pvActive = () => show !== 'both' || arrange !== 'wall' || !!shade || !!span || FACETS.some(f => sel[f.id].size);
 
   function hsl(hex) {
     const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return null;
@@ -11436,7 +11496,6 @@
     if (arrange === 'date') a.sort((x, y) => yr(x) - yr(y));
     if (arrange === 'colour') { const k = new Map(a.map(w => [w.id, colourKey(w)])); a.sort((x, y) => k.get(x.id) - k.get(y.id)); }
     if (arrange === 'short') { const n = w => String(w.hook || '').split(/\s+/).length; a.sort((x, y) => n(x) - n(y)); }
-    if (arrange === 'mood') a.sort((x, y) => (MOOD_ORDER.indexOf(x.emotionShort) - MOOD_ORDER.indexOf(y.emotionShort)) || (yr(x) - yr(y)));
     return a;
   };
 
@@ -11476,7 +11535,7 @@
     const origCard = createCardElement;
     createCardElement = function (w, idx) { const el = origCard(w, idx); if (el && w) el.dataset.wid = w.id; return el; };
   }
-  function refresh() {
+  function refresh(opts) {
     // a filter that is not on the row any more stops filtering
     const vis = new Set((show === 'writing' ? ROW_WRITING : ROW_ART));
     FACETS.forEach(f => { if (!vis.has(f.id)) sel[f.id].clear(); });
@@ -11484,14 +11543,27 @@
     else if (WRITING_ONLY_ARR.includes(arrange)) arrange = 'wall';
     const gg = document.getElementById('galleryGrid'); if (gg) gg.classList.toggle('pv-column', show === 'writing' && arrange === 'column');
     if (state.spatialView && !['wall', 'timeline', 'chromatic'].includes(state.spatialView)) setSpatialView('wall');
+    const fade = opts && opts.fade && !reduce && document.startViewTransition;
+    const done = () => {
+      drawTools(); drawRead(); syncShow();
+      const c = pop.querySelector('[data-pv-count]');
+      if (c && (openId === 'era' || openId === 'region')) c.textContent = (openId === 'era' ? (span ? spanLabel() : 'All years') + ' · ' : '') + state.currentList.length.toLocaleString() + (state.currentList.length === 1 ? ' work' : ' works');
+    };
+    if (fade) {   // a big change (a new colour, a new span) dissolves from one wall to the next instead of jumping
+      document.documentElement.classList.add('pv-vt');
+      const t = document.startViewTransition(() => { filterWorks(false); done(); });
+      t.finished.finally(() => document.documentElement.classList.remove('pv-vt'));
+      return;
+    }
     const before = snap();
     filterWorks(false);
     play(before);
-    drawTools(); drawRead(); syncShow();
+    done();
   }
 
   // ---- tool row ----
   function facetLabel(f) {
+    if (f.id === 'era') return span ? `${esc(spanLabel())}<span class="pv-x" aria-hidden="true">×</span>` : esc(f.label);
     if (f.id === 'tone' && shade) return `<span class="pv-dot" style="background:${shade.hex}"></span>${esc(shade.label)}<span class="pv-x" aria-hidden="true">×</span>`;
     const s = [...sel[f.id]];
     if (!s.length) return esc(f.label);
@@ -11503,7 +11575,7 @@
   function drawTools() {
     const arrLbl = arrange === 'wall' ? 'Arrange' : `${esc(ARRANGE.find(a => a[0] === arrange)[1])}<span class="pv-x" aria-hidden="true">×</span>`;
     toolsEl.innerHTML = rowFacets().map(f => {
-      const set = sel[f.id].size > 0 || (f.id === 'tone' && !!shade);
+      const set = sel[f.id].size > 0 || (f.id === 'tone' && !!shade) || (f.id === 'era' && !!span);
       return `<button type="button" class="pv-tool${openId === f.id ? ' is-open' : ''}${set ? ' is-set' : ''}" data-pv-tool="${f.id}" aria-expanded="${openId === f.id}" aria-label="${esc(f.label)}">${facetLabel(f)}</button>`;
     }).join('') +
       `<button type="button" class="pv-tool is-arr${openId === 'arrange' ? ' is-open' : ''}${arrange !== 'wall' ? ' is-set' : ''}" data-pv-tool="arrange" aria-expanded="${openId === 'arrange'}">${arrLbl}</button>` +
@@ -11530,6 +11602,10 @@
         `<div class="pv-done"><span data-pv-count="1">${shade ? esc(shade.label) + ' · ' : ''}${state.currentList.length.toLocaleString()} works</span>` +
         (colourOn() ? `<button type="button" data-pv-clear="1">Clear colour</button>` : '') + `<button type="button" data-pv-close="1">Done</button></div>`;
       if (pickOpen) bindPicker();
+    } else if (openId === 'era') {
+      drawEra();
+    } else if (openId === 'region') {
+      drawMap();
     } else {
       const f = FACETS.find(x => x.id === openId);
       pop.innerHTML = `<h3>${esc(f.label)} <span style="letter-spacing:0;text-transform:none;opacity:.7">· pick one or more</span></h3><div class="pv-opts">` + f.opts.map(o =>
@@ -11538,17 +11614,96 @@
         (sel[f.id].size ? `<button type="button" data-pv-clear="1">Clear ${esc(f.label.toLowerCase())}</button>` : '') +
         `<button type="button" data-pv-close="1">Done</button></div>`;
     }
-    const r = btn.getBoundingClientRect(), rr = row.getBoundingClientRect();
-    pop.style.left = Math.max(0, Math.min(r.left - rr.left, rr.width - 380)) + 'px';
-    pop.hidden = false;
+    pop.classList.toggle('pv-pop-wide', openId === 'era' || openId === 'region');
+    const pw = (openId === 'era' || openId === 'region') ? Math.min(600, rr0().width) : 380;
+    const r = btn.getBoundingClientRect(), rr = rr0();
+    pop.style.left = Math.max(0, Math.min(r.left - rr.left, rr.width - pw)) + 'px';
+    if (pop.hidden) { pop.hidden = false; if (!reduce) { pop.classList.remove('pv-pop-in'); void pop.offsetWidth; pop.classList.add('pv-pop-in'); } }
   }
+  const rr0 = () => row.getBoundingClientRect();
+  // Counts for a panel: every work that passes the other choices, ignoring this one.
+  const countBase = (skip) => WORKS.filter(w => window.pvPass(w, skip));
+
+  // ---- the timeline: the collection as a histogram; drag across it to choose a span ----
+  const NB = 90;
+  function drawEra() {
+    const base = countBase('era'), bins = new Array(NB).fill(0);
+    base.forEach(w => { if (typeof w.yearNum === 'number') bins[Math.min(NB - 1, Math.floor(yToT(w.yearNum) * NB))]++; });
+    const mx = Math.max(1, ...bins), W = 556, H = 92;
+    const bars = bins.map((n, i) => {
+      const h = n ? Math.max(1.5, Math.sqrt(n / mx) * H) : 0, x = i * W / NB;
+      return `<rect data-b="${i}" x="${x.toFixed(1)}" y="${(H - h).toFixed(1)}" width="${(W / NB - 1).toFixed(1)}" height="${h.toFixed(1)}"></rect>`;
+    }).join('');
+    const ticks = [[-40000, 'Deep past'], [0, 'AD 1'], [1000, '1000'], [1400, '1400'], [1600, '1600'], [1800, '1800'], [1900, '1900'], [2030, 'Now']].map(([y, l]) =>
+      `<span style="left:${(yToT(y) * 100).toFixed(2)}%">${l}</span>`).join('');
+    pop.innerHTML = `<h3>Era <span style="letter-spacing:0;text-transform:none;opacity:.7">· drag across the years</span></h3>` +
+      `<div class="pv-tl"><svg class="pv-tl-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="Works by year. Drag to choose a span.">${bars}</svg>` +
+      `<i class="pv-tl-band" hidden></i><div class="pv-tl-ticks">${ticks}</div></div>` +
+      `<div class="pv-done"><span data-pv-count="1"></span>` +
+      `<button type="button" data-pv-clear="1"${span ? '' : ' hidden'}>Clear era</button><button type="button" data-pv-close="1">Done</button></div>`;
+    paintSpan(base);
+    bindEra(base);
+  }
+  function paintSpan(base) {
+    const band = pop.querySelector('.pv-tl-band'), cnt = pop.querySelector('[data-pv-count]');
+    const t0 = span ? yToT(span[0]) : 0, t1 = span ? yToT(span[1]) : 1;
+    pop.querySelectorAll('.pv-tl-svg rect').forEach(r => {
+      const b = +r.dataset.b, mid = (b + 0.5) / NB; r.classList.toggle('is-on', !!span && mid >= t0 - 0.5 / NB && mid <= t1 + 0.5 / NB);
+    });
+    if (band) { band.hidden = !span; if (span) { band.style.left = (t0 * 100) + '%'; band.style.width = Math.max(0.4, (t1 - t0) * 100) + '%'; } }
+    if (cnt) {
+      const n = span ? base.filter(w => w.yearNum >= span[0] && w.yearNum <= span[1]).length : base.length;
+      cnt.textContent = (span ? spanLabel() + ' · ' : 'All years · ') + n.toLocaleString() + (n === 1 ? ' work' : ' works');
+    }
+    const cl = pop.querySelector('[data-pv-clear]'); if (cl) cl.hidden = !span;
+  }
+  let eraT = 0;
+  function bindEra(base) {
+    const box = pop.querySelector('.pv-tl'); if (!box) return;
+    let a = null, moved = false;
+    const tAt = e => { const r = box.getBoundingClientRect(); return Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)); };
+    const setFrom = (ta, tb) => {
+      let lo = Math.min(ta, tb), hi = Math.max(ta, tb);
+      if (hi - lo < 1 / NB) { const b = Math.min(NB - 1, Math.floor(lo * NB)); lo = b / NB; hi = (b + 1) / NB; }   // a tap takes one bar
+      span = [niceY(tToY(lo), false), niceY(tToY(hi), true)];
+      paintSpan(base);
+      clearTimeout(eraT); eraT = setTimeout(() => refresh({ fade: true }), 260);   // the wall follows when the hand pauses
+    };
+    box.addEventListener('pointerdown', e => { box.setPointerCapture(e.pointerId); a = tAt(e); moved = false; setFrom(a, a); e.preventDefault(); });
+    box.addEventListener('pointermove', e => { if (a === null || !box.hasPointerCapture(e.pointerId)) return; moved = true; setFrom(a, tAt(e)); });
+    const up = () => { if (a === null) return; a = null; clearTimeout(eraT); refresh({ fade: true }); };
+    box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up);
+  }
+
+  // ---- the map: click regions on and off, as many as you like ----
+  function drawMap() {
+    if (!MAP) {
+      pop.innerHTML = `<h3>Region</h3><div class="pv-map-wait"></div>`;
+      loadMap().then(() => { if (openId === 'region') drawPop(); });
+      return;
+    }
+    const base = countBase('region'), cnt = {};
+    base.forEach(w => { if (w.place) cnt[w.place] = (cnt[w.place] || 0) + 1; });
+    const paths = MAP.regions.map(r => `<path data-pv-opt="${esc(r.id)}" class="${sel.region.has(r.id) ? 'is-on' : ''}${cnt[r.id] ? '' : ' is-none'}" d="${r.d}"><title>${esc(r.id)} · ${(cnt[r.id] || 0).toLocaleString()}</title></path>`).join('');
+    const list = PLACES.map(r => `<button type="button" class="pv-map-name${sel.region.has(r) ? ' is-on' : ''}" data-pv-opt="${esc(r)}" data-place="${esc(r)}" aria-pressed="${sel.region.has(r)}">${esc(r)}<em>${(cnt[r] || 0).toLocaleString()}</em></button>`).join('');
+    const n = state.currentList.length;
+    pop.innerHTML = `<h3>Region <span style="letter-spacing:0;text-transform:none;opacity:.7">· choose one or more</span></h3>` +
+      `<svg class="pv-map" viewBox="0 0 ${MAP.w} ${MAP.h}" aria-label="World map of regions"><path class="pv-map-sphere" d="${MAP.sphere}"></path>${paths}</svg>` +
+      `<div class="pv-map-names">${list}</div>` +
+      `<div class="pv-done"><span data-pv-count="1">${n.toLocaleString()} works</span>` +
+      (sel.region.size ? `<button type="button" data-pv-clear="1">Clear region</button>` : '') + `<button type="button" data-pv-close="1">Done</button></div>`;
+  }
+  // hovering a region lights its name, and the other way round
+  const mapHot = (id) => pop.querySelectorAll('.pv-map [data-pv-opt], .pv-map-name').forEach(el => el.classList.toggle('is-hot', !!id && el.dataset.pvOpt === id));
+  pop.addEventListener('pointerover', e => { if (openId !== 'region') return; const t = e.target.closest('[data-pv-opt]'); mapHot(t ? t.dataset.pvOpt : ''); });
+  pop.addEventListener('pointerleave', () => { if (openId === 'region') mapHot(''); });
   function close() { openId = ''; drawTools(); drawPop(); }
 
   toolsEl.addEventListener('click', (e) => {
     const b = e.target.closest('[data-pv-tool]'); if (!b) return;
     const id = b.dataset.pvTool;
     if (e.target.classList.contains('pv-x')) {
-      if (id === 'arrange') arrange = 'wall'; else if (sel[id]) sel[id].clear();
+      if (id === 'arrange') arrange = 'wall'; else if (id === 'era') span = null; else if (sel[id]) sel[id].clear();
       if (id === 'tone') { shade = null; scoreShade(); }
       openId = ''; refresh(); drawPop(); return;
     }
@@ -11566,7 +11721,7 @@
       s.has(v) ? s.delete(v) : s.add(v);
       refresh(); drawPop(); return;
     }
-    if (e.target.closest('[data-pv-clear]')) { sel[openId].clear(); if (openId === 'tone') { shade = null; scoreShade(); } refresh(); drawPop(); return; }
+    if (e.target.closest('[data-pv-clear]')) { sel[openId].clear(); if (openId === 'era') span = null; if (openId === 'tone') { shade = null; scoreShade(); } refresh(); drawPop(); return; }
     if (e.target.closest('[data-pv-close]')) { close(); return; }
     const a = e.target.closest('[data-pv-arr]');
     if (a) { arrange = a.dataset.pvArr; openId = ''; refresh(); drawPop(); window.scrollTo({ top: 0 }); return; }
@@ -11615,6 +11770,7 @@
     if (shade) parts.push(['shade', '', shade.label]);
     const tones = FACETS[0].opts.filter(o => sel.tone.has(o[0]));
     if (tones.length) parts.push(['tone', '', tones.map(o => o[1]).join(' with ')]);
+    if (span) parts.push(['era', '', spanLabel()]);
     FACETS.slice(1).forEach(f => f.opts.forEach(o => { if (sel[f.id].has(o[0])) parts.push([f.id, o[0], o[1]]); }));
     const q = (state.query || '').trim();
     if (q) parts.push(['q', '', `“${q}”`]);
@@ -11633,11 +11789,12 @@
     else if (k === 'q') { state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; }
     else if (k === 'shade') { shade = null; scoreShade(); }
     else if (k === 'tone') sel.tone.clear();
+    else if (k === 'era') span = null;
     else sel[k].delete(v);
     refresh();
   });
   function clearAll() {
-    FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; show = 'both'; shade = null; scoreShade();
+    FACETS.forEach(f => sel[f.id].clear()); span = null; arrange = 'wall'; show = 'both'; shade = null; scoreShade();
     try { localStorage.setItem('pvShow', show); } catch (e) {}
     state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = '';
     refresh();
@@ -11650,7 +11807,7 @@
   // The logo and the old Reset go back to the front of house: filters off, the woven wall.
   ['resetAllBtn', 'emptyResetBtn', 'clearFiltersBtn'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('click', () => { FACETS.forEach(f => sel[f.id].clear()); arrange = 'wall'; shade = null; scoreShade(); setTimeout(() => {
+    if (el) el.addEventListener('click', () => { FACETS.forEach(f => sel[f.id].clear()); span = null; arrange = 'wall'; shade = null; scoreShade(); setTimeout(() => {
       if (id === 'resetAllBtn' && state.spatialView !== 'wall') setSpatialView('wall'); filterWorks(false); drawTools(); drawRead(); syncShow(); }, 0); });
   });
   // Shuffle leaves any arrangement and animates too.
