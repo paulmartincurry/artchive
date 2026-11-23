@@ -4179,6 +4179,9 @@
     @media (min-width: 1181px) {
       header .header-search-cluster, header.is-scrolled .header-search-cluster, header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { flex: 0 1 var(--qw, 240px) !important; max-width: var(--qw, 240px) !important; margin: 0 36px 0 auto !important; transition: flex-basis 520ms cubic-bezier(.22,.61,.36,1), max-width 520ms cubic-bezier(.22,.61,.36,1) !important; }
       header .header-search-box { transition: border-color 400ms ease; }
+      header .header-search-box { position: relative; }
+      header .header-search-box.pv-thinking::after { content: ''; position: absolute; left: 0; bottom: -1px; height: 1px; width: 28%; background: var(--text); opacity: .55; animation: pvThink 1.3s cubic-bezier(.45,0,.55,1) infinite alternate; }
+      @keyframes pvThink { from { left: 0; } to { left: 72%; } }
       header .header-search-box, header.is-scrolled .header-search-box, header .header-search-box:focus-within { height: 38px !important; }
       header .header-search-cluster { position: relative; }
       header .active-chips-row { position: absolute !important; top: 100%; left: 0; margin: 4px 0 0 !important; }
@@ -5508,8 +5511,9 @@
 
     function filterWorks(preserveScroll = false) {
       // First apply structural facets (Saved, Pigment Hunt, Material Pivot, Timeline, Index selects)
+      // Works whose picture failed to load are dropped after the search, not before it: the search's cut-off is set by its
+      // best match, so taking a strong work out first changed how many others came back (23 Nov 2026).
       let basePool = WORKS.filter(w => {
-        if (w._broken) return false;
         if (state.onlySaved) {
           if (state.activeStack !== 'ALL') {
             const stackIds = state.stacks[state.activeStack] || [];
@@ -5581,6 +5585,7 @@
         filtered.sort((a, b) => (b.iconicScore || 0) - (a.iconicScore || 0));
       }
 
+      filtered = filtered.filter(w => !w._broken);
       state.currentList = window.pvArrange ? window.pvArrange(filtered, searchRanked) : filtered;
 
       updateCountDisplay();
@@ -12089,7 +12094,9 @@
     let late = null;
     if (k.length >= 3 && !qVec.has(k)) {
       const p = embedQuery(val, true);
-      const ok = await Promise.race([p.then(() => true), new Promise(r => setTimeout(() => r(false), 1400))]);
+      const box = document.querySelector('header .header-search-box'); if (box) box.classList.add('pv-thinking');
+      const ok = await Promise.race([p.then(() => true), new Promise(r => setTimeout(() => r(false), ex ? 1400 : 3500))]);
+      if (box) box.classList.remove('pv-thinking');
       if (seq !== settleSeq) return;
       if (!ok) late = p;
     }
