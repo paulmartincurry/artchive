@@ -4167,6 +4167,43 @@
     @media (prefers-reduced-motion: reduce) { .pv-pop-in, .art-piece.pv-out { animation: none; } }
     @media (max-width: 760px) { .pv-pop.pv-pop-wide { width: auto; } }
   </style>
+  <style id="oneBar">
+    /* One bar (Paul, 23 Nov 2026): name, All/Art/Writing and the filters, search, then icons. */
+    header { padding: 14px 32px 12px; }
+    header .nav-primary { flex-wrap: nowrap !important; gap: 18px !important; row-gap: 0 !important; }
+    header .brand-cluster { flex: 0 0 auto; }
+    header .pv-toolrow { margin: 0; height: 44px; flex: 0 1 auto; max-width: none; gap: 4px; }
+    header .header-search-cluster, header.is-scrolled .header-search-cluster,
+    header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { order: 0; flex: 1 1 220px; max-width: 520px; margin: 0 0 0 auto; }
+    header .header-search-box, header.is-scrolled .header-search-box { height: 40px; }
+    header .header-search-input, header.is-scrolled .header-search-input { font-size: 1.08rem; }
+    header.is-scrolled { margin-bottom: 0; }
+    header .nav-actions { flex: 0 0 auto; display: flex; align-items: center; gap: 2px; }
+    #savedFilterBtn { font-size: 0.72rem !important; padding: 0 10px !important; gap: 6px; }
+    .pv-icon { width: 40px; height: 40px; border: 0; background: none; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+    .pv-icon:hover, .pv-icon.is-on { color: var(--text); }
+    .pv-icon svg { width: 18px; height: 18px; }
+    .pv-theme { width: 40px; height: 40px; }
+    #wallControlsBar #shuffleBtn, #wallControlsBar #densityBtn, #wallControlsBar #pureWallBtn, #wallControlsBar .wall-micro-sep { display: none !important; }
+    .pv-pop { top: 50px; }
+    @media (max-width: 1180px) {
+      header .nav-primary { flex-wrap: wrap !important; row-gap: 6px !important; }
+      header .pv-toolrow { order: 4; flex: 1 1 100%; overflow-x: auto; scrollbar-width: none; }
+      header .header-search-cluster, header.is-scrolled .header-search-cluster { order: 2; flex: 1 1 200px; max-width: none; margin: 0 8px; }
+      header .nav-actions { order: 3; }
+    }
+    @media (max-width: 700px) {
+      header { padding: 10px 14px 8px; }
+      header .header-search-cluster, header.is-scrolled .header-search-cluster, header .header-search-cluster:focus-within { order: 4 !important; flex: 1 1 100% !important; margin: 0 !important; }
+      header .nav-actions { order: 2; margin-left: auto; }
+      header .pv-toolrow { order: 5; }
+      header .brand-title { font-size: 1.02rem !important; letter-spacing: 0.22em !important; }
+      header .pv-icon, header .pv-theme { width: 34px; height: 36px; }
+      header .brand-cluster { flex: 0 1 auto; min-width: 0; }
+      header .pv-show { margin-right: 14px !important; }
+      #savedFilterBtn { padding: 0 6px !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -11871,6 +11908,26 @@
     tb.addEventListener('click', () => document.getElementById('wallThemeBtn').click());
     acts.appendChild(tb);
   }
+  // ---- one bar: the filters move up beside the name, Shuffle and Captions become icons on the right ----
+  (function oneBar() {
+    const nav = document.querySelector('header .nav-primary'), srch = document.querySelector('header .header-search-cluster');
+    if (nav && row && srch) nav.insertBefore(row, srch);
+    if (!acts) return;
+    const icon = (id, label, svg, onClick) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'pv-icon'; b.id = id;
+      b.setAttribute('aria-label', label); b.title = label; b.innerHTML = svg; b.addEventListener('click', onClick); return b;
+    };
+    const SV = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+    const shuf = icon('pvShuffle', 'Shuffle the wall', SV('<path d="M3 7h4c4 0 6 10 10 10h4"/><path d="M3 17h4c1.6 0 2.8-1.6 3.9-3.6M13.1 9.6C14.2 7.6 15.4 7 17 7h4"/><path d="M18 4l3 3-3 3M18 14l3 3-3 3"/>'),
+      () => document.getElementById('shuffleBtn').click());
+    const capBtn = document.getElementById('pureWallBtn');
+    const cap = icon('pvCaptions', 'Show or hide titles', SV('<rect x="3.5" y="5" width="17" height="14" rx="1"/><path d="M7 15h6M7 12h10"/>'),
+      () => { capBtn.click(); cap.classList.toggle('is-on', !galleryGrid.classList.contains('pure-wall')); });
+    cap.classList.toggle('is-on', !galleryGrid.classList.contains('pure-wall'));
+    acts.insertBefore(cap, acts.firstChild); acts.insertBefore(shuf, acts.firstChild);
+    if (sb) sb.childNodes.forEach(n => { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Saved ', ''); });
+    if (sb) { sb.title = 'Saved'; sb.setAttribute('aria-label', 'Saved works'); }
+  })();
 
   // ---- data that loads after the wall is up: neighbours, meaning vectors, picture descriptions ----
   const BASE = location.pathname.replace(/[^/]*$/, '');
