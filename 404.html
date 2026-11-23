@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not here · The Artchive</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="https://www.paulmartincurry.com/artchive/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://www.paulmartincurry.com/artchive/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://www.paulmartincurry.com/artchive/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0b0c; color: #eae8e3; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; box-sizing: border-box; font-family: Inter, -apple-system, sans-serif; }
+  .mark { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; letter-spacing: 0.32em; font-size: 1.1rem; color: #eae8e3; text-decoration: none; margin-bottom: 48px; }
+  h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 2.2rem; margin: 0 0 14px; }
+  p { margin: 0; opacity: .7; font-weight: 300; line-height: 1.7; }
+  .go { margin-top: 32px; display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .go a { color: #eae8e3; text-decoration: none; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; border-bottom: 1px solid rgba(234,232,227,.3); padding-bottom: 4px; }
+  .go a:hover { border-color: #eae8e3; }
+</style>
+</head><body>
+  <a class="mark" href="https://www.paulmartincurry.com/artchive/">THE ARTCHIVE</a>
+  <h1>Nothing hangs here.</h1>
+  <p>The page you followed has moved or never existed.</p>
+  <div class="go">
+    <a href="https://www.paulmartincurry.com/artchive/">Back to the wall</a>
+    <a id="try" href="https://www.paulmartincurry.com/artchive/" hidden></a>
+  </div>
+<script>
+  // Offer a search for the words in the address, if there are any.
+  (function () {
+    var tail = decodeURIComponent(location.pathname.replace(/^.*\/artchive\//, '').replace(/\.html?$/, ''))
+      .replace(/^w\//, '').replace(/[-_\/]+/g, ' ').replace(/[^\p{L}\p{N} ]/gu, '').trim();
+    if (!tail || tail.length > 60) return;
+    var a = document.getElementById('try');
+    a.href = 'https://www.paulmartincurry.com/artchive/?q=' + encodeURIComponent(tail);
+    a.textContent = 'Search for “' + tail + '”';
+    a.hidden = false;
+  })();
+</script>
+</body></html>

@@ -27,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/d3@7.4.1/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7.4.1/dist/d3.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
   <style>
     :root {
       --bg: #0b0b0c;
@@ -4080,6 +4080,11 @@
     .pv-sc-x:hover { color: var(--text); }
     /* the footer keeps only the full-size file and the source record */
     #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
+    html.pv-can-share #lbShareBtn { display: inline-block !important; }
+    #pvBoot { position: fixed; inset: 0; z-index: 400; background: #0b0b0c; display: flex; align-items: center; justify-content: center; transition: opacity 600ms ease; pointer-events: none; }
+    #pvBoot span { font-family: 'Cormorant Garamond', Georgia, serif; color: #eae8e3; font-size: 1.15rem; letter-spacing: 0.32em; opacity: .85; animation: pvBootIn 900ms ease both; }
+    #pvBoot.gone { opacity: 0; }
+    @keyframes pvBootIn { from { opacity: 0; } to { opacity: .85; } }
     .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink)) { display: none !important; }
     .pv-like { margin: 22px 0 6px; }
     .pv-near { margin-top: 22px; }
@@ -4338,6 +4343,7 @@
   </style>
 </head>
 <body>
+  <div id="pvBoot" aria-hidden="true"><span>THE ARTCHIVE</span></div>
 
   <!-- Hidden SVG Filter for 2-Ink Risograph / Duotone Stage Lens -->
   <svg style="position:absolute; width:0; height:0; pointer-events:none;" aria-hidden="true">
@@ -5834,7 +5840,7 @@
         img.decoding = 'async';
         if (w.isDetailClip) img.src = w.imageUrl;
         else setTileImage(img, w.imageUrl, `(max-width: 700px) ${Math.round(100 / Math.max(1, state.colCount || 2))}vw, ${Math.round(100 / Math.max(1, state.colCount || 4))}vw`);
-        img.alt = w.title;
+        img.alt = [w.title, w.artist].filter(Boolean).join(', ');
         img.loading = 'lazy';
         if (!w.isDetailClip && w.ar > 0) img.style.aspectRatio = String(w.ar);
         if (w.isDetailClip && w.detailCrop) {
@@ -7005,7 +7011,7 @@
             probe.src = w.imageUrl;
           }
         };
-        lbImage.src = w.imageUrl;
+        lbImage.src = w.imageUrl; lbImage.alt = [w.title, w.artist, w.dateLabel].filter(Boolean).join(', ');
         lbImage.alt = w.title;
 
         broadsideVerseLine.textContent = w.quote ? `“${w.quote}”` : '';
@@ -11430,20 +11436,36 @@
       const baseUrl = () => location.href.split('#')[0].replace(/index\.html$/, '');
       const shareBtn = document.getElementById('lbShareBtn');
       let current = null;
+      // The back button closes an open work instead of leaving the site (23 Nov 2026): opening a work from the wall
+      // adds one history step; paging to the next work replaces it; closing takes the step back.
+      let pushed = false, popping = false;
+      const BASE_TITLE = 'The Artchive';
       const origOpen = openLightbox;
       openLightbox = function (index) {
+        const scrollY = window.scrollY;
         origOpen(index);
         const w = state.currentList[index];
         if (!w || !w.id || state.activeWorkIndex !== index) return;
+        if (!current) window.__pvWallY = scrollY;
         current = w;
-        if (location.hash !== `#w/${w.id}`) history.replaceState(null, '', `#w/${w.id}`);
+        if (location.hash !== `#w/${w.id}`) {
+          if (!location.hash.startsWith('#w/') && !popping) { history.pushState({ pvWork: 1 }, '', `#w/${w.id}`); pushed = true; }
+          else history.replaceState(history.state, '', `#w/${w.id}`);
+        }
+        document.title = [w.title, w.artist].filter(Boolean).join(' — ') + ' · ' + BASE_TITLE;
         if (shareBtn) shareBtn.style.display = w.slug ? '' : 'none';
       };
       const origClose = closeLightbox;
       closeLightbox = function () {
         origClose();
         current = null;
-        if (location.hash.startsWith('#w/')) history.replaceState(null, '', location.pathname + location.search);
+        document.title = BASE_TITLE;
+        if (typeof window.__pvWallY === 'number') { const y = window.__pvWallY; requestAnimationFrame(() => window.scrollTo(0, y)); }
+        if (location.hash.startsWith('#w/')) {
+          if (pushed && !popping) { pushed = false; popping = true; history.back(); setTimeout(() => { popping = false; }, 1500); }
+          else history.replaceState(null, '', location.pathname + location.search);
+        }
+        pushed = false;
         // In the Saved view the board may have changed while the work was open; redraw it.
         if (state.onlySaved && typeof filterWorks === 'function') filterWorks(false);
       };
@@ -11458,7 +11480,12 @@
       }
       const openFromHash = () => {
         const m = location.hash.match(/^#w\/([A-Z]+-\d+)$/);
-        if (!m) return;
+        if (!m) {
+          // Back (or forward) to the wall while a work is open: close it without touching history again.
+          if (popping) { popping = false; return; }   // the step back that closing a work takes
+          if (current) { popping = true; pushed = false; closeLightbox(); popping = false; }
+          return;
+        }
         if (current && current.id === m[1]) return;
         openWorkById(m[1]);
       };
@@ -12109,7 +12136,7 @@
     if (k === 'board') { sharedBoard = null; refresh({ fade: true }); return; }
     if (k === 'show') { show = 'both'; try { localStorage.setItem('pvShow', show); } catch (er) {} }
     else if (k === 'arr') arrange = 'wall';
-    else if (k === 'q') { state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; }
+    else if (k === 'q') { state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; if (window.pvSyncQ) window.pvSyncQ(''); }
     else if (k === 'shade') { shade = null; scoreShade(); }
     else if (k === 'tone') sel.tone.clear();
     else if (k === 'era') span = null;
@@ -12221,7 +12248,7 @@
   function clearAll() {
     FACETS.forEach(f => sel[f.id].clear()); span = null; arrange = 'wall'; show = 'both'; shade = null; scoreShade();
     try { localStorage.setItem('pvShow', show); } catch (e) {}
-    state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = '';
+    state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; if (window.pvSyncQ) window.pvSyncQ('');
     refresh();
   }
   // Searching from the box updates the read-back too.
@@ -12336,7 +12363,7 @@
     card.addEventListener('wheel', close, { passive: true }); card.addEventListener('touchmove', close, { passive: true });
     document.addEventListener('keydown', (e) => { if (!card.hidden && (e.key === 'Escape' || e.key === 'Enter')) { e.preventDefault(); e.stopPropagation(); close(); } }, true);
     let seen = false; try { seen = localStorage.getItem('pvWelcomeSeen') === '1'; } catch (e) {}
-    const deep = /^#(w|b)[\/=]/.test(location.hash);
+    const deep = /^#(w|b)[\/=]/.test(location.hash) || /[?&]q=/.test(location.search);
     if (!seen && !deep) setTimeout(() => window.pvWelcome(), 1200);
   })();
 
@@ -12518,9 +12545,19 @@
       if (seq !== settleSeq) return;
       if (!ok) late = p;
     }
-    shownQ = k; await refresh({ fade: true });
+    shownQ = k; syncQ(val); await refresh({ fade: true });
     if (late) late.then(() => { if (seq === settleSeq && normQ(state.query || '') === k) refresh({ fade: true }); });
   }
+  // A search is a link (23 Nov 2026): the address carries ?q=, so a search can be sent to someone, and opening one runs it.
+  function syncQ(val) {
+    try {
+      const u = new URL(location.href), q = (val || '').trim();
+      if (q) u.searchParams.set('q', q); else u.searchParams.delete('q');
+      const next = u.pathname + u.search + u.hash;
+      if (next !== location.pathname + location.search + location.hash) history.replaceState(history.state, '', next);
+    } catch (e) {}
+  }
+  window.pvSyncQ = syncQ;
   window.pvSearchSettle = function (val, now) {
     clearTimeout(settleTimer);
     settleTimer = setTimeout(() => settleNow(val), now ? 0 : 450);
@@ -12652,6 +12689,35 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePeek(); });
     if (typeof openLightbox === 'function') { const o = openLightbox; openLightbox = function () { closePeek(); return o.apply(this, arguments); }; }
   }
+})();
+
+// First load (23 Nov 2026): the wordmark holds the screen while the library downloads, then gives way to the wall.
+(function bootFade() {
+  const b = document.getElementById('pvBoot'); if (!b) return;
+  requestAnimationFrame(() => requestAnimationFrame(() => { b.classList.add('gone'); setTimeout(() => b.remove(), 700); }));
+})();
+
+// A search link (?q=) runs that search on arrival.
+(function searchFromLink() {
+  let q = null; try { q = new URLSearchParams(location.search).get('q'); } catch (e) {}
+  if (!q || !q.trim()) return;
+  const inp = document.getElementById('searchInput');
+  if (inp) { inp.value = q; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+  if (window.pvSearchSettle) window.pvSearchSettle(q, true);
+})();
+
+// Phones get the system share sheet for an open work: its own page, which previews properly (23 Nov 2026).
+(function nativeShare() {
+  const btn = document.getElementById('lbShareBtn');
+  if (!btn || !navigator.share || !matchMedia('(hover: none)').matches) return;
+  document.documentElement.classList.add('pv-can-share');
+  btn.textContent = 'Share';
+  btn.addEventListener('click', (e) => {
+    const w = state.currentList[state.activeWorkIndex]; if (!w || !w.slug) return;
+    e.stopImmediatePropagation(); e.preventDefault();
+    const url = location.href.split('#')[0].split('?')[0].replace(/index\.html$/, '') + 'w/' + w.slug + '.html';
+    navigator.share({ title: [w.title, w.artist].filter(Boolean).join(' — '), url }).catch(() => {});
+  }, true);
 })();
 </script>
 </body>
