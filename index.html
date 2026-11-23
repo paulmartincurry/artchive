@@ -3966,6 +3966,33 @@
     .pv-vivid-lbl { display: flex; justify-content: space-between; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
     #lbPalette .swatch-dot { cursor: pointer; }
     .pv-like:empty { display: none; }
+    /* folds in the open work (23 Nov 2026) */
+    .pv-fold { border-top: 1px solid var(--border); margin: 0 !important; }
+    .pv-like > .pv-fold:first-child { margin-top: 0; }
+    .pv-like { margin: 0 !important; }
+    .pv-fold-h { display: flex; width: 100%; justify-content: space-between; align-items: center; background: none; border: 0; padding: 13px 0 !important; margin: 0 !important;
+      font: inherit; font-size: 0.68rem !important; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; text-align: left; }
+    .pv-fold-h::after { content: '+'; font-size: 0.9rem; letter-spacing: 0; opacity: .7; }
+    .pv-fold.is-open > .pv-fold-h::after { content: '−'; }
+    .pv-fold-h:hover { color: var(--text); }
+    .pv-fold-h:focus, .pv-fold-h:focus-visible, #toggleSpecsBtn:focus { outline: none !important; box-shadow: none !important; }
+    .pv-fold-h:focus-visible, #toggleSpecsBtn:focus-visible { color: var(--text); }
+    .pv-fold:not(.is-open) > :not(.pv-fold-h) { display: none !important; }
+    .pv-fold.is-open > :not(.pv-fold-h) { margin-bottom: 16px; animation: pvFoldIn 260ms ease; }
+    @keyframes pvFoldIn { from { opacity: 0; transform: translateY(-3px); } }
+    .lb-palette-row { margin: 0 !important; }
+    .pv-fold.is-open > .lb-palette-row { margin-bottom: 16px !important; }
+    .pv-fold[hidden], .pv-fold[data-fold="colours"]:has(.lb-palette:empty) { display: none !important; }
+    #specsDrawer.open { padding-bottom: 14px; }
+    #specsDrawer > .pv-credit { grid-column: 1 / -1; margin: 0 0 8px; }
+    /* Details keeps the credit, era and provenance; medium is on the label, colours have their own fold, old taxonomy pills go */
+    #specMedium, #specForm, #specHex, .spec-key:has(+ #specMedium), .spec-key:has(+ #specForm), .spec-key:has(+ #specHex), #craftPivotsWrap { display: none !important; }
+    .specs-accordion-wrap { border-bottom: 1px solid var(--border) !important; margin-bottom: 0 !important; padding: 0 !important; }
+    #toggleSpecsBtn { padding: 13px 0 !important; font-size: 0.68rem !important; letter-spacing: 0.16em !important; }
+    #toggleSpecsBtn:hover { color: var(--text); }
+    /* the footer keeps only the full-size file and the source record */
+    #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
+    .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink)) { display: none !important; }
     .pv-like { margin: 22px 0 6px; }
     .pv-near { margin-top: 22px; }
     .pv-like-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
@@ -12051,22 +12078,55 @@
     const nb = (sim.get(w.id) || []).map(id => by.get(id)).filter(x => x && !x._broken);
     if (!nb.length || state.currentList[state.activeWorkIndex] !== w) return;
     const lit = isLit(w);
-    more.innerHTML = `<div class="pv-like-h">More like this</div>` + (lit
+    more.innerHTML = `<div class="pv-fold" data-fold="like"><button type="button" class="pv-like-h pv-fold-h">More like this</button>` + (lit
       ? `<div class="pv-like-lines">` + nb.slice(0, 4).map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`
       : `<div class="pv-like-row">` + nb.slice(0, 8).map(x => isLit(x)
           ? `<button type="button" class="pv-like-word" data-id="${x.id}" title="${esc(x.title)}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
-          : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`);
+          : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`) + `</div>`;
+    pvFoldInit(more);
     more.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
     // Pictures near these words / words near this picture: chosen by the meaning vectors, shown only when the match is strong
     const pr = await loadPairs(); if (!pr || state.currentList[state.activeWorkIndex] !== w) return;
     const near = (pr[w.id] || []).map(id => by.get(id)).filter(x => x && !x._broken);
     if (!near.length) return;
-    const box = document.createElement('div'); box.className = 'pv-near';
+    const box = document.createElement('div'); box.className = 'pv-near pv-fold'; box.dataset.fold = 'near';
     box.innerHTML = lit
-      ? `<div class="pv-like-h">Pictures near these words</div><div class="pv-like-row">` + near.map(x => `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`
-      : `<div class="pv-like-h">Words near this picture</div><div class="pv-like-lines">` + near.map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`;
+      ? `<button type="button" class="pv-like-h pv-fold-h">Pictures near these words</button><div class="pv-like-row">` + near.map(x => `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`
+      : `<button type="button" class="pv-like-h pv-fold-h">Words near this picture</button><div class="pv-like-lines">` + near.map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`;
     box.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
-    more.appendChild(box);
+    more.appendChild(box); pvFoldInit(more);
+  }
+  // Folds (Paul, 23 Nov 2026): the open work leads with the picture, the label and the note; credit, colours, more like
+  // this and words near it sit closed under quiet headings and open on a tap. Each remembers being opened, per browser.
+  function pvFoldOpen(k) { try { return localStorage.getItem('pvFold:' + k) === '1'; } catch (e) { return false; } }
+  function pvFoldInit(root) {
+    root.querySelectorAll('.pv-fold').forEach(f => { if (!f.dataset.ready) { f.dataset.ready = '1'; f.classList.toggle('is-open', pvFoldOpen(f.dataset.fold)); } });
+  }
+  document.addEventListener('click', (e) => {
+    const h = e.target.closest('.pv-fold-h'); if (!h) return;
+    const f = h.closest('.pv-fold'); if (!f) return;
+    const on = !f.classList.contains('is-open'); f.classList.toggle('is-open', on);
+    try { localStorage.setItem('pvFold:' + f.dataset.fold, on ? '1' : '0'); } catch (err) {}
+  });
+  (function foldPanel() {
+    // Colours: the palette row goes under its own heading
+    const pal = document.querySelector('.lb-palette-row');
+    if (pal && !pal.closest('.pv-fold')) {
+      const f = document.createElement('div'); f.className = 'pv-fold'; f.dataset.fold = 'colours';
+      f.innerHTML = '<button type="button" class="pv-like-h pv-fold-h">Colours</button>';
+      pal.parentNode.insertBefore(f, pal); f.appendChild(pal);
+    }
+    // Credit: where it is held and the rights line move into Details (kept in view for look-and-learn works)
+    const dr = document.getElementById('specsDrawer'), org = document.getElementById('lbOrigin');
+    if (dr && org) { org.classList.add('pv-credit'); }
+    pvFoldInit(document);
+  })();
+  function placeCredit(w) {
+    const dr = document.getElementById('specsDrawer'), org = document.getElementById('lbOrigin'), med = document.getElementById('lbMediumLine');
+    const cf = document.querySelector('.pv-fold[data-fold="colours"]'); if (cf) cf.hidden = !!(w && w.itemType === 'literature');
+    if (!dr || !org || !med) return;
+    if (w && (w.fairUse || w.rightsTier === 'look')) { if (org.parentNode !== med.parentNode) med.after(org); }
+    else if (org.parentNode !== dr) dr.prepend(org);
   }
   let pairsP = null;
   const loadPairs = () => pairsP || (pairsP = fetch(BASE + 'data/pairs.json?' + ver).then(r => r.ok ? r.json() : null).catch(() => null));
@@ -12085,11 +12145,11 @@
     new MutationObserver(() => lbPal.querySelectorAll('.swatch-dot').forEach(d => { d.title = 'More in this colour'; }))
       .observe(lbPal, { childList: true });
   }
-  if (location.hash.startsWith('#w/')) setTimeout(() => showLike(state.currentList[state.activeWorkIndex]), 0);
+  if (location.hash.startsWith('#w/')) setTimeout(() => { placeCredit(state.currentList[state.activeWorkIndex]); showLike(state.currentList[state.activeWorkIndex]); }, 0);
   more.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (b) openWorkById(b.dataset.id); });
   if (typeof openLightbox === 'function') {
     const origOpenLb = openLightbox;
-    openLightbox = function (index) { const r = origOpenLb(index); showLike(state.currentList[index]); return r; };
+    openLightbox = function (index) { const r = origOpenLb(index); placeCredit(state.currentList[index]); showLike(state.currentList[index]); return r; };
   }
 
   // Search by meaning. Word matches still come first (names, titles, quotes); works that match the
