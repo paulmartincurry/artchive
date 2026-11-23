@@ -1327,3 +1327,16 @@ Left out: seven Sterrett plates (Commons files about 440 px wide), a Bilibin pos
 - Colour: violet, purple, magenta, pink, teal and yellow-green are still the thin bands at full strength (see the spectrum rounds).
 - Depth: 646 of 1,061 artists have one work; famous names with three or fewer include Rossetti, Millais, Chagall, Miró, Waterhouse, Rothko, Kusama, Hockney, Rivera.
 - Context: 245 artworks are label only, 52 writing pieces have no note, 1,480 artworks show no size, 444 no holder (many are buildings, sites and book plates).
+
+
+## Thin-spots round (22 Nov 2026)
+
+Follows "Whole-archive scan for thin spots". Paul: "yep do all of it and more".
+
+- Americas filter fixed (Indigenous American works filed under Africa, Oceania & Indigenous Americas now also answer to Americas).
+- Everyday searches: 180 artworks, VAULT-3611 to 3790 (`grow: 'search'`). Sources: Art Institute of Chicago, Cleveland Museum of Art, Smithsonian (Cooper Hewitt, SAAM, Freer). Notes only from the holder's own description; 105 are label only. Held out: Cleveland 115163 (Asante akrafokɔnmu, "before 1896"), Chicago 130700 (Nepalese necklace for the goddess Taleju), and duplicates of works already on the site (Nushirwan Listens to the Owls, Kirchner's Wrestlers in a Circus, Klee's Carnival in the Snow, Rousseau's Tiger and Buffalo, Ranson's Tiger in the Jungle, Marc's Tiger, Bruegel's Alchemist, a second Kota tiger hunt). Clarence Carter's Circus Horses (1933) is free on Cleveland's CC0 release alone; its auditNote says so.
+- Photography from Asia, the Near East and North Africa: 35, all from the Rijksmuseum, attributions as the holder records them. Céphas and Abdullah Frères notes also use their Wikipedia articles.
+- Pre-Raphaelites: 33 from Chicago, Cleveland and NGA. Waterhouse, Chagall and Miró need Commons (through Paul's Chrome).
+- Colour: 11 for teal and yellow-green. Most of the strongest teal candidates were already added in the spectrum rounds.
+- Writing: LIT-1934 to 1939. Modern standard translations of the Nō plays (Royall Tyler) and of The Cloud Dream of the Nine (Heinz Insu Fenkl) were not confirmed, so the 1922 public-domain wordings are kept. Heloise's line is the Radice/Clanchy Penguin wording, confirmed in archive.org full-text search of the Penguin edition; the 1974 text has mistress where the revision has friend [amica].
+- Not done: Nasir Khusraw's travel diary (Le Strange's 1888 translation not found on archive.org in this pass), Viking material, more aeroplanes.

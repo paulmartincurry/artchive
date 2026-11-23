@@ -115,6 +115,10 @@ def rijks_record(uri):
             n = [x['@value'] for x in _notes(c) if x.get('@language') == 'en'] or [x['@value'] for x in _notes(c)]
             if n:
                 makers.append(n[0])
+    if not makers:
+        for r in prod.get('referred_to_by', []):
+            if any('300388277' in (l.get('id') or '') for l in r.get('language', [])) and r.get('content'):
+                makers.append(r['content'][0].upper() + r['content'][1:]); break
     ts = prod.get('timespan') or {}
     if isinstance(ts, list):
         ts = ts[0] if ts else {}

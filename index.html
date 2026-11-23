@@ -4657,7 +4657,7 @@
 
 
 
-  <script src="data/site.js?v=bc19d0c51f"></script>
+  <script src="data/site.js?v=a4ca1bedbd"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -11370,6 +11370,7 @@
   const isLit = w => w.itemType === 'literature' || w.macroMedium === LIT;
 
   // ---- hooks read by filterWorks ----
+  const AMERICAS_RX = /Mexic|Mesoameric|Maya|Aztec|Nahua|Peru|Bolivia|Colombia|Guatemala|Argentina|Brazil|Ecuador|Chile|Andean|Suriname|Jamaica|Caribbean|Haiti|Cuba|Canada|United States|Alaska|Arizona|New Mexico|Ojibwe|Kiowa|Nez Perce|Navajo|Diné|Lakota|Sioux|Cheyenne|Cherokee|Hopi|Zuni|Pueblo|Pacific Northwest|Tlingit|Haida|Kwakwaka|Inuit|Taíno/i;
   window.pvPass = function (w) {
     const inRoom = state.spatialView === 'reading';   // the Reading Room is all writing: it ignores Art only, colour and medium
     if (show === 'art' && isLit(w) && !inRoom) return false;
@@ -11385,6 +11386,8 @@
         if (v === 'Diagram' || v === 'Cyanotype & Textile') v = 'Diagram, Cyanotype & Textile';
         if (v === 'Letterform' || v === 'Score & Ephemera') v = 'Letterform, Score & Ephemera';
       }
+      // Indigenous American works are filed with Africa and Oceania, but someone asking for the Americas expects them too (22 Nov 2026).
+      if (f.id === 'region' && !s.has(v) && s.has('Americas') && v === 'Africa, Oceania & Indigenous Americas' && AMERICAS_RX.test(w.region || '')) continue;
       if (!s.has(v)) return false;
     }
     if (shade && !inRoom) {
