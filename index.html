@@ -4820,7 +4820,7 @@
 
 
 
-  <script src="data/site.js?v=2ed6c6e023"></script>
+  <script src="data/site.js?v=773478f9c8"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -4890,7 +4890,8 @@
         words: ['LIT-007','LIT-017','LIT-018','LIT-010','LIT-014','LIT-028','LIT-009','LIT-019','LIT-013','LIT-043','LIT-047','LIT-086','LIT-002','LIT-089','LIT-041','LIT-879','LIT-005','LIT-036','LIT-042','LIT-140','LIT-079','LIT-045','LIT-064','LIT-054','LIT-024','LIT-910','LIT-911','LIT-922','LIT-923','LIT-927','LIT-932','LIT-941','LIT-1018','LIT-999','LIT-957','LIT-979','LIT-1017','LIT-1006','LIT-1002','LIT-955']
       };
       const byId = new Map(SEED_WORKS.map(w => [w.id, w]));
-      let seed = (Math.floor(Date.now() / 86400000) * 2654435761) >>> 0;
+      // A new first impression on every visit (Paul, 23 Nov 2026): the seed is random per page load, not per day.
+      let seed = ((Math.random() * 4294967296) ^ Date.now()) >>> 0;
       const rnd = () => (seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 4294967296;
       const draw = (ids, n) => {
         const a = ids.filter(id => byId.has(id));
@@ -4907,7 +4908,21 @@
         out.push(pile.splice(k, 1)[0]);
       }
       const front = new Set(out.map(w => w.id));
-      const rest = SEED_WORKS.filter(w => !front.has(w.id));
+      // Everything after the hand-picked front is shuffled too, weighted toward the well-known (iconicScore for art,
+      // fame for writing), no maker twice in any run of five, and about one line of writing in every five tiles.
+      const weight = w => w.itemType === 'literature' ? 0.5 + (w.fame || 0) / 50 : 1 + Math.max(0, ((w.iconicScore || 200) - 200) / 30);
+      const keyed = SEED_WORKS.filter(w => !front.has(w.id)).map(w => [Math.pow(rnd() || 1e-9, 1 / weight(w)), w]);
+      keyed.sort((a, b) => b[0] - a[0]);
+      const art = keyed.filter(k => k[1].itemType !== 'literature').map(k => k[1]);
+      const lit = keyed.filter(k => k[1].itemType === 'literature').map(k => k[1]);
+      const rest = [];
+      const take = (pile) => {
+        const recent = new Set(rest.slice(-5).map(w => w.artist));
+        let k = pile.findIndex(w => !recent.has(w.artist)); if (k < 0 || k > 40) k = 0;
+        rest.push(pile.splice(k, 1)[0]);
+      };
+      let n = 0;
+      while (art.length || lit.length) { if (lit.length && (n % 5 === 4 || !art.length)) take(lit); else take(art); n++; }
       SEED_WORKS.splice(0, SEED_WORKS.length, ...out, ...rest);
     })();
 
@@ -5322,9 +5337,9 @@
       readingBilingualOnly: false,
       readingLimit: 120,
       readingShuffleSeed: 0,
-      constellationCenterId: 'VAULT-141',
+      constellationCenterId: 'VAULT-144',
       constellationThreadFilter: 'ALL',
-      constellationTrail: ['VAULT-141'],
+      constellationTrail: ['VAULT-144'],
       weatherRadarX: 0.45,
       weatherRadarY: 0.42,
       weatherQuadrant: 'ALL',
@@ -5355,7 +5370,7 @@
       studios: {
         title: 'Locked Studio Rooms',
         desc: 'Quiet thresholds, mirrors, and radical canvases painted behind closed studio doors from Stockholm and Copenhagen to Paris.',
-        ids: ['VAULT-141', 'VAULT-144', 'VAULT-143', 'VAULT-106', 'LIT-229', 'VAULT-112', 'VAULT-103', 'VAULT-108']
+        ids: ['VAULT-144', 'VAULT-143', 'VAULT-106', 'LIT-229', 'VAULT-112', 'VAULT-103', 'VAULT-108']
       },
       labyrinths: {
         title: 'Impossible Labyrinths & Vaults',
@@ -5365,7 +5380,7 @@
       arcana: {
         title: 'Sacred Diagrams, Alchemy & Arcana',
         desc: 'Cosmological wheels, crowned alchemical flasks, fiery monastic visions, and hand-inked Tarot archetypes.',
-        ids: ['VAULT-158', 'VAULT-159', 'VAULT-154', 'VAULT-161', 'VAULT-160', 'VAULT-142', 'LIT-225', 'LIT-029']
+        ids: ['VAULT-158', 'VAULT-159', 'VAULT-154', 'VAULT-161', 'VAULT-160', 'LIT-225', 'LIT-029']
       },
       ghosts: {
         title: 'How Six Cultures Drew Ghosts & Demons',
@@ -11613,9 +11628,9 @@
     }
     return out.concat(held, rest);
   }
+  const WRITING_SEED = ((Math.random() * 4294967296) ^ Date.now()) >>> 0;
   function writingWall(list) {
-    let seed = 0; const d = new Date().toISOString().slice(0, 10);
-    for (const ch of d) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    const seed = WRITING_SEED;   // new on every visit, steady within one (23 Nov 2026)
     const rnd = (id) => { let h = seed; for (const ch of id) h = Math.imul(h ^ ch.charCodeAt(0), 2654435761) >>> 0; return ((h >>> 0) % 1e6 + 0.5) / 1e6; };
     // weighted shuffle: a famous line is about six times as likely as an unknown one to come early, never certain
     const key = new Map(list.map(w => [w.id, Math.pow(rnd(w.id), 1 / (1 + (w.fame || 0) / 20))]));

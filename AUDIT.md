@@ -1377,3 +1377,8 @@ Mood cut from the row and from Arrange. Era is now a drawn span on a histogram o
 ## Clean crops, Library of Congress (23 Nov 2026)
 
 135 LoC artworks cropped to the work itself, removing colour targets, grey scales, rulers, scan backdrops, film edges and negative numbers, mounts and book surrounds. Each box set by eye on a 5% grid and checked on a contact sheet of the actual IIIF output. Served as LoC IIIF `pct:` regions; originals kept in `rawImageUrl` / `rawHighResUrl`, box in `crop`. Not cropped: VAULT-1098, 3243, 3244 (already clean). Damage on the object itself (VAULT-2208's chipped plate) left as is. Colour, picture embeddings, vectors, hubs and pairs re-run.
+
+
+## Look-and-learn tier cut (23 Nov 2026)
+
+Paul: seeing the perfect thing and not being able to use it is frustrating. All 247 `rightsTier: 'look'` works removed; records in `data/look-archive.json`, images (`images/fairuse/`, 242 files) deleted from the repo. Site now 3,846 artworks, all free, and 1,859 writing pieces. Search test after the cut: known items 135 of 143 (the 8 misses are the cut works), open-query precision 0.92, no search under 8 results. Front of house and the whole wall now reshuffle on every visit.
