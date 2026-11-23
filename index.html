@@ -3997,6 +3997,22 @@
       font-size: 0.72rem !important; letter-spacing: 0.06em; padding: 6px 12px !important; box-shadow: none !important; }
     #savedKitBar .pill:hover, #emptyState .pill:hover { color: var(--text) !important; border-color: var(--text-muted) !important; }
     #savedKitBar [data-stack].active, #savedKitBar .stack-tab.active, #savedKitBar .pill.active:not(#downloadPileBtn) { color: var(--text) !important; border-color: var(--accent) !important; }
+    /* saving: one button, a small card for boards (23 Nov 2026) */
+    #lbStudioBar { display: none !important; }
+    .pv-savecard { position: absolute; top: calc(100% + 10px); right: 0; z-index: 60; width: 220px; padding: 14px 16px 12px; background: var(--bg-elevated, #151515);
+      border: 1px solid var(--border); box-shadow: 0 18px 40px rgba(0,0,0,.45); animation: pvFoldIn 200ms ease; text-align: left; }
+    .pv-savecard[hidden] { display: none; }
+    .pv-sc-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .pv-sc-sub { font-size: 0.68rem; color: var(--text-muted); margin: 0 0 6px; }
+    .pv-sc-b { display: flex; width: 100%; justify-content: space-between; background: none; border: 0; padding: 6px 0; color: var(--text-muted); font: inherit; font-size: 0.86rem; cursor: pointer; text-align: left; letter-spacing: 0; text-transform: none; }
+    .pv-sc-b::after { content: '+'; opacity: .6; }
+    .pv-sc-b.on { color: var(--text); }
+    .pv-sc-b.on::after { content: '✓'; color: var(--accent); opacity: 1; }
+    .pv-sc-b:hover { color: var(--text); }
+    .pv-sc-new input { width: 100%; margin: 6px 0 10px; background: none; border: 0; border-bottom: 1px solid var(--border); color: var(--text); font: inherit; font-size: 0.86rem; padding: 5px 0; outline: none; }
+    .pv-sc-new input:focus { border-bottom-color: var(--text-muted); }
+    .pv-sc-x { background: none; border: 0; padding: 4px 0 0; color: var(--text-muted); font: inherit; font-size: 0.72rem; cursor: pointer; text-transform: none; letter-spacing: 0; }
+    .pv-sc-x:hover { color: var(--text); }
     /* the footer keeps only the full-size file and the source record */
     #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
     .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink)) { display: none !important; }
@@ -6972,7 +6988,7 @@
       if (eyeBtn) eyeBtn.classList.remove('active');
       populateLbStackSelect(w.id);
       const isSaved = state.savedIds.has(w.id);
-      lbSaveBtn.textContent = isSaved ? 'Saved ✓' : 'Save';
+      lbSaveBtn.textContent = isSaved ? 'Saved' : 'Save';
       lbSaveBtn.classList.toggle('active', isSaved);
 
       sameEmotionBtn.textContent = `Search “${w.emotionShort.toLowerCase()}” →`;
@@ -7727,7 +7743,7 @@
       }
       updateSavedCounter();
       const isSaved = state.savedIds.has(w.id);
-      lbSaveBtn.textContent = isSaved ? 'Saved ✓' : 'Save';
+      lbSaveBtn.textContent = isSaved ? 'Saved' : 'Save';
       lbSaveBtn.classList.toggle('active', isSaved);
       if (typeof pulseInkConfirm === 'function') pulseInkConfirm(lbSaveBtn);
       if (state.onlySaved) filterWorks(false);
@@ -11348,6 +11364,7 @@
   </script>
 
 <script id="pvScript">
+  var sharedBoard = null;   // a board opened from a link (see readBoardHash)
 // Preview tools (option E, 20 Nov 2026). One collection, rearranged by what you ask for.
 // Everything stacks: Show (All / Art / Writing), Colour, Mood, Era, Region, Medium (several values each),
 // search, and Arrange (the daily wall, by date, by colour, by mood). The wall animates between states.
@@ -11603,6 +11620,7 @@
       if (!s.has(v)) return false;
     }
     if (span && skip !== 'era') { const y = w.yearNum; if (typeof y !== 'number' || y < span[0] || y > span[1]) return false; }
+    if (sharedBoard && !sharedBoard.pos.has(w.id)) return false;
     if (shade && !inRoom && skip !== 'tone') {
       if (isLit(w) || !shadeScore) return false;
       const sc = shadeScore.get(w.id) || 0;
@@ -11610,7 +11628,7 @@
     }
     return true;
   };
-  window.pvActive = () => show !== 'both' || arrange !== 'wall' || !!shade || !!span || FACETS.some(f => sel[f.id].size);
+  window.pvActive = () => !!sharedBoard || show !== 'both' || arrange !== 'wall' || !!shade || !!span || FACETS.some(f => sel[f.id].size);
 
   function hsl(hex) {
     const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return null;
@@ -11633,6 +11651,7 @@
   }
   const yr = w => (typeof w.yearNum === 'number' ? w.yearNum : 99999);
   window.pvArrange = function (list, searchRanked) {
+    if (sharedBoard && !searchRanked) return list.slice().sort((a, b) => sharedBoard.pos.get(a.id) - sharedBoard.pos.get(b.id));
     if (arrange === 'wall') {
       // Colour alone: strongest first, with variety. With a search, the search order leads and colour only filters.
       if (colourOn() && !(state.query || '').trim()) {
@@ -11961,6 +11980,7 @@
   if (bar) bar.insertBefore(read, bar.firstChild);
   function drawRead() {
     const parts = [];
+    if (sharedBoard) parts.push(['board', '', `Shared board: ${sharedBoard.name}`]);
     if (show !== 'both') parts.push(['show', '', show === 'art' ? 'Art only' : 'Writing only']);
     if (shade) parts.push(['shade', '', shade.label]);
     const tones = FACETS[0].opts.filter(o => sel.tone.has(o[0]));
@@ -11973,12 +11993,16 @@
     if (!parts.length) { read.innerHTML = ''; return; }
     const n = state.currentList.length;
     read.innerHTML = parts.map(p => `<button type="button" class="pv-chip" data-k="${p[0]}" data-v="${esc(p[1])}" title="Remove">${p[0] === 'shade' ? `<span class="pv-dot" style="background:${shade.hex};display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px"></span>` : ''}${esc(p[2])}</button>`).join('<span class="pv-sep">·</span>') +
-      `<span class="pv-count">— ${n.toLocaleString()} ${n === 1 ? 'work' : 'works'}</span><button type="button" class="pv-clear" data-k="all">Clear</button>`;
+      `<span class="pv-count">— ${n.toLocaleString()} ${n === 1 ? 'work' : 'works'}</span>` +
+      (sharedBoard ? `<button type="button" class="pv-clear" data-k="keepboard">Keep this board</button>` : '') +
+      `<button type="button" class="pv-clear" data-k="all">Clear</button>`;
   }
   read.addEventListener('click', (e) => {
     const b = e.target.closest('[data-k]'); if (!b) return;
     const k = b.dataset.k, v = b.dataset.v;
-    if (k === 'all') { clearAll(); return; }
+    if (k === 'all') { sharedBoard = null; clearAll(); return; }
+    if (k === 'keepboard') { keepSharedBoard(); return; }
+    if (k === 'board') { sharedBoard = null; refresh({ fade: true }); return; }
     if (k === 'show') { show = 'both'; try { localStorage.setItem('pvShow', show); } catch (er) {} }
     else if (k === 'arr') arrange = 'wall';
     else if (k === 'q') { state.query = ''; const inp = document.querySelector('.header-search-input'); if (inp) inp.value = ''; }
@@ -11988,6 +12012,108 @@
     else sel[k].delete(v);
     refresh();
   });
+  // Boards travel by link (Paul, 23 Nov 2026). Boards live in each visitor's own browser; a board link carries its name and
+  // works in the address (#b=Name~v1093.v2214.l9: v for VAULT, l for LIT), shows them in that order on the wall, and
+  // "Keep this board" copies it into the visitor's own boards.
+  const packId = id => id.startsWith('VAULT-') ? 'v' + id.slice(6) : id.startsWith('LIT-') ? 'l' + id.slice(4) : '';
+  const unpackId = t => t[0] === 'v' ? 'VAULT-' + t.slice(1) : t[0] === 'l' ? 'LIT-' + t.slice(1) : '';
+  window.pvBoardLink = function (name, ids) {
+    const packed = ids.map(packId).filter(Boolean).join('.');
+    return location.origin + location.pathname + '#b=' + encodeURIComponent(name || 'Saved') + '~' + packed;
+  };
+  function readBoardHash() {
+    const m = location.hash.match(/^#b=([^~]*)~([a-z0-9.]*)$/i); if (!m) return false;
+    const have = new Set(SEED_WORKS.map(w => w.id));
+    const ids = m[2].split('.').map(unpackId).filter(id => id && have.has(id));
+    if (!ids.length) return false;
+    let name = 'Shared'; try { name = decodeURIComponent(m[1]) || 'Shared'; } catch (e) {}
+    sharedBoard = { name: name.slice(0, 40), ids, pos: new Map(ids.map((id, i) => [id, i])) };
+    return true;
+  }
+  function keepSharedBoard() {
+    if (!sharedBoard) return;
+    let name = sharedBoard.name, k = 2;
+    while (state.stacks[name] && state.stacks[name].join() !== sharedBoard.ids.join()) name = sharedBoard.name + ' ' + k++;
+    state.stacks[name] = sharedBoard.ids.slice();
+    sharedBoard.ids.forEach(id => state.savedIds.add(id));
+    if (typeof persistStacks === 'function') persistStacks();
+    sharedBoard = null;
+    history.replaceState(null, '', location.pathname + location.search);
+    state.onlySaved = true; state.activeStack = name;
+    const sb = document.getElementById('savedFilterBtn'); if (sb) sb.classList.add('active');
+    if (typeof updateSavedCounter === 'function') updateSavedCounter();
+    refresh({ fade: true });
+  }
+  if (readBoardHash()) setTimeout(() => refresh(), 0);
+
+  // Saving (Paul, 23 Nov 2026): one Save button. A tap saves the work; a small card then offers the boards, a new board,
+  // or taking it back out. The old board menu under the label is gone.
+  (function saveCard() {
+    const btn = document.getElementById('lbSaveBtn'); if (!btn) return;
+    const host = btn.parentNode; host.style.position = 'relative';
+    const card = document.createElement('div'); card.className = 'pv-savecard'; card.hidden = true; host.appendChild(card);
+    const cur = () => state.currentList[state.activeWorkIndex];
+    const label = () => { const w = cur(); const on = !!(w && state.savedIds.has(w.id)); btn.textContent = on ? 'Saved' : 'Save'; btn.classList.toggle('active', on); };
+    const after = () => { if (typeof persistStacks === 'function') persistStacks(); if (typeof updateSavedCounter === 'function') updateSavedCounter(); if (state.onlySaved) filterWorks(true); };
+    function draw() {
+      const w = cur(); if (!w) return;
+      const names = Object.keys(state.stacks || {});
+      card.innerHTML = `<div class="pv-sc-h">Saved</div>` +
+        (names.length ? `<div class="pv-sc-sub">Add to a board</div>` : '') +
+        names.map(n => `<button type="button" class="pv-sc-b${(state.stacks[n] || []).includes(w.id) ? ' on' : ''}" data-b="${esc(n)}">${esc(n)}</button>`).join('') +
+        `<form class="pv-sc-new"><input type="text" maxlength="28" placeholder="New board" aria-label="New board name"></form>` +
+        `<button type="button" class="pv-sc-x" data-unsave="1">Remove from saved</button>`;
+    }
+    function open() { draw(); card.hidden = false; }
+    function close() { card.hidden = true; }
+    btn.addEventListener('click', (e) => {
+      const w = cur(); if (!w) return;
+      if (state.savedIds.has(w.id)) { e.stopImmediatePropagation(); e.preventDefault(); card.hidden ? open() : close(); return; }
+      setTimeout(() => { label(); open(); }, 0);   // the original handler saves it first
+    }, true);
+    card.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const w = cur(); if (!w) return;
+      const b = e.target.closest('[data-b]');
+      if (b) {
+        const n = b.dataset.b, list = state.stacks[n] || (state.stacks[n] = []);
+        const i = list.indexOf(w.id); if (i >= 0) list.splice(i, 1); else list.unshift(w.id);
+        after(); draw(); return;
+      }
+      if (e.target.closest('[data-unsave]')) {
+        state.savedIds.delete(w.id);
+        Object.keys(state.stacks || {}).forEach(k => { state.stacks[k] = (state.stacks[k] || []).filter(id => id !== w.id); });
+        after(); label(); close();
+      }
+    });
+    card.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const w = cur(); const inp = card.querySelector('input'); const n = (inp.value || '').trim(); if (!w || !n) return;
+      if (!state.stacks[n]) state.stacks[n] = [];
+      if (!state.stacks[n].includes(w.id)) state.stacks[n].unshift(w.id);
+      after(); draw();
+    });
+    document.addEventListener('click', (e) => { if (!card.hidden && !card.contains(e.target) && e.target !== btn) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !card.hidden) { e.stopPropagation(); close(); } }, true);
+    if (typeof openLightbox === 'function') { const o = openLightbox; openLightbox = function (i) { close(); const r = o(i); label(); return r; }; }
+  })();
+
+  // A board travels by link: "Copy board link" in the Saved view copies the board you are looking at.
+  (function boardLinkBtn() {
+    const acts = document.querySelector('#savedKitBar .saved-kit-actions'); if (!acts) return;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'text-action'; b.id = 'copyBoardLinkBtn'; b.textContent = 'Copy board link';
+    b.title = 'A link that shows this board to anyone who opens it';
+    acts.appendChild(b);
+    const ids = () => (state.activeStack && state.activeStack !== 'ALL' ? (state.stacks[state.activeStack] || []) : [...state.savedIds]);
+    b.addEventListener('click', async () => {
+      const list = ids(); if (!list.length) return;
+      const url = window.pvBoardLink(state.activeStack && state.activeStack !== 'ALL' ? state.activeStack : 'Saved', list);
+      try { await navigator.clipboard.writeText(url); b.textContent = 'Link copied'; }
+      catch (e) { window.prompt('Copy this link', url); }
+      setTimeout(() => { b.textContent = 'Copy board link'; }, 2200);
+    });
+  })();
+  window.addEventListener('hashchange', () => { if (location.hash.startsWith('#b=') && readBoardHash()) refresh({ fade: true }); });
   function clearAll() {
     FACETS.forEach(f => sel[f.id].clear()); span = null; arrange = 'wall'; show = 'both'; shade = null; scoreShade();
     try { localStorage.setItem('pvShow', show); } catch (e) {}
