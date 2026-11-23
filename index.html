@@ -5562,6 +5562,7 @@
       const article = document.createElement('article');
       article.className = 'art-piece';
       article.dataset.idx = idx;
+      article.dataset.wid = w.id;   // the wall's glide follows each work by id
 
       if (w.itemType === 'literature') {
         const cover = document.createElement('div');
