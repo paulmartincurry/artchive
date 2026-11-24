@@ -1387,3 +1387,14 @@ Paul: seeing the perfect thing and not being able to use it is frustrating. All 
 ## Welcome card (23 Nov 2026)
 
 Paul wrote the copy. Claude flagged that "completely free to use ... commercialize it" was not true for every work (quoted writing in copyright, A. S. Kline's non-commercial texts, CC BY-SA photo credits); Paul rewrote it to "make it yours", which makes no licence claim. "Art, works, and words" kept as he wrote it.
+
+
+## Weak-spots round, 23 Nov 2026
+
+Scan: filter and cross-filter counts from works.js, OKLab hue bands from data/colour.json, and 128 fresh everyday searches (holdout4) scored for precision and depth. Thin then: collage 4 works, tea 3, kitchen 4, bicycles 6, aeroplanes 11, cars 13; Central Asia 16 artworks, Oceania 28, Southeast Asia 33, Africa 58; writing from Southeast Asia 3, Central Asia 1, Oceania 10, Africa 17.
+
+Added 503 artworks (VAULT-4152 to 4664) and 11 writing pieces (LIT-1958 to 1968); see CLAUDE.md for the breakdown. Every artwork looked at on a contact sheet; notes only from the holder's own text, otherwise label only. Archaeological pieces kept only with a documented history from before 1970; about 50 cut on that rule. Asante gold before 1896 excluded (one disk pendant). Two Ethiopian icons without provenance, and two Chicago Ethiopian works with dealer histories from the 1980s, left out.
+
+Removed: VAULT-330 Benin Palace Plaque (looted 1897), on Paul's instruction; record in data/removed.json and its page deleted. Flagged, not removed: VAULT-004, 017, 1843, 1844, 1845, 1846, 1847, 1848, 1849 (Benin court art at the Met).
+
+After: thin-query precision 0.60 to 0.91 on 23 of the holdout4 searches; no search under 8 results.
