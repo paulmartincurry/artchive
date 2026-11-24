@@ -1441,3 +1441,29 @@ Paul asked whether any overnight addition missed the bar or skewed the site arch
 **Cleaned (live):** 35 works had a frame, scan border or mount showing and are cropped to the work: Getty, NGA, Rijksmuseum, SMK and Wellcome by the holder's IIIF `pct:` region; Chicago, Cleveland and two SMK files hosted in `images/crops/` (`aic_`, `cma_`, `smk_`). Raw files kept in `rawImageUrl`/`rawHighResUrl`, box in `crop`; `ar`, colour and picture embeddings re-run. Includes nine of Rowlandson's Dance of Death plates (the pasted verse slips and black album surround are cut off). Engaged and painted frames (tabernacle frames, page borders, the Le Repos panel) were left as part of the object. Chicago serves these at 843 px at most, so its crops are 530 to 820 px wide.
 
 **Cut on Paul's yes, 24 Nov 2026 (56), records in `data/removed.json`:** 28 too murky or damaged at tile size (four murky Inness nocturnes, Courbet's Wooded Landscape, two van der Neer nocturnes with a stronger one kept, a cracked Jacob Maris, the three Chicago scrolls under 350 px); 21 duplicates (six Getty whole-book records showing the same page as the leaf record, two NGA middle-panel records whose image is the whole triptych already on the site, a Chicago record sharing its pair's image, Dutch-titled Rijksmuseum copies of Koson and Kiyochika prints already on the site, the Van de Velde Witch, Destroy This Mad Brute, On les aura!, a second Ginevra de' Benci, two composite images); 7 of eleven near-identical pages from one Cleveland flower album (four kept). Each record carries its reason in `removedReason`. The site is at 9,946 works (8,074 art, 1,872 writing). Strong subjects were kept even when dark (Quidor's Devil and Tom Walker, Wright of Derby's Penelope, Böcklin, Cole's Tornado, Lethière's Death of Virginia).
+
+## Modern-writing round, 24 Nov 2026
+
+Paul: writing to about 2,000, and less antiquated. 128 pieces, LIT-1971 to LIT-2098, `grow: 'words4'`, label only. Sources and checks per batch:
+
+| Batch | n | Source | Check |
+|---|---|---|---|
+| Spoon River | 16 | Gutenberg #1280 (1915) | whole poems from the file |
+| Devil's Dictionary | 14 | Gutenberg #972 | entries from the file |
+| Pompeii graffiti | 12 | Gutenberg #42715, Mau tr. Kelsey (1902) | Mau's paragraph as the text |
+| Presidents | 6 | American Presidency Project (US government work) | speech text from the page; three Democrats, three Republicans, so with the six already on the site the count is six and six |
+| Supreme Court | 5 | LII Cornell opinions (US government work) | paragraphs from the page |
+| Apollo | 8 | nasa.gov history pages, NSSDC | NASA's own paragraph as the text; ALSJ/AFJ not used (editors' copyright) |
+| Dorothy Parker, Enough Rope (1926) | 16 | archive.org enoughrope0000doro_u6o5 | every line against enoughropepoems0000park; drop caps and five OCR slips read from page images |
+| Hammett, The Maltese Falcon (1930) | 6 | Gutenberg #77600 | passages from the file |
+| Hemingway | 5 | Gutenberg #75201 (1929), #69683 (1927) | passages from the file; Hills Like White Elephants whole |
+| Woolf, A Room of One's Own (1929) | 4 | Gutenberg Australia 0200791h | every sentence against archive.org woolf_aroom (1935 printing); one error in the Australian text fixed (singing → signing) |
+| Mansfield, Journal (1927) | 6 | archive.org journalofkatheri00mans (Knopf) | every sentence against the Constable 1927 scan |
+| Cummings, is 5 (1926) | 2 | Gutenberg #77021 | whole poems, lower case as printed |
+| Elinor Wylie, Nets to Catch the Wind (1921) | 2 | Gutenberg #6682 | whole poems |
+| Fitzgerald, This Side of Paradise (1920) | 2 | Gutenberg #805 | passages from the file |
+| Anderson, Winesburg, Ohio (1919) | 3 | Gutenberg #416 | passages from the stories; the Howe introduction skipped |
+| Mencken, The Jazz Webster (1920) | 8 | Gutenberg #22145 | entries from the file; entries that sneer at women left out |
+| Greek Anthology | 13 | Gutenberg #2378, Mackail (1890) | whole epigrams; one already on the site (Plato's star) skipped |
+
+Calls: Parker's Résumé is in (her best-known poem; the site already carries dark material on the same terms). Cernan's Apollo 17 card first had a sentence of my own as its text; replaced with NASA's paragraph before merging. Wylie's publisher is not named in the auditNote because the Gutenberg file does not state it.

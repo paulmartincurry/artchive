@@ -4886,7 +4886,7 @@
 
 
 
-  <script src="data/site.js?v=46ad985585"></script>
+  <script src="data/site.js?v=35e9f03552"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -4894,14 +4894,14 @@
   const FORM_RULES = [
     ['Slogan & chant', /^slogan/i],
     ['Play', /^play$|verse drama|lyrical drama|tragedy|tragic|soliloquy|stage|chorus|dramatic verse|monologue/i, /fever|prose|dramatic monologue|free-verse|epitaph/i],
-    ['Speech', /oratory|speech|address|lecture|sermon|oration|council reply|last words|interview|reported remark|^conversation$/i],
+    ['Speech', /oratory|speech|address|lecture|sermon|oration|council reply|last words|interview|reported remark|^conversation$|spoken words/i],
     ['Letter', /letter|epistle|epistolary manifesto/i, /novel/i],
     ['Diary & notebook', /diary|journal|notebook|memoir|autobiograph|pillow book|zuihitsu|riḥla|travelogue|testimony/i],
     ['Manifesto', /manifesto|pamphlet|editorial|formal protest|proclamation|charter/i],
     ['Scripture & prayer', /sacred|scripture|psalm|upanishad|sutra|rigveda|prayer|biblical|hymn(?! & anthem)|canticle|devotional|spiritual|analects|stotra|vachana|vakh|bhajan|abhang|karakia|^prophecy$/i],
-    ['Aphorism & philosophy', /aphoris|maxim|proverb|sayings|philosoph|treatise|wisdom|parable|fable|dialogue|axiom|precept|subhāṣita|śubhāṣita|kuṛaḷ|military order|lexicon|counsel|oracle|sebayt|poetics/i, null, true],
+    ['Aphorism & philosophy', /aphoris|maxim|proverb|sayings|philosoph|treatise|wisdom|parable|fable|dialogue|axiom|precept|subhāṣita|śubhāṣita|kuṛaḷ|military order|lexicon|counsel|oracle|sebayt|poetics|graffit|satirical definition/i, null, true],
     ['Poem', /dramatic monologue|poem|poetry|verse|sonnet|lyric|ode|ballad|haiku|waka|ghazal|quatrain|song|elegy|epic|chant|epigram|couplet|masnavi|qa[sṣ][iī]da|rub[aā]|jueju|wǔjué|qījué|gǔfēng|yuefu|stanza|rondeau|ballade|redondilla|letrilla|carol|rhyme|lament|dirge|marthiya|khamriyya|ottava|terza|hexameter|chu ci|octet|epitaph|dinggedicht|fragment|mele|xóchitl|kalevala|anthem|dactylic|alexandrine|bhakti|kolomyika|runo|canoe|refrain|imagist|image|meditation/i],
-    ['Prose', /novel|story|tale|prose|fever|essay|sketch|romance|myth|narrative|historiograph|satire|book|unfinished|chronicle|pulp|phantasmagoria|preface|science writing|nachtstück/i],
+    ['Prose', /novel|story|tale|prose|fever|essay|sketch|romance|myth|narrative|historiograph|satire|book|unfinished|chronicle|pulp|phantasmagoria|preface|science writing|nachtstück|court opinion/i],
   ];
   function formOf(w) {
     // labels like "Aphorism & Treatise (Tower Essay)" carry the real form in the brackets
