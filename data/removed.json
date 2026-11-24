@@ -1,0 +1,71 @@
+[
+ {
+  "id": "VAULT-330",
+  "itemType": "art",
+  "title": "Benin Palace Plaque",
+  "artist": "Maker unknown",
+  "dateLabel": "16th–17th Century",
+  "yearNum": 1575,
+  "eraBucket": "1400–1650",
+  "colorFamily": "Ochre & Gold",
+  "graphicForm": "3D Totem & Silhouette",
+  "craftSpec": "Pigments hand-ground in linseed or walnut oil over sized and primed support; layered from dark underpainting (imprimatura) to opaque highlights.",
+  "region": "Nigeria (Royal Palace of the Oba, Benin City, Edo State)",
+  "medium": "Brass",
+  "subjectShort": "Rebellion & War",
+  "emotionShort": "Resolve",
+  "macroRegion": "East & Inner Asia",
+  "macroMedium": "Painting",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Benin_brass_plaque_03_%28cropped%29.jpg/960px-Benin_brass_plaque_03_%28cropped%29.jpg",
+  "highResUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Benin_brass_plaque_03_%28cropped%29.jpg",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Benin_Bronzes",
+  "museum": "British Museum",
+  "note": "Hundreds of rectangular plaques like this one hung on the pillars of the royal palace in Benin City, fixed by nails punched through them. They were cast by the lost-wax method, in brass that came partly from bracelet-shaped ingots bought from Portuguese traders. British forces took them when they sacked the city in 1897, and the Foreign Office gave a large number to the British Museum. From 1950 the museum sold more than 30 to the Nigerian government as duplicates; the sales stopped in 1972.",
+  "palette": [
+   "#7D582D",
+   "#65421B",
+   "#4A2A0D",
+   "#9D7140",
+   "#C6965D"
+  ],
+  "iconicScore": 265,
+  "isPantheon": true,
+  "searchTags": "classic masterpiece ukiyo-e great wave tsunami mount fuji japan japanese print",
+  "isSeed": true,
+  "noteRev": 4,
+  "audit": "verified",
+  "auditNote": "Matched to the specific object through its Wikimedia Commons file record, 13 Nov 2026. Medium or holder added from https://en.wikipedia.org/wiki/Benin_Bronzes (the article on this work or its file record), 13 Nov 2026.",
+  "mediumUnchecked": "Lost-Wax (*Cire Perdue*) Leaded Brass Relief Punched with Foil-Rosette River-Leaf Ground",
+  "noteSource": "https://en.wikipedia.org/wiki/Benin_Bronzes",
+  "slug": "benin-palace-plaque",
+  "rightsTier": "free",
+  "photoCredit": "Michel wal, CC BY-SA 3.0",
+  "colorFamilyOld": "Ochre & Gold",
+  "paletteOld": [
+   "#9E7842",
+   "#261E14",
+   "#C8A05E",
+   "#5E4626",
+   "#DFC48E"
+  ],
+  "colours": [
+   "Ochre & Gold"
+  ],
+  "seeText": "Brass relief plaque of a standing figure in a tall beaded crown and collar, holding objects, the background decorated with flower-like rosettes and nail holes. Feel: regal, ceremonial, solid, historic.",
+  "colourStrength": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   95,
+   5,
+   0,
+   0
+  ],
+  "place": "Africa",
+  "medGroup": "Painting",
+  "ar": 0.718,
+  "_removed": "23 Nov 2026, Paul: Benin Bronzes were looted by British forces in 1897; breaks the standing no-looted-objects rule."
+ }
+]
