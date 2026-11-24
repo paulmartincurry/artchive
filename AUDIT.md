@@ -1420,5 +1420,15 @@ Paul asked to go to 10,000 without lowering the bar, using more open-access hold
 | PDR leads, Wellcome | 62 | Wellcome Collection | Public Domain Mark only |
 | Getty paintings | 374 | J. Paul Getty Museum | Open Content; antiquities skipped |
 | Writing | 1 | Gutenberg | Gray's Elegy (LIT-1969) |
+| Getty manuscripts | 122 | J. Paul Getty Museum | Open Content leaves and miniatures |
+| Rijksmuseum Japanese prints | 107 | Rijksmuseum | Koson, Kiyochika, Hiroaki |
+| Hyde and Mucha | 21 | Art Institute of Chicago | public-domain flag |
+| Cleveland | 514 | Cleveland Museum of Art | CC0; undated and forged pieces left out |
+| Index of American Design | 52 | National Gallery of Art | US federal work; after 1942 left out |
+| Woodcuts and colour prints | 162 | National Gallery of Art | open access |
+| Chicago paintings | 439 | Art Institute of Chicago | public-domain flag; Tibetan, Nepalese, Lakota, Cheyenne and Teotihuacan pieces left out |
+| Writing | 1 | Gutenberg | The Water of Kāne (LIT-1970), Emerson 1909 |
+
+**10,000 reached on 24 Nov 2026: 10,002 works (8,130 art, 1,872 writing).** Four Chicago paintings were dropped by the app's de-duplication (two anonymous Virgin and Child panels, a Spanish Saint Sebastian, and At the Moulin Rouge, already on the site).
 
 Calls made: Charley Toorop's 1933 self-portrait left out (US status), framed Van Gogh scans left out, ESA-credited space images left out, undated Wellcome pieces left out, Wellcome plates without their own catalogue title left out (no invented titles), Guru Nanak images in the Wellcome Kalighat set left out, the Gervex autopsy study left out. Holders' dates are kept as given, with hedges ("c. 1880 (?)"). Artist spellings unified across 85 records (list in CLAUDE.md).
