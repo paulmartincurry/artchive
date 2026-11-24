@@ -1467,3 +1467,20 @@ Paul: writing to about 2,000, and less antiquated. 128 pieces, LIT-1971 to LIT-2
 | Greek Anthology | 13 | Gutenberg #2378, Mackail (1890) | whole epigrams; one already on the site (Plato's star) skipped |
 
 Calls: Parker's Résumé is in (her best-known poem; the site already carries dark material on the same terms). Cernan's Apollo 17 card first had a sentence of my own as its text; replaced with NASA's paragraph before merging. Wylie's publisher is not named in the auditNote because the Gutenberg file does not state it.
+
+## Letters, open licences and re-cut pull quotes, 24 Nov 2026
+
+16 pieces, LIT-2099 to LIT-2114, label only.
+
+| Batch | n | Source | Check |
+|---|---|---|---|
+| Van Gogh letters | 4 | Ludovici 1912, Gutenberg #40393 via archive.org thelettersofapos40393gut | every sentence against lettersofpostimp00goghuoft (1912 scan); recipient from the book's section; dates given as the Arles–Saint-Rémy span because Ludovici prints none |
+| Chekhov letters | 4 | Garnett 1920, Gutenberg #6408 | recipient, place and date from the letter's heading in the book |
+| Darwin, Autobiography | 1 | Gutenberg #2010 | passage from the file |
+| Gauguin, Intimate Journals | 2 | Brooks 1921, scan in.ernet.dli.2015.507550 | every sentence against intimatejournals0000paul; hyphens joined, OCR marks removed |
+| Doctorow, Little Brother (2008) | 3 | Gutenberg #30142 | CC BY-NC-SA 3.0 printed in the file; asterisks for italics removed |
+| Lessig, Free Culture (2004) | 2 | archive.org free_culture (author's PDF) | CC BY-NC 1.0 printed on its first page; OCR spacing normalised |
+
+Left out: Watts's Blindsight and Stross's Accelerando (licence pages not reachable; not taken from a third party's upload). Already on the site and skipped: Chekhov's free-artist credo, Dickinson's no-fire-can-warm-me line.
+
+Re-cut pull quotes (old wording kept in `hookOld`): LIT-262, 520, 521, 2015, 1735, 1451. Method: every pull quote's five-word runs were checked against Bartlett's 1914 and 1922 printings, and every line of its full text likewise, to find pieces whose quoted line is not the pull quote; and pull quotes with archaic wording were listed by hand. Most archaic pull quotes are the line people know (Augustine's restless heart, the Upanishad's That art thou, the Gita, Rabelais's Do What Thou Wilt, Zarathustra on writing in blood) and were left alone; translations that are archaic throughout gain nothing from a re-cut.
