@@ -1398,3 +1398,8 @@ Added 503 artworks (VAULT-4152 to 4664) and 11 writing pieces (LIT-1958 to 1968)
 Removed: VAULT-330 Benin Palace Plaque (looted 1897), on Paul's instruction; record in data/removed.json and its page deleted. Flagged, not removed: VAULT-004, 017, 1843, 1844, 1845, 1846, 1847, 1848, 1849 (Benin court art at the Met).
 
 After: thin-query precision 0.60 to 0.91 on 23 of the holdout4 searches; no search under 8 results.
+
+### Modern colour (NGA) and space rounds, 23 Nov 2026
+
+- VAULT-4655 to 4693: 39 NGA open-access works, 1905–1930 (Kirchner, Mueller, Marc, Jawlensky, Schiele, Lissitzky, Gris, Boccioni, Dada). Label only; records from NGA open data.
+- VAULT-4694 to 4706: 13 NASA images. Notes only from the NASA record's own description; three label only. Skipped as duplicates of works already on the site: Crab, Cosmic Cliffs, Sombrero, Mystic Mountain, Pale Blue Dot, McCandless, Curiosity selfie, Horsehead, Artemis II Earthset, Ultra Deep Field, Voyager Great Red Spot. Left out: Herschel's Eagle (ESA), ESA/Hubble Twin Jet and N159 (ESA licence), a Juno illustration (a render, not an image).
