@@ -1403,3 +1403,22 @@ After: thin-query precision 0.60 to 0.91 on 23 of the holdout4 searches; no sear
 
 - VAULT-4655 to 4693: 39 NGA open-access works, 1905–1930 (Kirchner, Mueller, Marc, Jawlensky, Schiele, Lissitzky, Gris, Boccioni, Dada). Label only; records from NGA open data.
 - VAULT-4694 to 4706: 13 NASA images. Notes only from the NASA record's own description; three label only. Skipped as duplicates of works already on the site: Crab, Cosmic Cliffs, Sombrero, Mystic Mountain, Pale Blue Dot, McCandless, Curiosity selfie, Horsehead, Artemis II Earthset, Ultra Deep Field, Voyager Great Red Spot. Left out: Herschel's Eagle (ESA), ESA/Hubble Twin Jet and N159 (ESA licence), a Juno illustration (a render, not an image).
+
+## Toward 10,000 (overnight, 23–24 Nov 2026)
+
+Paul asked to go to 10,000 without lowering the bar, using more open-access holders. Each round was chosen by eye from contact sheets and pushed after the headless tests.
+
+| Round | Works | Holder | Notes |
+|---|---|---|---|
+| Film frames | 13 | Internet Archive copies | Un Chien Andalou (1929), L'Âge d'Or (1930) |
+| Covers | 9 | Commons, checked against publication dates | Rockwell, Leyendecker, before 1931; ©SEPS-marked scans skipped |
+| WWI posters | ~10 | Library of Congress | cropped to the poster |
+| SMK | 185 | Statens Museum for Kunst | public-domain flag |
+| Rijksmuseum paintings | 187 | Rijksmuseum | Linked Art API |
+| NGA paintings | 1,354 | National Gallery of Art | open access (CC0), two passes |
+| PDR leads, Rijksmuseum | 25 | Rijksmuseum | Dutch titles kept, English gloss in auditNote |
+| PDR leads, Wellcome | 62 | Wellcome Collection | Public Domain Mark only |
+| Getty paintings | 374 | J. Paul Getty Museum | Open Content; antiquities skipped |
+| Writing | 1 | Gutenberg | Gray's Elegy (LIT-1969) |
+
+Calls made: Charley Toorop's 1933 self-portrait left out (US status), framed Van Gogh scans left out, ESA-credited space images left out, undated Wellcome pieces left out, Wellcome plates without their own catalogue title left out (no invented titles), Guru Nanak images in the Wellcome Kalighat set left out, the Gervex autopsy study left out. Holders' dates are kept as given, with hedges ("c. 1880 (?)"). Artist spellings unified across 85 records (list in CLAUDE.md).
