@@ -1484,3 +1484,19 @@ Calls: Parker's Résumé is in (her best-known poem; the site already carries da
 Left out: Watts's Blindsight and Stross's Accelerando (licence pages not reachable; not taken from a third party's upload). Already on the site and skipped: Chekhov's free-artist credo, Dickinson's no-fire-can-warm-me line.
 
 Re-cut pull quotes (old wording kept in `hookOld`): LIT-262, 520, 521, 2015, 1735, 1451. Method: every pull quote's five-word runs were checked against Bartlett's 1914 and 1922 printings, and every line of its full text likewise, to find pieces whose quoted line is not the pull quote; and pull quotes with archaic wording were listed by hand. Most archaic pull quotes are the line people know (Augustine's restless heart, the Upanishad's That art thou, the Gita, Rabelais's Do What Thou Wilt, Zarathustra on writing in blood) and were left alone; translations that are archaic throughout gain nothing from a re-cut.
+
+## Modern sources, 24 Nov 2026
+
+22 pieces, LIT-2115 to 2136, all label only. Every text taken from a fetched source; hooks checked letters-only against it.
+
+| Ids | Source | Notes |
+|---|---|---|
+| 2115–2118 | Remarque, All Quiet on the Western Front, tr. A. W. Wheen (1929), Gutenberg #75011 | Public domain in the US since 2025 |
+| 2119–2120 | Sterling, The Hacker Crackdown, Gutenberg #101 | Author's literary-freeware notice in the file; `license` set |
+| 2121–2123 | Watts, Blindsight (2006) | CC BY-NC-SA 2.5 printed in the licensing section of the author's PDF; text from the archive.org copy of that PDF, checked against rifters.com ("recordshattering" fixed to "record-shattering") |
+| 2124–2127 | American Presidency Project | Ford (R), Nixon (R), G. W. Bush (R), Carter (D) |
+| 2128 | GPO Public Papers, Clinton 1995 Book I, pp. 573–574 | Clinton (D), Oklahoma City |
+| 2129 | obamawhitehouse.archives.gov | Obama (D), Selma; four paragraphs, "(Applause.)" removed |
+| 2130–2136 | LII, Cornell | Footnote numbers removed; citation strings left off Texas v. Johnson and Tinker; LII's "a farm more subtle" (Korematsu) corrected to "far"; "de-termination" closed up (Shelby County) |
+
+Presidential speeches on the site are now six Democrats and six Republicans. Not added: Stross's Accelerando (antipope.org unreachable from the sandbox; licence must come from the author's page or the book). Hacker Crackdown cards carry medium "Nonfiction book" so they fold into Prose.
