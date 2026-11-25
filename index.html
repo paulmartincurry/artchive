@@ -4083,7 +4083,7 @@
     html.pv-can-share #lbShareBtn { display: inline-block !important; }
     /* zoom into an open work (23 Nov 2026) */
     .stage-image-wrap.pv-zoomable { cursor: zoom-in; touch-action: none; }
-    .stage-image-wrap.pv-zoomed { cursor: grab; }
+    .stage-image-wrap.pv-zoomed { cursor: grab; overflow: visible; z-index: 5; }
     .stage-image-wrap.pv-zoomed.pv-panning { cursor: grabbing; }
     .stage-image-wrap #lbImage.pv-zt { transition: opacity 0.32s ease !important; will-change: transform; }
     .stage-image-wrap #lbImage.pv-zt.pv-zease { transition: opacity 0.32s ease, transform 0.32s cubic-bezier(.22,.61,.36,1) !important; }
@@ -12731,9 +12731,11 @@
     return null;
   }
   function clamp() {
-    const r = wrap.getBoundingClientRect(), bw = img.offsetWidth, bh = img.offsetHeight;
-    const mx = Math.max(0, (bw * s - Math.min(bw, r.width)) / 2), my = Math.max(0, (bh * s - Math.min(bh, r.height)) / 2);
-    tx = Math.max(-mx, Math.min(mx, tx)); ty = Math.max(-my, Math.min(my, ty));
+    // zoomed, the picture grows into the whole stage, not just its own box (24 Nov 2026)
+    const r = wrap.getBoundingClientRect(), S = (wrap.parentElement || wrap).getBoundingClientRect(), bw = img.offsetWidth * s, bh = img.offsetHeight * s;
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    if (bw <= S.width) tx = Math.max(S.left - cx + bw / 2, Math.min(S.right - cx - bw / 2, tx)); else tx = Math.max(S.right - cx - bw / 2, Math.min(S.left - cx + bw / 2, tx));
+    if (bh <= S.height) ty = Math.max(S.top - cy + bh / 2, Math.min(S.bottom - cy - bh / 2, ty)); else ty = Math.max(S.bottom - cy - bh / 2, Math.min(S.top - cy + bh / 2, ty));
   }
   function apply(ease) {
     if (s <= 1.001) { s = 1; tx = 0; ty = 0; }
