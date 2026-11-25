@@ -320,6 +320,9 @@ Notting Hill|Over the Hedge|X-Men: Apocalypse|X-Men: First Class|A View to a Kil
 The Angry Birds Movie|Die Hard with a Vengeance|The Spy Who Loved Me|Solo: A Star Wars Story|Saw II|The Black Cauldron|
 Oliver & Company|Ant-Man|Out of Africa'''.replace('\n', '').split('|'))
 
+# Makers the site has under a spelling the name test does not connect.
+SITE_HAS = {'Fyodor Dostoyevsky', 'Hafez', 'Saadi', 'Zhuang Zhou', 'Giovanni Antonio Canal', 'Fra Bartolomeo'}
+
 # Other things people type for an item (by the item's title, or the maker's name for a maker card).
 WIDE_ALIASES = {'Star Wars: Episode IV – A New Hope': ['star wars', 'star wars a new hope', 'a new hope'],
                 'Star Wars: Episode V – The Empire Strikes Back': ['the empire strikes back', 'empire strikes back'],
@@ -327,7 +330,7 @@ WIDE_ALIASES = {'Star Wars: Episode IV – A New Hope': ['star wars', 'star wars
                 "Harry Potter and the Philosopher's Stone": ["harry potter and the sorcerer's stone", 'harry potter and the sorcerers stone', 'harry potter film', 'harry potter movie'],
                 'J. K. Rowling': ['harry potter'], 'The Godfather': ['the godfather', 'godfather'], 'George Lucas': [],
                 'Kill Bill: Volume 1': ['kill bill'], 'Léon: The Professional': ['leon the professional', 'the professional'],
-                'Death Fugue': ['todesfuge'], 'Kurt Vonnegut': ['vonnegut']}
+                'Death Fugue': ['todesfuge'], 'Do not go gentle into that good night': ['do not go gentle into that good night', 'do not go gentle'], 'Kurt Vonnegut': ['vonnegut']}
 
 # Surnames that pass the automatic test but read as something else (a city, a word, a first name).
 DENY_SURNAMES = {'trier', 'kazan', 'leone', 'kirby', 'passos', 'xingjian', 'esquivel', 'besson', 'mann', 'grass', 'miller', 'ford', 'moore',
@@ -361,7 +364,7 @@ SKIP_WIDE = {'Eva Braun', 'Alexandra Feodorovna', 'Abdülmecid II', 'Marie of Ro
              'Bryan Cranston', 'Sylvester Stallone', 'Harry Potter',
              'Margaret Mead', 'Jamie Lee Curtis', 'Jean Marais', 'Sirindhorn, Princess Royal', 'JR', 'Anna Politkovskaya', 'L. Ron Hubbard',
              # poems whose status is not certain enough for the card's claim: possibly never renewed, or given to the public domain by the writer
-             'Do Not Stand at My Grave and Weep', 'End Poem', 'First they came…'}
+             'Do Not Stand at My Grave and Weep', 'End Poem', 'First they came…', 'Stalin Epigram'}
 
 
 DENY_BARE = {re.sub(r'^(?:the|a|an) ', '', t) for t in DENY_WIDE}
@@ -584,6 +587,8 @@ def main():
         known_makers.append(m['name'])
         if in_archive_maker(names):
             count('maker', 'in the archive'); continue
+        if m['name'] in SITE_HAS:
+            count('maker', 'here'); continue
         if on_site_maker(names):
             count('maker', 'here'); continue
         if m['born'] < 1850 or (m.get('died') and m['died'] <= PD_YEAR):      # everything they published is old enough to be free
@@ -664,6 +669,8 @@ def main():
             count('work', 'in the archive'); continue
         if on_site_work(forms | akas, names):
             count('work', 'here'); continue
+        if not names and w['year'] > PD_YEAR and not w.get('pd'):
+            count('work', 'no maker on record, left out'); continue    # The Falling Man, Bliss: not leads, and too little known for a label
         if w['year'] <= PD_YEAR or w.get('pd') or not names or norm(names[0]) in GOV_MAKERS or re.search(r'\bnasa\b|apollo|government', norm(names[0])):
             wanted['works'].append({'name': w['name'], 'maker': w.get('maker'), 'year': w['year'], 'holder': w.get('holder'), 'n': w['n']})
             count('work', 'wanted'); continue
@@ -690,7 +697,7 @@ def main():
         forms = title_forms(p['name'])
         if on_site_work(forms, [p['maker']]):
             count('poem', 'here'); continue
-        if p['year'] <= PD_YEAR or p.get('pd') or (p.get('makerDied') and p['makerDied'] < 1956):
+        if p['year'] <= PD_YEAR or p.get('pd') or (p.get('makerDied') and p['makerDied'] <= PD_YEAR):
             if p['year'] > 1500:
                 wanted['poems'].append({'name': p['name'], 'maker': p.get('maker'), 'year': p['year'], 'n': p['n']})
             count('poem', 'wanted'); continue

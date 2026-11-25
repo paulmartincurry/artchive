@@ -1,12 +1,6 @@
 {
 "makers": [
 {
-"name": "Fyodor Dostoyevsky",
-"born": 1821,
-"died": 1881,
-"n": 258
-},
-{
 "name": "Molière",
 "born": 1622,
 "died": 1673,
@@ -47,12 +41,6 @@
 "born": -619,
 "died": -563,
 "n": 168
-},
-{
-"name": "Hafez",
-"born": 1325,
-"died": 1389,
-"n": 164
 },
 {
 "name": "Anatole France",
@@ -178,12 +166,6 @@
 "name": "Harriet Beecher Stowe",
 "born": 1811,
 "died": 1896,
-"n": 119
-},
-{
-"name": "Saadi",
-"born": 1210,
-"died": 1292,
 "n": 119
 },
 {
@@ -341,12 +323,6 @@
 "born": 1810,
 "died": 1857,
 "n": 102
-},
-{
-"name": "Zhuang Zhou",
-"born": -368,
-"died": -287,
-"n": 100
 },
 {
 "name": "Isabelle de Charrière",
@@ -533,12 +509,6 @@
 "born": -499,
 "died": -429,
 "n": 73
-},
-{
-"name": "Giovanni Antonio Canal",
-"born": 1697,
-"died": 1768,
-"n": 72
 },
 {
 "name": "Samuel Butler",
@@ -803,12 +773,6 @@
 "born": 1869,
 "died": 1907,
 "n": 48
-},
-{
-"name": "Fra Bartolomeo",
-"born": 1472,
-"died": 1517,
-"n": 46
 },
 {
 "name": "John Tenniel",
@@ -1142,13 +1106,6 @@
 "n": 38
 },
 {
-"name": "Bliss",
-"maker": null,
-"year": 1996,
-"holder": null,
-"n": 37
-},
-{
 "name": "The Church at Auvers",
 "maker": "Vincent van Gogh",
 "year": 1890,
@@ -1189,13 +1146,6 @@
 "year": 1866,
 "holder": "Musée des Beaux-Arts de la ville de Paris",
 "n": 33
-},
-{
-"name": "The Falling Man",
-"maker": null,
-"year": 2001,
-"holder": null,
-"n": 32
 },
 {
 "name": "Theotokos of Vladimir",
@@ -1385,13 +1335,6 @@
 "year": 1668,
 "holder": "Städel Museum",
 "n": 25
-},
-{
-"name": "@world_record_egg",
-"maker": null,
-"year": 2019,
-"holder": null,
-"n": 24
 },
 {
 "name": "Boy with a Basket of Fruit",
@@ -2059,13 +2002,6 @@
 "n": 19
 },
 {
-"name": "Piss Christ",
-"maker": null,
-"year": 1987,
-"holder": null,
-"n": 19
-},
-{
 "name": "Portrait of Baldassare Castiglione",
 "maker": "Raphael",
 "year": 1515,
@@ -2241,13 +2177,6 @@
 "n": 18
 },
 {
-"name": "Kombat",
-"maker": null,
-"year": 1940,
-"holder": null,
-"n": 18
-},
-{
 "name": "Lise with a Parasol",
 "maker": "Pierre-Auguste Renoir",
 "year": 1867,
@@ -2321,13 +2250,6 @@
 "name": "Self-portrait without beard",
 "maker": "Vincent van Gogh",
 "year": 1889,
-"holder": null,
-"n": 18
-},
-{
-"name": "Tennis Girl",
-"maker": null,
-"year": 1976,
 "holder": null,
 "n": 18
 },
@@ -2658,13 +2580,6 @@
 "maker": "Pieter Bruegel the Elder",
 "year": 1566,
 "holder": "Detroit Institute of Arts",
-"n": 17
-},
-{
-"name": "The Woman with the Handbag",
-"maker": null,
-"year": 1985,
-"holder": null,
 "n": 17
 },
 {
@@ -3823,13 +3738,6 @@
 "n": 14
 },
 {
-"name": "Solway Firth Spaceman",
-"maker": null,
-"year": 1964,
-"holder": null,
-"n": 14
-},
-{
 "name": "Suprematist Composition",
 "maker": "Kazimir Malevich",
 "year": 1916,
@@ -4047,34 +3955,6 @@
 "n": 12
 },
 {
-"name": "One and Three Chairs",
-"maker": null,
-"year": 1965,
-"holder": "Museum of Modern Art",
-"n": 12
-},
-{
-"name": "Dalí Atomicus",
-"maker": null,
-"year": 1948,
-"holder": "Museum of Modern Art",
-"n": 11
-},
-{
-"name": "Tourist Guy",
-"maker": null,
-"year": 1997,
-"holder": null,
-"n": 11
-},
-{
-"name": "99 Cent II Diptychon",
-"maker": null,
-"year": 2001,
-"holder": null,
-"n": 10
-},
-{
 "name": "Ingres's Violin",
 "maker": null,
 "year": 1924,
@@ -4082,44 +3962,9 @@
 "n": 10
 },
 {
-"name": "Paratroopers at the Western Wall",
-"maker": null,
-"year": 1967,
-"holder": null,
-"n": 9
-},
-{
-"name": "St Paul's Survives",
-"maker": null,
-"year": 1940,
-"holder": null,
-"n": 9
-},
-{
-"name": "More Demi Moore",
-"maker": null,
-"year": 1991,
-"holder": null,
-"n": 8
-},
-{
 "name": "Nsala of Wala in the Nsongo District",
 "maker": null,
 "year": 1904,
-"holder": null,
-"n": 8
-},
-{
-"name": "The Boy Standing by the Crematory",
-"maker": null,
-"year": 1945,
-"holder": null,
-"n": 8
-},
-{
-"name": "Woman training for a Republican militia",
-"maker": null,
-"year": 1936,
 "holder": null,
 "n": 8
 }
@@ -4509,12 +4354,6 @@
 "name": "A Lover's Complaint",
 "maker": "William Shakespeare",
 "year": 1609,
-"n": 14
-},
-{
-"name": "Do not go gentle into that good night",
-"maker": "Dylan Thomas",
-"year": 1951,
 "n": 14
 },
 {
@@ -5478,12 +5317,6 @@
 "n": 9
 },
 {
-"name": "Murzynek Bambo",
-"maker": "Julian Tuwim",
-"year": 1935,
-"n": 9
-},
-{
 "name": "Máj",
 "maker": "Karel Hynek Mácha",
 "year": 1836,
@@ -5523,12 +5356,6 @@
 "name": "Un Coup de Dés Jamais N'Abolira Le Hasard",
 "maker": "Stéphane Mallarmé",
 "year": 1897,
-"n": 9
-},
-{
-"name": "Wondrously sheltered",
-"maker": "Dietrich Bonhoeffer",
-"year": 1944,
 "n": 9
 },
 {
@@ -5607,12 +5434,6 @@
 "name": "Sailing to Byzantium",
 "maker": "William Butler Yeats",
 "year": 1928,
-"n": 8
-},
-{
-"name": "Stalin Epigram",
-"maker": "Osip Mandelstam",
-"year": 1933,
 "n": 8
 },
 {
