@@ -12,20 +12,45 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>One dark night,<br>fired with love’s urgent longings<br>—ah, the sheer grace!—<br>I went out unseen,<br>my house being now all stilled.</blockquote>
 <h1>Dark Night of the Soul (Noche Oscura del Alma)</h1>
 <p class="label">Saint John of the Cross (San Juan de la Cruz) · ca. 1578</p>
 <p class="label">Translated by Kieran Kavanaugh and Otilio Rodriguez · Short quotation from a translation still in copyright, credited to the translator. Not public domain; kept to a line or two on purpose.</p>
 <p class="note">John of the Cross gave this poem no title. Neither the time nor the place of its writing is certain: it was probably composed between 1577 and 1579, and it has been proposed, on thin second-hand evidence, that he wrote it while imprisoned in Toledo. It has eight stanzas of five lines each. He later began two prose commentaries that explain it line by line, and left both unfinished.</p>
 <p class="go"><a href="../index.html#w/LIT-126">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="the-dark-night-why-the-divine-light-is-called-night.html"><span>“So the divine light of contemplation, when it beats on the soul, not yet perfectly…”</span> <em>Saint John of the Cross (San Juan de la Cruz)</em></a><a class="ln" href="tragic-sense-of-life-the-man-of-flesh-and-bone.html"><span>“The chiefest sanctity of a temple is that it is a place to which men go to weep in…”</span> <em>Miguel de Unamuno</em></a><a class="ln" href="samson-agonistes-o-dark-dark-dark.html"><span>“O dark, dark, dark, amid the blaze of noon, Irrecoverably dark, total Eclipse Without all…”</span> <em>John Milton</em></a><a class="ln" href="john-1-5.html"><span>“And the light shineth in darkness; and the darkness comprehended it not.”</span> <em>Gospel of John (New Testament / KJV)</em></a></div></section>
+<section><h2>More by Saint John of the Cross (San Juan de la Cruz)</h2><div class="lines"><a class="ln" href="the-living-flame-of-love.html"><span>“O Living Flame of Love, That woundest tenderly My soul in its inmost depth! As thou art…”</span> <em>The Living Flame of Love (the stanzas)</em></a><a class="ln" href="the-ascent-of-mount-carmel-that-thou-mayest-have-pleasure.html"><span>“That thou mayest have pleasure in everything, seek pleasure in nothing. That thou mayest…”</span> <em>The Ascent of Mount Carmel — That thou mayest have pleasure in everything (Book I, Ch. 13)</em></a></div><a class="all" href="../index.html?q=Saint%20John%20of%20the%20Cross%20%28San%20Juan%20de%20la%20Cruz%29">All 4 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

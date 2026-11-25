@@ -12,19 +12,44 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>These, then, are my last words to you: Be not afraid of life. Believe that life is worth living, and your belief will help create the fact.</blockquote>
 <h1>Is Life Worth Living? (closing)</h1>
 <p class="label">William James · 1897</p>
 <p class="note">James first gave this as an address to the Harvard Young Men&#x27;s Christian Association. The book that collects it takes its title from The Will to Believe, a lecture first published in 1896.</p>
 <p class="go"><a href="../index.html#w/LIT-1745">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="there-lives-more-faith-in-honest-doubt.html"><span>“There lives more faith in honest doubt, Believe me, than in half the creeds.”</span> <em>Alfred, Lord Tennyson</em></a><a class="ln" href="journal-7-september-1851.html"><span>“Nothing is so much to be feared as fear. Atheism may comparatively be popular with God…”</span> <em>Henry David Thoreau</em></a><a class="ln" href="journal-risk-anything.html"><span>“Risk! Risk anything! Care no more for the opinions of others, for those voices. Do the…”</span> <em>Katherine Mansfield</em></a><a class="ln" href="apology-the-unexamined-life.html"><span>“the unexamined life is not worth living”</span> <em>Socrates (via Plato)</em></a></div></section>
+<section><h2>More by William James</h2><div class="lines"><a class="ln" href="the-varieties-of-religious-experience-mysticism.html"><span>“It is that our normal waking consciousness, rational consciousness as we call it, is but…”</span> <em>The Varieties of Religious Experience — Mysticism (Lectures XVI and XVII)</em></a><a class="ln" href="the-varieties-of-religious-experience-the-sick-soul.html"><span>“…suddenly there fell upon me without any warning, just as if it came out of the darkness,…”</span> <em>The Varieties of Religious Experience — The Sick Soul (Lectures VI and VII)</em></a></div></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

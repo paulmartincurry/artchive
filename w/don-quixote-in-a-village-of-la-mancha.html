@@ -12,20 +12,45 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>In a village of La Mancha, the name of which I have no desire to call to mind, there lived not long since one of those gentlemen that keep a lance in the lance-rack, an old buckler, a lean hack, and a greyhound for coursing.</blockquote>
 <h1>Don Quixote — In a village of La Mancha (opening)</h1>
 <p class="label">Miguel de Cervantes · 1605</p>
 <p class="label">Translated by John Ormsby</p>
 <p class="note">A local tradition in Argamasilla de Alba holds that Cervantes began the book there while a prisoner in the cave of Medrano. He left the village of the opening sentence unnamed on purpose, and explains in the last chapter that it was so that all the towns of La Mancha could contend for it. In 2004 a team from Complutense University deduced that it was Villanueva de los Infantes. The first edition was printed in 1605 by Juan de la Cuesta.</p>
 <p class="go"><a href="../index.html#w/LIT-685">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="don-quixote-in-last-year-s-nests-there-are-no.html"><span>““Sirs, not so fast,” said Don Quixote, “‘in last year’s nests there are no birds this…”</span> <em>Miguel de Cervantes</em></a><a class="ln" href="eleonora-men-have-called-me-mad.html"><span>“Men have called me mad; but the question is not yet settled, whether madness is or is not…”</span> <em>Edgar Allan Poe</em></a><a class="ln" href="le-bateau-ivre.html"><span>“Je sais les cieux crevant en éclairs, et les trombes, Et les ressacs, et les courants, je…”</span> <em>Arthur Rimbaud</em></a><a class="ln" href="cancion-de-otono-en-primavera.html"><span>“Juventud, divino tesoro, ya te vas para no volver! Cuando quiero llorar, no lloro... Y a…”</span> <em>Rubén Darío</em></a></div></section>
+<section><h2>More by Miguel de Cervantes</h2><div class="lines"><a class="ln" href="don-quixote-freedom-sancho.html"><span>“Freedom, Sancho, is one of the most precious gifts that heaven has bestowed upon men; no…”</span> <em>Don Quixote — Freedom, Sancho (Vol. II, Ch. LVIII)</em></a><a class="ln" href="don-quixote.html"><span>“for there you see, friend Sancho Panza, thirty or more enormous giants with whom I intend…”</span> <em>Don Quixote (Part I, Ch. VIII)</em></a></div><a class="all" href="../index.html?q=Miguel%20de%20Cervantes">All 4 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

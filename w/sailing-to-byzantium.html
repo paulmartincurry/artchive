@@ -12,19 +12,44 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>An aged man is but a paltry thing,<br>A tattered coat upon a stick, unless<br>Soul clap its hands and sing, and louder sing</blockquote>
 <h1>Sailing to Byzantium</h1>
 <p class="label">W. B. Yeats · 1928</p>
 <p class="note">Yeats was sixty or sixty-one when he wrote this poem in 1926. It is four stanzas of ottava rima, eight lines each. He dedicated it to the artist Norah McGuinness and printed it first in October Blast in 1927, a year before The Tower.</p>
 <p class="go"><a href="../index.html#w/LIT-551">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="to-the-virgins-to-make-much-of-time.html"><span>“Gather ye rose-buds while ye may, Old Time is still a-flying.”</span> <em>Robert Herrick</em></a><a class="ln" href="when-you-are-old.html"><span>“But one man loved the pilgrim soul in you, And loved the sorrows of your changing face”</span> <em>W. B. Yeats</em></a><a class="ln" href="lycidas.html"><span>“At last he rose, and twitch&#x27;d his Mantle blew: To morrow to fresh Woods, and Pastures new.”</span> <em>John Milton</em></a><a class="ln" href="to-autumn.html"><span>“Season of mists and mellow fruitfulness, Close bosom-friend of the maturing sun;…”</span> <em>John Keats</em></a></div></section>
+<section><h2>More by W. B. Yeats</h2><div class="lines"><a class="ln" href="the-lake-isle-of-innisfree.html"><span>“I will arise and go now, for always night and day I hear lake water lapping with low…”</span> <em>The Lake Isle of Innisfree</em></a><a class="ln" href="the-second-coming.html"><span>“Things fall apart; the centre cannot hold; Mere anarchy is loosed upon the world”</span> <em>The Second Coming</em></a><a class="ln" href="easter-1916.html"><span>“Too long a sacrifice Can make a stone of the heart.”</span> <em>Easter, 1916 (closing section)</em></a><a class="ln" href="he-wishes-for-the-cloths-of-heaven.html"><span>“I have spread my dreams under your feet; Tread softly because you tread on my dreams.”</span> <em>He Wishes for the Cloths of Heaven</em></a></div><a class="all" href="../index.html?q=W.%20B.%20Yeats">All 22 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

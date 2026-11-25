@@ -12,18 +12,43 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>I thirsted so for love<br>I hungered so for life!</blockquote>
 <h1>Minerva Jones</h1>
 <p class="label">Edgar Lee Masters · 1915</p>
 <p class="go"><a href="../index.html#w/LIT-1978">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="yet-do-i-marvel.html"><span>“Yet do I marvel at this curious thing: To make a poet black, and bid him sing!”</span> <em>Countee Cullen</em></a><a class="ln" href="to-his-coy-mistress.html"><span>“But at my back I always hear Time&#x27;s winged chariot hurrying near.”</span> <em>Andrew Marvell</em></a><a class="ln" href="mrs-benjamin-pantier.html"><span>“That’s why I drove him away from home To live with his dog in a dingy room Back of his…”</span> <em>Edgar Lee Masters</em></a><a class="ln" href="i-wake-and-feel-the-fell-of-dark.html"><span>“I am gall, I am heartburn. God&#x27;s most deep decree Bitter would have me taste: my taste…”</span> <em>Gerard Manley Hopkins</em></a></div></section>
+<section><h2>More by Edgar Lee Masters</h2><div class="lines"><a class="ln" href="george-gray.html"><span>“It is a boat longing for the sea and yet afraid.”</span> <em>George Gray</em></a><a class="ln" href="fiddler-jones.html"><span>“I ended up with a broken fiddle— And a broken laugh, and a thousand memories, And not a…”</span> <em>Fiddler Jones</em></a><a class="ln" href="margaret-fuller-slack.html"><span>“I would have been as great as George Eliot But for an untoward fate.”</span> <em>Margaret Fuller Slack</em></a><a class="ln" href="knowlt-hoheimer.html"><span>“Rather a thousand times the county jail Than to lie under this marble figure with wings”</span> <em>Knowlt Hoheimer</em></a></div><a class="all" href="../index.html?q=Edgar%20Lee%20Masters">All 17 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

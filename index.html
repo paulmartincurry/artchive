@@ -4095,7 +4095,7 @@
     .pv-sc-x { background: none; border: 0; padding: 4px 0 0; color: var(--text-muted); font: inherit; font-size: 0.72rem; cursor: pointer; text-transform: none; letter-spacing: 0; }
     .pv-sc-x:hover { color: var(--text); }
     /* the footer keeps only the full-size file and the source record */
-    #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbShareBtn, #lbOrbitConstellationBtn { display: none !important; }
+    #sameEmotionBtn, #sameSubjectBtn, #copyCreditBtn, #lbOrbitConstellationBtn { display: none !important; }   /* Share is back on every screen (25 Nov 2026) */
     html.pv-can-share #lbShareBtn { display: inline-block !important; }
     /* zoom into an open work (23 Nov 2026) */
     .stage-image-wrap.pv-zoomable { cursor: zoom-in; touch-action: none; }
@@ -4110,7 +4110,7 @@
     #pvBoot span { font-family: 'Cormorant Garamond', Georgia, serif; color: #eae8e3; font-size: 1.15rem; letter-spacing: 0.32em; opacity: .85; animation: pvBootIn 900ms ease both; }
     #pvBoot.gone { opacity: 0; }
     @keyframes pvBootIn { from { opacity: 0; } to { opacity: .85; } }
-    .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink)) { display: none !important; }
+    .aside-footer .footer-row:not(:has(#lbHighResLink, #lbSourceLink, #lbShareBtn)) { display: none !important; }   /* Share's row was caught by this and never showed, phones included (fixed 25 Nov 2026) */
     .pv-like { margin: 22px 0 6px; }
     .pv-near { margin-top: 22px; }
     .pv-like-h { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
@@ -4890,7 +4890,7 @@
           <button class="quiet-link" id="copyCreditBtn">Copy credit</button>
         </div>
         <div class="footer-row">
-          <button class="quiet-link" id="lbShareBtn" type="button">Copy link</button>
+          <button class="quiet-link" id="lbShareBtn" type="button" data-tip="Copies a link to this work">Share</button>
         </div>
         <div class="footer-row">
           <a class="quiet-link" id="lbSourceLink" href="#" target="_blank" rel="noopener noreferrer">Source record ↗</a>
@@ -4902,7 +4902,7 @@
 
 
 
-  <script src="data/site.js?v=97d2cc56e2"></script>
+  <script src="data/site.js?v=6ad7efc5d5"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -11457,7 +11457,7 @@
     // so it can be copied or bookmarked; "Copy link" hands out the work's own page
     // (w/<slug>.html), which previews properly when shared and can be found by search engines.
     (function workLinks() {
-      const baseUrl = () => location.href.split('#')[0].replace(/index\.html$/, '');
+      const baseUrl = () => location.href.split('#')[0].split('?')[0].replace(/index\.html$/, '');   // without ?q=: a search in the address used to end up inside the copied link
       const shareBtn = document.getElementById('lbShareBtn');
       let current = null;
       // The back button closes an open work instead of leaving the site (23 Nov 2026): opening a work from the wall
@@ -11497,7 +11497,7 @@
         shareBtn.addEventListener('click', () => {
           if (!current || !current.slug) return;
           const url = `${baseUrl()}w/${current.slug}.html`;
-          const done = () => { shareBtn.textContent = 'Link copied ✓'; setTimeout(() => { shareBtn.textContent = 'Copy link'; }, 1400); };
+          const done = () => { shareBtn.textContent = 'Link copied'; setTimeout(() => { shareBtn.textContent = 'Share'; }, 1600); };
           if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => window.prompt('Link to this work', url));
           else window.prompt('Link to this work', url);
         });
@@ -12410,15 +12410,18 @@
     if (!off) {
       const el = document.createElement('article'); el.className = 'art-piece pv-placard';
       el.setAttribute('aria-label', 'Not on the wall');
+      // One click to where it can be seen (Paul, 25 Nov 2026). The label says what the link is: the holder's own page,
+      // the work's Wikipedia article, or a Wikipedia search when no page for it is on file.
+      const where = p.k === 'hold' ? 'See it at ' + (p.h || 'its holder').replace(/,.*$/, '') : p.k === 'wiki' ? 'See it on Wikipedia' : 'Find ' + (p.x ? 'their work' : 'it') + ' on Wikipedia';
+      const link = p.u ? `<a href="${esc(p.u)}" target="_blank" rel="noopener">${esc(where)} ↗</a>` : '';
       if (p.x) {
         const here = WORKS.some(w => w.artist === p.a);
         el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.a)}</h3>` +
-          `<p class="pp-why">${here ? 'Other work' : 'Work'} by ${esc(p.a)} is not free to use.</p>`;
+          `<p class="pp-why">${here ? 'Other work' : 'Work'} by ${esc(p.a)} is not free to use.</p>` + link;
       } else {
         el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.t)}</h3>` +
           `<p class="pp-meta">${esc([p.a, p.d].filter(Boolean).join(', '))}</p>` + (p.h ? `<p class="pp-meta">${esc(p.h)}</p>` : '') +
-          `<p class="pp-why">It is not free to use.</p>` +
-          (p.u ? `<a href="${esc(p.u)}" target="_blank" rel="noopener">Source record</a>` : '');
+          `<p class="pp-why">It is not free to use.</p>` + link;
       }
       g.insertBefore(el, g.firstChild);
     }
@@ -12428,8 +12431,26 @@
     const origRender = renderGalleryInitial;
     renderGalleryInitial = function () { const r = origRender.apply(this, arguments); drawPlacard(); return r; };
   }
+  // Under a placard the results lead with what the site does have by that maker (Paul, 25 Nov 2026): a search for Guernica
+  // used to put a medieval bird first. Up to twelve, best known first, and only works that pass the filters that are set.
+  if (window.pvArrange) {
+    const arrange0 = window.pvArrange;
+    window.pvArrange = function (list, searchRanked) {
+      const out = arrange0(list, searchRanked);
+      if (!(state.query || '').trim() || state.onlySaved || sharedBoard || show === 'writing') return out;
+      const p = placardFor(state.query); if (!p) return out;
+      const mine = WORKS.filter(w => w.artist === p.a && w.itemType !== 'literature' && !w._broken && window.pvPass(w))
+        .sort((a, b) => (b.iconicScore || 0) - (a.iconicScore || 0)).slice(0, 12);
+      if (!mine.length) return out;
+      const lead = new Set(mine);
+      return mine.concat(out.filter(w => !lead.has(w)));
+    };
+  }
   (window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => {
-    fetch(BASE + 'data/placards.json?' + ver).then(r => r.json()).then(j => { PLAC = j; drawPlacard(); }).catch(() => {});
+    fetch(BASE + 'data/placards.json?' + ver).then(r => r.json()).then(j => {
+      PLAC = j;
+      if (placardFor(state.query) && (!state.spatialView || state.spatialView === 'wall') && !document.querySelector('.lightbox.open')) filterWorks(false);
+    }).catch(() => {});
   });
   let SIM = null, simP = null;
   function loadSim() {

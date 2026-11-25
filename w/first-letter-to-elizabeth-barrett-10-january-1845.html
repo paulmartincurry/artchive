@@ -12,19 +12,44 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>I do, as I say, love these books with all my heart—and I love you too.</blockquote>
 <h1>First Letter to Elizabeth Barrett, 10 January 1845</h1>
 <p class="label">Robert Browning · 10 January 1845</p>
 <p class="note">It is the first letter Robert Browning wrote to Elizabeth Barrett, postmarked 10 January 1845, from New Cross, Hatcham. They had not yet met; John Kenyon arranged their first meeting on 20 May 1845. They married privately at St Marylebone Parish Church and moved to Italy in September 1846.</p>
 <p class="go"><a href="../index.html#w/LIT-1934">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="sonnets-from-the-portuguese-43.html"><span>“How do I love thee? Let me count the ways. I love thee to the depth and breadth and…”</span> <em>Elizabeth Barrett Browning</em></a><a class="ln" href="meeting-at-night.html"><span>“A tap at the pane, the quick sharp scratch And blue spurt of a lighted match, And a voice…”</span> <em>Robert Browning</em></a><a class="ln" href="first-love.html"><span>“I ne&#x27;er was struck before that hour With love so sudden and so sweet. Her face it bloomed…”</span> <em>John Clare</em></a><a class="ln" href="letter-to-fanny-brawne-13-october-1819.html"><span>“My love has made me selfish. I cannot exist without you. I am forgetful of everything but…”</span> <em>John Keats</em></a></div></section>
+<section><h2>More by Robert Browning</h2><div class="lines"><a class="ln" href="childe-roland-to-the-dark-tower-came.html"><span>“For one more picture! in a sheet of flame I saw them and I knew them all. And yet…”</span> <em>Childe Roland to the Dark Tower Came (closing stanzas)</em></a><a class="ln" href="my-last-duchess.html"><span>“This grew; I gave commands; Then all smiles stopped together. There she stands As if…”</span> <em>My Last Duchess (lines 21-56)</em></a><a class="ln" href="porphyria-s-lover.html"><span>“And thus we sit together now, And all night long we have not stirred, And yet God has not…”</span> <em>Porphyria&#x27;s Lover (closing)</em></a><a class="ln" href="andrea-del-sarto-a-man-s-reach-should-exceed-his.html"><span>“Ah, but a man&#x27;s reach should exceed his grasp, Or what &#x27;s a heaven for?”</span> <em>Andrea del Sarto — A man&#x27;s reach should exceed his grasp</em></a></div><a class="all" href="../index.html?q=Robert%20Browning">All 6 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

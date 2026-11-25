@@ -12,18 +12,43 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>I will go back to the great sweet mother,<br>Mother and lover of men, the sea.</blockquote>
 <h1>The Triumph of Time — I will go back to the great sweet mother</h1>
 <p class="label">Algernon Charles Swinburne · 1866</p>
 <p class="go"><a href="../index.html#w/LIT-1708">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="echo.html"><span>“Come back to me in dreams, that I may give Pulse for pulse, breath for breath: Speak low,…”</span> <em>Christina Rossetti</em></a><a class="ln" href="heureux-qui-comme-ulysse-a-fait-un-beau-voyage.html"><span>“Happy, the man who finds sweet journey’s end, Like Ulysses, or he of the Golden Fleece,…”</span> <em>Joachim du Bellay</em></a><a class="ln" href="to-my-dear-and-loving-husband.html"><span>“If ever two were one then surely we, If ever man were loved by wife, then thee;”</span> <em>Anne Bradstreet</em></a><a class="ln" href="to-earthward.html"><span>“The hurt is not enough: I long for weight and strength To feel the earth as rough To all…”</span> <em>Robert Frost</em></a></div></section>
+<section><h2>More by Algernon Charles Swinburne</h2><div class="lines"><a class="ln" href="the-garden-of-proserpine.html"><span>“Even the weariest river winds somewhere safe to sea.”</span> <em>The Garden of Proserpine</em></a><a class="ln" href="atalanta-in-calydon-between-a-sleep-and-a-sleep.html"><span>“He weaves, and is clothed with derision; Sows, and he shall not reap, His life is a watch…”</span> <em>Atalanta in Calydon — Between a sleep and a sleep</em></a><a class="ln" href="hymn-to-proserpine-thou-hast-conquered-o-pale-galilean.html"><span>“Thou hast conquered, O pale Galilean; the world has grown grey from thy breath;”</span> <em>Hymn to Proserpine — Thou hast conquered, O pale Galilean</em></a></div></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

@@ -12,20 +12,45 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>Among the worlds, the one bright sphere,<br>One star’s name alone I utter,<br>It’s not that to me she is dear,<br>It’s that I pine amidst the others.<br><br>And, when I’m torn with doubt, alone<br>It’s to her, I pray, for clear sight.<br>It’s not that she shines brighter,<br>Rather, with her, I need no light.</blockquote>
 <h1>Among the Worlds (Среди миров)</h1>
 <p class="label">Innokenty Annensky · written 1901, published 1910</p>
 <p class="label">Translated by A. S. Kline · Free to reproduce for non-commercial use (poetryintranslation.com terms); not public domain.</p>
 <p class="note">Annensky wrote the poem in 1901, while he was director of the Imperial lyceum at Tsarskoye Selo. It was first printed after his death, in The Cypress Chest, which came out in April 1910. He died of a heart attack at the Tsarskoe Selo railway station in 1909.</p>
 <p class="go"><a href="../index.html#w/LIT-1863">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="alone-mikhail-lermontov.html"><span>“Alone, I come to the road. The stony track gleams in the mist: the calm night listens to…”</span> <em>Mikhail Lermontov</em></a><a class="ln" href="silentium.html"><span>“A thought once spoken is a lie: troubling the streams, you cloud them – drink from them –…”</span> <em>Fyodor Tyutchev</em></a><a class="ln" href="the-world-henry-vaughan.html"><span>“I saw Eternity the other night, Like a great ring of pure and endless light, All calm, as…”</span> <em>Henry Vaughan</em></a><a class="ln" href="to.html"><span>“I remember the marvellous moment you appeared before me, like a transient vision, like…”</span> <em>Alexander Pushkin</em></a></div></section>
+<section><h2>More by Innokenty Annensky</h2><div class="lines"><a class="ln" href="black-spring.html"><span>“Mankind! Your road is mud, These ruts are your last breaths; While nothing proves sorrier…”</span> <em>Black Spring (Чёрная весна)</em></a><a class="ln" href="the-steel-cicada.html"><span>“It will tinkle, and slam, And you’ll be far away… In silence She will return, To be with…”</span> <em>The Steel Cicada (Стальная цикада)</em></a></div></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

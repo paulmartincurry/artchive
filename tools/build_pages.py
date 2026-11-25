@@ -9,8 +9,15 @@ so shared links keep working). The page shows the image, the museum label and th
 for art; the pull quote, credit and note for writing. It never shows a full text, so
 writing still in copyright stays at the one-line quote. Each page links into the app
 at index.html#w/<id>, which opens the work.
+
+A page is also a front door (25 Nov 2026): most strangers arrive on one from a search
+engine or a shared link, so under the work it shows More like this (data/similar.json),
+more by the same maker, the wordmark and a search box that lead onto the wall, and the
+full-size file for art. Every neighbour is a plain link to that work's own page, so the
+pages link to each other and a crawler can walk the whole collection.
 """
 import html, json, os, re, unicodedata
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://www.paulmartincurry.com/artchive/'
@@ -26,6 +33,32 @@ def slugify(s):
 
 def esc(s):
     return html.escape(s or '', quote=True)
+
+def thumb(w):
+    """A small picture for a row of neighbours: each holder's own 400 px size where it serves one (checked 25 Nov 2026)."""
+    u = w.get('imageUrl') or ''
+    if not u.startswith('http'):
+        return '../' + u if u else ''
+    u = re.sub(r'/\d+,/0/default\.jpg$', '/400,/0/default.jpg', u)                      # IIIF: NGA, Chicago, Getty, Rijksmuseum, SMK, LoC, Wellcome, NYPL
+    u = re.sub(r'([?&]max=)\d+', r'\g<1>400', u)                                      # Smithsonian
+    u = re.sub(r'(upload\.wikimedia\.org/.*/thumb/.*/)\d+px-', r'\g<1>330px-', u)    # Commons serves only its standard widths
+    return u
+
+NO_MAKER = re.compile(r'^(?:Maker unknown|Anonymous|Unknown|Traditional|Various)\b', re.I)
+
+def neighbour(o, same_maker=False):
+    """One neighbour as a link to its own page: a picture for art, the start of the pull quote for writing
+    (credited to its writer, or to its title when the whole row is one writer)."""
+    alt = esc(' by '.join(x for x in [o.get('title'), o.get('artist')] if x))
+    if o.get('itemType') == 'literature':
+        hook = ' '.join((o.get('hook') or '').split())
+        cut = hook if len(hook) <= 90 else hook[:90].rsplit(' ', 1)[0] + '…'
+        return f'<a class="ln" href="{o["slug"]}.html"><span>“{esc(cut)}”</span> <em>{esc((o.get("title") if same_maker else o.get("artist")) or "")}</em></a>'
+    try:
+        ar = min(2.2, max(0.5, float(o.get('ar') or 1)))
+    except (TypeError, ValueError):
+        ar = 1
+    return f'<a href="{o["slug"]}.html" title="{alt}"><img loading="lazy" decoding="async" src="{esc(thumb(o))}" alt="{alt}" style="width:{round(112 * ar)}px"></a>'
 
 def main():
     raw = open(DATA, encoding='utf-8').read()
@@ -46,6 +79,21 @@ def main():
         used.add(cand)
 
     open(DATA, 'w', encoding='utf-8').write(raw[:a] + json.dumps(works, ensure_ascii=False, separators=(',', ':')) + raw[b:])
+
+    by_id = {w['id']: w for w in works}
+    near = {}
+    try:
+        sim = json.load(open(os.path.join(ROOT, 'data', 'similar.json'), encoding='utf-8'))
+        near = {i: [sim['ids'][k] for k in nb] for i, nb in zip(sim['ids'], sim['nb'])}
+    except (OSError, ValueError, KeyError, IndexError):
+        pass
+    by_maker = {}
+    for w in works:
+        m = w.get('artist') or ''
+        if m and not NO_MAKER.match(m):
+            by_maker.setdefault((m, w.get('itemType') == 'literature'), []).append(w)
+    for v in by_maker.values():
+        v.sort(key=lambda o: -float(o.get('fame') or o.get('iconicScore') or 0))
 
     out = os.path.join(ROOT, 'w')
     os.makedirs(out, exist_ok=True)
@@ -78,7 +126,7 @@ def main():
             rights = ''
         body = []
         if img:
-            body.append(f'<a href="{app}"><img src="{esc(page_img)}" alt="{esc(title)} by {esc(maker)}"></a>')
+            body.append(f'<a href="{app}"><img class="hero" src="{esc(page_img)}" alt="{esc(title)} by {esc(maker)}"></a>')
         if is_lit and hook:
             body.append('<blockquote>' + '<br>'.join(esc(l) for l in hook.split('\n')) + '</blockquote>')
         body.append(f'<h1>{esc(title)}</h1>')
@@ -89,7 +137,21 @@ def main():
             body.append(f'<p class="label">{esc(rights)}</p>')
         if note:
             body.append(f'<p class="note">{esc(note)}</p>')
-        body.append(f'<p class="go"><a href="{app}">Open in The Artchive</a></p>')
+        full = '' if is_lit or w.get('rightsTier') != 'free' else (w.get('highResUrl') or w.get('imageUrl') or '')
+        if full and not full.startswith('http'):
+            full = '../' + full
+        body.append(f'<p class="go"><a href="{app}">Open in The Artchive</a>' + (f'<a href="{esc(full)}" target="_blank" rel="noopener">Full-size file ↗</a>' if full else '') + '</p>')
+        # The front door: neighbours, the maker's other work, and the way onto the wall.
+        like = [by_id[i] for i in near.get(w['id'], []) if i in by_id and by_id[i].get('slug')][:4 if is_lit else 6]
+        row = 'lines' if is_lit else 'row'
+        if like:
+            body.append(f'<section><h2>More like this</h2><div class="{row}">' + ''.join(neighbour(o) for o in like) + '</div></section>')
+        mine_all = [o for o in by_maker.get((maker, is_lit), []) if o is not w]
+        shown = {o['id'] for o in like}
+        mine = [o for o in mine_all if o['id'] not in shown and o.get('slug')][:4 if is_lit else 6]
+        if mine:
+            more = f'<a class="all" href="../index.html?q={quote(maker)}">All {len(mine_all) + 1} on the wall</a>' if len(mine_all) > len(mine) else ''
+            body.append(f'<section><h2>More by {esc(maker)}</h2><div class="{row}">' + ''.join(neighbour(o, True) for o in mine) + f'</div>{more}</section>')
         page = f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 {MOVE}
@@ -104,18 +166,41 @@ def main():
 {f'<meta property="og:image" content="{esc(img)}"><meta name="twitter:card" content="summary_large_image">' if img else '<meta name="twitter:card" content="summary">'}
 <style>
 body{{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}}
-main{{max-width:760px;margin:0 auto;padding:40px 22px 64px}}
-img{{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;{"max-width:" + str(int(w["imageW"] * 1.5)) + "px;" if w.get("fairUse") and w.get("imageW") else ""}}}
+header,main,footer{{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}}
+header{{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}}
+.wm{{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}}
+header input{{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}}
+header input:focus{{border-bottom-color:#eae8e3}}
+header input::placeholder{{color:#8a8780}}
+main{{padding-top:34px;padding-bottom:20px}}
+.hero{{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;{"max-width:" + str(int(w["imageW"] * 1.5)) + "px;" if w.get("fairUse") and w.get("imageW") else ""}}}
 blockquote{{margin:0 0 28px;font-size:1.35rem;line-height:1.5}}
 h1{{font-weight:400;font-size:1.5rem;margin:0 0 6px}}
 .label{{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}}
 .note{{margin:22px 0 0;color:#cfccc5}}
 .go{{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}}
+.go a{{margin-right:22px}}
 a{{color:#eae8e3}}
+section{{margin-top:46px;padding-top:22px;border-top:1px solid #232220}}
+h2{{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}}
+.row{{display:flex;flex-wrap:wrap;gap:10px}}
+.row a{{display:block;line-height:0;background:#141416}}
+.row img{{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}}
+.row a:hover img{{opacity:1}}
+.lines a{{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}}
+.lines em{{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}}
+.all{{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}}
+footer{{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}}
+footer a{{margin-left:10px}}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 {chr(10).join(body)}
-</main></body></html>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){{function h(){{i.parentNode.style.display='none'}}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()}})</script>
+</body></html>
 '''
         fn = f'{w["slug"]}.html'
         keep.add(fn)
@@ -157,7 +242,10 @@ a{{color:#eae8e3}}
         open(SITE_DATA, 'w', encoding='utf-8').write(site_js)
     # Stamp the data file's version into index.html so a push never runs fresh code on a cached library.
     import hashlib
-    ver = hashlib.sha1((site_js + texts_json).encode('utf-8')).hexdigest()[:10]
+    # data/placards.json is fetched with the same stamp, so a change to it changes the stamp too
+    PLAC = os.path.join(ROOT, 'data', 'placards.json')
+    plac = open(PLAC, encoding='utf-8').read() if os.path.exists(PLAC) else ''
+    ver = hashlib.sha1((site_js + texts_json + plac).encode('utf-8')).hexdigest()[:10]
     ip = os.path.join(ROOT, 'index.html')
     ih = open(ip, encoding='utf-8').read()
     ih2 = re.sub(r'<script src="data/(?:works|site)\.js(\?v=[0-9a-f]+)?"></script>', f'<script src="data/site.js?v={ver}"></script>', ih)

@@ -12,18 +12,43 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>They shrink from powders and from paints .. .<br>So far, I’ve had no complaints.</blockquote>
 <h1>Interview</h1>
 <p class="label">Dorothy Parker · 1926</p>
 <p class="go"><a href="../index.html#w/LIT-2046">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="news-item.html"><span>“Men seldom make passes At girls who wear glasses.”</span> <em>Dorothy Parker</em></a><a class="ln" href="the-sun-rising.html"><span>“She&#x27;is all States, and all Princes, I, Nothing else is.”</span> <em>John Donne</em></a><a class="ln" href="how-it-feels-to-be-colored-me.html"><span>“But I am not tragically colored. There is no great sorrow dammed up in my soul, nor…”</span> <em>Zora Neale Hurston</em></a><a class="ln" href="apparently-with-no-surprise.html"><span>“The blond assassin passes on, The sun proceeds unmoved To measure off another day For an…”</span> <em>Emily Dickinson</em></a></div></section>
+<section><h2>More by Dorothy Parker</h2><div class="lines"><a class="ln" href="resume.html"><span>“Razors pain you; Rivers are damp; Acids stain you; And drugs cause cramp. Guns aren’t…”</span> <em>Résumé</em></a><a class="ln" href="unfortunate-coincidence.html"><span>“By the time you swear you’re his, Shivering and sighing, And he vows his passion is…”</span> <em>Unfortunate Coincidence</em></a><a class="ln" href="comment.html"><span>“Oh, life is a glorious cycle of song, A medley of extemporanea; And love is a thing that…”</span> <em>Comment</em></a><a class="ln" href="one-perfect-rose.html"><span>“Why is it no one ever sent me yet One perfect limousine, do you suppose? Ah no, it’s…”</span> <em>One Perfect Rose</em></a></div><a class="all" href="../index.html?q=Dorothy%20Parker">All 16 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

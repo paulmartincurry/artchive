@@ -12,19 +12,44 @@
 <meta name="twitter:card" content="summary">
 <style>
 body{margin:0;background:#0b0b0c;color:#eae8e3;font-family:Georgia,'Times New Roman',serif;line-height:1.55}
-main{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-img{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
+header,main,footer{max-width:760px;margin:0 auto;padding-left:22px;padding-right:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wm{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+header input{width:170px;max-width:42vw;background:none;border:0;border-bottom:1px solid #3a3936;color:#eae8e3;font:inherit;font-size:.85rem;padding:6px 2px;border-radius:0;outline:0}
+header input:focus{border-bottom-color:#eae8e3}
+header input::placeholder{color:#8a8780}
+main{padding-top:34px;padding-bottom:20px}
+.hero{display:block;max-width:100%;max-height:78vh;margin:0 auto 28px;}
 blockquote{margin:0 0 28px;font-size:1.35rem;line-height:1.5}
 h1{font-weight:400;font-size:1.5rem;margin:0 0 6px}
 .label{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780;margin:0 0 4px}
 .note{margin:22px 0 0;color:#cfccc5}
 .go{margin-top:30px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.85rem}
+.go a{margin-right:22px}
 a{color:#eae8e3}
+section{margin-top:46px;padding-top:22px;border-top:1px solid #232220}
+h2{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8780;margin:0 0 16px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.row a{display:block;line-height:0;background:#141416}
+.row img{display:block;height:112px;object-fit:cover;opacity:.92;font-size:0;color:transparent}
+.row a:hover img{opacity:1}
+.lines a{display:block;text-decoration:none;margin:0 0 14px;font-size:1.05rem;line-height:1.45}
+.lines em{display:block;margin-top:3px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-style:normal;font-size:.76rem;color:#8a8780}
+.all{display:inline-block;margin-top:16px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.8rem;color:#8a8780}
+footer{margin-top:54px;padding-top:22px;padding-bottom:64px;border-top:1px solid #232220;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;color:#8a8780}
+footer a{margin-left:10px}
 </style></head>
-<body><main>
+<body>
+<header><a class="wm" href="../index.html">The Artchive</a><form action="../index.html" method="get" role="search"><input type="search" name="q" placeholder="Search" aria-label="Search The Artchive" autocomplete="off"></form></header>
+<main>
 <blockquote>…but my life now, my whole life apart from anything that can happen to me, every minute of it is no more meaningless, as it was before, but it has the positive meaning of goodness, which I have the power to put into it.</blockquote>
 <h1>Anna Karenina — my whole life (Part Eight, Ch. 19, close)</h1>
 <p class="label">Leo Tolstoy · 1878</p>
 <p class="label">Translated by Constance Garnett</p>
 <p class="go"><a href="../index.html#w/LIT-1664">Open in The Artchive</a></p>
-</main></body></html>
+<section><h2>More like this</h2><div class="lines"><a class="ln" href="anna-karenina-and-the-light-by-which-she-had-read.html"><span>“And the light by which she had read the book filled with troubles, falsehoods, sorrow,…”</span> <em>Leo Tolstoy</em></a><a class="ln" href="white-nights-a-whole-moment-of-happiness.html"><span>“My God, a whole moment of happiness! Is that too little for the whole of a man&#x27;s life?”</span> <em>Fyodor Dostoevsky</em></a><a class="ln" href="oh-yet-we-trust.html"><span>“So runs my dream: but what am I? An infant crying in the night: An infant crying for the…”</span> <em>Alfred, Lord Tennyson</em></a><a class="ln" href="a-hero-of-our-time-why-have-i-lived.html"><span>“My whole past life I live again in memory, and, involuntarily, I ask myself: ‘why have I…”</span> <em>Mikhail Lermontov</em></a></div></section>
+<section><h2>More by Leo Tolstoy</h2><div class="lines"><a class="ln" href="anna-karenina.html"><span>“Happy families are all alike; every unhappy family is unhappy in its own way.”</span> <em>Anna Karenina (opening)</em></a><a class="ln" href="war-and-peace-the-sky-at-austerlitz.html"><span>“How was it I did not see that lofty sky before? And how happy I am to have found it at…”</span> <em>War and Peace — The Sky at Austerlitz</em></a><a class="ln" href="a-confession-the-traveller-in-the-well.html"><span>“So I too clung to the twig of life, knowing that the dragon of death was inevitably…”</span> <em>A Confession — The Traveller in the Well (Ch. 4)</em></a><a class="ln" href="the-death-of-ivan-ilyitch-caius-is-mortal.html"><span>“The example of the syllogism that he had learned in Kiseveter’s logic — Caius is a man,…”</span> <em>The Death of Ivan Ilyitch — Caius Is Mortal (Ch. VI)</em></a></div><a class="all" href="../index.html?q=Leo%20Tolstoy">All 7 on the wall</a></section>
+</main>
+<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<script>document.querySelectorAll('.row img').forEach(function(i){function h(){i.parentNode.style.display='none'}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()})</script>
+</body></html>

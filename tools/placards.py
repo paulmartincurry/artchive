@@ -26,6 +26,7 @@ not a letter or digit becomes a space). index.html does the same in pNorm().
 Edit the lists below by hand; print the result before applying.
 """
 import json, os, re, sys, unicodedata
+from urllib.parse import urlparse, quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ARCHIVE = os.path.join(ROOT, 'data', 'look-archive.json')
@@ -233,13 +234,24 @@ def main():
             notes.append(f'  skipped, same title and maker is on the site: {shown} / {maker}')
             continue
         idx = len(items)
-        it = {'t': shown, 'a': maker_clean(maker), 'd': w.get('dateLabel') or '', 'u': w.get('sourceUrl') or ''}
+        it = {'t': shown, 'a': maker_clean(maker), 'd': w.get('dateLabel') or ''}
         if w.get('museum'):
             it['h'] = w['museum']
+        # One click to where the work can be seen (Paul, 25 Nov 2026). `k` says what the link is, so the label is honest:
+        # hold = the holder's own page, wiki = its Wikipedia article, find = a Wikipedia search (no page of its own on file).
+        src = w.get('sourceUrl') or ''
+        host = urlparse(src).netloc.replace('www.', '')
         if film:
             it['f'] = 1
-            it.pop('u', None)                 # the source was the still's own file page, not the film
+            year = re.search(r'\d{4}', str(w.get('dateLabel') or ''))
+            it['u'], it['k'] = wiki_find(f'{shown} {year.group(0) if year else ""} film'), 'find'   # the source was the still's file page
             seen_film[norm(shown)] = idx
+        elif host.endswith('wikipedia.org'):
+            it['u'], it['k'] = src, 'wiki'
+        elif host and w.get('museum') and not host.endswith(('wikimedia.org', 'wikidata.org')):
+            it['u'], it['k'] = src, 'hold'
+        else:
+            it['u'], it['k'] = wiki_find(f'{shown} {maker_clean(maker)}'), 'find'
         items.append(it)
 
         forms = title_forms(shown)
@@ -261,7 +273,7 @@ def main():
     for m in makers:
         cut = sum(1 for w in arch if w.get('artist') == m and w['id'] not in SKIP_IDS)
         idx = len(items)
-        items.append({'a': maker_clean(m), 'n': cut, 'x': 1})
+        items.append({'a': maker_clean(m), 'n': cut, 'x': 1, 'u': wiki_find(maker_clean(m)), 'k': 'find'})
         full, _ = maker_forms(m)
         for k in full:
             if len(k.split()) >= 2 or k in SURNAMES or len(full) == 1:
@@ -288,6 +300,11 @@ def main():
         json.dump({'_about': 'Blank wall labels for work that is not on the site. Made by tools/placards.py from data/look-archive.json; do not edit by hand.',
                    'items': items, 'keys': dict(sorted(keys.items()))}, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         print('wrote', OUT, os.path.getsize(OUT), 'bytes')
+
+
+def wiki_find(q):
+    """A Wikipedia search: an exact title goes straight to the article, anything else to the results."""
+    return 'https://en.wikipedia.org/wiki/Special:Search?search=' + quote(' '.join(q.split()))
 
 
 def maker_clean(m):
