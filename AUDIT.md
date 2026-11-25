@@ -1499,4 +1499,4 @@ Re-cut pull quotes (old wording kept in `hookOld`): LIT-262, 520, 521, 2015, 173
 | 2129 | obamawhitehouse.archives.gov | Obama (D), Selma; four paragraphs, "(Applause.)" removed |
 | 2130–2136 | LII, Cornell | Footnote numbers removed; citation strings left off Texas v. Johnson and Tinker; LII's "a farm more subtle" (Korematsu) corrected to "far"; "de-termination" closed up (Shelby County) |
 
-Presidential speeches on the site are now six Democrats and six Republicans. Not added: Stross's Accelerando (antipope.org unreachable from the sandbox; licence must come from the author's page or the book). Hacker Crackdown cards carry medium "Nonfiction book" so they fold into Prose.
+The site now quotes six presidents from each party (D: FDR, Kennedy, Johnson, Carter, Clinton, Obama; R: Lincoln, Eisenhower, Reagan, Ford, Nixon, G. W. Bush). By piece count the Republicans lead 12 to 9, mostly Lincoln. Not added: Stross's Accelerando (antipope.org unreachable from the sandbox; licence must come from the author's page or the book). Hacker Crackdown cards carry medium "Nonfiction book" so they fold into Prose.
