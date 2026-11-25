@@ -4043,6 +4043,14 @@
     .pv-welcome.closing { background: rgba(0,0,0,0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); transition-duration: 450ms; }
     .pv-welcome.closing .pv-welcome-in { opacity: 0; transform: translateY(-6px) scale(.99); transition: opacity 380ms ease, transform 450ms ease; transition-delay: 0ms; }
     .pv-welcome .pv-welcome-sig { margin-top: 20px; font-size: 0.9rem; }
+    /* A blank wall label for work that is not on the site: only as the first tile of a search plainly for it (25 Nov 2026) */
+    .art-piece.pv-placard { cursor: default; box-sizing: border-box; border: 1px solid var(--border); padding: 26px 24px 22px; background: transparent; }
+    .pv-placard .pp-eyebrow { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+    .pv-placard h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 1.5rem; line-height: 1.16; color: var(--text); margin: 16px 0 8px; letter-spacing: 0; text-transform: none; }
+    .pv-placard .pp-meta { font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); margin: 0; }
+    .pv-placard .pp-why { font-size: 0.84rem; line-height: 1.5; color: var(--text); opacity: .86; margin: 16px 0 0; }
+    .pv-placard a { display: inline-block; margin-top: 14px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
+    .pv-placard a:hover, .pv-placard a:focus-visible { color: var(--text); border-bottom-color: currentColor; }
     .pv-welcome-go { margin-top: 26px; background: none; border: 1px solid var(--border); color: var(--text); font: inherit; font-size: 0.72rem;
       letter-spacing: 0.16em; text-transform: uppercase; padding: 10px 18px; cursor: pointer; border-radius: 0; transition: opacity 700ms ease, transform 800ms cubic-bezier(.22,.61,.36,1), border-color 250ms ease; }
     .pv-welcome-go:hover, .pv-welcome-go:focus, .pv-welcome-go:focus-visible { border-color: var(--text-muted); outline: none !important; box-shadow: none !important; }
@@ -12382,6 +12390,47 @@
   const BASE = location.pathname.replace(/[^/]*$/, '');
   const V = (document.querySelector('script[src*="data/site.js"]') || {}).src || '';
   const ver = (V.split('?')[1] || '');
+
+  // ---- placards: a blank wall label for work that is deliberately not here (Paul, 25 Nov 2026) ----
+  // Only when the search is plainly for that work or that maker (its title, a known nickname, the maker's name): never on
+  // the wall, never for a theme, one per search. The searches that trigger one are listed in data/placards.json, made by
+  // tools/placards.py from the works cut on 23 Nov 2026. It is the first tile of the results and opens nothing.
+  let PLAC = null;
+  const pNorm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  function placardFor(q) {
+    if (!PLAC) return null;
+    const i = PLAC.keys[pNorm(q)];
+    return i == null ? null : PLAC.items[i];
+  }
+  function drawPlacard() {
+    const g = document.getElementById('galleryGrid'); if (!g) return;
+    const old = g.querySelector('.pv-placard'); if (old) old.remove();
+    const p = placardFor(state.query);
+    const off = !p || show === 'writing' || state.onlySaved || sharedBoard || (state.spatialView && state.spatialView !== 'wall') || g.style.display === 'none';
+    if (!off) {
+      const el = document.createElement('article'); el.className = 'art-piece pv-placard';
+      el.setAttribute('aria-label', 'Not on the wall');
+      if (p.x) {
+        const here = WORKS.some(w => w.artist === p.a);
+        el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.a)}</h3>` +
+          `<p class="pp-why">${here ? 'Other work' : 'Work'} by ${esc(p.a)} is not free to use.</p>`;
+      } else {
+        el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.t)}</h3>` +
+          `<p class="pp-meta">${esc([p.a, p.d].filter(Boolean).join(', '))}</p>` + (p.h ? `<p class="pp-meta">${esc(p.h)}</p>` : '') +
+          `<p class="pp-why">It is not free to use.</p>` +
+          (p.u ? `<a href="${esc(p.u)}" target="_blank" rel="noopener">Source record</a>` : '');
+      }
+      g.insertBefore(el, g.firstChild);
+    }
+    if ((old || !off) && window.pvMasonLayout) window.pvMasonLayout();
+  }
+  if (typeof renderGalleryInitial === 'function') {
+    const origRender = renderGalleryInitial;
+    renderGalleryInitial = function () { const r = origRender.apply(this, arguments); drawPlacard(); return r; };
+  }
+  (window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => {
+    fetch(BASE + 'data/placards.json?' + ver).then(r => r.json()).then(j => { PLAC = j; drawPlacard(); }).catch(() => {});
+  });
   let SIM = null, simP = null;
   function loadSim() {
     return simP || (simP = fetch(BASE + 'data/similar.json?' + ver).then(r => r.json()).then(j => {
