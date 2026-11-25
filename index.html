@@ -4053,6 +4053,14 @@
       border: 1px solid var(--border); font-size: 0.74rem; line-height: 1.45; letter-spacing: 0; text-transform: none; pointer-events: none;
       opacity: 0; transform: translateY(-2px); transition: opacity 180ms ease, transform 180ms ease; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
     .pv-tip.show { opacity: 1; transform: none; }
+    .pv-tip2 { display: block; color: var(--text-muted); margin-top: 2px; }
+    .pv-peekcard { position: fixed; z-index: 200; padding: 10px; background: var(--bg-elevated, #151515); color: var(--text); border: 1px solid var(--border);
+      pointer-events: none; opacity: 0; transform: translateX(4px); transition: opacity 180ms ease, transform 180ms ease; box-shadow: 0 18px 40px rgba(0,0,0,.5); max-width: 460px; }
+    .pv-peekcard.show { opacity: 1; transform: none; }
+    .pv-peek-i { overflow: hidden; margin-bottom: 10px; } .pv-peek-i img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pv-peekcard .pv-peek-t { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; line-height: 1.2; color: var(--text); border: 0; padding: 0; margin: 0; }
+    .pv-peek-m { font-size: 0.74rem; color: var(--text-muted); margin-top: 3px; }
+    .pv-peekcard.is-lit { width: 340px; padding: 16px; } .pv-peek-q { font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
     .pv-board { display: inline-flex; align-items: center; gap: 2px; }
     .pv-board-x { background: none; border: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1; padding: 4px 6px; cursor: pointer; opacity: 0; transition: opacity 150ms ease; }
     .pv-board:hover .pv-board-x, .pv-board-x:focus-visible { opacity: .75; }
@@ -11642,11 +11650,11 @@
     return { h, s: Math.min(1, s), l };
   }
   const pickHex = () => hslHex(pick.h, pick.s, pick.l);
-  function nearPigment(hex) {
+  function nearPigment(hex, lim) {
     const q = hexToOk(hex); let best = null, bd = 1e9;
-    PIGMENTS.concat([['Lamp black', '#1B1B1B'], ['Lead white', '#EDE6D6'], ['Slate', '#6B7078'], ['Lilac', '#B59BC8'], ['Rose', '#D98A9A']]).forEach(p => {
+    PIGMENTS.concat([['Lamp black', '#1B1B1B'], ['Ivory black', '#050505'], ['Lead white', '#EDE6D6'], ['Slate', '#6B7078'], ['Lilac', '#B59BC8'], ['Rose', '#D98A9A']]).forEach(p => {
       const o = hexToOk(p[1]), d = Math.hypot(q[0] - o[0], q[1] - o[1], q[2] - o[2]); if (d < bd) { bd = d; best = p[0]; } });
-    return bd < 0.09 ? 'Near ' + (/^(Prussian|Klein|Naples|Tyrian)/.test(best) ? best : best.toLowerCase()) : hex;
+    return bd < (lim || 0.09) ? 'Near ' + (/^(Prussian|Klein|Naples|Tyrian)/.test(best) ? best : best.toLowerCase()) : hex;
   }
   const L_TOP = 0.9, L_BOT = 0.1;
   function paintPicker() {
@@ -12304,13 +12312,15 @@
       on = el;
       timer = setTimeout(() => {
         if (!on || !document.contains(on)) return;
-        t.textContent = on.dataset.tip; t.hidden = false;
+        t.textContent = on.dataset.tip;
+        if (on.dataset.tip2) { const m = document.createElement('span'); m.className = 'pv-tip2'; m.textContent = on.dataset.tip2; t.appendChild(m); }
+        t.hidden = false;
         const r = on.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
         let x = r.left + r.width / 2 - w / 2; x = Math.max(10, Math.min(x, innerWidth - w - 10));
         let y = r.bottom + 10; if (y + h > innerHeight - 10) y = r.top - h - 10;
         t.style.left = x + 'px'; t.style.top = y + 'px';
         requestAnimationFrame(() => t.classList.add('show'));
-      }, 700);
+      }, el.dataset.tipFast ? 220 : 700);
     });
     document.addEventListener('pointerout', (e) => { if (on && !on.contains(e.relatedTarget)) hide(); });
     ['pointerdown', 'scroll', 'keydown'].forEach(ev => addEventListener(ev, hide, true));
@@ -12410,8 +12420,8 @@
     more.innerHTML = `<div class="pv-fold" data-fold="like"><button type="button" class="pv-like-h pv-fold-h">More like this</button>` + (lit
       ? `<div class="pv-like-lines">` + nb.slice(0, 4).map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`
       : `<div class="pv-like-row">` + nb.slice(0, 8).map(x => isLit(x)
-          ? `<button type="button" class="pv-like-word" data-id="${x.id}" title="${esc(x.title)}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
-          : `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`) + `</div>`;
+          ? `<button type="button" class="pv-like-word" data-id="${x.id}">“${esc((x.hook || '').slice(0, 40))}…”</button>`
+          : `<button type="button" data-id="${x.id}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`) + `</div>`;
     pvFoldInit(more);
     more.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
     // Pictures near these words / words near this picture: chosen by the meaning vectors, shown only when the match is strong
@@ -12420,7 +12430,7 @@
     if (!near.length) return;
     const box = document.createElement('div'); box.className = 'pv-near pv-fold'; box.dataset.fold = 'near';
     box.innerHTML = lit
-      ? `<button type="button" class="pv-like-h pv-fold-h">Pictures near these words</button><div class="pv-like-row">` + near.map(x => `<button type="button" data-id="${x.id}" title="${esc(x.title)} · ${esc(x.artist || '')}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`
+      ? `<button type="button" class="pv-like-h pv-fold-h">Pictures near these words</button><div class="pv-like-row">` + near.map(x => `<button type="button" data-id="${x.id}"><img loading="lazy" alt="${esc(x.title)}" src="${esc(thumbUrl(x))}"></button>`).join('') + `</div>`
       : `<button type="button" class="pv-like-h pv-fold-h">Words near this picture</button><div class="pv-like-lines">` + near.map(x => `<button type="button" data-id="${x.id}"><span>“${esc((x.hook || '').slice(0, 90))}${(x.hook || '').length > 90 ? '…' : ''}”</span><em>${esc(x.artist || '')}</em></button>`).join('') + `</div>`;
     box.querySelectorAll('img').forEach(im => im.addEventListener('error', () => { im.closest('button').remove(); }));
     more.appendChild(box); pvFoldInit(more);
@@ -12471,11 +12481,48 @@
       setShade(d.dataset.hex, 'Colour from ' + (w ? (w.title.length > 34 ? w.title.slice(0, 32) + '…' : w.title) : 'this work'));
       window.scrollTo({ top: 0 });
     }, true);
-    new MutationObserver(() => lbPal.querySelectorAll('.swatch-dot').forEach(d => { d.title = 'More in this colour'; }))
+    new MutationObserver(() => lbPal.querySelectorAll('.swatch-dot').forEach(d => {
+      const hex = (d.dataset.hex || '').toUpperCase(), nm = nearPigment(d.dataset.hex || '', 0.15);
+      d.removeAttribute('title'); d.dataset.tipFast = '1';
+      d.dataset.tip = /^Near /.test(nm) ? nm + ' · ' + hex : hex; d.dataset.tip2 = 'Click for more in this colour';
+      d.setAttribute('aria-label', d.dataset.tip + '. More in this colour');
+    }))
       .observe(lbPal, { childList: true });
   }
   if (location.hash.startsWith('#w/')) setTimeout(() => { placeCredit(state.currentList[state.activeWorkIndex]); showLike(state.currentList[state.activeWorkIndex]); }, 0);
   more.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (b) openWorkById(b.dataset.id); });
+  // A look before the click (Paul, 24 Nov 2026): resting on a neighbour shows it bigger, with its label, beside the panel.
+  (function likePeek() {
+    const p = document.createElement('div'); p.className = 'pv-peekcard'; p.hidden = true; document.body.appendChild(p);
+    let timer = 0, on = null, byId = null;
+    const hide = () => { clearTimeout(timer); timer = 0; on = null; p.hidden = true; p.classList.remove('show'); };
+    more.addEventListener('pointerover', (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const b = e.target.closest('[data-id]'); if (b === on) return;
+      hide(); if (!b) return; on = b;
+      timer = setTimeout(() => {
+        if (on !== b || !document.contains(b)) return;
+        byId = byId || new Map(WORKS.map(x => [x.id, x])); const x = byId.get(b.dataset.id); if (!x) return;
+        const lab = `<div class="pv-peek-t">${esc(x.title || '')}</div><div class="pv-peek-m">${esc([x.artist, x.dateLabel || x.date].filter(Boolean).join(' · '))}</div>`;
+        if (isLit(x)) { const h = x.hook || ''; p.className = 'pv-peekcard is-lit'; p.innerHTML = `<div class="pv-peek-q">“${esc(h.slice(0, 420))}${h.length > 420 ? '…' : ''}”</div>` + lab; }
+        else {
+          const ar = x.ar || 0.8, H = Math.min(innerHeight * 0.5, 420), W = Math.min(H * ar, 440), hh = W / ar;
+          p.className = 'pv-peekcard'; p.innerHTML = `<div class="pv-peek-i" style="width:${Math.round(W)}px;height:${Math.round(hh)}px;background:${esc((x.palette || [])[0] || '#111')}"><img alt="" src="${esc(thumbUrl(x))}"></div>` + lab;
+          const im = p.querySelector('img'), big = x.imageUrl;
+          if (big && big !== im.src) { const pre = new Image(); pre.onload = () => { if (on === b) im.src = big; }; pre.src = big; }
+        }
+        p.hidden = false;
+        const r = b.getBoundingClientRect(), panel = (b.closest('.lightbox-panel, .lightbox-side, aside') || more).getBoundingClientRect(), w = p.offsetWidth, h = p.offsetHeight;
+        let x0 = panel.left - w - 18; if (x0 < 10) x0 = Math.max(10, Math.min(r.left, innerWidth - w - 10));
+        let y0 = r.top + r.height / 2 - h / 2; if (x0 >= panel.left - w - 18 && x0 + w > panel.left) y0 = r.top - h - 10;
+        y0 = Math.max(10, Math.min(y0, innerHeight - h - 10));
+        p.style.left = x0 + 'px'; p.style.top = y0 + 'px';
+        requestAnimationFrame(() => p.classList.add('show'));
+      }, 260);
+    });
+    more.addEventListener('pointerout', (e) => { if (on && !on.contains(e.relatedTarget)) hide(); });
+    ['pointerdown', 'scroll', 'keydown'].forEach(ev => addEventListener(ev, hide, true));
+  })();
   if (typeof openLightbox === 'function') {
     const origOpenLb = openLightbox;
     openLightbox = function (index) { const r = origOpenLb(index); placeCredit(state.currentList[index]); showLike(state.currentList[index]); return r; };
