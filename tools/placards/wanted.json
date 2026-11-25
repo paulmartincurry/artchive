@@ -1,0 +1,5644 @@
+{
+"makers": [
+{
+"name": "Fyodor Dostoyevsky",
+"born": 1821,
+"died": 1881,
+"n": 258
+},
+{
+"name": "Molière",
+"born": 1622,
+"died": 1673,
+"n": 227
+},
+{
+"name": "Georg Wilhelm Friedrich Hegel",
+"born": 1770,
+"died": 1831,
+"n": 197
+},
+{
+"name": "Jules Verne",
+"born": 1828,
+"died": 1905,
+"n": 190
+},
+{
+"name": "Arthur Conan Doyle",
+"born": 1859,
+"died": 1930,
+"n": 184
+},
+{
+"name": "Friedrich Schiller",
+"born": 1759,
+"died": 1805,
+"n": 184
+},
+{
+"name": "Alexandre Dumas",
+"born": 1802,
+"died": 1870,
+"n": 175
+},
+{
+"name": "Aesop",
+"born": -619,
+"died": -563,
+"n": 168
+},
+{
+"name": "Hafez",
+"born": 1325,
+"died": 1389,
+"n": 164
+},
+{
+"name": "Anatole France",
+"born": 1844,
+"died": 1924,
+"n": 162
+},
+{
+"name": "Octave Mirbeau",
+"born": 1848,
+"died": 1917,
+"n": 161
+},
+{
+"name": "Guy de Maupassant",
+"born": 1850,
+"died": 1893,
+"n": 157
+},
+{
+"name": "Epicurus",
+"born": -341,
+"died": -269,
+"n": 151
+},
+{
+"name": "Giovanni Boccaccio",
+"born": 1313,
+"died": 1375,
+"n": 151
+},
+{
+"name": "Aristophanes",
+"born": -444,
+"died": -384,
+"n": 149
+},
+{
+"name": "Jean de La Fontaine",
+"born": 1621,
+"died": 1695,
+"n": 146
+},
+{
+"name": "Daniel Defoe",
+"born": 1660,
+"died": 1731,
+"n": 144
+},
+{
+"name": "Henryk Sienkiewicz",
+"born": 1846,
+"died": 1916,
+"n": 140
+},
+{
+"name": "Mimar Sinan",
+"born": 1490,
+"died": 1588,
+"n": 140
+},
+{
+"name": "Walter Scott",
+"born": 1771,
+"died": 1832,
+"n": 139
+},
+{
+"name": "George Sand",
+"born": 1804,
+"died": 1876,
+"n": 138
+},
+{
+"name": "Adam Mickiewicz",
+"born": 1798,
+"died": 1855,
+"n": 131
+},
+{
+"name": "Titus Livius",
+"born": -58,
+"died": 17,
+"n": 130
+},
+{
+"name": "Hesiod",
+"born": -775,
+"died": -700,
+"n": 127
+},
+{
+"name": "Lope de Vega",
+"born": 1562,
+"died": 1635,
+"n": 125
+},
+{
+"name": "Vladimir Mayakovsky",
+"born": 1893,
+"died": 1930,
+"n": 125
+},
+{
+"name": "Frédéric Mistral",
+"born": 1830,
+"died": 1914,
+"n": 124
+},
+{
+"name": "Sully Prudhomme",
+"born": 1839,
+"died": 1907,
+"n": 124
+},
+{
+"name": "Jean Racine",
+"born": 1639,
+"died": 1699,
+"n": 120
+},
+{
+"name": "Harriet Beecher Stowe",
+"born": 1811,
+"died": 1896,
+"n": 119
+},
+{
+"name": "Saadi",
+"born": 1210,
+"died": 1292,
+"n": 119
+},
+{
+"name": "Henry Wadsworth Longfellow",
+"born": 1807,
+"died": 1882,
+"n": 117
+},
+{
+"name": "Solon",
+"born": -629,
+"died": -559,
+"n": 117
+},
+{
+"name": "Strabo",
+"born": -62,
+"died": 23,
+"n": 116
+},
+{
+"name": "Johann Gottlieb Fichte",
+"born": 1762,
+"died": 1814,
+"n": 114
+},
+{
+"name": "Luís de Camões",
+"born": 1524,
+"died": 1580,
+"n": 113
+},
+{
+"name": "Parmenides",
+"born": -514,
+"died": -469,
+"n": 113
+},
+{
+"name": "Louisa May Alcott",
+"born": 1832,
+"died": 1888,
+"n": 112
+},
+{
+"name": "Sergei Yesenin",
+"born": 1895,
+"died": 1925,
+"n": 112
+},
+{
+"name": "Pierre Corneille",
+"born": 1606,
+"died": 1684,
+"n": 109
+},
+{
+"name": "Aisha",
+"born": 614,
+"died": 678,
+"n": 108
+},
+{
+"name": "Anne Brontë",
+"born": 1820,
+"died": 1849,
+"n": 108
+},
+{
+"name": "Bertha von Suttner",
+"born": 1843,
+"died": 1914,
+"n": 108
+},
+{
+"name": "Charles Perrault",
+"born": 1628,
+"died": 1703,
+"n": 108
+},
+{
+"name": "Gotthold Ephraim Lessing",
+"born": 1729,
+"died": 1781,
+"n": 108
+},
+{
+"name": "Guru Nanak",
+"born": 1469,
+"died": 1539,
+"n": 108
+},
+{
+"name": "Władysław Reymont",
+"born": 1867,
+"died": 1925,
+"n": 108
+},
+{
+"name": "Alexandre Dumas fils",
+"born": 1824,
+"died": 1895,
+"n": 107
+},
+{
+"name": "Alphonse Daudet",
+"born": 1840,
+"died": 1897,
+"n": 107
+},
+{
+"name": "Plautus",
+"born": -249,
+"died": -183,
+"n": 107
+},
+{
+"name": "Baháʼu'lláh",
+"born": 1817,
+"died": 1892,
+"n": 106
+},
+{
+"name": "Lucian of Samosata",
+"born": 120,
+"died": 180,
+"n": 106
+},
+{
+"name": "Marquis de Sade",
+"born": 1740,
+"died": 1814,
+"n": 106
+},
+{
+"name": "Menander",
+"born": -340,
+"died": -290,
+"n": 106
+},
+{
+"name": "Pindar",
+"born": -516,
+"died": -436,
+"n": 104
+},
+{
+"name": "Fatima",
+"born": 615,
+"died": 632,
+"n": 103
+},
+{
+"name": "Alfred de Musset",
+"born": 1810,
+"died": 1857,
+"n": 102
+},
+{
+"name": "Zhuang Zhou",
+"born": -368,
+"died": -287,
+"n": 100
+},
+{
+"name": "Isabelle de Charrière",
+"born": 1740,
+"died": 1805,
+"n": 98
+},
+{
+"name": "John Dryden",
+"born": 1631,
+"died": 1700,
+"n": 98
+},
+{
+"name": "Samuel Finley Breese Morse",
+"born": 1791,
+"died": 1872,
+"n": 98
+},
+{
+"name": "Terence",
+"born": -184,
+"died": -158,
+"n": 98
+},
+{
+"name": "William Makepeace Thackeray",
+"born": 1811,
+"died": 1863,
+"n": 98
+},
+{
+"name": "Ādi Shankara",
+"born": 788,
+"died": 820,
+"n": 98
+},
+{
+"name": "Jaroslav Hašek",
+"born": 1883,
+"died": 1923,
+"n": 96
+},
+{
+"name": "Shota Rustaveli",
+"born": 1172,
+"died": 1216,
+"n": 96
+},
+{
+"name": "Carlo Goldoni",
+"born": 1707,
+"died": 1793,
+"n": 95
+},
+{
+"name": "Lesya Ukrainka",
+"born": 1871,
+"died": 1913,
+"n": 95
+},
+{
+"name": "Torquato Tasso",
+"born": 1544,
+"died": 1595,
+"n": 94
+},
+{
+"name": "James Fenimore Cooper",
+"born": 1789,
+"died": 1851,
+"n": 93
+},
+{
+"name": "Ludovico Ariosto",
+"born": 1474,
+"died": 1533,
+"n": 92
+},
+{
+"name": "Karl Adolph Gjellerup",
+"born": 1857,
+"died": 1919,
+"n": 91
+},
+{
+"name": "Théophile Gautier",
+"born": 1811,
+"died": 1872,
+"n": 91
+},
+{
+"name": "Ivan Krylov",
+"born": 1769,
+"died": 1844,
+"n": 90
+},
+{
+"name": "Leon Battista Alberti",
+"born": 1404,
+"died": 1472,
+"n": 90
+},
+{
+"name": "Martial",
+"born": 40,
+"died": 104,
+"n": 90
+},
+{
+"name": "Nikolay Nekrasov",
+"born": 1821,
+"died": 1878,
+"n": 88
+},
+{
+"name": "Carlo Collodi",
+"born": 1826,
+"died": 1890,
+"n": 87
+},
+{
+"name": "Jami",
+"born": 1414,
+"died": 1492,
+"n": 86
+},
+{
+"name": "Nikolay Karamzin",
+"born": 1766,
+"died": 1826,
+"n": 85
+},
+{
+"name": "Lucan",
+"born": 39,
+"died": 65,
+"n": 84
+},
+{
+"name": "Oliver Goldsmith",
+"born": 1728,
+"died": 1774,
+"n": 83
+},
+{
+"name": "Henry Fielding",
+"born": 1707,
+"died": 1754,
+"n": 82
+},
+{
+"name": "Christine de Pizan",
+"born": 1364,
+"died": 1430,
+"n": 81
+},
+{
+"name": "Andrea Palladio",
+"born": 1508,
+"died": 1580,
+"n": 79
+},
+{
+"name": "Donato Bramante",
+"born": 1444,
+"died": 1514,
+"n": 77
+},
+{
+"name": "Gustavo Adolfo Bécquer",
+"born": 1836,
+"died": 1870,
+"n": 76
+},
+{
+"name": "Joséphine de Beauharnais",
+"born": 1763,
+"died": 1814,
+"n": 76
+},
+{
+"name": "Phidias",
+"born": -499,
+"died": -429,
+"n": 73
+},
+{
+"name": "Giovanni Antonio Canal",
+"born": 1697,
+"died": 1768,
+"n": 72
+},
+{
+"name": "Samuel Butler",
+"born": 1835,
+"died": 1902,
+"n": 72
+},
+{
+"name": "Andrei Rublev",
+"born": 1360,
+"died": 1430,
+"n": 71
+},
+{
+"name": "Karl Friedrich Schinkel",
+"born": 1781,
+"died": 1841,
+"n": 67
+},
+{
+"name": "Andrea del Verrocchio",
+"born": 1435,
+"died": 1488,
+"n": 66
+},
+{
+"name": "Wilhelm Busch",
+"born": 1832,
+"died": 1908,
+"n": 66
+},
+{
+"name": "Francesco Borromini",
+"born": 1599,
+"died": 1667,
+"n": 65
+},
+{
+"name": "Gottfried Keller",
+"born": 1819,
+"died": 1890,
+"n": 65
+},
+{
+"name": "Ivan Shishkin",
+"born": 1831,
+"died": 1898,
+"n": 64
+},
+{
+"name": "Viktor Vasnetsov",
+"born": 1848,
+"died": 1926,
+"n": 64
+},
+{
+"name": "Jan Matejko",
+"born": 1838,
+"died": 1893,
+"n": 62
+},
+{
+"name": "Cimabue",
+"born": 1240,
+"died": 1302,
+"n": 61
+},
+{
+"name": "Carl Larsson",
+"born": 1853,
+"died": 1919,
+"n": 57
+},
+{
+"name": "Ivan Kramskoi",
+"born": 1837,
+"died": 1887,
+"n": 57
+},
+{
+"name": "Pierre Loti",
+"born": 1850,
+"died": 1923,
+"n": 57
+},
+{
+"name": "Alfred Jarry",
+"born": 1873,
+"died": 1907,
+"n": 55
+},
+{
+"name": "Apelles",
+"born": -369,
+"died": -305,
+"n": 55
+},
+{
+"name": "Marie Tussaud",
+"born": 1760,
+"died": 1850,
+"n": 55
+},
+{
+"name": "Praxiteles",
+"born": -394,
+"died": -329,
+"n": 55
+},
+{
+"name": "Pyrrho",
+"born": -360,
+"died": -270,
+"n": 55
+},
+{
+"name": "William Hazlitt",
+"born": 1778,
+"died": 1830,
+"n": 55
+},
+{
+"name": "Frédéric Auguste Bartholdi",
+"born": 1834,
+"died": 1904,
+"n": 54
+},
+{
+"name": "Isaac Levitan",
+"born": 1860,
+"died": 1900,
+"n": 54
+},
+{
+"name": "Karl Bryullov",
+"born": 1799,
+"died": 1852,
+"n": 54
+},
+{
+"name": "Valentin Serov",
+"born": 1865,
+"died": 1911,
+"n": 54
+},
+{
+"name": "Victoria, Princess Royal",
+"born": 1840,
+"died": 1901,
+"n": 54
+},
+{
+"name": "Lorenzo Ghiberti",
+"born": 1378,
+"died": 1455,
+"n": 53
+},
+{
+"name": "Otto Wagner",
+"born": 1841,
+"died": 1918,
+"n": 53
+},
+{
+"name": "Ulrika Eleonora I of Sweden",
+"born": 1688,
+"died": 1741,
+"n": 53
+},
+{
+"name": "Bertel Thorvaldsen",
+"born": 1770,
+"died": 1844,
+"n": 52
+},
+{
+"name": "Charles Rennie Mackintosh",
+"born": 1868,
+"died": 1928,
+"n": 52
+},
+{
+"name": "Francesco Hayez",
+"born": 1791,
+"died": 1882,
+"n": 52
+},
+{
+"name": "Johann Kaspar Lavater",
+"born": 1741,
+"died": 1801,
+"n": 52
+},
+{
+"name": "Myron",
+"born": -500,
+"died": -500,
+"n": 52
+},
+{
+"name": "Vasily Perov",
+"born": 1834,
+"died": 1882,
+"n": 52
+},
+{
+"name": "Carl Spitzweg",
+"born": 1808,
+"died": 1885,
+"n": 51
+},
+{
+"name": "Polykleitos",
+"born": -489,
+"died": -419,
+"n": 51
+},
+{
+"name": "Édouard-Henri Avril",
+"born": 1849,
+"died": 1928,
+"n": 51
+},
+{
+"name": "Marie Bashkirtseva",
+"born": 1860,
+"died": 1884,
+"n": 50
+},
+{
+"name": "Mikalojus Konstantinas Čiurlionis",
+"born": 1875,
+"died": 1911,
+"n": 49
+},
+{
+"name": "Niko Pirosmani",
+"born": 1862,
+"died": 1918,
+"n": 49
+},
+{
+"name": "Pierre Louÿs",
+"born": 1870,
+"died": 1925,
+"n": 49
+},
+{
+"name": "Wilhelm Raabe",
+"born": 1831,
+"died": 1910,
+"n": 49
+},
+{
+"name": "Anna Pavlovna of Russia",
+"born": 1795,
+"died": 1865,
+"n": 48
+},
+{
+"name": "Stanisław Wyspiański",
+"born": 1869,
+"died": 1907,
+"n": 48
+},
+{
+"name": "Fra Bartolomeo",
+"born": 1472,
+"died": 1517,
+"n": 46
+},
+{
+"name": "John Tenniel",
+"born": 1820,
+"died": 1914,
+"n": 46
+},
+{
+"name": "Pieter Brueghel the Younger",
+"born": 1564,
+"died": 1638,
+"n": 46
+},
+{
+"name": "Pietro da Cortona",
+"born": 1596,
+"died": 1669,
+"n": 46
+},
+{
+"name": "Pinturicchio",
+"born": 1454,
+"died": 1513,
+"n": 46
+},
+{
+"name": "Alphonse Allais",
+"born": 1854,
+"died": 1905,
+"n": 45
+},
+{
+"name": "Boris Kustodiev",
+"born": 1878,
+"died": 1927,
+"n": 45
+},
+{
+"name": "Domenico Fontana",
+"born": 1543,
+"died": 1607,
+"n": 45
+},
+{
+"name": "Kaspar Hauser",
+"born": 1812,
+"died": 1833,
+"n": 45
+},
+{
+"name": "Adalbert Stifter",
+"born": 1805,
+"died": 1868,
+"n": 44
+},
+{
+"name": "Alexander Ivanov",
+"born": 1806,
+"died": 1858,
+"n": 44
+},
+{
+"name": "Arnolfo di Cambio",
+"born": 1242,
+"died": 1306,
+"n": 44
+},
+{
+"name": "Jacopo Sansovino",
+"born": 1486,
+"died": 1570,
+"n": 44
+},
+{
+"name": "Philippe II, Duke of Orléans",
+"born": 1674,
+"died": 1723,
+"n": 44
+},
+{
+"name": "Albert Edelfelt",
+"born": 1854,
+"died": 1905,
+"n": 43
+},
+{
+"name": "Michelozzo",
+"born": 1396,
+"died": 1472,
+"n": 43
+},
+{
+"name": "Nadežda Petrović",
+"born": 1873,
+"died": 1915,
+"n": 43
+},
+{
+"name": "Adolph von Menzel",
+"born": 1815,
+"died": 1905,
+"n": 42
+},
+{
+"name": "Agostino Carracci",
+"born": 1557,
+"died": 1602,
+"n": 42
+},
+{
+"name": "Alexei Savrasov",
+"born": 1830,
+"died": 1897,
+"n": 42
+},
+{
+"name": "Antoine Bourdelle",
+"born": 1861,
+"died": 1929,
+"n": 42
+},
+{
+"name": "Godfrey Kneller",
+"born": 1646,
+"died": 1723,
+"n": 42
+},
+{
+"name": "Marie-Antoine Carême",
+"born": 1783,
+"died": 1833,
+"n": 42
+},
+{
+"name": "Pieter Aertsen",
+"born": 1508,
+"died": 1575,
+"n": 42
+},
+{
+"name": "Quinten Metsys",
+"born": 1456,
+"died": 1530,
+"n": 42
+},
+{
+"name": "Anna Maria van Schurman",
+"born": 1607,
+"died": 1678,
+"n": 41
+},
+{
+"name": "Cosimo Rosselli",
+"born": 1439,
+"died": 1507,
+"n": 41
+},
+{
+"name": "Hugo van der Goes",
+"born": 1440,
+"died": 1482,
+"n": 41
+},
+{
+"name": "Józef Ignacy Kraszewski",
+"born": 1812,
+"died": 1887,
+"n": 41
+},
+{
+"name": "Luca della Robbia",
+"born": 1399,
+"died": 1482,
+"n": 41
+},
+{
+"name": "Paul Delaroche",
+"born": 1797,
+"died": 1856,
+"n": 41
+},
+{
+"name": "Ulrika Eleonora of Denmark",
+"born": 1656,
+"died": 1693,
+"n": 41
+},
+{
+"name": "William Jackson Hooker",
+"born": 1785,
+"died": 1865,
+"n": 41
+},
+{
+"name": "Alessandro Algardi",
+"born": 1598,
+"died": 1654,
+"n": 40
+},
+{
+"name": "Antoine-Jean Gros",
+"born": 1771,
+"died": 1835,
+"n": 40
+},
+{
+"name": "Baldassare Peruzzi",
+"born": 1481,
+"died": 1536,
+"n": 40
+},
+{
+"name": "Hans von Aachen",
+"born": 1552,
+"died": 1615,
+"n": 40
+},
+{
+"name": "Nikolai Ge",
+"born": 1831,
+"died": 1894,
+"n": 40
+},
+{
+"name": "Sophia Tolstaya",
+"born": 1844,
+"died": 1919,
+"n": 40
+},
+{
+"name": "Vasily Polenov",
+"born": 1844,
+"died": 1927,
+"n": 40
+},
+{
+"name": "Xuande Emperor",
+"born": 1399,
+"died": 1435,
+"n": 40
+},
+{
+"name": "Rosalba Carriera",
+"born": 1675,
+"died": 1757,
+"n": 39
+},
+{
+"name": "Karel van Mander the Elder",
+"born": 1548,
+"died": 1606,
+"n": 38
+},
+{
+"name": "Pierre Mignard I",
+"born": 1612,
+"died": 1695,
+"n": 38
+},
+{
+"name": "Hans Holbein the Elder",
+"born": 1465,
+"died": 1524,
+"n": 37
+},
+{
+"name": "Karel Hynek Mácha",
+"born": 1810,
+"died": 1836,
+"n": 37
+},
+{
+"name": "Anselm Feuerbach",
+"born": 1829,
+"died": 1880,
+"n": 36
+},
+{
+"name": "Francesco Primaticcio",
+"born": 1504,
+"died": 1560,
+"n": 36
+},
+{
+"name": "Alonso Cano",
+"born": 1601,
+"died": 1667,
+"n": 35
+},
+{
+"name": "Niccolò dell'Abbate",
+"born": 1509,
+"died": 1571,
+"n": 35
+}
+],
+"works": [
+{
+"name": "Salvator Mundi",
+"maker": "Leonardeschi",
+"year": 1500,
+"holder": "Louvre Abu Dhabi",
+"n": 50
+},
+{
+"name": "The Blue Boy",
+"maker": "Thomas Gainsborough",
+"year": 1770,
+"holder": "The Huntington Library, Art Museum, and Botanical Gardens",
+"n": 39
+},
+{
+"name": "The Virgin and Child with Saint Anne",
+"maker": "Leonardo da Vinci",
+"year": 1511,
+"holder": "Department of Paintings of the Louvre",
+"n": 39
+},
+{
+"name": "Benois Madonna",
+"maker": "Leonardo da Vinci",
+"year": 1480,
+"holder": "Hermitage Museum",
+"n": 38
+},
+{
+"name": "The Coronation of Napoleon",
+"maker": "Jacques-Louis David",
+"year": 1807,
+"holder": "Department of Paintings of the Louvre",
+"n": 38
+},
+{
+"name": "Bliss",
+"maker": null,
+"year": 1996,
+"holder": null,
+"n": 37
+},
+{
+"name": "The Church at Auvers",
+"maker": "Vincent van Gogh",
+"year": 1890,
+"holder": "Musée d'Orsay",
+"n": 37
+},
+{
+"name": "The Red Vineyard",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": "Pushkin Museum of Fine Arts",
+"n": 37
+},
+{
+"name": "The Yellow House",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": "Van Gogh Museum",
+"n": 37
+},
+{
+"name": "A Sunday Afternoon on the Island of La Grande Jatte",
+"maker": "Georges Seurat",
+"year": 1884,
+"holder": "Art Institute of Chicago",
+"n": 36
+},
+{
+"name": "Madonna of Bruges",
+"maker": "Michelangelo",
+"year": 1503,
+"holder": "Church of Our Lady",
+"n": 33
+},
+{
+"name": "The Sleepers",
+"maker": "Gustave Courbet",
+"year": 1866,
+"holder": "Musée des Beaux-Arts de la ville de Paris",
+"n": 33
+},
+{
+"name": "The Falling Man",
+"maker": null,
+"year": 2001,
+"holder": null,
+"n": 32
+},
+{
+"name": "Theotokos of Vladimir",
+"maker": null,
+"year": 1125,
+"holder": "Tretyakov Gallery",
+"n": 32
+},
+{
+"name": "La fornarina",
+"maker": "Raphael",
+"year": 1519,
+"holder": "Galleria Nazionale d'Arte Antica",
+"n": 31
+},
+{
+"name": "Sunset at Montmajour",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": null,
+"n": 31
+},
+{
+"name": "Charles IV of Spain and His Family",
+"maker": "Francisco Goya",
+"year": 1800,
+"holder": "Museo del Prado",
+"n": 30
+},
+{
+"name": "Morning in a Pine Forest",
+"maker": "Konstantin Savitsky",
+"year": 1889,
+"holder": "Tretyakov Gallery",
+"n": 30
+},
+{
+"name": "The Baptism of Christ",
+"maker": "Andrea del Verrocchio",
+"year": 1470,
+"holder": "Uffizi Gallery",
+"n": 30
+},
+{
+"name": "The Painter's Studio",
+"maker": "Gustave Courbet",
+"year": 1850,
+"holder": "Musée d'Orsay",
+"n": 30
+},
+{
+"name": "A Philosopher Lecturing on the Orrery",
+"maker": "Joseph Wright of Derby",
+"year": 1766,
+"holder": "Derby Museum and Art Gallery",
+"n": 29
+},
+{
+"name": "A Young Girl Reading",
+"maker": "Jean-Honoré Fragonard",
+"year": 1770,
+"holder": null,
+"n": 29
+},
+{
+"name": "The Source",
+"maker": "Paul Balze",
+"year": 1856,
+"holder": "Musée d'Orsay",
+"n": 29
+},
+{
+"name": "Amor Vincit Omnia",
+"maker": "Caravaggio",
+"year": 1601,
+"holder": "Gemäldegalerie Berlin",
+"n": 28
+},
+{
+"name": "Chair of Saint Peter",
+"maker": "Gian Lorenzo Bernini",
+"year": 1700,
+"holder": null,
+"n": 28
+},
+{
+"name": "Portrait of an Unknown Woman",
+"maker": "Ivan Kramskoi",
+"year": 1883,
+"holder": "Tretyakov Gallery",
+"n": 28
+},
+{
+"name": "The Balcony",
+"maker": "Édouard Manet",
+"year": 1868,
+"holder": "Musée d'Orsay",
+"n": 28
+},
+{
+"name": "The Clothed Maja",
+"maker": "Francisco Goya",
+"year": 1800,
+"holder": "Museo del Prado",
+"n": 28
+},
+{
+"name": "The Kiss",
+"maker": "Francesco Hayez",
+"year": 1859,
+"holder": "Pinacoteca di Brera",
+"n": 28
+},
+{
+"name": "The Three Philosophers",
+"maker": "Giorgione",
+"year": 1508,
+"holder": "Kunsthistorisches Museum",
+"n": 28
+},
+{
+"name": "Girl Reading a Letter at an Open Window",
+"maker": "Johannes Vermeer",
+"year": 1658,
+"holder": "Staatliche Kunstsammlungen Dresden",
+"n": 27
+},
+{
+"name": "The Last Day of Pompeii",
+"maker": "Karl Bryullov",
+"year": 1833,
+"holder": "Russian Museum",
+"n": 27
+},
+{
+"name": "An Experiment on a Bird in the Air Pump",
+"maker": "Joseph Wright of Derby",
+"year": 1768,
+"holder": "National Gallery",
+"n": 26
+},
+{
+"name": "Madonna of Chancellor Rolin",
+"maker": "Jan van Eyck",
+"year": 1432,
+"holder": "Department of Paintings of the Louvre",
+"n": 26
+},
+{
+"name": "Music in the Tuileries",
+"maker": "Édouard Manet",
+"year": 1862,
+"holder": "National Gallery",
+"n": 26
+},
+{
+"name": "Sacred and Profane Love",
+"maker": "Titian",
+"year": 1514,
+"holder": "Borghese Collection",
+"n": 26
+},
+{
+"name": "The Battle of Anghiari",
+"maker": "Leonardo da Vinci",
+"year": 1503,
+"holder": "Palazzo Vecchio",
+"n": 26
+},
+{
+"name": "La velata",
+"maker": "Raphael",
+"year": 1513,
+"holder": "Galleria Palatina",
+"n": 25
+},
+{
+"name": "Road with Cypress and Star",
+"maker": "Vincent van Gogh",
+"year": 1890,
+"holder": "Kröller-Müller Museum",
+"n": 25
+},
+{
+"name": "The Geographer",
+"maker": "Johannes Vermeer",
+"year": 1668,
+"holder": "Städel Museum",
+"n": 25
+},
+{
+"name": "@world_record_egg",
+"maker": null,
+"year": 2019,
+"holder": null,
+"n": 24
+},
+{
+"name": "Boy with a Basket of Fruit",
+"maker": "Caravaggio",
+"year": 1594,
+"holder": "Galleria Borghese",
+"n": 24
+},
+{
+"name": "Dante and Virgil in Hell",
+"maker": "William-Adolphe Bouguereau",
+"year": 1850,
+"holder": "Musée d'Orsay",
+"n": 24
+},
+{
+"name": "Madonna del Granduca",
+"maker": "Raphael",
+"year": 1506,
+"holder": "Galleria Palatina",
+"n": 24
+},
+{
+"name": "Officer and Laughing Girl",
+"maker": "Johannes Vermeer",
+"year": 1658,
+"holder": "The Frick Collection",
+"n": 24
+},
+{
+"name": "Portrait of Père Tanguy",
+"maker": "Vincent van Gogh",
+"year": 1887,
+"holder": "Musée Rodin",
+"n": 24
+},
+{
+"name": "The Parsonage Garden at Nuenen",
+"maker": "Vincent van Gogh",
+"year": 1884,
+"holder": "Groninger Museum",
+"n": 24
+},
+{
+"name": "The Procuress",
+"maker": "Johannes Vermeer",
+"year": 1656,
+"holder": "Staatliche Kunstsammlungen Dresden",
+"n": 24
+},
+{
+"name": "Venus, Cupid, Folly and Time",
+"maker": "Bronzino",
+"year": 1545,
+"holder": "National Gallery",
+"n": 24
+},
+{
+"name": "White House at Night",
+"maker": "Vincent van Gogh",
+"year": 1890,
+"holder": "Hermitage Museum",
+"n": 24
+},
+{
+"name": "Apoxyomenos",
+"maker": "Lysippos",
+"year": -330,
+"holder": null,
+"n": 23
+},
+{
+"name": "Beauty Revealed",
+"maker": "Sarah Goodridge",
+"year": 1828,
+"holder": "Metropolitan Museum of Art",
+"n": 23
+},
+{
+"name": "Christ in the House of Martha and Mary",
+"maker": "Johannes Vermeer",
+"year": 1654,
+"holder": "Scottish National Gallery",
+"n": 23
+},
+{
+"name": "Equestrian Portrait of Charles V",
+"maker": "Titian",
+"year": 1548,
+"holder": "Museo del Prado",
+"n": 23
+},
+{
+"name": "La Belle Jardinière",
+"maker": "Raphael",
+"year": 1507,
+"holder": "Department of Paintings of the Louvre",
+"n": 23
+},
+{
+"name": "Les Grandes Baigneuses",
+"maker": "Pierre-Auguste Renoir",
+"year": 1885,
+"holder": "Philadelphia Museum of Art",
+"n": 23
+},
+{
+"name": "Madonna della Seggiola",
+"maker": "Raphael",
+"year": 1513,
+"holder": "Galleria Palatina",
+"n": 23
+},
+{
+"name": "Nymphs and Satyr",
+"maker": "William-Adolphe Bouguereau",
+"year": 1873,
+"holder": "Clark Art Institute",
+"n": 23
+},
+{
+"name": "Tahitian Women on the Beach",
+"maker": "Paul Gauguin",
+"year": 1890,
+"holder": "Musée d'Orsay",
+"n": 23
+},
+{
+"name": "The Dream of a Knight",
+"maker": "Raphael",
+"year": 1504,
+"holder": "National Gallery",
+"n": 23
+},
+{
+"name": "The Feast in the House of Levi",
+"maker": "Paolo Veronese",
+"year": 1573,
+"holder": "Gallerie dell'Accademia",
+"n": 23
+},
+{
+"name": "The Intervention of the Sabine Women",
+"maker": "Jacques-Louis David",
+"year": 1799,
+"holder": "Department of Paintings of the Louvre",
+"n": 23
+},
+{
+"name": "The Lunch",
+"maker": "Diego Velázquez",
+"year": 1617,
+"holder": "Hermitage Museum",
+"n": 23
+},
+{
+"name": "The Torment of Saint Anthony",
+"maker": "Michelangelo",
+"year": 1487,
+"holder": "Kimbell Art Museum",
+"n": 23
+},
+{
+"name": "The Woman in the Waves",
+"maker": "Gustave Courbet",
+"year": 1868,
+"holder": "Metropolitan Museum of Art",
+"n": 23
+},
+{
+"name": "Woman with a Water Jug",
+"maker": "Johannes Vermeer",
+"year": 1660,
+"holder": "Metropolitan Museum of Art",
+"n": 23
+},
+{
+"name": "Women in the Garden",
+"maker": "Claude Monet",
+"year": 1866,
+"holder": "Musée d'Orsay",
+"n": 23
+},
+{
+"name": "Agostina Segatori Sitting in the Café du Tambourin",
+"maker": "Vincent van Gogh",
+"year": 1887,
+"holder": "Van Gogh Museum",
+"n": 22
+},
+{
+"name": "Bloody Saturday",
+"maker": null,
+"year": 1937,
+"holder": null,
+"n": 22
+},
+{
+"name": "Gabrielle d'Estrées et une de ses sœurs",
+"maker": null,
+"year": 1594,
+"holder": "Department of Paintings of the Louvre",
+"n": 22
+},
+{
+"name": "Garçon à la pipe",
+"maker": "Pablo Picasso",
+"year": 1905,
+"holder": null,
+"n": 22
+},
+{
+"name": "Madonna with Canon Joris van der Paele",
+"maker": "Jan van Eyck",
+"year": 1436,
+"holder": "Vlaamse Kunstcollectie",
+"n": 22
+},
+{
+"name": "Oddi Altarpiece",
+"maker": "Raphael",
+"year": 1502,
+"holder": "Pinacoteca Vaticana",
+"n": 22
+},
+{
+"name": "Portrait of Leo X",
+"maker": "Raphael",
+"year": 1518,
+"holder": "Galleria Palatina",
+"n": 22
+},
+{
+"name": "Stańczyk",
+"maker": "Jan Matejko",
+"year": 1862,
+"holder": "National Museum in Warsaw",
+"n": 22
+},
+{
+"name": "The Embarkation for Cythera",
+"maker": "Jean-Antoine Watteau",
+"year": 1717,
+"holder": "Department of Paintings of the Louvre",
+"n": 22
+},
+{
+"name": "The Girl with the Wine Glass",
+"maker": "Johannes Vermeer",
+"year": 1658,
+"holder": "Herzog Anton Ulrich Museum",
+"n": 22
+},
+{
+"name": "The Madonna in the Church",
+"maker": "Jan van Eyck",
+"year": 1500,
+"holder": "Gemäldegalerie Berlin",
+"n": 22
+},
+{
+"name": "The Umbrellas",
+"maker": "Pierre-Auguste Renoir",
+"year": 1881,
+"holder": "National Gallery",
+"n": 22
+},
+{
+"name": "A Jewish boy surrenders in Warsaw",
+"maker": null,
+"year": 1943,
+"holder": "National Archives and Records Administration",
+"n": 21
+},
+{
+"name": "Allegory of Prudence",
+"maker": "Titian",
+"year": 1550,
+"holder": "National Gallery",
+"n": 21
+},
+{
+"name": "Apollo in the Forge of Vulcan",
+"maker": "Diego Velázquez",
+"year": 1630,
+"holder": "Museo del Prado",
+"n": 21
+},
+{
+"name": "Battle of Grunwald",
+"maker": "Jan Matejko",
+"year": 1878,
+"holder": "National Museum in Warsaw",
+"n": 21
+},
+{
+"name": "Christ in the Wilderness",
+"maker": "Ivan Kramskoi",
+"year": 1872,
+"holder": "Tretyakov Gallery",
+"n": 21
+},
+{
+"name": "Dawn",
+"maker": "William-Adolphe Bouguereau",
+"year": 1881,
+"holder": "Birmingham Museum of Art",
+"n": 21
+},
+{
+"name": "Diana and Actaeon",
+"maker": "Titian",
+"year": 1557,
+"holder": "National Gallery",
+"n": 21
+},
+{
+"name": "Indian Widow",
+"maker": "Joseph Wright of Derby",
+"year": 1785,
+"holder": "Derby Museum and Art Gallery",
+"n": 21
+},
+{
+"name": "La loge",
+"maker": "Pierre-Auguste Renoir",
+"year": 1874,
+"holder": "Courtauld Institute of Art",
+"n": 21
+},
+{
+"name": "Madonna del Prato",
+"maker": "Raphael",
+"year": 1505,
+"holder": "Kunsthistorisches Museum",
+"n": 21
+},
+{
+"name": "Mary Untier of Knots",
+"maker": "Johann Georg Melchior Schmittner",
+"year": 1700,
+"holder": "St. Peter am Perlach",
+"n": 21
+},
+{
+"name": "Mr and Mrs Andrews",
+"maker": "Thomas Gainsborough",
+"year": 1750,
+"holder": "National Gallery",
+"n": 21
+},
+{
+"name": "Portinari Triptych",
+"maker": "Hugo van der Goes",
+"year": 1475,
+"holder": "Uffizi Gallery",
+"n": 21
+},
+{
+"name": "Portrait of a Lady with a Unicorn",
+"maker": "Raphael",
+"year": 1505,
+"holder": "Galleria Borghese",
+"n": 21
+},
+{
+"name": "St. Peter's Baldachin",
+"maker": "Gian Lorenzo Bernini",
+"year": 1620,
+"holder": null,
+"n": 21
+},
+{
+"name": "The Bellelli Family",
+"maker": "Edgar Degas",
+"year": 1863,
+"holder": "Musée d'Orsay",
+"n": 21
+},
+{
+"name": "The Disrobing of Christ",
+"maker": "El Greco",
+"year": 1578,
+"holder": "Toledo Cathedral",
+"n": 21
+},
+{
+"name": "The Fallen Angel",
+"maker": "Alexandre Cabanel",
+"year": 1847,
+"holder": "Musée Fabre",
+"n": 21
+},
+{
+"name": "The Fifer",
+"maker": "Édouard Manet",
+"year": 1866,
+"holder": "Musée d'Orsay",
+"n": 21
+},
+{
+"name": "The Rape of the Daughters of Leucippus",
+"maker": "Jan Wildens",
+"year": 1618,
+"holder": "Bavarian State Painting Collections",
+"n": 21
+},
+{
+"name": "The Roses of Heliogabalus",
+"maker": "Lawrence Alma-Tadema",
+"year": 1888,
+"holder": "Pérez Simón Collection",
+"n": 21
+},
+{
+"name": "They Did Not Expect Him",
+"maker": "Ilya Repin",
+"year": 1888,
+"holder": "Tretyakov Gallery",
+"n": 21
+},
+{
+"name": "Jacob’s Dream",
+"maker": "Jusepe de Ribera",
+"year": 1639,
+"holder": "Museo del Prado",
+"n": 20
+},
+{
+"name": "Madonna di Loreto",
+"maker": "Caravaggio",
+"year": 1605,
+"holder": "Basilica of Saint Augustine in Campo Marzio",
+"n": 20
+},
+{
+"name": "Madonna of the Magnificat",
+"maker": "Sandro Botticelli",
+"year": 1483,
+"holder": "Uffizi Gallery",
+"n": 20
+},
+{
+"name": "Madonna of the Pinks",
+"maker": "Raphael",
+"year": 1506,
+"holder": "National Gallery",
+"n": 20
+},
+{
+"name": "Madonna of the Rosary",
+"maker": "Caravaggio",
+"year": 1607,
+"holder": "Kunsthistorisches Museum",
+"n": 20
+},
+{
+"name": "Napoleon I on his Imperial Throne",
+"maker": "Jean-Auguste-Dominique Ingres",
+"year": 1806,
+"holder": "Department of Paintings of the Louvre",
+"n": 20
+},
+{
+"name": "Pollice Verso",
+"maker": "Jean-Léon Gérôme",
+"year": 1872,
+"holder": "Phoenix Art Museum",
+"n": 20
+},
+{
+"name": "Portrait of Eleanor of Toledo and her son Giovanni de' Medici",
+"maker": "Bronzino",
+"year": 1544,
+"holder": "Uffizi Gallery",
+"n": 20
+},
+{
+"name": "Solly Madonna",
+"maker": "Raphael",
+"year": 1500,
+"holder": "Gemäldegalerie Berlin",
+"n": 20
+},
+{
+"name": "The Blind Girl",
+"maker": "John Everett Millais",
+"year": 1856,
+"holder": "Birmingham Museums Trust",
+"n": 20
+},
+{
+"name": "The Magpie",
+"maker": "Claude Monet",
+"year": 1868,
+"holder": "Musée d'Orsay",
+"n": 20
+},
+{
+"name": "The Return of the Herd",
+"maker": "Pieter Bruegel the Elder",
+"year": 1565,
+"holder": "Kunsthistorisches Museum",
+"n": 20
+},
+{
+"name": "The Slave Market",
+"maker": "Jean-Léon Gérôme",
+"year": 1866,
+"holder": "Clark Art Institute",
+"n": 20
+},
+{
+"name": "The Wayfarer",
+"maker": "Hieronymus Bosch",
+"year": 1500,
+"holder": "Museum Boijmans Van Beuningen",
+"n": 20
+},
+{
+"name": "The Wine Glass",
+"maker": "Johannes Vermeer",
+"year": 1659,
+"holder": "Gemäldegalerie Berlin",
+"n": 20
+},
+{
+"name": "Women Gladiators",
+"maker": "Jusepe de Ribera",
+"year": 1636,
+"holder": "Museo del Prado",
+"n": 20
+},
+{
+"name": "Young Ladies Beside the Seine",
+"maker": "Gustave Courbet",
+"year": 1857,
+"holder": "Musée des Beaux-Arts de la ville de Paris",
+"n": 20
+},
+{
+"name": "A Young Woman Standing at a Virginal",
+"maker": "Johannes Vermeer",
+"year": 1670,
+"holder": "National Gallery",
+"n": 19
+},
+{
+"name": "Allegory of the Catholic Faith",
+"maker": "Johannes Vermeer",
+"year": 1670,
+"holder": "Metropolitan Museum of Art",
+"n": 19
+},
+{
+"name": "Annunciation with Saints Maxima and Ansanus",
+"maker": "Lippo Memmi",
+"year": 1333,
+"holder": "Uffizi Gallery",
+"n": 19
+},
+{
+"name": "Bacchus",
+"maker": "Francesco Melzi",
+"year": 1510,
+"holder": "Department of Paintings of the Louvre",
+"n": 19
+},
+{
+"name": "Battle of the Centaurs",
+"maker": "Michelangelo",
+"year": 1492,
+"holder": "Casa Buonarroti",
+"n": 19
+},
+{
+"name": "Berthe Morisot with a Bouquet of Violets",
+"maker": "Édouard Manet",
+"year": 1872,
+"holder": "Musée d'Orsay",
+"n": 19
+},
+{
+"name": "Christ in the House of His Parents",
+"maker": "John Everett Millais",
+"year": 1849,
+"holder": "National Gallery",
+"n": 19
+},
+{
+"name": "Diana and her Nymphs",
+"maker": "Johannes Vermeer",
+"year": 1650,
+"holder": "Mauritshuis",
+"n": 19
+},
+{
+"name": "Feast of the Rosary",
+"maker": "Albrecht Dürer",
+"year": 1506,
+"holder": "National Gallery Prague",
+"n": 19
+},
+{
+"name": "Girl with peaches",
+"maker": "Valentin Serov",
+"year": 1887,
+"holder": "Tretyakov Gallery",
+"n": 19
+},
+{
+"name": "In the Summer",
+"maker": "Pierre-Auguste Renoir",
+"year": 1868,
+"holder": "Alte Nationalgalerie",
+"n": 19
+},
+{
+"name": "Lady Writing a Letter with her Maid",
+"maker": "Johannes Vermeer",
+"year": 1670,
+"holder": "National Gallery of Ireland",
+"n": 19
+},
+{
+"name": "Madonna of Foligno",
+"maker": "Raphael",
+"year": 1511,
+"holder": "Pinacoteca Vaticana",
+"n": 19
+},
+{
+"name": "Madonna of the Stair",
+"maker": "Michelangelo",
+"year": 1490,
+"holder": "Casa Buonarroti",
+"n": 19
+},
+{
+"name": "Mérode Altarpiece",
+"maker": null,
+"year": 1500,
+"holder": "Metropolitan Museum of Art",
+"n": 19
+},
+{
+"name": "Nana",
+"maker": "Édouard Manet",
+"year": 1877,
+"holder": "Hamburger Kunsthalle",
+"n": 19
+},
+{
+"name": "Pallas and the Centaur",
+"maker": "Sandro Botticelli",
+"year": 1482,
+"holder": "Uffizi Gallery",
+"n": 19
+},
+{
+"name": "Pesaro Madonna",
+"maker": "Titian",
+"year": 1522,
+"holder": "Santa Maria Gloriosa dei Frari",
+"n": 19
+},
+{
+"name": "Piss Christ",
+"maker": null,
+"year": 1987,
+"holder": null,
+"n": 19
+},
+{
+"name": "Portrait of Baldassare Castiglione",
+"maker": "Raphael",
+"year": 1515,
+"holder": "Department of Paintings of the Louvre",
+"n": 19
+},
+{
+"name": "Portrait of a Young Fiancée",
+"maker": "Leonardo da Vinci",
+"year": 1495,
+"holder": null,
+"n": 19
+},
+{
+"name": "Romeo and Juliet: the Tomb Scene",
+"maker": "Joseph Wright of Derby",
+"year": 1790,
+"holder": "Derby Museum and Art Gallery",
+"n": 19
+},
+{
+"name": "The Gloomy Day",
+"maker": "Pieter Bruegel the Elder",
+"year": 1565,
+"holder": "Kunsthistorisches Museum",
+"n": 19
+},
+{
+"name": "The Hay Harvest",
+"maker": "Pieter Bruegel the Elder",
+"year": 1565,
+"holder": "The Lobkowicz Collections",
+"n": 19
+},
+{
+"name": "The Procession to Calvary",
+"maker": "Pieter Bruegel the Elder",
+"year": 1564,
+"holder": "Kunsthistorisches Museum",
+"n": 19
+},
+{
+"name": "The Rape of Europa",
+"maker": "Titian",
+"year": 1560,
+"holder": "Isabella Stewart Gardner Museum",
+"n": 19
+},
+{
+"name": "The Wheat Sifters",
+"maker": "Gustave Courbet",
+"year": 1854,
+"holder": "Nantes Museum of Arts",
+"n": 19
+},
+{
+"name": "The Women of Algiers",
+"maker": "Eugène Delacroix",
+"year": 1834,
+"holder": "Department of Paintings of the Louvre",
+"n": 19
+},
+{
+"name": "The last Jew in Vinnitsa",
+"maker": null,
+"year": 1941,
+"holder": null,
+"n": 19
+},
+{
+"name": "Van Gogh's Chair",
+"maker": "Vincent van Gogh",
+"year": 1889,
+"holder": "National Gallery",
+"n": 19
+},
+{
+"name": "Woman in the Garden",
+"maker": "Claude Monet",
+"year": 1867,
+"holder": "Hermitage Museum",
+"n": 19
+},
+{
+"name": "A Young Woman Seated at the Virginals",
+"maker": "Johannes Vermeer",
+"year": 1670,
+"holder": "Leiden Collection",
+"n": 18
+},
+{
+"name": "A Young Woman seated at a Virginal",
+"maker": "Johannes Vermeer",
+"year": 1670,
+"holder": "National Gallery",
+"n": 18
+},
+{
+"name": "After the Deluge",
+"maker": "George Frederic Watts",
+"year": 1888,
+"holder": "Watts Gallery",
+"n": 18
+},
+{
+"name": "Alice",
+"maker": "Amedeo Modigliani",
+"year": 1918,
+"holder": "Statens Museum for Kunst",
+"n": 18
+},
+{
+"name": "An Old Man and his Grandson",
+"maker": "Domenico Ghirlandaio",
+"year": 1490,
+"holder": "Department of Paintings of the Louvre",
+"n": 18
+},
+{
+"name": "Brera Madonna",
+"maker": "Piero della Francesca",
+"year": 1472,
+"holder": "Pinacoteca di Brera",
+"n": 18
+},
+{
+"name": "Dance in the City",
+"maker": "Pierre-Auguste Renoir",
+"year": 1883,
+"holder": "Musée d'Orsay",
+"n": 18
+},
+{
+"name": "Dance in the Country",
+"maker": "Pierre-Auguste Renoir",
+"year": 1883,
+"holder": "Musée d'Orsay",
+"n": 18
+},
+{
+"name": "Diana leaving her Bath",
+"maker": "François Boucher",
+"year": 1742,
+"holder": "Department of Paintings of the Louvre",
+"n": 18
+},
+{
+"name": "Greece on the Ruins of Missolonghi",
+"maker": "Eugène Delacroix",
+"year": 1826,
+"holder": "Musée des Beaux-Arts de Bordeaux",
+"n": 18
+},
+{
+"name": "Head of a Faun",
+"maker": "Michelangelo",
+"year": 1489,
+"holder": null,
+"n": 18
+},
+{
+"name": "Idealized Portrait of a Lady",
+"maker": "Sandro Botticelli",
+"year": 1482,
+"holder": "Städel Museum",
+"n": 18
+},
+{
+"name": "Judith and Her Maidservant",
+"maker": "Artemisia Gentileschi",
+"year": 1610,
+"holder": "Galleria Palatina",
+"n": 18
+},
+{
+"name": "Kombat",
+"maker": null,
+"year": 1940,
+"holder": null,
+"n": 18
+},
+{
+"name": "Lise with a Parasol",
+"maker": "Pierre-Auguste Renoir",
+"year": 1867,
+"holder": "Museum Folkwang",
+"n": 18
+},
+{
+"name": "Lucca Madonna",
+"maker": "Jan van Eyck",
+"year": 1437,
+"holder": "Städel Museum",
+"n": 18
+},
+{
+"name": "Manaò tupapaú",
+"maker": "Paul Gauguin",
+"year": 1892,
+"holder": "Buffalo AKG Art Museum",
+"n": 18
+},
+{
+"name": "Mond Crucifixion",
+"maker": "Raphael",
+"year": 1502,
+"holder": "National Gallery",
+"n": 18
+},
+{
+"name": "Moses Breaking the Tablets of the Law",
+"maker": "Rembrandt",
+"year": 1659,
+"holder": "Gemäldegalerie Berlin",
+"n": 18
+},
+{
+"name": "Ognissanti Madonna",
+"maker": "Giotto",
+"year": 1300,
+"holder": "Uffizi Gallery",
+"n": 18
+},
+{
+"name": "Portrait of Bindo Altoviti",
+"maker": "Raphael",
+"year": 1515,
+"holder": "Samuel H. Kress Collection",
+"n": 18
+},
+{
+"name": "Portrait of Elisabetta Gonzaga",
+"maker": "Raphael",
+"year": 1504,
+"holder": "Uffizi Gallery",
+"n": 18
+},
+{
+"name": "Rubens and Isabella Brant in the honeysuckle bower",
+"maker": "Peter Paul Rubens",
+"year": 1609,
+"holder": "Bavarian State Painting Collections",
+"n": 18
+},
+{
+"name": "Saint Luke Drawing the Virgin",
+"maker": "Rogier van der Weyden",
+"year": 1437,
+"holder": "Museum of Fine Arts Boston",
+"n": 18
+},
+{
+"name": "Self-portrait without beard",
+"maker": "Vincent van Gogh",
+"year": 1889,
+"holder": null,
+"n": 18
+},
+{
+"name": "Tennis Girl",
+"maker": null,
+"year": 1976,
+"holder": null,
+"n": 18
+},
+{
+"name": "The Beguiling of Merlin",
+"maker": "Edward Burne-Jones",
+"year": 1872,
+"holder": "Lady Lever Art Gallery",
+"n": 18
+},
+{
+"name": "The Execution of Lady Jane Grey",
+"maker": "Paul Delaroche",
+"year": 1833,
+"holder": "National Gallery",
+"n": 18
+},
+{
+"name": "The Farmers' Lunch",
+"maker": "Diego Velázquez",
+"year": 1618,
+"holder": "Museum of Fine Arts, Budapest",
+"n": 18
+},
+{
+"name": "The First Mourning",
+"maker": "William-Adolphe Bouguereau",
+"year": 1888,
+"holder": "National Museum of Fine Arts, Argentina",
+"n": 18
+},
+{
+"name": "The Great Masturbator",
+"maker": "Salvador Dalí",
+"year": 1929,
+"holder": "Museo Nacional Centro de Arte Reina Sofía",
+"n": 18
+},
+{
+"name": "The Last of England",
+"maker": "Ford Madox Brown",
+"year": 1853,
+"holder": "Birmingham Museums Trust",
+"n": 18
+},
+{
+"name": "The Light of the World",
+"maker": "William Holman Hunt",
+"year": 1853,
+"holder": "Keble College",
+"n": 18
+},
+{
+"name": "The Misanthrope",
+"maker": "Pieter Bruegel the Elder",
+"year": 1568,
+"holder": "Museo di Capodimonte",
+"n": 18
+},
+{
+"name": "The Old Musician",
+"maker": "Édouard Manet",
+"year": 1862,
+"holder": null,
+"n": 18
+},
+{
+"name": "The Seven Works of Mercy",
+"maker": "Caravaggio",
+"year": 1600,
+"holder": "Pio Monte della Misericordia",
+"n": 18
+},
+{
+"name": "The Shepherdess",
+"maker": "William-Adolphe Bouguereau",
+"year": 1889,
+"holder": "Philbrook Museum of Art",
+"n": 18
+},
+{
+"name": "Truth Coming Out of Her Well",
+"maker": "Jean-Léon Gérôme",
+"year": 1896,
+"holder": "Musée Anne de Beaujeu",
+"n": 18
+},
+{
+"name": "Angel",
+"maker": "Michelangelo",
+"year": 1494,
+"holder": "Basilica of San Domenico",
+"n": 17
+},
+{
+"name": "Ansidei Madonna",
+"maker": "Raphael",
+"year": 1505,
+"holder": "National Gallery",
+"n": 17
+},
+{
+"name": "Bridal Procession on the Hardangerfjord",
+"maker": "Hans Gude",
+"year": 1848,
+"holder": "National Museum of Art, Architecture and Design",
+"n": 17
+},
+{
+"name": "Christ and the Woman Taken in Adultery",
+"maker": "Pieter Bruegel the Elder",
+"year": 1565,
+"holder": "Courtauld Institute of Art",
+"n": 17
+},
+{
+"name": "Constitution of May 3, 1791",
+"maker": "Jan Matejko",
+"year": 1891,
+"holder": "Royal Castle in Warsaw",
+"n": 17
+},
+{
+"name": "Cutting the Stone",
+"maker": "Hieronymus Bosch",
+"year": 1503,
+"holder": "Museo del Prado",
+"n": 17
+},
+{
+"name": "Dance at Bougival",
+"maker": "Pierre-Auguste Renoir",
+"year": 1883,
+"holder": "Museum of Fine Arts Boston",
+"n": 17
+},
+{
+"name": "Dresden Triptych",
+"maker": "Jan van Eyck",
+"year": 1437,
+"holder": "Staatliche Kunstsammlungen Dresden",
+"n": 17
+},
+{
+"name": "Emile Zola",
+"maker": "Édouard Manet",
+"year": 1868,
+"holder": "Musée d'Orsay",
+"n": 17
+},
+{
+"name": "Equestrian statue of Gattamelata",
+"maker": "Donatello",
+"year": 1500,
+"holder": null,
+"n": 17
+},
+{
+"name": "Girl Interrupted at her Music",
+"maker": "Johannes Vermeer",
+"year": 1660,
+"holder": "The Frick Collection",
+"n": 17
+},
+{
+"name": "Jewess with Oranges",
+"maker": "Aleksander Gierymski",
+"year": 1880,
+"holder": "National Museum in Warsaw",
+"n": 17
+},
+{
+"name": "La Bella",
+"maker": "Titian",
+"year": 1537,
+"holder": "Galleria Palatina",
+"n": 17
+},
+{
+"name": "La donna gravida",
+"maker": "Raphael",
+"year": 1505,
+"holder": "Galleria Palatina",
+"n": 17
+},
+{
+"name": "Laughing Cavalier",
+"maker": "Frans Hals",
+"year": 1624,
+"holder": "Wallace Collection",
+"n": 17
+},
+{
+"name": "Lemnian Athena",
+"maker": "Phidias",
+"year": -450,
+"holder": null,
+"n": 17
+},
+{
+"name": "Madonna and Child with the Book",
+"maker": "Raphael",
+"year": 1503,
+"holder": "Norton Simon Museum",
+"n": 17
+},
+{
+"name": "Mars Being Disarmed by Venus",
+"maker": "Jacques-Louis David",
+"year": 1824,
+"holder": "Royal Museums of Fine Arts of Belgium",
+"n": 17
+},
+{
+"name": "Miracle of the Slave",
+"maker": "Jacopo Tintoretto",
+"year": 1547,
+"holder": "Gallerie dell'Accademia",
+"n": 17
+},
+{
+"name": "Mistress and Maid",
+"maker": "Johannes Vermeer",
+"year": 1666,
+"holder": "The Frick Collection",
+"n": 17
+},
+{
+"name": "Orphan Girl at the Cemetery",
+"maker": "Eugène Delacroix",
+"year": 1824,
+"holder": "Department of Paintings of the Louvre",
+"n": 17
+},
+{
+"name": "Pope Paul III and His Grandsons",
+"maker": "Titian",
+"year": 1546,
+"holder": "Museo di Capodimonte",
+"n": 17
+},
+{
+"name": "Poppy Flowers",
+"maker": "Vincent van Gogh",
+"year": 1887,
+"holder": "Mohamed Mahmoud Khalil Museum",
+"n": 17
+},
+{
+"name": "Portrait of Giovanna Tornabuoni",
+"maker": "Domenico Ghirlandaio",
+"year": 1489,
+"holder": "Thyssen-Bornemisza Museum",
+"n": 17
+},
+{
+"name": "Religious Procession in Kursk Province",
+"maker": "Ilya Repin",
+"year": 1880,
+"holder": "Tretyakov Gallery",
+"n": 17
+},
+{
+"name": "Rembrandt and Saskia in the parable of the Prodigal Son",
+"maker": "Rembrandt",
+"year": 1635,
+"holder": "Staatliche Kunstsammlungen Dresden",
+"n": 17
+},
+{
+"name": "Salisbury Cathedral from the Bishop's Grounds",
+"maker": "John Constable",
+"year": 1823,
+"holder": "Victoria and Albert Museum",
+"n": 17
+},
+{
+"name": "Situation Room",
+"maker": null,
+"year": 2011,
+"holder": null,
+"n": 17
+},
+{
+"name": "Swimming",
+"maker": "Thomas Eakins",
+"year": 1885,
+"holder": "Amon Carter Museum of American Art",
+"n": 17
+},
+{
+"name": "The Epiphany",
+"maker": "Hieronymus Bosch",
+"year": 1494,
+"holder": "Museo del Prado",
+"n": 17
+},
+{
+"name": "The Green Christ",
+"maker": "Paul Gauguin",
+"year": 1889,
+"holder": "Royal Museums of Fine Arts of Belgium",
+"n": 17
+},
+{
+"name": "The Maiden",
+"maker": "Gustav Klimt",
+"year": 1913,
+"holder": "National Gallery Prague",
+"n": 17
+},
+{
+"name": "The Models",
+"maker": "Georges Seurat",
+"year": 1886,
+"holder": "Barnes Foundation",
+"n": 17
+},
+{
+"name": "The People's Census at Bethlehem",
+"maker": "Pieter Bruegel the Elder",
+"year": 1566,
+"holder": "Royal Museums of Fine Arts of Belgium",
+"n": 17
+},
+{
+"name": "The Wedding Dance",
+"maker": "Pieter Bruegel the Elder",
+"year": 1566,
+"holder": "Detroit Institute of Arts",
+"n": 17
+},
+{
+"name": "The Woman with the Handbag",
+"maker": null,
+"year": 1985,
+"holder": null,
+"n": 17
+},
+{
+"name": "Venus and Mars Surprised by Vulcan",
+"maker": "Jacopo Tintoretto",
+"year": 1555,
+"holder": "Bavarian State Painting Collections",
+"n": 17
+},
+{
+"name": "Victory Boogie Woogie",
+"maker": "Piet Mondrian",
+"year": 1942,
+"holder": "Kunstmuseum Den Haag",
+"n": 17
+},
+{
+"name": "Walk on the Beach",
+"maker": "Joaquín Sorolla",
+"year": 1909,
+"holder": "Sorolla Museum",
+"n": 17
+},
+{
+"name": "Annunciation",
+"maker": "Caravaggio",
+"year": 1609,
+"holder": "Museum of Fine Arts of Nancy",
+"n": 16
+},
+{
+"name": "Astronomer Copernicus, or Conversations with God",
+"maker": "Jan Matejko",
+"year": 1873,
+"holder": "Jagiellonian University Museum",
+"n": 16
+},
+{
+"name": "Bonaparte Before the Sphinx",
+"maker": "Jean-Léon Gérôme",
+"year": 1867,
+"holder": "California State Parks",
+"n": 16
+},
+{
+"name": "Bonaparte Visiting the Plague Victims of Jaffa",
+"maker": "Antoine-Jean Gros",
+"year": 1804,
+"holder": "Department of Paintings of the Louvre",
+"n": 16
+},
+{
+"name": "Brutus",
+"maker": "Michelangelo",
+"year": 1538,
+"holder": "Bargello National Museum",
+"n": 16
+},
+{
+"name": "Christ Falling on the Way to Calvary",
+"maker": "Raphael",
+"year": 1515,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "Columba Triptych",
+"maker": "Rogier van der Weyden",
+"year": 1453,
+"holder": "Bavarian State Painting Collections",
+"n": 16
+},
+{
+"name": "Dido building Carthage",
+"maker": "J. M. W. Turner",
+"year": 1815,
+"holder": "National Gallery",
+"n": 16
+},
+{
+"name": "Elephant and Obelisk",
+"maker": "Gian Lorenzo Bernini",
+"year": -600,
+"holder": "Piazza della Minerva",
+"n": 16
+},
+{
+"name": "Gipsy Girl",
+"maker": "Frans Hals",
+"year": 1626,
+"holder": "Department of Paintings of the Louvre",
+"n": 16
+},
+{
+"name": "Hope",
+"maker": "George Frederic Watts",
+"year": 1886,
+"holder": "National Gallery",
+"n": 16
+},
+{
+"name": "In a Roman Osteria",
+"maker": "Carl Bloch",
+"year": 1866,
+"holder": "Statens Museum for Kunst",
+"n": 16
+},
+{
+"name": "Judith at the Banquet of Holofernes",
+"maker": "Rembrandt",
+"year": 1634,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "Jupiter, Neptune and Pluto",
+"maker": "Caravaggio",
+"year": 1597,
+"holder": "Villa Ludovisi",
+"n": 16
+},
+{
+"name": "Killing a Deer",
+"maker": "Gustave Courbet",
+"year": 1867,
+"holder": "Musée des Beaux-Arts et d'Archéologie de Besançon",
+"n": 16
+},
+{
+"name": "Kozarčanka",
+"maker": null,
+"year": 1943,
+"holder": null,
+"n": 16
+},
+{
+"name": "La Grenouillère",
+"maker": "Claude Monet",
+"year": 1869,
+"holder": "Metropolitan Museum of Art",
+"n": 16
+},
+{
+"name": "La Grenouillère",
+"maker": "Pierre-Auguste Renoir",
+"year": 1875,
+"holder": "Nationalmuseum",
+"n": 16
+},
+{
+"name": "La Promenade",
+"maker": "Pierre-Auguste Renoir",
+"year": 1870,
+"holder": "J. Paul Getty Museum",
+"n": 16
+},
+{
+"name": "Le Suicidé",
+"maker": "Édouard Manet",
+"year": 1877,
+"holder": "Foundation E.G. Bührle Collection",
+"n": 16
+},
+{
+"name": "Madonna of the Rose",
+"maker": "Raphael",
+"year": 1517,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "Memory of the Garden at Etten",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": "Hermitage Museum",
+"n": 16
+},
+{
+"name": "Mountain Landscape with Rainbow",
+"maker": "Caspar David Friedrich",
+"year": 1809,
+"holder": "Museum Folkwang",
+"n": 16
+},
+{
+"name": "Portrait of Irène Cahen d'Anvers",
+"maker": "Pierre-Auguste Renoir",
+"year": 1880,
+"holder": "Foundation E.G. Bührle Collection",
+"n": 16
+},
+{
+"name": "Portrait of Madame Récamier",
+"maker": "Jacques-Louis David",
+"year": 1800,
+"holder": "Department of Paintings of the Louvre",
+"n": 16
+},
+{
+"name": "Portrait of Monsieur Bertin",
+"maker": "Jean-Auguste-Dominique Ingres",
+"year": 1832,
+"holder": "Department of Paintings of the Louvre",
+"n": 16
+},
+{
+"name": "Portrait of a Cardinal",
+"maker": "Raphael",
+"year": 1510,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "Portrait of the Artist's Mother",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": "Norton Simon Museum",
+"n": 16
+},
+{
+"name": "Romulus and Remus",
+"maker": "Peter Paul Rubens",
+"year": 1615,
+"holder": "Capitoline Museums",
+"n": 16
+},
+{
+"name": "Saint Francis of Assisi in Ecstasy",
+"maker": "Caravaggio",
+"year": 1594,
+"holder": "Wadsworth Atheneum Museum of Art",
+"n": 16
+},
+{
+"name": "Saint Petronius",
+"maker": "Michelangelo",
+"year": 1494,
+"holder": "Basilica of San Domenico",
+"n": 16
+},
+{
+"name": "Saint Praxedis",
+"maker": "Johannes Vermeer",
+"year": 1655,
+"holder": "National Museum of Western Art",
+"n": 16
+},
+{
+"name": "September Morn",
+"maker": "Paul Émile Chabas",
+"year": 1912,
+"holder": "Metropolitan Museum of Art",
+"n": 16
+},
+{
+"name": "The Annunciation, with Saint Emidius",
+"maker": "Carlo Crivelli",
+"year": 1486,
+"holder": "National Gallery",
+"n": 16
+},
+{
+"name": "The Appearance of Christ Before the People",
+"maker": "Alexander Ivanov",
+"year": 1847,
+"holder": "Tretyakov Gallery",
+"n": 16
+},
+{
+"name": "The Architect's Dream",
+"maker": "Thomas Cole",
+"year": 1840,
+"holder": "Toledo Museum of Art",
+"n": 16
+},
+{
+"name": "The Bacchanal of the Andrians",
+"maker": "Titian",
+"year": 1523,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "The Colossus",
+"maker": "Francisco Goya",
+"year": 1818,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "The Magdalen Reading",
+"maker": "Rogier van der Weyden",
+"year": 1435,
+"holder": "National Gallery",
+"n": 16
+},
+{
+"name": "The Mystical Nativity",
+"maker": "Sandro Botticelli",
+"year": 1500,
+"holder": "National Gallery",
+"n": 16
+},
+{
+"name": "The Pink Dress",
+"maker": "Frédéric Bazille",
+"year": 1864,
+"holder": "Musée d'Orsay",
+"n": 16
+},
+{
+"name": "The Skating Minister",
+"maker": "Henry Raeburn",
+"year": 1795,
+"holder": "Scottish National Gallery",
+"n": 16
+},
+{
+"name": "The Source",
+"maker": "Gustave Courbet",
+"year": 1862,
+"holder": "Metropolitan Museum of Art",
+"n": 16
+},
+{
+"name": "The Stolen Kiss",
+"maker": "Marguerite Gérard",
+"year": 1787,
+"holder": "Hermitage Museum",
+"n": 16
+},
+{
+"name": "The Wine of Saint Martin's Day",
+"maker": "Pieter Bruegel the Elder",
+"year": 1566,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "The Wounded Man",
+"maker": "Gustave Courbet",
+"year": 1849,
+"holder": "Musée d'Orsay",
+"n": 16
+},
+{
+"name": "Tree Roots",
+"maker": "Vincent van Gogh",
+"year": 1890,
+"holder": "Van Gogh Museum",
+"n": 16
+},
+{
+"name": "Venus Anadyomene",
+"maker": "Jean-Auguste-Dominique Ingres",
+"year": 1808,
+"holder": "Condé Museum",
+"n": 16
+},
+{
+"name": "Vincent van Gogh Painting Sunflowers",
+"maker": "Paul Gauguin",
+"year": 1888,
+"holder": "Van Gogh Museum",
+"n": 16
+},
+{
+"name": "Visitation",
+"maker": "Gianfrancesco Penni",
+"year": 1517,
+"holder": "Museo del Prado",
+"n": 16
+},
+{
+"name": "Winter Landscape with a Bird Trap",
+"maker": "Pieter Bruegel the Elder",
+"year": 1565,
+"holder": "Royal Museums of Fine Arts of Belgium",
+"n": 16
+},
+{
+"name": "Allegory of Inclination",
+"maker": "Artemisia Gentileschi",
+"year": 1615,
+"holder": "Casa Buonarroti",
+"n": 15
+},
+{
+"name": "Amor and Psyche, children",
+"maker": "William-Adolphe Bouguereau",
+"year": 1890,
+"holder": null,
+"n": 15
+},
+{
+"name": "Annunciation",
+"maker": "Hans Memling",
+"year": 1480,
+"holder": "Metropolitan Museum of Art",
+"n": 15
+},
+{
+"name": "Autumn Leaves",
+"maker": "John Everett Millais",
+"year": 1856,
+"holder": "Manchester Art Gallery",
+"n": 15
+},
+{
+"name": "Balaam and the Ass",
+"maker": "Rembrandt",
+"year": 1626,
+"holder": "Musée Cognacq-Jay",
+"n": 15
+},
+{
+"name": "Basket of Fruit",
+"maker": "Caravaggio",
+"year": 1600,
+"holder": "Pinacoteca Ambrosiana",
+"n": 15
+},
+{
+"name": "Candaules, King of Lydia, Shews his Wife by Stealth to Gyges, One of his Ministers, as She Goes to Bed",
+"maker": "William Etty",
+"year": 1830,
+"holder": "Tate",
+"n": 15
+},
+{
+"name": "Castelfranco Madonna",
+"maker": "Giorgione",
+"year": 1503,
+"holder": "Dome of Castlefranco Veneto",
+"n": 15
+},
+{
+"name": "Circe Invidiosa",
+"maker": "John William Waterhouse",
+"year": 1892,
+"holder": "Art Gallery of South Australia",
+"n": 15
+},
+{
+"name": "Cleopatra and Caesar",
+"maker": "Jean-Léon Gérôme",
+"year": 1866,
+"holder": "Raclin Murphy Museum of Art",
+"n": 15
+},
+{
+"name": "Crucifixion and Last Judgement diptych",
+"maker": "Jan van Eyck",
+"year": 1437,
+"holder": "Hermitage Museum",
+"n": 15
+},
+{
+"name": "Darmstadt Madonna",
+"maker": "Hans Holbein the Younger",
+"year": 1526,
+"holder": "Würth Collection",
+"n": 15
+},
+{
+"name": "Erasistratus Discovering the Cause of Antiochus' Disease",
+"maker": "Jacques-Louis David",
+"year": 1774,
+"holder": "Beaux-Arts de Paris",
+"n": 15
+},
+{
+"name": "Femme nue couchée",
+"maker": "Gustave Courbet",
+"year": 1862,
+"holder": null,
+"n": 15
+},
+{
+"name": "Garvagh Madonna",
+"maker": "Raphael",
+"year": 1500,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "Green Wheat Field with Cypress",
+"maker": "Vincent van Gogh",
+"year": 1889,
+"holder": "National Gallery Prague",
+"n": 15
+},
+{
+"name": "Helena Fourment in a Fur Robe",
+"maker": "Peter Paul Rubens",
+"year": 1638,
+"holder": "Kunsthistorisches Museum",
+"n": 15
+},
+{
+"name": "Heller Altarpiece",
+"maker": "Jobst Harrich",
+"year": 1500,
+"holder": "Städel Museum",
+"n": 15
+},
+{
+"name": "In the Arbour",
+"maker": "Aleksander Gierymski",
+"year": 1882,
+"holder": "National Museum in Warsaw",
+"n": 15
+},
+{
+"name": "Infanta Margarita Teresa in a Blue Dress",
+"maker": "Diego Velázquez",
+"year": 1659,
+"holder": "Kunsthistorisches Museum",
+"n": 15
+},
+{
+"name": "Isabella",
+"maker": "John Everett Millais",
+"year": 1849,
+"holder": "Walker Art Gallery",
+"n": 15
+},
+{
+"name": "La Nymphe surprise",
+"maker": "Édouard Manet",
+"year": 1860,
+"holder": "National Museum of Fine Arts, Argentina",
+"n": 15
+},
+{
+"name": "Landscape with Snow",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": "Solomon R. Guggenheim Museum",
+"n": 15
+},
+{
+"name": "Madonna del Prato",
+"maker": "Giovanni Bellini",
+"year": 1500,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "Madonna della Vittoria",
+"maker": "Andrea Mantegna",
+"year": 1495,
+"holder": "Department of Paintings of the Louvre",
+"n": 15
+},
+{
+"name": "Madonna of Loreto",
+"maker": "Raphael",
+"year": 1509,
+"holder": "Borghese Collection",
+"n": 15
+},
+{
+"name": "Madonna with the Fish",
+"maker": "Raphael",
+"year": 1513,
+"holder": "Museo del Prado",
+"n": 15
+},
+{
+"name": "Magdalena Ventura with Her Husband and Son",
+"maker": "Jusepe de Ribera",
+"year": 1631,
+"holder": "Museo Fundación Lerma",
+"n": 15
+},
+{
+"name": "Mardi Gras",
+"maker": "Paul Cézanne",
+"year": 1888,
+"holder": "Pushkin Museum of Fine Arts",
+"n": 15
+},
+{
+"name": "Martha and Mary Magdalene",
+"maker": "Caravaggio",
+"year": 1598,
+"holder": "Detroit Institute of Arts",
+"n": 15
+},
+{
+"name": "Miraflores Altarpiece",
+"maker": "Rogier van der Weyden",
+"year": 1443,
+"holder": "Gemäldegalerie Berlin",
+"n": 15
+},
+{
+"name": "Morning of the Execution of the Streltsy",
+"maker": "Vasily Surikov",
+"year": 1881,
+"holder": "Tretyakov Gallery",
+"n": 15
+},
+{
+"name": "Our Lady of the Gate of Dawn",
+"maker": null,
+"year": 1600,
+"holder": null,
+"n": 15
+},
+{
+"name": "Pastoral Concert",
+"maker": "Titian",
+"year": 1510,
+"holder": "Department of Paintings of the Louvre",
+"n": 15
+},
+{
+"name": "Pink and Blue",
+"maker": "Pierre-Auguste Renoir",
+"year": 1881,
+"holder": "São Paulo Museum of Art",
+"n": 15
+},
+{
+"name": "Ploughing in the Nivernais",
+"maker": "Rosa Bonheur",
+"year": 1849,
+"holder": "Musée d'Orsay",
+"n": 15
+},
+{
+"name": "Portrait of Andrea Doria as Neptune",
+"maker": "Bronzino",
+"year": 1545,
+"holder": "Pinacoteca di Brera",
+"n": 15
+},
+{
+"name": "Portrait of Doña Isabel de Porcel",
+"maker": "Francisco Goya",
+"year": 1800,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "Portrait of Jacob de Gheyn III",
+"maker": "Rembrandt",
+"year": 1632,
+"holder": "Dulwich Picture Gallery",
+"n": 15
+},
+{
+"name": "Portrait of Maffeo Barberini, later Pope Urban VIII",
+"maker": "Caravaggio",
+"year": 1598,
+"holder": "Galleria Nazionale d'Arte Antica",
+"n": 15
+},
+{
+"name": "Portrait of Simonetta Vespucci",
+"maker": "Piero di Cosimo",
+"year": 1480,
+"holder": "Condé Museum",
+"n": 15
+},
+{
+"name": "Portrait of a Lady in Blue",
+"maker": "Thomas Gainsborough",
+"year": 1780,
+"holder": "Hermitage Museum",
+"n": 15
+},
+{
+"name": "Portrait of the actress Jeanne Samary",
+"maker": "Pierre-Auguste Renoir",
+"year": 1877,
+"holder": "Pushkin Museum of Fine Arts",
+"n": 15
+},
+{
+"name": "Self-Portrait at the Age of 34",
+"maker": "Rembrandt",
+"year": 1640,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "Self-portrait with a friend",
+"maker": "Raphael",
+"year": 1510,
+"holder": "Department of Paintings of the Louvre",
+"n": 15
+},
+{
+"name": "Sleeping Cupid",
+"maker": "Caravaggio",
+"year": 1608,
+"holder": "Galleria Palatina",
+"n": 15
+},
+{
+"name": "Tempi Madonna",
+"maker": "Raphael",
+"year": 1508,
+"holder": "Bavarian State Painting Collections",
+"n": 15
+},
+{
+"name": "The Awakening Conscience",
+"maker": "William Holman Hunt",
+"year": 1853,
+"holder": "Tate Britain",
+"n": 15
+},
+{
+"name": "The Conjurer",
+"maker": null,
+"year": 1502,
+"holder": "Saint-Germain-en-Laye Civic Museum",
+"n": 15
+},
+{
+"name": "The Elder Sister",
+"maker": "William-Adolphe Bouguereau",
+"year": 1869,
+"holder": "Museum of Fine Arts, Houston",
+"n": 15
+},
+{
+"name": "The Green Stripe",
+"maker": "Henri Matisse",
+"year": 1905,
+"holder": "Statens Museum for Kunst",
+"n": 15
+},
+{
+"name": "The Lictors Bring to Brutus the Bodies of His Sons",
+"maker": "Jacques-Louis David",
+"year": 1789,
+"holder": "Department of Paintings of the Louvre",
+"n": 15
+},
+{
+"name": "The Milkmaid of Bordeaux",
+"maker": "Francisco Goya",
+"year": 1827,
+"holder": "Museo del Prado",
+"n": 15
+},
+{
+"name": "The Origin of the Milky Way",
+"maker": "Jacopo Tintoretto",
+"year": 1575,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "The Peasant Dance",
+"maker": "Pieter Bruegel the Elder",
+"year": 1568,
+"holder": "Kunsthistorisches Museum",
+"n": 15
+},
+{
+"name": "The Peasant and the Nest Robber",
+"maker": "Pieter Bruegel the Elder",
+"year": 1568,
+"holder": "Kunsthistorisches Museum",
+"n": 15
+},
+{
+"name": "The Procuress",
+"maker": "Gerard van Honthorst",
+"year": 1625,
+"holder": "Centraal Museum",
+"n": 15
+},
+{
+"name": "The Red Tree",
+"maker": "Piet Mondrian",
+"year": 1909,
+"holder": "Kunstmuseum Den Haag",
+"n": 15
+},
+{
+"name": "The Roaring Lion",
+"maker": null,
+"year": 1941,
+"holder": "Library and Archives Canada",
+"n": 15
+},
+{
+"name": "The Sirens and Ulysses",
+"maker": "William Etty",
+"year": 1837,
+"holder": "Manchester Art Gallery",
+"n": 15
+},
+{
+"name": "The Suicide of Saul",
+"maker": "Pieter Bruegel the Elder",
+"year": 1562,
+"holder": "Kunsthistorisches Museum",
+"n": 15
+},
+{
+"name": "The Ugly Duchess",
+"maker": "Quinten Metsys",
+"year": 1513,
+"holder": "National Gallery",
+"n": 15
+},
+{
+"name": "Young Greeks Attending a Cock Fight",
+"maker": "Jean-Léon Gérôme",
+"year": 1846,
+"holder": "Musée d'Orsay",
+"n": 15
+},
+{
+"name": "Adele Bloch-Bauer II",
+"maker": "Gustav Klimt",
+"year": 1912,
+"holder": null,
+"n": 14
+},
+{
+"name": "Andromache Mourning Hector",
+"maker": "Jacques-Louis David",
+"year": 1782,
+"holder": "Beaux-Arts de Paris",
+"n": 14
+},
+{
+"name": "Andromeda Chained to the Rocks",
+"maker": "Rembrandt",
+"year": 1630,
+"holder": "Mauritshuis",
+"n": 14
+},
+{
+"name": "Angelus Novus",
+"maker": "Paul Klee",
+"year": 1920,
+"holder": "Israel Museum",
+"n": 14
+},
+{
+"name": "Annunciation",
+"maker": "Fra Angelico",
+"year": 1420,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "Bocca Baciata",
+"maker": "Dante Gabriel Rossetti",
+"year": 1859,
+"holder": "Museum of Fine Arts Boston",
+"n": 14
+},
+{
+"name": "Bonaparte Crossing the Alps",
+"maker": "Paul Delaroche",
+"year": 1848,
+"holder": "Department of Paintings of the Louvre",
+"n": 14
+},
+{
+"name": "Boy Peeling Fruit",
+"maker": "Caravaggio",
+"year": 1592,
+"holder": "Royal Collection",
+"n": 14
+},
+{
+"name": "Cestello Annunciation",
+"maker": "Sandro Botticelli",
+"year": 1489,
+"holder": "Uffizi Gallery",
+"n": 14
+},
+{
+"name": "Christ in the House of Martha and Mary",
+"maker": "Diego Velázquez",
+"year": 1618,
+"holder": "National Gallery",
+"n": 14
+},
+{
+"name": "Crab on its Back",
+"maker": "Vincent van Gogh",
+"year": 1887,
+"holder": "Van Gogh Museum",
+"n": 14
+},
+{
+"name": "Diana and Callisto",
+"maker": "Titian",
+"year": 1557,
+"holder": "National Gallery",
+"n": 14
+},
+{
+"name": "Entry of the Crusaders in Constantinople",
+"maker": "Eugène Delacroix",
+"year": 1840,
+"holder": "Department of Paintings of the Louvre",
+"n": 14
+},
+{
+"name": "Ganymede Abducted by the Eagle",
+"maker": "Antonio da Correggio",
+"year": 1530,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "Godiva",
+"maker": "John Collier",
+"year": 1897,
+"holder": "Herbert Art Gallery and Museum",
+"n": 14
+},
+{
+"name": "Hercules Fighting the Nemean Lion",
+"maker": "Francisco de Zurbarán",
+"year": 1634,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "Hip, Hip, Hurrah!",
+"maker": "Peder Severin Krøyer",
+"year": 1888,
+"holder": "Fürstenberg Gallery",
+"n": 14
+},
+{
+"name": "In the Conservatory",
+"maker": "Édouard Manet",
+"year": 1878,
+"holder": "Alte Nationalgalerie",
+"n": 14
+},
+{
+"name": "Infanta Margarita Teresa in a Pink Dress",
+"maker": "Juan Bautista Martínez del Mazo",
+"year": 1665,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "Interior",
+"maker": "Edgar Degas",
+"year": 1868,
+"holder": "Philadelphia Museum of Art",
+"n": 14
+},
+{
+"name": "Jacob Blessing the Sons of Joseph",
+"maker": "Rembrandt",
+"year": 1656,
+"holder": "Gemäldegalerie Alte Meister",
+"n": 14
+},
+{
+"name": "La Parisienne",
+"maker": "Pierre-Auguste Renoir",
+"year": 1874,
+"holder": "Amgueddfa Cymru – Museum Wales",
+"n": 14
+},
+{
+"name": "Laura",
+"maker": "Giorgione",
+"year": 1506,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "Le Chahut",
+"maker": "Georges Seurat",
+"year": 1889,
+"holder": "Kröller-Müller Museum",
+"n": 14
+},
+{
+"name": "Leonidas at Thermopylae",
+"maker": "Jacques-Louis David",
+"year": 1814,
+"holder": "Department of Paintings of the Louvre",
+"n": 14
+},
+{
+"name": "Les Alyscamps",
+"maker": "Vincent van Gogh",
+"year": 1888,
+"holder": null,
+"n": 14
+},
+{
+"name": "Luncheon in the Studio",
+"maker": "Édouard Manet",
+"year": 1868,
+"holder": "Bavarian State Painting Collections",
+"n": 14
+},
+{
+"name": "Madonna and Child with Saint Anne",
+"maker": "Caravaggio",
+"year": 1605,
+"holder": "Galleria Borghese",
+"n": 14
+},
+{
+"name": "Madonna of the Harpies",
+"maker": "Andrea del Sarto",
+"year": 1517,
+"holder": "Uffizi Gallery",
+"n": 14
+},
+{
+"name": "Madonna of the Pomegranate",
+"maker": "Sandro Botticelli",
+"year": 1487,
+"holder": "Uffizi Gallery",
+"n": 14
+},
+{
+"name": "Manchester Madonna",
+"maker": "Michelangelo",
+"year": 1494,
+"holder": "National Gallery",
+"n": 14
+},
+{
+"name": "Mariana",
+"maker": "John Everett Millais",
+"year": 1851,
+"holder": "Tate",
+"n": 14
+},
+{
+"name": "Martyrdom of the Ten Thousand",
+"maker": "Albrecht Dürer",
+"year": 1508,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "Portrait of Charles V with a Dog",
+"maker": "Titian",
+"year": 1533,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "Portrait of Clarissa Strozzi",
+"maker": "Titian",
+"year": 1542,
+"holder": "Gemäldegalerie Berlin",
+"n": 14
+},
+{
+"name": "Portrait of Isabella d'Este",
+"maker": "Titian",
+"year": 1535,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "Portrait of Lucrezia Panciatichi",
+"maker": "Bronzino",
+"year": 1545,
+"holder": "Uffizi Gallery",
+"n": 14
+},
+{
+"name": "Portrait of a Carthusian",
+"maker": "Petrus Christus",
+"year": 1446,
+"holder": "Metropolitan Museum of Art",
+"n": 14
+},
+{
+"name": "Portrait of a Man with a Blue Chaperon",
+"maker": "Jan van Eyck",
+"year": 1435,
+"holder": "Brukenthal National Museum",
+"n": 14
+},
+{
+"name": "Prussian Homage",
+"maker": "Jan Matejko",
+"year": 1879,
+"holder": "National Museum in Kraków",
+"n": 14
+},
+{
+"name": "Rejtan",
+"maker": "Jan Matejko",
+"year": 1866,
+"holder": "Royal Castle in Warsaw",
+"n": 14
+},
+{
+"name": "Rucellai Madonna",
+"maker": "Duccio di Buoninsegna",
+"year": 1285,
+"holder": "Uffizi Gallery",
+"n": 14
+},
+{
+"name": "Régates à Argenteuil",
+"maker": "Claude Monet",
+"year": 1872,
+"holder": "Musée d'Orsay",
+"n": 14
+},
+{
+"name": "Saint Mark Preaching in Alexandria",
+"maker": "Gentile Bellini",
+"year": 1500,
+"holder": "Pinacoteca di Brera",
+"n": 14
+},
+{
+"name": "Saint Michael Vanquishing Satan",
+"maker": "Raphael",
+"year": 1504,
+"holder": "Department of Paintings of the Louvre",
+"n": 14
+},
+{
+"name": "San Zaccaria Altarpiece",
+"maker": "Giovanni Bellini",
+"year": 1505,
+"holder": "San Zaccaria",
+"n": 14
+},
+{
+"name": "Self-Portrait with a Black Dog",
+"maker": "Gustave Courbet",
+"year": 1842,
+"holder": "Musée des Beaux-Arts de la ville de Paris",
+"n": 14
+},
+{
+"name": "Slave Market in Rome",
+"maker": "Jean-Léon Gérôme",
+"year": 1884,
+"holder": "Hermitage Museum",
+"n": 14
+},
+{
+"name": "Solway Firth Spaceman",
+"maker": null,
+"year": 1964,
+"holder": null,
+"n": 14
+},
+{
+"name": "Suprematist Composition",
+"maker": "Kazimir Malevich",
+"year": 1916,
+"holder": "Brett Gorvy",
+"n": 14
+},
+{
+"name": "The Adoration of the Golden Calf",
+"maker": "Nicolas Poussin",
+"year": 1634,
+"holder": "National Gallery",
+"n": 14
+},
+{
+"name": "The Apotheosis of Homer",
+"maker": "Jean-Auguste-Dominique Ingres",
+"year": 1827,
+"holder": "Department of Paintings of the Louvre",
+"n": 14
+},
+{
+"name": "The Ballet Class",
+"maker": "Edgar Degas",
+"year": 1871,
+"holder": "Musée d'Orsay",
+"n": 14
+},
+{
+"name": "The Battle of Trafalgar",
+"maker": "J. M. W. Turner",
+"year": 1823,
+"holder": "Royal Museums Greenwich",
+"n": 14
+},
+{
+"name": "The Boy in the Red Vest",
+"maker": "Paul Cézanne",
+"year": 1889,
+"holder": "Foundation E.G. Bührle Collection",
+"n": 14
+},
+{
+"name": "The Chocolate Girl",
+"maker": "Jean-Étienne Liotard",
+"year": 1744,
+"holder": "Staatliche Kunstsammlungen Dresden",
+"n": 14
+},
+{
+"name": "The City Rises",
+"maker": "Umberto Boccioni",
+"year": 1910,
+"holder": "Museum of Modern Art",
+"n": 14
+},
+{
+"name": "The Conspiracy of Claudius Civilis",
+"maker": "Rembrandt",
+"year": 1661,
+"holder": "Rijksmuseum",
+"n": 14
+},
+{
+"name": "The Dawn of Love",
+"maker": "William Etty",
+"year": 1828,
+"holder": "Russell-Cotes Art Gallery & Museum",
+"n": 14
+},
+{
+"name": "The Favourites of the Emperor Honorius",
+"maker": "John William Waterhouse",
+"year": 1883,
+"holder": "Art Gallery of South Australia",
+"n": 14
+},
+{
+"name": "The Fourth Estate",
+"maker": "Giuseppe Pellizza da Volpedo",
+"year": 1901,
+"holder": "Galleria d'arte moderna di Milano",
+"n": 14
+},
+{
+"name": "The Hanging of the Sigismund bell at the Cathedral Tower in 1521 in Kraków",
+"maker": "Jan Matejko",
+"year": 1874,
+"holder": "National Museum in Warsaw",
+"n": 14
+},
+{
+"name": "The Lady with a Fan, The Artist's Wife",
+"maker": "Alexander Roslin",
+"year": 1768,
+"holder": "Nationalmuseum",
+"n": 14
+},
+{
+"name": "The Open Window",
+"maker": "Henri Matisse",
+"year": 1905,
+"holder": null,
+"n": 14
+},
+{
+"name": "The Pearl and the Wave",
+"maker": "Paul-Jacques-Aimé Baudry",
+"year": 1862,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "The Return of Spring",
+"maker": "William-Adolphe Bouguereau",
+"year": 1886,
+"holder": "Joslyn Art Museum",
+"n": 14
+},
+{
+"name": "The Rooks Have Returned",
+"maker": "Alexei Savrasov",
+"year": 1871,
+"holder": "Tretyakov Gallery",
+"n": 14
+},
+{
+"name": "The Tribuna of the Uffizi",
+"maker": "Johann Zoffany",
+"year": 1774,
+"holder": "Royal Collection",
+"n": 14
+},
+{
+"name": "The Worship of Venus",
+"maker": "Titian",
+"year": 1518,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "The fountain of youth",
+"maker": "Lucas Cranach the Elder",
+"year": 1546,
+"holder": "Gemäldegalerie Berlin",
+"n": 14
+},
+{
+"name": "Two Tahitian Women",
+"maker": "Paul Gauguin",
+"year": 1899,
+"holder": "Metropolitan Museum of Art",
+"n": 14
+},
+{
+"name": "Venus Anadyomene",
+"maker": "Titian",
+"year": 1520,
+"holder": "National Galleries Scotland",
+"n": 14
+},
+{
+"name": "Venus Rising",
+"maker": "Jean-Léon Gérôme",
+"year": 1890,
+"holder": null,
+"n": 14
+},
+{
+"name": "Vienna Diptych",
+"maker": "Hugo van der Goes",
+"year": 1470,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "View of Arles, Flowering Orchards",
+"maker": "Vincent van Gogh",
+"year": 1889,
+"holder": "Bavarian State Painting Collections",
+"n": 14
+},
+{
+"name": "View of the Sea at Scheveningen",
+"maker": "Vincent van Gogh",
+"year": 1882,
+"holder": "Van Gogh Museum",
+"n": 14
+},
+{
+"name": "View of the Village",
+"maker": "Frédéric Bazille",
+"year": 1868,
+"holder": "Musée Fabre",
+"n": 14
+},
+{
+"name": "Violante",
+"maker": "Titian",
+"year": 1515,
+"holder": "Kunsthistorisches Museum",
+"n": 14
+},
+{
+"name": "Virgin and Child with a Rosary",
+"maker": "Bartolomé Esteban Murillo",
+"year": 1650,
+"holder": "Museo del Prado",
+"n": 14
+},
+{
+"name": "Ivanhorod Einsatzgruppen photograph",
+"maker": null,
+"year": 1942,
+"holder": null,
+"n": 12
+},
+{
+"name": "One and Three Chairs",
+"maker": null,
+"year": 1965,
+"holder": "Museum of Modern Art",
+"n": 12
+},
+{
+"name": "Dalí Atomicus",
+"maker": null,
+"year": 1948,
+"holder": "Museum of Modern Art",
+"n": 11
+},
+{
+"name": "Tourist Guy",
+"maker": null,
+"year": 1997,
+"holder": null,
+"n": 11
+},
+{
+"name": "99 Cent II Diptychon",
+"maker": null,
+"year": 2001,
+"holder": null,
+"n": 10
+},
+{
+"name": "Ingres's Violin",
+"maker": null,
+"year": 1924,
+"holder": "Musée National d'Art Moderne",
+"n": 10
+},
+{
+"name": "Paratroopers at the Western Wall",
+"maker": null,
+"year": 1967,
+"holder": null,
+"n": 9
+},
+{
+"name": "St Paul's Survives",
+"maker": null,
+"year": 1940,
+"holder": null,
+"n": 9
+},
+{
+"name": "More Demi Moore",
+"maker": null,
+"year": 1991,
+"holder": null,
+"n": 8
+},
+{
+"name": "Nsala of Wala in the Nsongo District",
+"maker": null,
+"year": 1904,
+"holder": null,
+"n": 8
+},
+{
+"name": "The Boy Standing by the Crematory",
+"maker": null,
+"year": 1945,
+"holder": null,
+"n": 8
+},
+{
+"name": "Woman training for a Republican militia",
+"maker": null,
+"year": 1936,
+"holder": null,
+"n": 8
+}
+],
+"films": [
+{
+"name": "It's a Wonderful Life",
+"maker": "Frank Capra",
+"year": 1946,
+"n": 70
+},
+{
+"name": "All Quiet on the Western Front",
+"maker": "Lewis Milestone",
+"year": 1930,
+"n": 62
+},
+{
+"name": "The Birth of a Nation",
+"maker": "D. W. Griffith",
+"year": 1915,
+"n": 58
+},
+{
+"name": "The Kid",
+"maker": "Charlie Chaplin",
+"year": 1921,
+"n": 57
+},
+{
+"name": "Looney Tunes",
+"maker": "Chuck Jones",
+"year": 1930,
+"n": 56
+},
+{
+"name": "Wings",
+"maker": "William A. Wellman",
+"year": 1927,
+"n": 56
+}
+],
+"poems": [
+{
+"name": "Shakespeare's sonnets",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 51
+},
+{
+"name": "Vande Mataram",
+"maker": "Bankim Chandra Chatterjee",
+"year": 1882,
+"n": 45
+},
+{
+"name": "Orlando Furioso",
+"maker": "Ludovico Ariosto",
+"year": 1516,
+"n": 44
+},
+{
+"name": "The Faerie Queene",
+"maker": "Edmund Spenser",
+"year": 1590,
+"n": 34
+},
+{
+"name": "Der Erlkönig",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1782,
+"n": 32
+},
+{
+"name": "Ramcharitmanas",
+"maker": "Tulsidas",
+"year": 1600,
+"n": 32
+},
+{
+"name": "Phèdre",
+"maker": "Jean Racine",
+"year": 1667,
+"n": 31
+},
+{
+"name": "Der Zauberlehrling",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1797,
+"n": 29
+},
+{
+"name": "The Rape of Lucrece",
+"maker": "William Shakespeare",
+"year": 1594,
+"n": 29
+},
+{
+"name": "The White Man's Burden",
+"maker": "Rudyard Kipling",
+"year": 1899,
+"n": 28
+},
+{
+"name": "Martín Fierro",
+"maker": "José Hernández",
+"year": 1872,
+"n": 27
+},
+{
+"name": "The Bronze Horseman",
+"maker": "Alexander Pushkin",
+"year": 1837,
+"n": 27
+},
+{
+"name": "The Fountain of Bakhchisaray",
+"maker": "Alexander Pushkin",
+"year": 1824,
+"n": 26
+},
+{
+"name": "The Song of Hiawatha",
+"maker": "Henry Wadsworth Longfellow",
+"year": 1855,
+"n": 26
+},
+{
+"name": "The Hunting of the Snark",
+"maker": "Lewis Carroll",
+"year": 1876,
+"n": 25
+},
+{
+"name": "A Visit from St. Nicholas",
+"maker": "Clement Clarke Moore",
+"year": 1823,
+"n": 23
+},
+{
+"name": "Paradise Regained",
+"maker": "John Milton",
+"year": 1671,
+"n": 23
+},
+{
+"name": "Seven Wise Masters",
+"maker": "Syntipas",
+"year": 1696,
+"n": 22
+},
+{
+"name": "Sonnet 1",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 22
+},
+{
+"name": "The Rape of the Lock",
+"maker": "Alexander Pope",
+"year": 1712,
+"n": 21
+},
+{
+"name": "Ulalume",
+"maker": "Edgar Allan Poe",
+"year": 1847,
+"n": 21
+},
+{
+"name": "Nemzeti dal",
+"maker": "Sándor Petőfi",
+"year": 1848,
+"n": 20
+},
+{
+"name": "Scots Wha Hae",
+"maker": "Robert Burns",
+"year": 1793,
+"n": 20
+},
+{
+"name": "A Cloud in Trousers",
+"maker": "Vladimir Mayakovsky",
+"year": 1915,
+"n": 19
+},
+{
+"name": "Erotokritos",
+"maker": "Vitsentzos Kornaros",
+"year": 1625,
+"n": 19
+},
+{
+"name": "Hermann and Dorothea",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1797,
+"n": 19
+},
+{
+"name": "Manfred",
+"maker": "Lord Byron",
+"year": 1817,
+"n": 19
+},
+{
+"name": "Mary Had a Little Lamb",
+"maker": "Sarah Josepha Hale",
+"year": 1830,
+"n": 19
+},
+{
+"name": "The Tale of the Dead Princess and the Seven Knights",
+"maker": "Alexander Pushkin",
+"year": 1834,
+"n": 19
+},
+{
+"name": "Distichs of Cato",
+"maker": "Dionysius Cato",
+"year": 1922,
+"n": 18
+},
+{
+"name": "Konrad Wallenrod",
+"maker": "Adam Mickiewicz",
+"year": 1828,
+"n": 18
+},
+{
+"name": "Sonnet 17",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 18
+},
+{
+"name": "Szózat",
+"maker": "Mihály Vörösmarty",
+"year": 1843,
+"n": 18
+},
+{
+"name": "Zapovit",
+"maker": "Taras Shevchenko",
+"year": 1859,
+"n": 18
+},
+{
+"name": "Heidenröslein",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1789,
+"n": 17
+},
+{
+"name": "Idylls of the King",
+"maker": "Alfred Tennyson",
+"year": 1859,
+"n": 17
+},
+{
+"name": "L'après-midi d'un faune",
+"maker": "Stéphane Mallarmé",
+"year": 1876,
+"n": 17
+},
+{
+"name": "Lenore",
+"maker": "Edgar Allan Poe",
+"year": 1843,
+"n": 17
+},
+{
+"name": "Lenore",
+"maker": "Gottfried August Bürger",
+"year": 1773,
+"n": 17
+},
+{
+"name": "Mazeppa",
+"maker": "Lord Byron",
+"year": 1819,
+"n": 17
+},
+{
+"name": "Sonnet 11",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 17
+},
+{
+"name": "Sonnet 12",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 17
+},
+{
+"name": "Sonnet 9",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 17
+},
+{
+"name": "The Phoenix and the Turtle",
+"maker": "William Shakespeare",
+"year": 1601,
+"n": 17
+},
+{
+"name": "Henriade",
+"maker": "Voltaire",
+"year": 1723,
+"n": 16
+},
+{
+"name": "Luceafărul",
+"maker": "Mihai Eminescu",
+"year": 1883,
+"n": 16
+},
+{
+"name": "Sonnet 10",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 16
+},
+{
+"name": "Sonnet 7",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 16
+},
+{
+"name": "The Song of the Stormy Petrel",
+"maker": "Maxim Gorky",
+"year": 1901,
+"n": 16
+},
+{
+"name": "The Tale of the Priest and of His Workman Balda",
+"maker": "Alexander Pushkin",
+"year": 1840,
+"n": 16
+},
+{
+"name": "Mirèio",
+"maker": "Frédéric Mistral",
+"year": 1859,
+"n": 15
+},
+{
+"name": "Sonnet 13",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 15
+},
+{
+"name": "Sonnet 14",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 15
+},
+{
+"name": "Sonnet 16",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 15
+},
+{
+"name": "Sonnet 20",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 15
+},
+{
+"name": "Sonnet 66",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 15
+},
+{
+"name": "The Tale of the Golden Cockerel",
+"maker": "Alexander Pushkin",
+"year": 1835,
+"n": 15
+},
+{
+"name": "A Lover's Complaint",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 14
+},
+{
+"name": "Do not go gentle into that good night",
+"maker": "Dylan Thomas",
+"year": 1951,
+"n": 14
+},
+{
+"name": "Evangeline",
+"maker": "Henry Wadsworth Longfellow",
+"year": 1847,
+"n": 14
+},
+{
+"name": "Host and Guest",
+"maker": "Vazha-Pshavela",
+"year": 1893,
+"n": 14
+},
+{
+"name": "Mi último adiós",
+"maker": "José Rizal",
+"year": 1898,
+"n": 14
+},
+{
+"name": "Sonnet 138",
+"maker": "William Shakespeare",
+"year": 1599,
+"n": 14
+},
+{
+"name": "Sonnet 21",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 33",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 40",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 44",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 47",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 50",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 51",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 55",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Sonnet 56",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 14
+},
+{
+"name": "Boots",
+"maker": "Rudyard Kipling",
+"year": 1903,
+"n": 13
+},
+{
+"name": "Judita",
+"maker": "Marko Marulić",
+"year": 1521,
+"n": 13
+},
+{
+"name": "Mandalay",
+"maker": "Rudyard Kipling",
+"year": 1890,
+"n": 13
+},
+{
+"name": "Rota",
+"maker": "Maria Konopnicka",
+"year": 1908,
+"n": 13
+},
+{
+"name": "Sonnet 100",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 144",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 154",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 22",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 23",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 24",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 25",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 26",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 27",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 28",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 13
+},
+{
+"name": "Sonnet 31",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 32",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 34",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 35",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 36",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 37",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 38",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 39",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 41",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 42",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 43",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 45",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 46",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 48",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 49",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 52",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 53",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 54",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 57",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 58",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 59",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 61",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 62",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 63",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 78",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 81",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 88",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "Sonnet 89",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 13
+},
+{
+"name": "The Walrus and the Carpenter",
+"maker": "Lewis Carroll",
+"year": 1872,
+"n": 13
+},
+{
+"name": "Der Handschuh",
+"maker": "Friedrich Schiller",
+"year": 1798,
+"n": 12
+},
+{
+"name": "Eldorado",
+"maker": "Edgar Allan Poe",
+"year": 1849,
+"n": 12
+},
+{
+"name": "Hyperion",
+"maker": "John Keats",
+"year": 1820,
+"n": 12
+},
+{
+"name": "Poème sur le désastre de Lisbonne",
+"maker": "Voltaire",
+"year": 1756,
+"n": 12
+},
+{
+"name": "Sonnet 104",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 123",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 12
+},
+{
+"name": "Sonnet 127",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 128",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 131",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 152",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 153",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 19",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 64",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 67",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 68",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 69",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 70",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 71",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 72",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 74",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 75",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 76",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 77",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 79",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 80",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 82",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 83",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 84",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 85",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 86",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 87",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 90",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 91",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 92",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 12
+},
+{
+"name": "Sonnet 93",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 95",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 96",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 97",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 98",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "Sonnet 99",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 12
+},
+{
+"name": "The Giaour",
+"maker": "Lord Byron",
+"year": 1813,
+"n": 12
+},
+{
+"name": "The Prisoner of Chillon",
+"maker": "Lord Byron",
+"year": 1816,
+"n": 12
+},
+{
+"name": "Comin' Thro' the Rye",
+"maker": "Robert Burns",
+"year": 1970,
+"n": 11
+},
+{
+"name": "Death of the Poet",
+"maker": "Mikhail Lermontov",
+"year": 1852,
+"n": 11
+},
+{
+"name": "Der König in Thule",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1782,
+"n": 11
+},
+{
+"name": "Ho, mia kor'",
+"maker": "L. L. Zamenhof",
+"year": 1887,
+"n": 11
+},
+{
+"name": "It Came Upon the Midnight Clear",
+"maker": "Edmund Sears",
+"year": 1849,
+"n": 11
+},
+{
+"name": "Sonnet 101",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 102",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 103",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 105",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 107",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 108",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 109",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 110",
+"maker": "William Shakespeare",
+"year": 1598,
+"n": 11
+},
+{
+"name": "Sonnet 111",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 112",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 113",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 114",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 115",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 117",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 118",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 121",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 122",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 124",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 125",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 126",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 132",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 133",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 134",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 135",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 136",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 137",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 143",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "Sonnet 145",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 11
+},
+{
+"name": "The Lady of the Lake",
+"maker": "Walter Scott",
+"year": 1810,
+"n": 11
+},
+{
+"name": "The Second Coming",
+"maker": "William Butler Yeats",
+"year": 1920,
+"n": 11
+},
+{
+"name": "Ame ni mo Makezu",
+"maker": "Kenji Miyazawa",
+"year": 1934,
+"n": 10
+},
+{
+"name": "Backbone Flute",
+"maker": "Vladimir Mayakovsky",
+"year": 1916,
+"n": 10
+},
+{
+"name": "Endymion",
+"maker": "John Keats",
+"year": 1818,
+"n": 10
+},
+{
+"name": "I Loved You",
+"maker": "Alexander Pushkin",
+"year": 1830,
+"n": 10
+},
+{
+"name": "Kameniari",
+"maker": "Ivan Franko",
+"year": 1878,
+"n": 10
+},
+{
+"name": "Ode to Youth",
+"maker": "Adam Mickiewicz",
+"year": 1820,
+"n": 10
+},
+{
+"name": "Sonnet 106",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 119",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 139",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 140",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 142",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 148",
+"maker": "William Shakespeare",
+"year": 1609,
+"n": 10
+},
+{
+"name": "Sonnet 149",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Sonnet 150",
+"maker": "William Shakespeare",
+"year": 1840,
+"n": 10
+},
+{
+"name": "Tam o' Shanter",
+"maker": "Robert Burns",
+"year": 1791,
+"n": 10
+},
+{
+"name": "Terje Vigen",
+"maker": "Henrik Ibsen",
+"year": 1862,
+"n": 10
+},
+{
+"name": "The Last Rose of Summer",
+"maker": "Thomas Moore",
+"year": 1805,
+"n": 10
+},
+{
+"name": "The Maid of Orleans",
+"maker": "Voltaire",
+"year": 1755,
+"n": 10
+},
+{
+"name": "The Owl and the Pussy-cat",
+"maker": "Edward Lear",
+"year": 1871,
+"n": 10
+},
+{
+"name": "Viaje al Parnaso",
+"maker": "Miguel de Cervantes",
+"year": 1614,
+"n": 10
+},
+{
+"name": "Alastor, or The Spirit of Solitude",
+"maker": "Percy Bysshe Shelley",
+"year": 1816,
+"n": 9
+},
+{
+"name": "An Essay on Criticism",
+"maker": "Alexander Pope",
+"year": 1711,
+"n": 9
+},
+{
+"name": "Ash Wednesday",
+"maker": "T. S. Eliot",
+"year": 1930,
+"n": 9
+},
+{
+"name": "Baptism on the Savica",
+"maker": "France Prešeren",
+"year": 1836,
+"n": 9
+},
+{
+"name": "Die Bürgschaft",
+"maker": "Friedrich Schiller",
+"year": 1798,
+"n": 9
+},
+{
+"name": "Eastern poem on the death of Pushkin",
+"maker": "Mirza Fatali Akhundov",
+"year": 1837,
+"n": 9
+},
+{
+"name": "Gunga Din",
+"maker": "Rudyard Kipling",
+"year": 1892,
+"n": 9
+},
+{
+"name": "Murzynek Bambo",
+"maker": "Julian Tuwim",
+"year": 1935,
+"n": 9
+},
+{
+"name": "Máj",
+"maker": "Karel Hynek Mácha",
+"year": 1836,
+"n": 9
+},
+{
+"name": "Parisina",
+"maker": "Lord Byron",
+"year": 1816,
+"n": 9
+},
+{
+"name": "Song of the Bell",
+"maker": "Friedrich Schiller",
+"year": 1798,
+"n": 9
+},
+{
+"name": "The Chaos",
+"maker": "Gerard Nolst Trenité",
+"year": 1920,
+"n": 9
+},
+{
+"name": "The Portrait of Mr. W. H.",
+"maker": "Oscar Wilde",
+"year": 1889,
+"n": 9
+},
+{
+"name": "The Seasons",
+"maker": "Kristijonas Donelaitis",
+"year": 1869,
+"n": 9
+},
+{
+"name": "Un Coup de Dés Jamais N'Abolira Le Hasard",
+"maker": "Stéphane Mallarmé",
+"year": 1897,
+"n": 9
+},
+{
+"name": "Wondrously sheltered",
+"maker": "Dietrich Bonhoeffer",
+"year": 1944,
+"n": 9
+},
+{
+"name": "Absalom and Achitophel",
+"maker": "John Dryden",
+"year": 1681,
+"n": 8
+},
+{
+"name": "Al Aaraaf",
+"maker": "Edgar Allan Poe",
+"year": 1829,
+"n": 8
+},
+{
+"name": "An Essay on Man",
+"maker": "Alexander Pope",
+"year": 1733,
+"n": 8
+},
+{
+"name": "Annus Mirabilis",
+"maker": "John Dryden",
+"year": 1667,
+"n": 8
+},
+{
+"name": "Dyr bul shchyl",
+"maker": "Aleksei Kruchenykh",
+"year": 1912,
+"n": 8
+},
+{
+"name": "Eloisa to Abelard",
+"maker": "Alexander Pope",
+"year": 1717,
+"n": 8
+},
+{
+"name": "Isabella, or the Pot of Basil",
+"maker": "John Keats",
+"year": 1820,
+"n": 8
+},
+{
+"name": "Ivan Pidkova",
+"maker": "Taras Shevchenko",
+"year": 1840,
+"n": 8
+},
+{
+"name": "La secchia rapita",
+"maker": "Alessandro Tassoni",
+"year": 1622,
+"n": 8
+},
+{
+"name": "Le Lac",
+"maker": "Alphonse de Lamartine",
+"year": 1820,
+"n": 8
+},
+{
+"name": "Marienbad Elegy",
+"maker": "Johann Wolfgang von Goethe",
+"year": 1828,
+"n": 8
+},
+{
+"name": "Marmion",
+"maker": "Walter Scott",
+"year": 1808,
+"n": 8
+},
+{
+"name": "Sailing to Byzantium",
+"maker": "William Butler Yeats",
+"year": 1928,
+"n": 8
+},
+{
+"name": "Stalin Epigram",
+"maker": "Osip Mandelstam",
+"year": 1933,
+"n": 8
+},
+{
+"name": "Tamerlane",
+"maker": "Edgar Allan Poe",
+"year": 1827,
+"n": 8
+},
+{
+"name": "The Bard. A Pindaric Ode",
+"maker": "Thomas Gray",
+"year": 1757,
+"n": 8
+},
+{
+"name": "The Ring and the Book",
+"maker": "Robert Browning",
+"year": 1868,
+"n": 8
+},
+{
+"name": "Trees",
+"maker": "Joyce Kilmer",
+"year": 1913,
+"n": 8
+}
+],
+"_about": "Well-known makers and works the site does not have and that could be free (made in or before 1930, marked public domain, or by a maker born before 1850): a shopping list for future rounds, not checked. n = Wikipedia editions. Made by tools/placards.py."
+}

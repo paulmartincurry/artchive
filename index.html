@@ -4902,7 +4902,7 @@
 
 
 
-  <script src="data/site.js?v=6ad7efc5d5"></script>
+  <script src="data/site.js?v=3614a38d93"></script>
 <script id="writingForms">
   // Writing forms: the library's 400-odd form labels folded into nine a reader would ask for.
   // The first rule that matches wins; a rule can carry words that rule it out.
@@ -12391,37 +12391,92 @@
   const V = (document.querySelector('script[src*="data/site.js"]') || {}).src || '';
   const ver = (V.split('?')[1] || '');
 
-  // ---- placards: a blank wall label for work that is deliberately not here (Paul, 25 Nov 2026) ----
-  // Only when the search is plainly for that work or that maker (its title, a known nickname, the maker's name): never on
-  // the wall, never for a theme, one per search. The searches that trigger one are listed in data/placards.json, made by
-  // tools/placards.py from the works cut on 23 Nov 2026. It is the first tile of the results and opens nothing.
-  let PLAC = null;
-  const pNorm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  // ---- placards: a blank wall label for work that is not here (Paul, 25 Nov 2026) ----
+  // Only when the search is plainly for that work or that maker (its title, a known nickname, the maker's name, a title with
+  // its maker or with "film" or its year): never on the wall, never for a theme, one per search. data/placards.json, made by
+  // tools/placards.py, lists them: the works cut on 23 Nov 2026 and a wide list of well-known makers, artworks, films and poems
+  // that are not free to use. It is the first tile of the results and opens nothing.
+  let PLAC = null, pSite = null, pMemo = ['', null];
+  const pNorm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const P_KIND = { film: 'f', movie: 'f', series: 'f', show: 'f', game: 'f', poem: 'p', painting: 'a', photo: 'a', photograph: 'a', sculpture: 'a' };
+  function pSiteSets() {   // what the site holds now, for one last check on the wide list
+    if (pSite) return pSite;
+    const t = new Set(), a = [], seen = new Set();
+    WORKS.forEach(w => {
+      t.add(pNorm(w.title)); String(w.aliases || '').split(',').forEach(x => { x = pNorm(x); if (x) t.add(x); });
+      const n = pNorm(w.artist); if (n && !seen.has(n)) { seen.add(n); a.push(' ' + n + ' '); }
+    });
+    return (pSite = { t, a });
+  }
+  function pFind(k) {
+    const I = PLAC.items, D = PLAC.direct, T = PLAC.titles, M = PLAC.makers;
+    if (D[k] != null) return I[D[k]];
+    const w = k.split(' '), n = w.length;
+    if (n < 2) return null;
+    // a title with its maker before or after it ("guernica picasso", "citizen kane by orson welles")
+    for (let i = 1; i < n; i++) {
+      let b = w.slice(i); const a = w.slice(0, i).join(' ');
+      if (b[0] === 'by' && b.length > 1) b = b.slice(1);
+      b = b.join(' ');
+      for (const [t, m] of [[a, b], [b, a]]) {
+        if (T[t] && M[m]) { const hit = T[t].find(x => M[m].includes(I[x].m)); if (hit != null) return I[hit]; }
+      }
+    }
+    // a title with what it is, or its year ("jaws film", "alien 1979", "death fugue poem")
+    for (const [word, rest] of [[w[n - 1], w.slice(0, -1).join(' ')], [w[0], w.slice(1).join(' ')]]) {
+      if (!T[rest]) continue;
+      const kind = P_KIND[word];
+      const hit = T[rest].find(x => { const it = I[x]; return kind ? (kind === 'f' ? it.f : kind === 'p' ? it.p : !it.f && !it.p) : (/^\d{4}$/.test(word) && String(it.d).includes(word)); });
+      if (hit != null) return I[hit];
+    }
+    // a maker with something else beside the name ("kusama pumpkin"), when the site has nothing of theirs
+    for (let i = 1; i < n; i++) {
+      for (const m of [w.slice(0, i).join(' '), w.slice(i).join(' ')]) {
+        const it = D[m] != null ? I[D[m]] : null;
+        if (it && it.x && !it.s && !WORKS.some(x => x.artist === it.a)) return it;
+      }
+    }
+    return null;
+  }
   function placardFor(q) {
     if (!PLAC) return null;
-    const i = PLAC.keys[pNorm(q)];
-    return i == null ? null : PLAC.items[i];
+    const k = pNorm(q);
+    if (pMemo[0] === k) return pMemo[1];
+    let it = k ? pFind(k) : null;
+    // The wide list was sorted against the site when it was built; check once more against what is here now, so a work or a
+    // maker added since never gets a label saying it is not on the wall.
+    if (it && it.w) {
+      const s = pSiteSets(), name = ' ' + pNorm(it.a) + ' ';
+      if (it.x ? s.a.some(n => n.includes(name) || n.includes(' ' + k + ' ')) : (s.t.has(k) || s.t.has(pNorm(it.t)))) it = null;
+    } else if (it && !it.x && pSiteSets().t.has(k)) it = null;   // the search is the title of something that is here (Akutagawa's Rashōmon)
+    pMemo = [k, it];
+    return it;
   }
+  window.pvPlacardFor = placardFor;   // for tests
   function drawPlacard() {
     const g = document.getElementById('galleryGrid'); if (!g) return;
     const old = g.querySelector('.pv-placard'); if (old) old.remove();
     const p = placardFor(state.query);
-    const off = !p || show === 'writing' || state.onlySaved || sharedBoard || (state.spatialView && state.spatialView !== 'wall') || g.style.display === 'none';
+    const wrongWall = p && !p.x && ((show === 'writing' && !p.p) || (show === 'art' && p.p));   // a poem's label belongs with the writing, a painting's with the art
+    const off = !p || wrongWall || state.onlySaved || sharedBoard || (state.spatialView && state.spatialView !== 'wall') || g.style.display === 'none';
     if (!off) {
       const el = document.createElement('article'); el.className = 'art-piece pv-placard';
       el.setAttribute('aria-label', 'Not on the wall');
-      // One click to where it can be seen (Paul, 25 Nov 2026). The label says what the link is: the holder's own page,
-      // the work's Wikipedia article, or a Wikipedia search when no page for it is on file.
-      const where = p.k === 'hold' ? 'See it at ' + (p.h || 'its holder').replace(/,.*$/, '') : p.k === 'wiki' ? 'See it on Wikipedia' : 'Find ' + (p.x ? 'their work' : 'it') + ' on Wikipedia';
-      const link = p.u ? `<a href="${esc(p.u)}" target="_blank" rel="noopener">${esc(where)} ↗</a>` : '';
+      // One click to where it can be seen. The label says what the link is: the holder's own page, the Wikipedia article
+      // (see it, for a picture; read about it, for a film or a poem), or a Wikipedia search when no page is on file.
+      const where = p.k === 'hold' ? 'See it at ' + (p.h || 'its holder').replace(/,.*$/, '') : p.k === 'wiki' ? 'See it on Wikipedia'
+        : p.k === 'read' ? 'Read about it on Wikipedia' : 'Find ' + (p.x ? 'their work' : 'it') + ' on Wikipedia';
+      const url = p.u || (p.wk ? 'https://en.wikipedia.org/wiki/' + encodeURIComponent(p.wk.replace(/ /g, '_')) : '');
+      const link = url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(where)} ↗</a>` : '';
+      // The reason line is left off (`s`) where it could be wrong: a maker born before 1910 may have early work that is free.
       if (p.x) {
         const here = WORKS.some(w => w.artist === p.a);
         el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.a)}</h3>` +
-          `<p class="pp-why">${here ? 'Other work' : 'Work'} by ${esc(p.a)} is not free to use.</p>` + link;
+          (p.s ? '' : `<p class="pp-why">${here ? 'Other work' : 'Work'} by ${esc(p.a)} is not free to use.</p>`) + link;
       } else {
         el.innerHTML = `<div class="pp-eyebrow">Not on the wall</div><h3>${esc(p.t)}</h3>` +
           `<p class="pp-meta">${esc([p.a, p.d].filter(Boolean).join(', '))}</p>` + (p.h ? `<p class="pp-meta">${esc(p.h)}</p>` : '') +
-          `<p class="pp-why">It is not free to use.</p>` + link;
+          (p.s ? '' : `<p class="pp-why">It is not free to use.</p>`) + link;
       }
       g.insertBefore(el, g.firstChild);
     }
@@ -12433,14 +12488,15 @@
   }
   // Under a placard the results lead with what the site does have by that maker (Paul, 25 Nov 2026): a search for Guernica
   // used to put a medieval bird first. Up to twelve, best known first, and only works that pass the filters that are set.
+  // A poem's label leads with the writer's other lines; anything else with the maker's pictures.
   if (window.pvArrange) {
     const arrange0 = window.pvArrange;
     window.pvArrange = function (list, searchRanked) {
       const out = arrange0(list, searchRanked);
-      if (!(state.query || '').trim() || state.onlySaved || sharedBoard || show === 'writing') return out;
-      const p = placardFor(state.query); if (!p) return out;
-      const mine = WORKS.filter(w => w.artist === p.a && w.itemType !== 'literature' && !w._broken && window.pvPass(w))
-        .sort((a, b) => (b.iconicScore || 0) - (a.iconicScore || 0)).slice(0, 12);
+      if (!(state.query || '').trim() || state.onlySaved || sharedBoard) return out;
+      const p = placardFor(state.query); if (!p || (show === 'writing' && !p.p) || (show === 'art' && p.p)) return out;
+      const mine = WORKS.filter(w => w.artist === p.a && (w.itemType === 'literature') === !!p.p && !w._broken && window.pvPass(w))
+        .sort((a, b) => ((b.iconicScore || b.fame || 0) - (a.iconicScore || a.fame || 0))).slice(0, 12);
       if (!mine.length) return out;
       const lead = new Set(mine);
       return mine.concat(out.filter(w => !lead.has(w)));
@@ -12448,7 +12504,8 @@
   }
   (window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => {
     fetch(BASE + 'data/placards.json?' + ver).then(r => r.json()).then(j => {
-      PLAC = j;
+      if (!j || j.v !== 2) return;   // an older copy of the file from the browser's cache: no placards this visit
+      PLAC = j; pMemo = ['', null];
       if (placardFor(state.query) && (!state.spatialView || state.spatialView === 'wall') && !document.querySelector('.lightbox.open')) filterWorks(false);
     }).catch(() => {});
   });

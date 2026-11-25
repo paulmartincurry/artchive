@@ -1500,3 +1500,8 @@ Re-cut pull quotes (old wording kept in `hookOld`): LIT-262, 520, 521, 2015, 173
 | 2130–2136 | LII, Cornell | Footnote numbers removed; citation strings left off Texas v. Johnson and Tinker; LII's "a farm more subtle" (Korematsu) corrected to "far"; "de-termination" closed up (Shelby County) |
 
 The site now quotes six presidents from each party (D: FDR, Kennedy, Johnson, Carter, Clinton, Obama; R: Lincoln, Eisenhower, Reagan, Ford, Nixon, G. W. Bush). By piece count the Republicans lead 12 to 9, mostly Lincoln. Not added: Stross's Accelerando (antipope.org unreachable from the sandbox; licence must come from the author's page or the book). Hacker Crackdown cards carry medium "Nonfiction book" so they fold into Prose.
+
+## Wide placards and the wanted list (25 Nov 2026)
+
+The placards now cover a wide list of well-known makers, films, artworks and poems that are not free to use (CLAUDE.md, "Wide placards"). Sorting that list against the site also produced `tools/placards/wanted.json`: well-known makers and works the site does not have and that could be free (184 makers, 431 artworks, 246 poems, 6 films, ranked by the number of Wikipedia editions). It is a list of leads, not a finding: nothing on it has been checked against a holder or an edition, and many entries will fail the bar or the provenance rule. It does not reopen the public test, which stays closed on its fixed list; it is a place to look when a round needs candidates. Top of the makers list: Dostoyevsky, Molière, Jules Verne, Conan Doyle, Schiller, Dumas, Maupassant.
+
