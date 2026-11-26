@@ -1505,3 +1505,7 @@ The site now quotes six presidents from each party (D: FDR, Kennedy, Johnson, Ca
 
 The placards now cover a wide list of well-known makers, films, artworks and poems that are not free to use (CLAUDE.md, "Wide placards"). Sorting that list against the site also produced `tools/placards/wanted.json`: well-known makers and works the site does not have and that could be free (184 makers, 431 artworks, 246 poems, 6 films, ranked by the number of Wikipedia editions). It is a list of leads, not a finding: nothing on it has been checked against a holder or an edition, and many entries will fail the bar or the provenance rule. It does not reopen the public test, which stays closed on its fixed list; it is a place to look when a round needs candidates. Top of the makers list: Dostoyevsky, Molière, Jules Verne, Conan Doyle, Schiller, Dumas, Maupassant.
 
+## Wanted-list round (25 Nov 2026)
+
+32 paintings (VAULT-8504 to 8535) and 41 writing pieces (LIT-2137 to 2177) taken from the placard tool's wanted list. CLAUDE.md, "Wanted-list round", has the lists, sources and what was left out. Calls made: all 32 paintings are European (the list is what people search for); notes are label only; Verne's and Dumas's translators are not named because the Gutenberg files do not name them; the Sign of the Four passages are titled by chapter name. Not checked in a normal browser: the 32 Commons images (about half answered the sandbox, the rest were throttled, none was missing). Held for Paul: Kipling's The White Man's Burden.
+

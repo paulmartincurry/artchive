@@ -1,46 +1,10 @@
 {
 "makers": [
 {
-"name": "Molière",
-"born": 1622,
-"died": 1673,
-"n": 227
-},
-{
 "name": "Georg Wilhelm Friedrich Hegel",
 "born": 1770,
 "died": 1831,
 "n": 197
-},
-{
-"name": "Jules Verne",
-"born": 1828,
-"died": 1905,
-"n": 190
-},
-{
-"name": "Arthur Conan Doyle",
-"born": 1859,
-"died": 1930,
-"n": 184
-},
-{
-"name": "Friedrich Schiller",
-"born": 1759,
-"died": 1805,
-"n": 184
-},
-{
-"name": "Alexandre Dumas",
-"born": 1802,
-"died": 1870,
-"n": 175
-},
-{
-"name": "Aesop",
-"born": -619,
-"died": -563,
-"n": 168
 },
 {
 "name": "Anatole France",
@@ -55,21 +19,9 @@
 "n": 161
 },
 {
-"name": "Guy de Maupassant",
-"born": 1850,
-"died": 1893,
-"n": 157
-},
-{
 "name": "Epicurus",
 "born": -341,
 "died": -269,
-"n": 151
-},
-{
-"name": "Giovanni Boccaccio",
-"born": 1313,
-"died": 1375,
 "n": 151
 },
 {
@@ -77,18 +29,6 @@
 "born": -444,
 "died": -384,
 "n": 149
-},
-{
-"name": "Jean de La Fontaine",
-"born": 1621,
-"died": 1695,
-"n": 146
-},
-{
-"name": "Daniel Defoe",
-"born": 1660,
-"died": 1731,
-"n": 144
 },
 {
 "name": "Henryk Sienkiewicz",
@@ -167,12 +107,6 @@
 "born": 1811,
 "died": 1896,
 "n": 119
-},
-{
-"name": "Henry Wadsworth Longfellow",
-"born": 1807,
-"died": 1882,
-"n": 117
 },
 {
 "name": "Solon",
@@ -263,12 +197,6 @@
 "born": 1867,
 "died": 1925,
 "n": 108
-},
-{
-"name": "Alexandre Dumas fils",
-"born": 1824,
-"died": 1895,
-"n": 107
 },
 {
 "name": "Alphonse Daudet",
@@ -553,22 +481,10 @@
 "n": 65
 },
 {
-"name": "Ivan Shishkin",
-"born": 1831,
-"died": 1898,
-"n": 64
-},
-{
 "name": "Viktor Vasnetsov",
 "born": 1848,
 "died": 1926,
 "n": 64
-},
-{
-"name": "Jan Matejko",
-"born": 1838,
-"died": 1893,
-"n": 62
 },
 {
 "name": "Cimabue",
@@ -580,12 +496,6 @@
 "name": "Carl Larsson",
 "born": 1853,
 "died": 1919,
-"n": 57
-},
-{
-"name": "Ivan Kramskoi",
-"born": 1837,
-"died": 1887,
 "n": 57
 },
 {
@@ -643,12 +553,6 @@
 "n": 54
 },
 {
-"name": "Karl Bryullov",
-"born": 1799,
-"died": 1852,
-"n": 54
-},
-{
 "name": "Valentin Serov",
 "born": 1865,
 "died": 1911,
@@ -688,12 +592,6 @@
 "name": "Charles Rennie Mackintosh",
 "born": 1868,
 "died": 1928,
-"n": 52
-},
-{
-"name": "Francesco Hayez",
-"born": 1791,
-"died": 1882,
 "n": 52
 },
 {
@@ -1078,13 +976,6 @@
 "n": 50
 },
 {
-"name": "The Blue Boy",
-"maker": "Thomas Gainsborough",
-"year": 1770,
-"holder": "The Huntington Library, Art Museum, and Botanical Gardens",
-"n": 39
-},
-{
 "name": "The Virgin and Child with Saint Anne",
 "maker": "Leonardo da Vinci",
 "year": 1511,
@@ -1097,34 +988,6 @@
 "year": 1480,
 "holder": "Hermitage Museum",
 "n": 38
-},
-{
-"name": "The Coronation of Napoleon",
-"maker": "Jacques-Louis David",
-"year": 1807,
-"holder": "Department of Paintings of the Louvre",
-"n": 38
-},
-{
-"name": "The Church at Auvers",
-"maker": "Vincent van Gogh",
-"year": 1890,
-"holder": "Musée d'Orsay",
-"n": 37
-},
-{
-"name": "The Red Vineyard",
-"maker": "Vincent van Gogh",
-"year": 1888,
-"holder": "Pushkin Museum of Fine Arts",
-"n": 37
-},
-{
-"name": "The Yellow House",
-"maker": "Vincent van Gogh",
-"year": 1888,
-"holder": "Van Gogh Museum",
-"n": 37
 },
 {
 "name": "A Sunday Afternoon on the Island of La Grande Jatte",
@@ -1169,20 +1032,6 @@
 "n": 31
 },
 {
-"name": "Charles IV of Spain and His Family",
-"maker": "Francisco Goya",
-"year": 1800,
-"holder": "Museo del Prado",
-"n": 30
-},
-{
-"name": "Morning in a Pine Forest",
-"maker": "Konstantin Savitsky",
-"year": 1889,
-"holder": "Tretyakov Gallery",
-"n": 30
-},
-{
 "name": "The Baptism of Christ",
 "maker": "Andrea del Verrocchio",
 "year": 1470,
@@ -1195,13 +1044,6 @@
 "year": 1850,
 "holder": "Musée d'Orsay",
 "n": 30
-},
-{
-"name": "A Philosopher Lecturing on the Orrery",
-"maker": "Joseph Wright of Derby",
-"year": 1766,
-"holder": "Derby Museum and Art Gallery",
-"n": 29
 },
 {
 "name": "A Young Girl Reading",
@@ -1232,80 +1074,10 @@
 "n": 28
 },
 {
-"name": "Portrait of an Unknown Woman",
-"maker": "Ivan Kramskoi",
-"year": 1883,
-"holder": "Tretyakov Gallery",
-"n": 28
-},
-{
-"name": "The Balcony",
-"maker": "Édouard Manet",
-"year": 1868,
-"holder": "Musée d'Orsay",
-"n": 28
-},
-{
-"name": "The Clothed Maja",
-"maker": "Francisco Goya",
-"year": 1800,
-"holder": "Museo del Prado",
-"n": 28
-},
-{
-"name": "The Kiss",
-"maker": "Francesco Hayez",
-"year": 1859,
-"holder": "Pinacoteca di Brera",
-"n": 28
-},
-{
-"name": "The Three Philosophers",
-"maker": "Giorgione",
-"year": 1508,
-"holder": "Kunsthistorisches Museum",
-"n": 28
-},
-{
-"name": "Girl Reading a Letter at an Open Window",
-"maker": "Johannes Vermeer",
-"year": 1658,
-"holder": "Staatliche Kunstsammlungen Dresden",
-"n": 27
-},
-{
-"name": "The Last Day of Pompeii",
-"maker": "Karl Bryullov",
-"year": 1833,
-"holder": "Russian Museum",
-"n": 27
-},
-{
-"name": "An Experiment on a Bird in the Air Pump",
-"maker": "Joseph Wright of Derby",
-"year": 1768,
-"holder": "National Gallery",
-"n": 26
-},
-{
-"name": "Madonna of Chancellor Rolin",
-"maker": "Jan van Eyck",
-"year": 1432,
-"holder": "Department of Paintings of the Louvre",
-"n": 26
-},
-{
 "name": "Music in the Tuileries",
 "maker": "Édouard Manet",
 "year": 1862,
 "holder": "National Gallery",
-"n": 26
-},
-{
-"name": "Sacred and Profane Love",
-"maker": "Titian",
-"year": 1514,
-"holder": "Borghese Collection",
 "n": 26
 },
 {
@@ -1320,20 +1092,6 @@
 "maker": "Raphael",
 "year": 1513,
 "holder": "Galleria Palatina",
-"n": 25
-},
-{
-"name": "Road with Cypress and Star",
-"maker": "Vincent van Gogh",
-"year": 1890,
-"holder": "Kröller-Müller Museum",
-"n": 25
-},
-{
-"name": "The Geographer",
-"maker": "Johannes Vermeer",
-"year": 1668,
-"holder": "Städel Museum",
 "n": 25
 },
 {
@@ -1362,13 +1120,6 @@
 "maker": "Johannes Vermeer",
 "year": 1658,
 "holder": "The Frick Collection",
-"n": 24
-},
-{
-"name": "Portrait of Père Tanguy",
-"maker": "Vincent van Gogh",
-"year": 1887,
-"holder": "Musée Rodin",
 "n": 24
 },
 {
@@ -1477,13 +1228,6 @@
 "n": 23
 },
 {
-"name": "The Intervention of the Sabine Women",
-"maker": "Jacques-Louis David",
-"year": 1799,
-"holder": "Department of Paintings of the Louvre",
-"n": 23
-},
-{
 "name": "The Lunch",
 "maker": "Diego Velázquez",
 "year": 1617,
@@ -1568,13 +1312,6 @@
 "n": 22
 },
 {
-"name": "Stańczyk",
-"maker": "Jan Matejko",
-"year": 1862,
-"holder": "National Museum in Warsaw",
-"n": 22
-},
-{
 "name": "The Embarkation for Cythera",
 "maker": "Jean-Antoine Watteau",
 "year": 1717,
@@ -1624,20 +1361,6 @@
 "n": 21
 },
 {
-"name": "Battle of Grunwald",
-"maker": "Jan Matejko",
-"year": 1878,
-"holder": "National Museum in Warsaw",
-"n": 21
-},
-{
-"name": "Christ in the Wilderness",
-"maker": "Ivan Kramskoi",
-"year": 1872,
-"holder": "Tretyakov Gallery",
-"n": 21
-},
-{
 "name": "Dawn",
 "maker": "William-Adolphe Bouguereau",
 "year": 1881,
@@ -1680,13 +1403,6 @@
 "n": 21
 },
 {
-"name": "Mr and Mrs Andrews",
-"maker": "Thomas Gainsborough",
-"year": 1750,
-"holder": "National Gallery",
-"n": 21
-},
-{
 "name": "Portinari Triptych",
 "maker": "Hugo van der Goes",
 "year": 1475,
@@ -1722,31 +1438,10 @@
 "n": 21
 },
 {
-"name": "The Fallen Angel",
-"maker": "Alexandre Cabanel",
-"year": 1847,
-"holder": "Musée Fabre",
-"n": 21
-},
-{
-"name": "The Fifer",
-"maker": "Édouard Manet",
-"year": 1866,
-"holder": "Musée d'Orsay",
-"n": 21
-},
-{
 "name": "The Rape of the Daughters of Leucippus",
 "maker": "Jan Wildens",
 "year": 1618,
 "holder": "Bavarian State Painting Collections",
-"n": 21
-},
-{
-"name": "The Roses of Heliogabalus",
-"maker": "Lawrence Alma-Tadema",
-"year": 1888,
-"holder": "Pérez Simón Collection",
 "n": 21
 },
 {
@@ -1792,20 +1487,6 @@
 "n": 20
 },
 {
-"name": "Napoleon I on his Imperial Throne",
-"maker": "Jean-Auguste-Dominique Ingres",
-"year": 1806,
-"holder": "Department of Paintings of the Louvre",
-"n": 20
-},
-{
-"name": "Pollice Verso",
-"maker": "Jean-Léon Gérôme",
-"year": 1872,
-"holder": "Phoenix Art Museum",
-"n": 20
-},
-{
 "name": "Portrait of Eleanor of Toledo and her son Giovanni de' Medici",
 "maker": "Bronzino",
 "year": 1544,
@@ -1824,13 +1505,6 @@
 "maker": "John Everett Millais",
 "year": 1856,
 "holder": "Birmingham Museums Trust",
-"n": 20
-},
-{
-"name": "The Magpie",
-"maker": "Claude Monet",
-"year": 1868,
-"holder": "Musée d'Orsay",
 "n": 20
 },
 {
@@ -4087,24 +3761,6 @@
 "n": 26
 },
 {
-"name": "The Song of Hiawatha",
-"maker": "Henry Wadsworth Longfellow",
-"year": 1855,
-"n": 26
-},
-{
-"name": "The Hunting of the Snark",
-"maker": "Lewis Carroll",
-"year": 1876,
-"n": 25
-},
-{
-"name": "A Visit from St. Nicholas",
-"maker": "Clement Clarke Moore",
-"year": 1823,
-"n": 23
-},
-{
 "name": "Paradise Regained",
 "maker": "John Milton",
 "year": 1671,
@@ -4126,12 +3782,6 @@
 "name": "The Rape of the Lock",
 "maker": "Alexander Pope",
 "year": 1712,
-"n": 21
-},
-{
-"name": "Ulalume",
-"maker": "Edgar Allan Poe",
-"year": 1847,
 "n": 21
 },
 {
@@ -5254,12 +4904,6 @@
 "name": "The Last Rose of Summer",
 "maker": "Thomas Moore",
 "year": 1805,
-"n": 10
-},
-{
-"name": "The Maid of Orleans",
-"maker": "Voltaire",
-"year": 1755,
 "n": 10
 },
 {
