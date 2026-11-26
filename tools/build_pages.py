@@ -198,7 +198,7 @@ footer a{{margin-left:10px}}
 <main>
 {chr(10).join(body)}
 </main>
-<footer>An archive of art, works, and words for people who make things.<a href="../index.html">See the wall</a></footer>
+<footer>An archive of art, works, and words.<a href="../index.html">See the wall</a></footer>
 <script>document.querySelectorAll('.row img').forEach(function(i){{function h(){{i.parentNode.style.display='none'}}i.addEventListener('error',h);if(i.complete&&!i.naturalWidth&&i.currentSrc)h()}})</script>
 </body></html>
 '''
