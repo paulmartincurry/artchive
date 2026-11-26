@@ -1520,3 +1520,15 @@ Calls made:
 - Daumier's Washerwomen Descending a Quai Staircase is dated 1888 by Cleveland (a transfer lithograph made after his death); the holder's date is kept.
 - Holder spellings kept: "Rua Xiaoqi" (Chicago). One corrected: Cleveland's "Prison ot Ste. Pélagie".
 - Turner's name unified to J. M. W. Turner (12 records).
+
+## Deep cuts, round C: the back pages (26 Nov 2026)
+
+57 writing pieces (LIT-2178 to 2235, less 2227): Whitman 8, Thoreau 7, Hawthorne 6, Chekhov 8, Butler 5, Melville 7, Poe 8, Dickinson 4, Coleridge 2, Charlotte Brontë 1, Cellini 1. CLAUDE.md, "Deep cuts, round C", has sources and method. Every pull quote checked letters-only against its passage; every passage cut from a fetched file.
+
+Calls made:
+- Three sources are scans (Poe, Melville's letters, Dickinson's letters). Each passage was compared with a second scan and the fixes are listed per piece in `auditNote`. Where the two scans disagreed only because the second had its own scan error, the first was kept.
+- Footnote markers were left off (Thoreau, Whitman, one in Poe).
+- Dickinson's remarks to Higginson on poetry were merged and then removed the same hour: already on the site as LIT-763.
+- Poe's "Words are murderous things" stops before a French quotation neither scan reads cleanly.
+- Butler is a new maker; the rest were already on the site.
+- Brontë's letter stops before the closing formula.
