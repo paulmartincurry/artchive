@@ -22,7 +22,7 @@ def group(w):
     pl = w.get('place') or ''
     if mm == 'Photograph & Film':
         return 'Film still' if (has(med, r'frame|still|silent film|recorded score|trailer|^\s*film,') or w.get('grow') == 'film') else 'Photograph'
-    if has(med, PHOTO) and not has(med, PRINT + '|' + PAINTMS): return 'Photograph'
+    if has(med, PHOTO) and not has(med, PRINT + '|' + PAINTMS + '|from an original drawing'): return 'Photograph'
     if has(both, POSTERW) and mm in ('Print & Woodcut', 'Letterform, Score & Ephemera', 'Diagram, Cyanotype & Textile', 'Scroll & Paper'): return 'Poster & Graphic'
     if has(t, MAPW) and mm in ('Diagram, Cyanotype & Textile', 'Print & Woodcut', 'Scroll & Paper', 'Letterform, Score & Ephemera'): return 'Map & Chart'
     if mm not in ('Painting', 'Sculpture & Metalwork') and has(med, TEXT) and not has(med, PAINTMS + r'|on silk|on cotton|ink and colou?r'): return 'Textile'

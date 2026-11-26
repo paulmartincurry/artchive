@@ -1509,3 +1509,14 @@ The placards now cover a wide list of well-known makers, films, artworks and poe
 
 32 paintings (VAULT-8504 to 8535) and 41 writing pieces (LIT-2137 to 2177) taken from the placard tool's wanted list. CLAUDE.md, "Wanted-list round", has the lists, sources and what was left out. Calls made: all 32 paintings are European (the list is what people search for); notes are label only; Verne's and Dumas's translators are not named because the Gutenberg files do not name them; the Sign of the Four passages are titled by chapter name. Not checked in a normal browser: the 32 Commons images (about half answered the sandbox, the rest were throttled, none was missing). Held for Paul: Kipling's The White Man's Burden.
 
+## Deep cuts, round A1 (25 Nov 2026)
+
+103 works by nine makers already on the site (VAULT-8536 to 8638, `grow: 'deep'`): Goya 13, Rembrandt 10, Dürer 6, Redon 14, Daumier 13, Piranesi 10, Géricault 12, Hokusai 12, Kuniyoshi 13. Art Institute of Chicago (public-domain flag) and Cleveland (CC0); every record from the holder's API; every image looked at on a contact sheet; 52 cropped to the plate. CLAUDE.md, "Deep cuts, round A1", has the method.
+
+Calls made:
+- Twenty picks were dropped as plates already on the site in another impression; the picture check caught two, the title read caught the rest.
+- Cleveland's Disparates carry Chicago's making dates for the same series ("1816–19, published 1864"); each auditNote says so.
+- Rembrandt's Reclining Female Nude keeps Chicago's title; the older name for the plate is not used anywhere, including hidden search names.
+- Daumier's Washerwomen Descending a Quai Staircase is dated 1888 by Cleveland (a transfer lithograph made after his death); the holder's date is kept.
+- Holder spellings kept: "Rua Xiaoqi" (Chicago). One corrected: Cleveland's "Prison ot Ste. Pélagie".
+- Turner's name unified to J. M. W. Turner (12 records).
