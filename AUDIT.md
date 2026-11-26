@@ -1532,3 +1532,26 @@ Calls made:
 - Poe's "Words are murderous things" stops before a French quotation neither scan reads cleanly.
 - Butler is a new maker; the rest were already on the site.
 - Brontë's letter stops before the closing formula.
+
+## Anonymous phrases (26 Nov 2026)
+
+166 writing pieces, LIT-2236 to 2401, `grow: 'phrases'`, label only. Sayings nobody owns, one to a card, each cut by code from a fetched book and never retyped.
+
+| Source | Pieces | Check |
+|---|---|---|
+| The Real Mother Goose (1916), Gutenberg #10607 | 39 | cut by heading |
+| Halliwell, The Nursery Rhymes of England, 5th ed. (1886), #32415 | 7 | cut by number |
+| Bohn, A Polyglot of Foreign Proverbs (1857), #51090 | 53 | original and English matched as a pair |
+| Kelly, Proverbs of All Nations (1859), #63190 | 13 | found in quotation marks with its nation label |
+| Hearn, Gombo Zhèbes (1885), #44866 | 14 | by number; Creole, French gloss and English read side by side |
+| Starr, A Little Book of Filipino Riddles (1909), #14358 | 9 | by number |
+| Scarborough, A Collection of Chinese Proverbs (1875), archive.org | 10 | letter for letter in two scans |
+| Burckhardt, Arabic Proverbs, 2nd ed. (1875), archive.org | 2 | letter for letter in two scans |
+| Burton, Wit and Wisdom from West Africa (1865), archive.org | 10 | letter for letter in two scans |
+| Safford, Quaint Epitaphs (1895), #22518 | 5 | cut between first and last words |
+| Norfolk, Gleanings in Graveyards, 2nd ed. (1861), #34273 | 2 | cut between first and last words |
+| Gatty, The Book of Sun-Dials (1900), archive.org | 2 | entry number, Latin or French, and English in two scans |
+
+Every title page was read from the file for the edition line; a publisher or source name that the file does not print was taken out (Rand McNally, Tinsley Brothers, the collectors Burton drew on). Every new pull quote was checked letters-only against every older text on the site: no repeats.
+
+Not verified: that the epitaphs stand on real stones (the books are collections and say no more); the Chinese, Arabic and West African originals (the scans garble them, so those cards carry the English only). Calls: no wife jokes, nothing with a slur, modern names in the credit for "Servian" and "Hayti", dates given as the printing's. Left for later: Shakespeare's grave from a transcription of the stone, Japanese proverbs (Griffis 1924, one scan), more Gatty mottoes after a page-image check, the Exeter riddles, toasts, telegrams, headlines.
