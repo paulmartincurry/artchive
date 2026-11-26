@@ -4320,6 +4320,10 @@
     header .nav-primary { flex-wrap: nowrap !important; gap: 18px !important; row-gap: 0 !important; }
     header .brand-cluster { flex: 0 0 auto; }
     header .pv-toolrow { margin: 0; height: 44px; flex: 0 1 auto; max-width: none; gap: 4px; }
+    /* Set filters with long names must never push the icons off the bar (25 Nov 2026): the row gives way and its chips scroll. */
+    header .pv-toolrow { min-width: 0; }
+    header .pv-tools { min-width: 0; flex: 0 1 auto; overflow-x: auto; scrollbar-width: none; }
+    header .pv-tools::-webkit-scrollbar { display: none; }
     header .header-search-cluster, header.is-scrolled .header-search-cluster,
     header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { order: 0; flex: 1 1 220px; max-width: 520px; margin: 0 0 0 auto; }
     /* Search (Paul, 23 Nov 2026): a short plain bar with room around it; it widens while someone types. */
@@ -11930,7 +11934,7 @@
     if (!s.length) return esc(f.label);
     const o = f.opts.filter(x => sel[f.id].has(x[0]));
     const dots = f.id === 'tone' ? o.map(x => `<span class="pv-dot" style="background:${x[2]}"></span>`).join('') : '';
-    const words = o.length <= 2 ? o.map(x => esc(x[1])).join(' + ') : `${esc(f.label)} · ${o.length}`;
+    const words = o.length === 1 ? esc(o[0][1]) : `${esc(f.label)} · ${o.length}`;   // one name, or a count: two long names pushed the icons off the bar
     return `${dots}${words}<span class="pv-x" aria-hidden="true">×</span>`;
   }
   function drawTools() {
