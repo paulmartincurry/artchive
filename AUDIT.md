@@ -1555,3 +1555,9 @@ Calls made:
 Every title page was read from the file for the edition line; a publisher or source name that the file does not print was taken out (Rand McNally, Tinsley Brothers, the collectors Burton drew on). Every new pull quote was checked letters-only against every older text on the site: no repeats.
 
 Not verified: that the epitaphs stand on real stones (the books are collections and say no more); the Chinese, Arabic and West African originals (the scans garble them, so those cards carry the English only). Calls: no wife jokes, nothing with a slur, modern names in the credit for "Servian" and "Hayti", dates given as the printing's. Left for later: Shakespeare's grave from a transcription of the stone, Japanese proverbs (Griffis 1924, one scan), more Gatty mottoes after a page-image check, the Exeter riddles, toasts, telegrams, headlines.
+
+## Mid-century stories (26 Nov 2026)
+
+27 writing pieces, LIT-2402 to 2428, `grow: 'midcentury'`, label only. American magazine stories, 1941 to 1963, free on documented non-renewal: each comes from a Project Gutenberg file whose own note names the magazine issue and states that research found no renewal, and each auditNote quotes both sentences. We did not check the renewal records ourselves. Take any down at once if a rights holder asks.
+
+Pull quotes are opening or closing lines, cut by code; the longer text is the surrounding paragraphs, not the story. Magazine blurbs were excluded. Skipped: two files without the note or issue line (Norton, one Sheckley), two Asimov stories where blurb and text could not be told apart, Marion Zimmer Bradley by choice, four weak openings. Every pull quote was checked against every older text: no repeats.
