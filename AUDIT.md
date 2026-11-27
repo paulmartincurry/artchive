@@ -1573,3 +1573,36 @@ Not from the files themselves: six publication years taken from Wikipedia articl
 20 writing pieces, LIT-2461 to 2480, `grow: 'speeches'`, label only. Sixteen presidential texts from the American Presidency Project (title, date and speaker read from each page; US government work) and four from Project Gutenberg (#58821, 2376, 38812, 10366). Pull quotes cut by code; every one checked against every older text: no repeats. Party count for the round: eight Democrats, eight Republicans (with Theodore Roosevelt), and Jefferson.
 
 Flag: Freedom's Battle heads Gandhi's statement "18th March 1921"; the trial was in 1922, the year on the book's title page, so the card says 1922 and nothing more. Not done for want of an official text: speeches from the Congressional Record before 1994.
+
+
+## Religious texts (27 Nov 2026)
+
+117 writing pieces, LIT-2481 to 2597, `grow: 'scripture'`, label only. Last of the five plain-speech sources. Every text was cut by code from a fetched source; nothing was retyped.
+
+| Source | Pieces | Wording | Rights |
+|---|---|---|---|
+| Qur'an, Talal Itani (clearquran.com) | 24 | modern (2012) | CC BY-ND 4.0, plus the translator's permission to quote selected verses; credited |
+| Pāli suttas, Ṭhānissaro Bhikkhu (dhammatalks.org) | 18 | modern | CC BY-NC 4.0; credited |
+| Gospel of Thomas, Gospel of Mary, Mark M. Mattison (gospels.net) | 10 | modern | committed to the public domain by the translator |
+| Pirkei Avot, Joshua Kulp (Sefaria) | 7 | modern | CC BY; credited |
+| King James Bible and Apocrypha (Gutenberg #10, #124) | 34 | 1611 | public domain |
+| Book of Common Prayer, Scottish printing of 1912 (#29622) | 4 | old | public domain |
+| Book of Mormon (#17) | 3 | 1830 | public domain |
+| Upanishads, Paramananda (#3283) | 3 | early 20th century | public domain on Gutenberg; file prints no year |
+| Hidden Words of Bahá’u’lláh (#16941) | 4 | old style | © Bahá’í International Community, free for non-commercial use unaltered |
+| Brother Lawrence (#13871) | 2 | old | public domain |
+| Lotus Sutra, Soothill 1930 (#79267) | 1 | 1930 | public domain |
+| Watts, When I Survey the Wondrous Cross (#13341) | 1 | 1707 | public domain |
+| Japji, Macauliffe 1909 (archive.org, two scans) | 1 | 1909 | public domain |
+| Acaranga Sutra, Jacobi 1884 (archive.org, two scans) | 1 | 1884 | public domain |
+| Hadith, Lane-Poole 1882 (archive.org, three scans) | 4 | 1882 | public domain |
+
+**Where a modern lead line was not possible (rule 4).** The King James passages keep the King James, which is the agreed English. The Upanishad verses, the Lotus passage, the Japji opening, the Jain sentence, the hadith, the Book of Common Prayer and the Hidden Words stand in older English because no openly offered modern translation was found; a one-line credited quote from a standard modern translation could lead each later, after a scan check.
+
+**Things to know.**
+- Three licences here are not public domain and two bar commercial use (Ṭhānissaro, the Bahá’í text); Itani's bars changed wording. Revisit if the site ever makes money, with Kline and Wyllie.
+- Dates: Thomas, Mary, the Mishnah, the suttas, the Upanishads, the Lotus and the Jain sutra are labelled "Date uncertain" (with a find, a manuscript or a translation year where a fetched source gives one). The Hidden Words card gives only "19th century". The Book of Mormon's 1830 and Watts's 1707 are from Wikipedia's articles. The Book of Common Prayer cards carry the printing's year, not the text's.
+- The Gospel of Mary card's subtitle (Levi answers Peter) and the hadith subtitles after the colon (Feed the hungry, The dog at the well) are descriptions, added because the app folds titles that differ only in brackets.
+- Hadith: one question mark the OCR dropped was restored from the Macmillan scan; said in that auditNote.
+- Left out: see CLAUDE.md, "Religious texts", Not done.
+
