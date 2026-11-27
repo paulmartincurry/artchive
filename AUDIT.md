@@ -1561,3 +1561,9 @@ Not verified: that the epitaphs stand on real stones (the books are collections 
 27 writing pieces, LIT-2402 to 2428, `grow: 'midcentury'`, label only. American magazine stories, 1941 to 1963, free on documented non-renewal: each comes from a Project Gutenberg file whose own note names the magazine issue and states that research found no renewal, and each auditNote quotes both sentences. We did not check the renewal records ourselves. Take any down at once if a rights holder asks.
 
 Pull quotes are opening or closing lines, cut by code; the longer text is the surrounding paragraphs, not the story. Magazine blurbs were excluded. Skipped: two files without the note or issue line (Norton, one Sheckley), two Asimov stories where blurb and text could not be told apart, Marion Zimmer Bradley by choice, four weak openings. Every pull quote was checked against every older text: no repeats.
+
+## Folk tales (27 Nov 2026)
+
+32 writing pieces, LIT-2429 to 2460, `grow: 'tales'`, label only. The remembered line of a tale and the paragraphs around it, cut by code from seventeen Project Gutenberg files (Grimm/Hunt, Andersen, Perrault/Welsh, Jacobs twice, Dasent, Afanasyev/Magnus, Ozaki, Barker and Sinclair, Lang's Arabian Nights, Zitkala-Ša, Dayrell, Eells, Lal Behari Day, Kúnos/Bain, Rasmussen/Worster, Bateman). Titles are the books' own headings. Every pull quote was checked against every older text: no repeats.
+
+Not from the files themselves: six publication years taken from Wikipedia articles and one from archive.org's record (named in CLAUDE.md). Not verified: who translated the Andersen file. Open under rule 4: these are Victorian wordings; modern standard lines were not sought. Skipped for collector's dialect: Uncle Remus, Tom Tit Tot.
