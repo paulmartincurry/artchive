@@ -1567,3 +1567,9 @@ Pull quotes are opening or closing lines, cut by code; the longer text is the su
 32 writing pieces, LIT-2429 to 2460, `grow: 'tales'`, label only. The remembered line of a tale and the paragraphs around it, cut by code from seventeen Project Gutenberg files (Grimm/Hunt, Andersen, Perrault/Welsh, Jacobs twice, Dasent, Afanasyev/Magnus, Ozaki, Barker and Sinclair, Lang's Arabian Nights, Zitkala-Ša, Dayrell, Eells, Lal Behari Day, Kúnos/Bain, Rasmussen/Worster, Bateman). Titles are the books' own headings. Every pull quote was checked against every older text: no repeats.
 
 Not from the files themselves: six publication years taken from Wikipedia articles and one from archive.org's record (named in CLAUDE.md). Not verified: who translated the Andersen file. Open under rule 4: these are Victorian wordings; modern standard lines were not sought. Skipped for collector's dialect: Uncle Remus, Tom Tit Tot.
+
+## Speeches (27 Nov 2026)
+
+20 writing pieces, LIT-2461 to 2480, `grow: 'speeches'`, label only. Sixteen presidential texts from the American Presidency Project (title, date and speaker read from each page; US government work) and four from Project Gutenberg (#58821, 2376, 38812, 10366). Pull quotes cut by code; every one checked against every older text: no repeats. Party count for the round: eight Democrats, eight Republicans (with Theodore Roosevelt), and Jefferson.
+
+Flag: Freedom's Battle heads Gandhi's statement "18th March 1921"; the trial was in 1922, the year on the book's title page, so the card says 1922 and nothing more. Not done for want of an official text: speeches from the Congressional Record before 1994.
