@@ -4325,6 +4325,10 @@
     header .header-search-cluster, header.is-scrolled .header-search-cluster,
     header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { order: 0; flex: 1 1 220px; max-width: 520px; margin: 0 0 0 auto; }
     /* Search (Paul, 23 Nov 2026): a short plain bar with room around it; it widens while someone types. */
+    /* on a phone the Back to wall label sits over the picture: give it a dark chip so it stays readable (27 Nov 2026) */
+    @media (max-width: 720px) { #stageBackBtn { background: rgba(8, 8, 8, 0.72) !important; padding: 6px 10px !important; top: 10px !important; left: 10px !important; } }
+    /* no focus box on the search field at any width: on a phone the accent outline read as an error state (27 Nov 2026) */
+    header .header-search-input:focus, header .header-search-input:focus-visible { outline: none !important; box-shadow: none !important; }
     @media (min-width: 1181px) {
       header .header-search-cluster, header.is-scrolled .header-search-cluster, header .header-search-cluster:focus-within, header.is-scrolled .header-search-cluster:focus-within { flex: 0 1 var(--qw, 240px) !important; max-width: var(--qw, 240px) !important; margin: 0 36px 0 auto !important; transition: flex-basis 520ms cubic-bezier(.22,.61,.36,1), max-width 520ms cubic-bezier(.22,.61,.36,1) !important; }
       header .header-search-box { transition: border-color 400ms ease; }
