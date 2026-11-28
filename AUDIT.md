@@ -1606,3 +1606,7 @@ Flag: Freedom's Battle heads Gandhi's statement "18th March 1921"; the trial was
 - Hadith: one question mark the OCR dropped was restored from the Macmillan scan; said in that auditNote.
 - Left out: see CLAUDE.md, "Religious texts", Not done.
 
+
+## Writing trim (27 Nov 2026)
+
+Paul: "I trust you, go ahead and trim some." 96 writing pieces cut, all added in the five plain-speech rounds of 26 and 27 Nov (LIT-2236 to 2597), none older. Reasons, as recorded on each record in `data/removed.json`: nursery rhyme with no pull for this site (17); proverb that is flat or repeats a stronger card (21); riddle that does not land without its answer (5); epitaph that repeats a stronger one (1); pull quote too flat to stand alone (20: mid-century openings, folk-tale lines, three speeches); scripture that is weaker or more doctrinal than its neighbours, or a fragment as a pull quote (32). Nothing was cut for its sourcing; all 96 can be restored from the file as they stand. Writing is 2,402.
