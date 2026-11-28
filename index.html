@@ -5825,9 +5825,10 @@
         const footBar = document.createElement('div');
         footBar.className = 'pocket-footer';
         const authorSpan = document.createElement('span');
-        authorSpan.textContent = w.artist;
+        // The card carries the maker and a plain year; the full credit and date line are in the open work (Paul, 27 Nov 2026).
+        authorSpan.textContent = cardMaker(w);
         const dateSpan = document.createElement('span');
-        dateSpan.textContent = w.dateLabel || '';
+        dateSpan.textContent = cardYear(w);
         footBar.appendChild(authorSpan);
         footBar.appendChild(dateSpan);
 
@@ -5923,6 +5924,25 @@
 
       return article;
     }
+
+    // Short forms for the writing card's footer. "The Qur'an (Surah Luqman)" reads "The Qur'an"; "7th century CE; English 2012"
+    // reads "7th century"; "Printed 1857" reads "1857"; a date the source cannot give is left blank on the card.
+    function cardMaker(w) {
+      const a = String(w.artist || '');
+      return a.length > 24 ? (a.replace(/\s*\([^)]*\)\s*$/, '').replace(/\s*\/.*$/, '') || a) : a;
+    }
+    function cardYear(w) {
+      let d = String(w.dateLabel || '').trim();
+      if (!d || /^(date uncertain|undated|unknown)/i.test(d)) return '';
+      d = d.split(/;|\s\(|,\s*(?:trans|printed|published|english)/i)[0].trim();
+      d = d.replace(/^(printed|translated|published|written down|written|composed|recorded|delivered|first published)\s+(in\s+)?(the\s+)?/i, '');
+      d = d.replace(/^(ca\.|circa|about)\s*/i, 'c. ').replace(/\bcentury\b/gi, 'century').replace(/\s+(CE|AD)$/i, '');
+      const full = d.match(/^(?:\d{1,2}\s+)?(?:[A-Z][a-z]+\.?\s+)(?:\d{1,2},\s+)?(\d{4})$/);   // 18 September 1895, May 31, 1879
+      if (full) return full[1];
+      if (d.length > 24) { const y = d.match(/\b\d{3,4}\b/); return y ? y[0] : ''; }
+      return d;
+    }
+    window.pvCardYear = cardYear; window.pvCardMaker = cardMaker;
 
     function renderGalleryInitial() {
       galleryGrid.innerHTML = '';
@@ -11807,6 +11827,37 @@
     return ((best[0] + 345) % 360) + best[2] * 0.5;   // start the wheel at deep red
   }
   const yr = w => (typeof w.yearNum === 'number' ? w.yearNum : 99999);
+  // Art leads in search too (Paul, 27 Nov 2026: the words should never dominate a search). With All showing, results keep
+  // their order within pictures and within lines, but are laid three pictures to one line. Works the search names outright
+  // (every word of it in the title, maker or a nickname) stay at the head untouched, so a search for a writer or a known line
+  // still opens on it. Everything laid out is still a result of the search; only the order between pictures and lines changes.
+  function weaveSearch(list) {
+    const q = (typeof normalizeSearchStr === 'function' ? normalizeSearchStr(state.query || '') : String(state.query || '').toLowerCase()).trim();
+    const words = q.split(/\s+/).filter(Boolean);
+    if (!words.length || list.length < 6) return list;
+    const isW = w => w.itemType === 'literature';
+    const named = w => {
+      const t = ' ' + (typeof normalizeSearchStr === 'function' ? normalizeSearchStr([w.title, w.artist, w.aliases].filter(Boolean).join(' ')) : '') + ' ';
+      // a one-word search (hope, grief) names a picture by its title, but a line only by its writer or nickname
+      const t2 = (words.length > 1 || !isW(w)) ? t : ' ' + normalizeSearchStr([w.artist, w.aliases].filter(Boolean).join(' ')) + ' ';
+      if (words.every(x => t2.includes(' ' + x + ' '))) return true;
+      if (isW(w) && normalizeSearchStr(String(w.title || '').replace(/\([^)]*\)/g, '')).trim() === q) return true;   // the exact title: Ozymandias
+      return words.length >= 3 && isW(w) && (' ' + normalizeSearchStr(w.hook || '') + ' ').includes(' ' + words.join(' ') + ' ');   // a remembered line
+    };
+    let lead = 0; while (lead < list.length && lead < 40 && named(list[lead])) lead++;
+    const out = list.slice(0, lead), rest = list.slice(lead), used = new Array(rest.length).fill(false);
+    let head = 0, slot = 0, ai = 0, wi = 0;
+    const next = (from, want) => { let i = from; while (i < rest.length && (used[i] || isW(rest[i]) !== want)) i++; return i; };
+    while (out.length < list.length) {
+      while (head < rest.length && used[head]) head++;
+      const wantW = slot % 4 === 3;
+      ai = next(Math.max(ai, 0), false); wi = next(Math.max(wi, 0), true);
+      let pick = wantW ? wi : ai;
+      if (pick >= rest.length) pick = head;      // none of that kind left: take the next in rank
+      used[pick] = true; out.push(rest[pick]); slot++;
+    }
+    return out;
+  }
   window.pvArrange = function (list, searchRanked) {
     if (sharedBoard && !searchRanked) return list.slice().sort((a, b) => sharedBoard.pos.get(a.id) - sharedBoard.pos.get(b.id));
     if (arrange === 'wall') {
@@ -11818,6 +11869,7 @@
       // Writing on its own: a daily order that leans toward the lines people know (fame, from Bartlett's
       // Familiar Quotations and the public-test lists), at most two per writer in each run of 24.
       if (show === 'writing' && !(state.query || '').trim()) return writingWall(list);
+      if (searchRanked && show === 'both' && !state.onlySaved && !sharedBoard) return weaveSearch(list);
       return list;
     }
     if (arrange === 'column') return (state.query || '').trim() ? list : writingWall(list);
